@@ -1,0 +1,38 @@
+[
+  {
+    "title": "BV1",
+    "description": "Работа ККБ",
+    "readOnly": true,
+    "value": true
+  },
+  {
+    "title": "BV2",
+    "description": "Насос Отопления",
+    "readOnly": true,
+    "value": true
+  },
+  {
+    "title": "BV3",
+    "description": "Теплый Пол",
+    "readOnly": true,
+    "value": true
+  },
+  {
+    "title": "BV4",
+    "description": "Работа Вытяжки",
+    "readOnly": true,
+    "value": true
+  },
+  {
+    "title": "BV5",
+    "description": "Старт Установки",
+    "readOnly": false,
+    "value": false
+  },
+  {
+    "title": "BV6",
+    "description": "ТЭН",
+    "readOnly": true,
+    "value": true
+  }
+]

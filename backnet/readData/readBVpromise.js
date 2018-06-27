@@ -1,24 +1,25 @@
 const BACnetClient = require('../BACnetClient');
 
-const readAV = pointNumber => new Promise((resolve, reject) => {
+const readBV = pointNumber => new Promise((resolve, reject) => {
     BACnetClient.client.readProperty(
         BACnetClient.ip, // IP device
-        2, // 2 = Analog Value
+        5, // 5 = Binary Value
         pointNumber, // AO number 0 means AI-1
         85, // propertyId???????????
         null,
         (err, value) => {
             try {
-                const itemValue = value.valueList[0].value.toFixed(1);
+                const itemValue = value.valueList[0].value;
                 resolve({
-                    title: `AV${pointNumber}`,
+                    title: `BV${pointNumber}`,
                     value: itemValue,
                 });
             } catch (error) {
                 // console.log('ERRRRROR CATCH: ', error);
-                itemValue = +Math.random().toFixed(2) + 99;// TODO: need for MOCK. Delete in prod :)
+                itemValue = Math.random() >= 0.5;
+                // itemValue = undefined;
                 resolve({
-                    title: `AV${pointNumber}`,
+                    title: `BV${pointNumber}`,
                     value: itemValue,
                 });
             }
@@ -27,4 +28,4 @@ const readAV = pointNumber => new Promise((resolve, reject) => {
     );
 });
 
-module.exports = readAV;
+module.exports = readBV;

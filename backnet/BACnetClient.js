@@ -1,10 +1,11 @@
-//BACnet
-const bacnet = require('bacstack');
+// BACnet
+const Bacnet = require('bacstack');
 // Initialize BACStack
-const client = new bacnet();
+const client = new Bacnet();
 
 const config = require('./config');
-const IP = config.IP;
+
+const { IP } = config;
 
 class BACnetClient {
     constructor(ip, clientInstance) {

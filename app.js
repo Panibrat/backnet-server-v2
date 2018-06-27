@@ -1,17 +1,26 @@
-const loop = require('./backnet/BACnetLoop');
-
-var express = require('express');
+const express = require('express');
 const path = require('path');
+const backnetLoop = require('./backnet/BACnetLoop');
+const buffer = require('./backnet/dataBuffer');
 
-var app = express();
+const configAVs = require('./backnet/configAV_data');
+const configBVs = require('./backnet/configBV_data');
+const getStateFromBuffer = require('./services/getStateFromBuffer');
+
+
+const app = express();
 
 const port = process.env.PORT || '3000';
 
 app.use(express.static('public'));
 
+app.get('/buffer', (req, res) => {
+    const bufferData = buffer.getData();
+    const stateData = getStateFromBuffer(bufferData, configAVs, configBVs);
+    res.send(JSON.stringify(stateData));
+});
 
-
-app.get('/',  (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
@@ -19,5 +28,4 @@ app.listen(port, (req, res) => {
     console.log(`Server run on port ${port}!`);
 });
 
-
-loop.run();
+backnetLoop.run();
