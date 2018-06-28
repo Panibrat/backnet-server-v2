@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
 const backnetLoop = require('./backnet/BACnetLoop');
 const buffer = require('./backnet/dataBuffer');
 
@@ -7,6 +8,13 @@ const configAVs = require('./backnet/configAV_data');
 const configBVs = require('./backnet/configBV_data');
 const getStateFromBuffer = require('./services/getStateFromBuffer');
 
+const { DATABASE_HOST,
+    DATABASE_PORT,
+    DATABASE_NAME
+} = require('./mongoDB/config');
+const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
+
+mongoose.connect(dataBaseLink);
 
 const app = express();
 

@@ -7,13 +7,14 @@
   "license": "ISC",
   "scripts": {
     "start": "node app",
-    "lint": "eslint backnet --fix"
+    "lint": "eslint backnet --fix",
+    "create-db": "node ./mongoDB/createDataBase"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "bacstack": "0.0.1-beta.12",
     "express": "~4.16.0",
-    "mongoose": "^5.1.6"
+    "mongoose": "^5.1.7"
   },
   "devDependencies": {
     "eslint": "^5.0.1",
