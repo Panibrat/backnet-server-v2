@@ -1,66 +1,18 @@
 [
   {
-    "title": "AV0",
-    "description": "Температура в канале",
+    "title": "AV3000130",
+    "description": "Energy Total",
     "status": "norm",
-    "units": "deg C",
+    "units": "kW",
     "readOnly": true,
-    "value": 22.5
+    "value": 0
   },
   {
-    "title": "AV1",
-    "description": "Влажность в помещении",
+    "title": "AV3000131",
+    "description": "I1",
     "status": "norm",
-    "units": "%",
+    "units": "A",
     "readOnly": true,
-    "value": 34
-  },
-  {
-    "title": "AV2",
-    "description": "Температура в помещении",
-    "status": "norm",
-    "units": "deg C",
-    "readOnly": true,
-    "value": 24.5
-  },
-  {
-    "title": "AV3",
-    "description": "Температура наружная",
-    "status": "norm",
-    "units": "deg C",
-    "readOnly": true,
-    "value": -5
-  },
-  {
-    "title": "AV4",
-    "description": "Температура Теплого Пола",
-    "status": "norm",
-    "units": "deg C",
-    "readOnly": true,
-    "value": 28
-  },
-  {
-    "title": "AV10",
-    "description": "Клапан Тепло",
-    "status": "norm",
-    "units": "%",
-    "readOnly": false,
-    "value": 100
-  },
-  {
-    "title": "AV11",
-    "description": "Клапан Холод",
-    "status": "norm",
-    "units": "%",
-    "readOnly": false,
-    "value": 20
-  },
-  {
-    "title": "AV12",
-    "description": "Уставка ГВС",
-    "status": "norm",
-    "units": "deg C",
-    "readOnly": false,
-    "value": 55
+    "value": 0
   }
 ]

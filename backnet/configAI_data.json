@@ -1,0 +1,18 @@
+[
+  {
+    "title": "AI3000141",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000142",
+    "description": "iT_SUP",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  }
+]

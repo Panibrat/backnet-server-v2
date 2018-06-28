@@ -25,12 +25,12 @@ class DataBuffer {
             }];
             this.onDataChange(point);
             // console.log(`Write ${point.title} -> ${point.value}`);
-        } else if (Math.abs(this.data[index].value - point.value) > 0.25) {
+        } else if (Math.abs(this.data[index].value - point.value) > 0.01) {
             this.data[index].value = point.value;
             this.onDataChange(point);
             // console.log(`Update ${point.title} -> ${point.value}`);
         } else {
-            console.log(`Same value ${point.title} -> ${point.value}`);
+            // console.log(`Same value ${point.title} -> ${point.value}`);
         }
     }
 }

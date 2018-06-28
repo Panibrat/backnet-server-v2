@@ -1,0 +1,16 @@
+[
+  {
+    "title": "BI3000234",
+    "description": "oKOTEL",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true
+  },
+  {
+    "title": "BI3000238",
+    "description": "oBoyler",
+    "status": "norm",
+    "readOnly": true,
+    "value": true
+  }
+]

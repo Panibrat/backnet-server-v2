@@ -1,0 +1,16 @@
+[
+  {
+    "title": "BO3000247",
+    "description": "sSTR_SO",
+    "status": "alarm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BO3000248",
+    "description": "sSO_AUTO",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  }
+]

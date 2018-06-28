@@ -6,8 +6,14 @@ const buffer = require('./backnet/dataBuffer');
 
 const configAVs = require('./backnet/configAV_data');
 const configBVs = require('./backnet/configBV_data');
+const configAIs = require('./backnet/configAI_data');
+const configAOs = require('./backnet/configAO_data');
+const configBIs = require('./backnet/configBI_data');
+const configBOs = require('./backnet/configBO_data');
 const getStateFromBuffer = require('./services/getStateFromBuffer');
 
+const AVsModel = require('./mongoDB/models/AV.js');
+const BVsModel = require('./mongoDB/models/BV.js');
 const { DATABASE_HOST,
     DATABASE_PORT,
     DATABASE_NAME
@@ -24,7 +30,14 @@ app.use(express.static('public'));
 
 app.get('/buffer', (req, res) => {
     const bufferData = buffer.getData();
-    const stateData = getStateFromBuffer(bufferData, configAVs, configBVs);
+    const stateData = getStateFromBuffer(
+        bufferData,
+        configAVs,
+        configBVs,
+        configAIs,
+        configAOs,
+        configBIs,
+        configBOs);
     res.send(JSON.stringify(stateData));
 });
 
