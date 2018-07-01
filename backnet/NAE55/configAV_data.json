@@ -1,0 +1,18 @@
+[
+  {
+    "title": "AV3000726",
+    "description": "Energy Total",
+    "status": "norm",
+    "units": "kW",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AV3000715",
+    "description": "I1",
+    "status": "norm",
+    "units": "A",
+    "readOnly": true,
+    "value": 0
+  }
+]

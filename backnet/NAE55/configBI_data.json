@@ -1,0 +1,16 @@
+[
+  {
+    "title": "BI3000239",
+    "description": "iSTR_SO",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true
+  },
+  {
+    "title": "BI3000240",
+    "description": "iSTR_KOT",
+    "status": "norm",
+    "readOnly": true,
+    "value": true
+  }
+]
