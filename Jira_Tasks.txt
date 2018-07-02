@@ -6,4 +6,6 @@ EsLint
 Express, 
 Webpack
 
-2) 
+storybook
+use propTypes
+reselect

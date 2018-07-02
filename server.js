@@ -24,22 +24,22 @@ const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAM
 
 mongoose.connect(dataBaseLink);
 
-const app = express();
+const server = express();
 
 const port = process.env.PORT || '3000';
 
-app.use(express.static('public'));
+server.use(express.static('public'));
 
-app.get('/buffer', (req, res) => {
+server.get('/buffer', (req, res) => {
     const bufferData = buffer.getData();
     res.send(JSON.stringify(bufferData));
 });
 
-app.get('/', (req, res) => {
+server.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
-app.listen(port, (req, res) => {
+server.listen(port, (req, res) => {
     console.log(`Server run on port ${port}!`);
 });
 

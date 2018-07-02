@@ -6,21 +6,41 @@
   "author": "Alexander Panibratenko",
   "license": "ISC",
   "scripts": {
-    "start": "node app",
+    "start": "node server",
     "lint": "eslint backnet --fix",
-    "create-db": "node ./mongoDB/createDataBase"
+    "create-db": "node ./mongoDB/createDataBase",
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "bacstack": "0.0.1-beta.12",
     "express": "~4.16.0",
-    "mongoose": "^5.1.7"
+    "mongoose": "^5.1.7",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.11",
     "eslint": "^5.0.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.10.0"
+    "eslint-plugin-react": "^7.10.0",
+    "nodemon": "^1.17.5",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8"
   }
 }
