@@ -1,6 +1,6 @@
 class DataBuffer {
     constructor() {
-        this.data = [];
+        this.data = {};
         this.dataListeners = [];
     }
 
@@ -16,21 +16,21 @@ class DataBuffer {
         this.dataListeners.forEach((listener) => { listener.updateData(dataPoint); });
     }
 
+    readDataFromConfig(points) {
+        points.forEach((point) => {
+            this.data[point.title] = point;
+        });
+    }
+
     setData(point) {
-        const index = this.data.findIndex(stored => stored.title === point.title);
-        if (index === -1) {
-            this.data = [...this.data, {
-                title: point.title,
-                value: point.value,
-            }];
+        if (!this.data[point.title]) {
+            this.data[point.title] = point;
             this.onDataChange(point);
-            // console.log(`Write ${point.title} -> ${point.value}`);
-        } else if (Math.abs(this.data[index].value - point.value) > 0.01) {
-            this.data[index].value = point.value;
+        } else if (Math.abs(this.data[point.title].value - point.value) > 0.01) {
+            this.data[point.title].value = point.value;
             this.onDataChange(point);
-            // console.log(`Update ${point.title} -> ${point.value}`);
         } else {
-            // console.log(`Same value ${point.title} -> ${point.value}`);
+            console.log(`Same value ${point.title} -> ${point.value}`);
         }
     }
 }

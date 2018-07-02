@@ -7,19 +7,14 @@ const readAO = require('./readData/readAOpromise');
 const readBI = require('./readData/readBIpromise');
 const readBO = require('./readData/readBOpromise');
 
-const getBVPointArrayFromJSON = require('../services/getBVPointArrayFromJSON');
-const getAVPointArrayFromJSON = require('../services/getAVPointArrayFromJSON');
-const getAIPointArrayFromJSON = require('../services/getAIPointArrayFromJSON');
-const getAOPointArrayFromJSON = require('../services/getAOPointArrayFromJSON');
-const getBIPointArrayFromJSON = require('../services/getBIPointArrayFromJSON');
-const getBOPointArrayFromJSON = require('../services/getBOPointArrayFromJSON');
+const getPointsArrayFromJSON = require('../services/getPointsArrayFromJSON');
 
-const pointsBV = getBVPointArrayFromJSON(require('./configBV_data'));
-const pointsAV = getAVPointArrayFromJSON(require('./configAV_data'));
-const pointsAI = getAIPointArrayFromJSON(require('./configAI_data'));
-const pointsAO = getAOPointArrayFromJSON(require('./configAO_data'));
-const pointsBI = getBIPointArrayFromJSON(require('./configBI_data'));
-const pointsBO = getBOPointArrayFromJSON(require('./configBO_data'));
+const pointsBV = getPointsArrayFromJSON(require('./configBV_data'), 'BV');
+const pointsAV = getPointsArrayFromJSON(require('./configAV_data'), 'AV');
+const pointsAI = getPointsArrayFromJSON(require('./configAI_data'), 'AI');
+const pointsAO = getPointsArrayFromJSON(require('./configAO_data'), 'AO');
+const pointsBI = getPointsArrayFromJSON(require('./configBI_data'), 'BI');
+const pointsBO = getPointsArrayFromJSON(require('./configBO_data'), 'BO');
 
 const { pollingTime } = config;
 

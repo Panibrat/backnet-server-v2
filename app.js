@@ -10,7 +10,9 @@ const configAIs = require('./backnet/configAI_data');
 const configAOs = require('./backnet/configAO_data');
 const configBIs = require('./backnet/configBI_data');
 const configBOs = require('./backnet/configBO_data');
-const getStateFromBuffer = require('./services/getStateFromBuffer');
+
+const allPoints = [...configAVs, ...configAIs, ...configAOs, ...configBVs, ...configBIs, ...configBOs];
+buffer.readDataFromConfig(allPoints);
 
 const {
     DATABASE_HOST,
@@ -30,15 +32,7 @@ app.use(express.static('public'));
 
 app.get('/buffer', (req, res) => {
     const bufferData = buffer.getData();
-    const stateData = getStateFromBuffer(
-        bufferData,
-        configAVs,
-        configBVs,
-        configAIs,
-        configAOs,
-        configBIs,
-        configBOs);
-    res.send(JSON.stringify(stateData));
+    res.send(JSON.stringify(bufferData));
 });
 
 app.get('/', (req, res) => {

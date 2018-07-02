@@ -1,4 +1,4 @@
-const getStateFromBuffer = (
+const getStateFromBuffer = ( // TODO: delete if buffer.data is an object
     bufferData,
     configAV,
     configBV,
