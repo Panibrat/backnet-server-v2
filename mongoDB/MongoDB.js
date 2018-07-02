@@ -11,42 +11,47 @@ class MongoDB {
         const query = { title: av.title };
         const update = {
             '$set': {
-                value: av.value
+                value: av.value,
             }
         };
         const options = {
-            new: true
+            new: true,
         };
-        this.AVsModel.findOneAndUpdate(query, update, options, function(err,res) {
+        this.AVsModel.findOneAndUpdate(query, update, options, (err,res) => {
             if (err) {
                 throw err;
             }
-             console.log(` ${query.title} updated to value: ${av.value}`)
-        })
+            console.log(` ${query.title} updated to value: ${av.value}`);
+            // console.log(`Mongo response --> ${res}`);
+        });
     }
+
     updateBV(bv) {
         const query = { title: bv.title };
         const update = {
             '$set': {
-                value: bv.value
-            }
+                value: bv.value,
+            },
         };
         const options = {
-            new: true
+            new: true,
         };
-        this.BVsModel.findOneAndUpdate(query, update, options, function(err,res) {
+        this.BVsModel.findOneAndUpdate(query, update, options, (err,res) => {
             if (err) {
                 throw err;
             }
-             console.log(` ${query.title} updated to value: ${bv.value}`)
-        })
+            console.log(` ${query.title} updated to value: ${bv.value}`);
+        });
     }
 
     updateData(dataPoint) {
-        if (dataPoint.title.search(/AV/i) !== -1) {
+        if (dataPoint.title.search(/AV/i) !== -1
+            || dataPoint.title.search(/AI/i) !== -1
+            || dataPoint.title.search(/AO/i) !== -1) {
             this.updateAV(dataPoint);
-        }
-        if (dataPoint.title.search(/BV/i) !== -1) {
+        } else if (dataPoint.title.search(/BV/i) !== -1
+            || dataPoint.title.search(/BI/i) !== -1
+            || dataPoint.title.search(/BO/i) !== -1) {
             this.updateBV(dataPoint);
         }
     }

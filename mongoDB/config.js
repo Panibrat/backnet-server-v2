@@ -5,5 +5,5 @@ const DATABASE_NAME = 'iC5';
 module.exports = {
     DATABASE_HOST,
     DATABASE_PORT,
-    DATABASE_NAME
+    DATABASE_NAME,
 };

@@ -15,7 +15,7 @@ const readAV = pointNumber => new Promise((resolve, reject) => {
                     value: itemValue,
                 });
             } catch (error) {
-                console.log('AV ERRRRROR CATCH: ', error);
+                // console.log('AV ERRRRROR CATCH: ', error);
                 const itemValue = +Math.random().toFixed(2) + 99;// TODO: need for MOCK. Delete in prod :)
                 resolve({
                     title: `AV${pointNumber}`,

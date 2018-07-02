@@ -15,8 +15,8 @@ const readBV = pointNumber => new Promise((resolve, reject) => {
                     value: itemValue,
                 });
             } catch (error) {
-                console.log('BV ERRRRROR CATCH: ', error);
-                itemValue = Math.random() >= 0.5;
+                // console.log('BV ERRRRROR CATCH: ', error);
+                const itemValue = Math.random() >= 0.5;
                 // itemValue = undefined;
                 resolve({
                     title: `BV${pointNumber}`,

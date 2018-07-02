@@ -12,12 +12,12 @@ const configBIs = require('./backnet/configBI_data');
 const configBOs = require('./backnet/configBO_data');
 const getStateFromBuffer = require('./services/getStateFromBuffer');
 
-const AVsModel = require('./mongoDB/models/AV.js');
-const BVsModel = require('./mongoDB/models/BV.js');
-const { DATABASE_HOST,
+const {
+    DATABASE_HOST,
     DATABASE_PORT,
-    DATABASE_NAME
+    DATABASE_NAME,
 } = require('./mongoDB/config');
+
 const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
 mongoose.connect(dataBaseLink);

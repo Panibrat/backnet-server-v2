@@ -1,4 +1,12 @@
-const getStateFromBuffer = (bufferData, configAV, configBV, configAI, configAO, configBI, configBO) => {
+const getStateFromBuffer = (
+    bufferData,
+    configAV,
+    configBV,
+    configAI,
+    configAO,
+    configBI,
+    configBO,
+) => {
     const AVs = configAV;
     const BVs = configBV;
     const AIs = configAI;
