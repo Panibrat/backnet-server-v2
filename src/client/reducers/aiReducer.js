@@ -5,5 +5,5 @@ export const aiReducer = (ai = [], action) => {
     case GET_AI:
         return action.payload;
     }
-    return [];
+    return ai;
 };

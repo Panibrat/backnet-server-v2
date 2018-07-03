@@ -1,22 +1,22 @@
 import axios from 'axios';
 
-import { GET_AI } from './actionsConstants';
+import { GET_AO } from './actionsConstants';
 
-export const getAIs = () => {
+export const getAOs = () => {
     return function(dispatch){
-        axios.get('/ai')
+        axios.get('/ao')
             .then((response) => {
-                const ais = response.data;
+                const aos = response.data;
                 dispatch({
-                    type: GET_AI,
-                    payload: ais
+                    type: GET_AO,
+                    payload: aos
                 })
             })
             .catch((err) => {
                 console.log("\nGET response ERROR\n", err);
                 dispatch({
-                    type:"GET_AI_REJECTED",
-                    payload:"there was an error while getting analog inputs"
+                    type:"GET_AO_REJECTED",
+                    payload:"there was an error while getting analog outputs"
                     //payload:err
                 })
             })

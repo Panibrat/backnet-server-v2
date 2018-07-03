@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default class AnalogInputsItem extends React.Component {
+export default class AnalogOutputItem extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -12,7 +12,7 @@ export default class AnalogInputsItem extends React.Component {
     render() {
         return (
             <div >
-                <h4>AI:{this.props.title}/{this.props.description}--->{this.props.value}{this.props.units}</h4>
+                <h4>AO/AV:{this.props.title}/{this.props.description}--->{this.props.value}{this.props.units}</h4>
             </div>
         )
     }

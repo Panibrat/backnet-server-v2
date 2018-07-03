@@ -9,6 +9,10 @@ import logger from 'redux-logger';
 import reducers from './reducers/index';
 
 import  AnalogInputsPage  from './components/AnalogInputsPage/AnalogInputsPage';
+import  AnalogValuePage  from './components/AnalogValuePage/AnalogValuePage';
+import  AnalogOutputPage  from './components/AnalogOutputPage/AnalogOutputPage';
+import { Menu } from './components/Menu/Menu';
+
 import styles from './Styles.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -25,7 +29,11 @@ const App = () => (
     <Provider store = {store} >
         <Router>
             <main className={styles.container}>
+                <Menu />
                 <Switch>
+                    <Route path='/analogInputs' component={AnalogInputsPage} />
+                    <Route path='/analogOutputs' component={AnalogOutputPage} />
+                    <Route path='/analogValues' component={AnalogValuePage} />
                     <Route path='*' component={AnalogInputsPage} />
                 </Switch>
             </main>

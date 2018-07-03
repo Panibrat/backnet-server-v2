@@ -59,7 +59,7 @@ server.get('/bv', (req, res) => {
     res.send(JSON.stringify(buffer.getBinaryValueData()));
 });
 
-server.get('/', (req, res) => {
+server.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
