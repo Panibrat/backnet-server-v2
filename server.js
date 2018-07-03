@@ -35,6 +35,30 @@ server.get('/buffer', (req, res) => {
     res.send(JSON.stringify(bufferData));
 });
 
+server.get('/ai', (req, res) => {
+    res.send(JSON.stringify(buffer.getAnalogInputsData()));
+});
+
+server.get('/ao', (req, res) => {
+    res.send(JSON.stringify(buffer.getAnalogOutputsData()));
+});
+
+server.get('/bi', (req, res) => {
+    res.send(JSON.stringify(buffer.getBinaryInputsData()));
+});
+
+server.get('/bo', (req, res) => {
+    res.send(JSON.stringify(buffer.getBinaryOutputsData()));
+});
+
+server.get('/av', (req, res) => {
+    res.send(JSON.stringify(buffer.getAnalogValueData()));
+});
+
+server.get('/bv', (req, res) => {
+    res.send(JSON.stringify(buffer.getBinaryValueData()));
+});
+
 server.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });

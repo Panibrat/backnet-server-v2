@@ -7,7 +7,7 @@
   "license": "ISC",
   "scripts": {
     "start": "node server",
-    "lint": "eslint backnet --fix",
+    "lint": "eslint src --fix",
     "create-db": "node ./mongoDB/createDataBase",
     "dev": "webpack --mode development",
     "prod": "webpack --mode production"

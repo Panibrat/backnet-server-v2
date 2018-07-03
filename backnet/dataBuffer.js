@@ -8,6 +8,39 @@ class DataBuffer {
         return this.data;
     }
 
+    getAnalogInputsData() {
+        return this.getDataByType('AI');
+    }
+
+    getAnalogOutputsData() {
+        return this.getDataByType('AO');
+    }
+
+    getBinaryInputsData() {
+        return this.getDataByType('BI');
+    }
+
+    getBinaryOutputsData() {
+        return this.getDataByType('BO');
+    }
+
+    getAnalogValueData() {
+        return this.getDataByType('AV');
+    }
+
+    getBinaryValueData() {
+        return this.getDataByType('BV');
+    }
+
+    getDataByType(typeOfData) {
+        return Object.keys(this.data).map((point) => {
+            if (this.data[point].title.slice(0,2) === typeOfData) {
+                return this.data[point];
+            }
+            return null;
+        }).filter(item => item);
+    }
+
     setDataListeners(listener) {
         this.dataListeners.push(listener);
     }
