@@ -63,7 +63,7 @@ class DataBuffer {
             this.data[point.title].value = point.value;
             this.onDataChange(point);
         } else {
-            console.log(`Same value ${point.title} -> ${point.value}`);
+            // console.log(`Same value ${point.title} -> ${point.value}`);
         }
     }
 }

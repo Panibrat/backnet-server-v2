@@ -21,7 +21,7 @@ class MongoDB {
             if (err) {
                 throw err;
             }
-            console.log(` ${query.title} updated to value: ${av.value}`);
+            // console.log(` ${query.title} updated to value: ${av.value}`);
             // console.log(`Mongo response --> ${res}`);
         });
     }
@@ -40,7 +40,7 @@ class MongoDB {
             if (err) {
                 throw err;
             }
-            console.log(` ${query.title} updated to value: ${bv.value}`);
+            // console.log(` ${query.title} updated to value: ${bv.value}`);
         });
     }
 
