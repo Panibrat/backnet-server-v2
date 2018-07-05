@@ -12,7 +12,7 @@ export default class AnalogInputsItem extends React.Component {
     render() {
         return (
             <div >
-                <h4>AI:{this.props.title}/{this.props.description}--->{this.props.value}{this.props.units}</h4>
+                <h5>AI:{this.props.title}/{this.props.description}--->{this.props.value}{this.props.units}</h5>
             </div>
         )
     }

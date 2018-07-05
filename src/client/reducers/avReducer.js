@@ -4,9 +4,7 @@ export const avReducer = (av = [], action) => {
     switch (action.type) {
         case GET_AV:
             return action.payload;
-    }
 
-    switch (action.type) {
         case UPDATE_ANALOG_VALUE:
             return av.map((point) => {
                 if (point.title === action.payload.title ) {
@@ -14,6 +12,8 @@ export const avReducer = (av = [], action) => {
                 }
                 return point;
             });
+
+        default:
+            return av;
     }
-    return av;
 };

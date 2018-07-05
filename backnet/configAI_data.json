@@ -9,6 +9,94 @@
   },
   {
     "title": "AI3000142",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000143",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000144",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000145",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000146",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000147",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000148",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000149",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000151",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000152",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000153",
+    "description": "iT_OUT",
+    "status": "norm",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000154",
     "description": "iT_SUP",
     "status": "norm",
     "units": "deg C",
