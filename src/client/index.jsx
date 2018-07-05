@@ -21,10 +21,12 @@ const middeleware = applyMiddleware(
     thunk,
     logger
 );
-const store = createStore(reducers, composeEnhancers(middeleware));
+export const store = createStore(reducers, composeEnhancers(middeleware));
 store.subscribe(function() {
     console.log('state:\n', store.getState());
 });
+
+import SocketService from './services/SocketService';
 
 const App = () => (
     <Provider store={store}>

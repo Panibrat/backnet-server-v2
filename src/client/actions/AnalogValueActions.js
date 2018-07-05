@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_AV } from './actionsConstants';
+import { GET_AV, UPDATE_ANALOG_VALUE } from './actionsConstants';
 
 export const getAVs = () => {
     return function(dispatch){
@@ -21,4 +21,11 @@ export const getAVs = () => {
                 })
             })
     }
+};
+
+export const updateAV = (point) => {
+    return {
+        type: UPDATE_ANALOG_VALUE,
+        payload: point
+    };
 };

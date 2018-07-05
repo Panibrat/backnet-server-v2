@@ -1,9 +1,4 @@
-export const GET_AI = 'GET_AI';
-export const GET_AO = 'GET_AO';
-export const GET_BI = 'GET_BI';
-export const GET_BO = 'GET_BO';
-export const GET_AV = 'GET_AV';
-export const GET_BV = 'GET_BV';
+export const CONNECT = 'connect';
 export const UPDATE_ANALOG_INPUT = 'UPDATE_ANALOG_INPUT';
 export const UPDATE_ANALOG_OUTPUT = 'UPDATE_ANALOG_OUTPUT';
 export const UPDATE_ANALOG_VALUE = 'UPDATE_ANALOG_VALUE';

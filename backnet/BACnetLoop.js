@@ -20,9 +20,11 @@ const { pollingTime } = config;
 
 const mongoDB = require('../mongoDB/MongoDB');
 const fireBase = require('../fireBaseDB/FireBaseDB');
+const socketIO = require('../socketIO/SocketIO');
 
 buffer.setDataListeners(mongoDB);
 buffer.setDataListeners(fireBase);
+buffer.setDataListeners(socketIO);
 
 class BACnetLoop {
     constructor(avArray, bvArray, aiArray, aoArray, biArray, boArray) {

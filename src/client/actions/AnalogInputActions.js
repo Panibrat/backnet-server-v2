@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_AI } from './actionsConstants';
+import { GET_AI, UPDATE_ANALOG_INPUT } from './actionsConstants';
 
 export const getAIs = () => {
     return function(dispatch){
@@ -21,4 +21,11 @@ export const getAIs = () => {
                 })
             })
     }
+};
+
+export const updateAI = (point) => {
+    return {
+        type: UPDATE_ANALOG_INPUT,
+        payload: point
+    };
 };

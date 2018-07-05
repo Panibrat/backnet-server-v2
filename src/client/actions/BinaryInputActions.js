@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_BI } from './actionsConstants';
+import { GET_BI, UPDATE_BINARY_INPUT } from './actionsConstants';
 
 export const getBIs = () => {
     return function(dispatch){
@@ -21,4 +21,11 @@ export const getBIs = () => {
                 })
             })
     }
+};
+
+export const updateBI = (point) => {
+    return {
+        type: UPDATE_BINARY_INPUT,
+        payload: point
+    };
 };

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_BV } from './actionsConstants';
+import { GET_BV, UPDATE_BINARY_VALUE } from './actionsConstants';
 
 export const getBVs = () => {
     return function(dispatch){
@@ -21,4 +21,11 @@ export const getBVs = () => {
                 })
             })
     }
+};
+
+export const updateBV = (point) => {
+    return {
+        type: UPDATE_BINARY_VALUE,
+        payload: point
+    };
 };

@@ -74,11 +74,26 @@ server.listen(port, (req, res) => {
 
 
 io.on('connection', (socket) => {
+
     console.log('a user connected', socket.id);
     socket.on('test 1', (state) => {
         console.log('test 1 GOT');
         console.log('state', state);
     });
+
+    socket.on('update analogs', (point) => {
+        console.log('update analogs', point);
+    });
+
+    socket.on('update binary', (point) => {
+        console.log('update binary', point);
+    });
+
+    socket.on('disconnect', function () {
+        io.emit('user disconnected', socket.id);
+    });
+
+
 });
 
 backnetLoop.run();

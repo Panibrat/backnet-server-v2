@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_BO } from './actionsConstants';
+import { GET_BO, UPDATE_BINARY_OUTPUT } from './actionsConstants';
 
 export const getBOs = () => {
     return function(dispatch){
@@ -21,4 +21,11 @@ export const getBOs = () => {
                 })
             })
     }
+};
+
+export const updateBO = (point) => {
+    return {
+        type: UPDATE_BINARY_OUTPUT,
+        payload: point
+    };
 };
