@@ -1,8 +1,6 @@
 import * as React from 'react';
+import SocketIO from '../../services/SocketService';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
-
-import { getAOs } from '../../actions/AnalogOutpuActions';
 
 import AnalogOutputItem from '../AnalogOutputItem/AnalogOutputItem';
 
@@ -14,8 +12,8 @@ export class AnalogOutputPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getAOs();
         console.log('this.props', this.props);
+        SocketIO.sendAO();
     }
 
     render() {
@@ -42,10 +40,4 @@ const mapStateToProps = (store) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        getAOs: getAOs
-    }, dispatch)
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AnalogOutputPage);
+export default connect(mapStateToProps)(AnalogOutputPage);

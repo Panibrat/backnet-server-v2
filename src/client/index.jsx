@@ -23,7 +23,7 @@ const middeleware = applyMiddleware(
 );
 export const store = createStore(reducers, composeEnhancers(middeleware));
 store.subscribe(function() {
-    console.log('state:\n', store.getState());
+    // console.log('state:\n', store.getState());
 });
 
 import SocketService from './services/SocketService';

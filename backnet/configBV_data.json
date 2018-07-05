@@ -1,3 +1,16 @@
 [
-
+  {
+    "title": "BV3000998",
+    "description": "sSTR_SOqweqwe",
+    "status": "alarm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BV3000999",
+    "description": "sSO_AUTOqweqweqwe",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  }
 ]

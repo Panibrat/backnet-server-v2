@@ -1,8 +1,5 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
-
-import { getAVs } from '../../actions/AnalogValueActions';
 
 import AnalogOutputItem from '../AnalogOutputItem/AnalogOutputItem';
 
@@ -14,7 +11,6 @@ export class AnalogValuePage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getAVs();
         console.log('this.props', this.props);
     }
 
@@ -42,10 +38,4 @@ const mapStateToProps = (store) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        getAVs: getAVs
-    }, dispatch)
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AnalogValuePage);
+export default connect(mapStateToProps)(AnalogValuePage);

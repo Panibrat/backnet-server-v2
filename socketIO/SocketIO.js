@@ -1,17 +1,38 @@
 const { io } = require('../server');
+const buffer = require('../backnet/dataBuffer');
 const {
     CONNECT,
-    UPDATE_ANALOG_INPUT ,
+    CREATE_ANALOG_INPUTS,
+    CREATE_ANALOG_OUTPUT,
+    CREATE_ANALOG_VALUE,
+    CREATE_BINARY_INPUT,
+    CREATE_BINARY_OUTPUT,
+    CREATE_BINARY_VALUE,
+    UPDATE_ANALOG_INPUT,
     UPDATE_ANALOG_OUTPUT,
     UPDATE_ANALOG_VALUE,
     UPDATE_BINARY_INPUT,
     UPDATE_BINARY_OUTPUT,
-    UPDATE_BINARY_VALUE
+    UPDATE_BINARY_VALUE,
 } = require('./EventsConstants');
 
 class SocketIO {
     constructor(io) {
         this.io = io;
+        this.io.on('connection', (socket) => {
+            console.log('user connected', socket.id);
+
+            socket.emit(CREATE_ANALOG_INPUTS, buffer.getAnalogInputsData());
+            socket.emit(CREATE_ANALOG_OUTPUT, buffer.getAnalogOutputsData());
+            socket.emit(CREATE_ANALOG_VALUE, buffer.getAnalogValueData());
+            socket.emit(CREATE_BINARY_INPUT, buffer.getBinaryInputsData());
+            socket.emit(CREATE_BINARY_OUTPUT, buffer.getBinaryOutputsData());
+            socket.emit(CREATE_BINARY_VALUE, buffer.getBinaryValueData());
+
+            socket.on('test AO', (point) => {
+                console.log(`${socket.id} updated analogs } -----> `, point);
+            });
+        });
     }
 
     updateAI(ai) {

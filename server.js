@@ -36,32 +36,7 @@ const port = process.env.PORT || '3000';
 app.use(express.static('public'));
 
 app.get('/buffer', (req, res) => {
-    const bufferData = buffer.getData();
-    res.send(JSON.stringify(bufferData));
-});
-
-app.get('/ai', (req, res) => {
-    res.send(JSON.stringify(buffer.getAnalogInputsData()));
-});
-
-app.get('/ao', (req, res) => {
-    res.send(JSON.stringify(buffer.getAnalogOutputsData()));
-});
-
-app.get('/bi', (req, res) => {
-    res.send(JSON.stringify(buffer.getBinaryInputsData()));
-});
-
-app.get('/bo', (req, res) => {
-    res.send(JSON.stringify(buffer.getBinaryOutputsData()));
-});
-
-app.get('/av', (req, res) => {
-    res.send(JSON.stringify(buffer.getAnalogValueData()));
-});
-
-app.get('/bv', (req, res) => {
-    res.send(JSON.stringify(buffer.getBinaryValueData()));
+    res.send(JSON.stringify(buffer.getData()));
 });
 
 app.get('*', (req, res) => {
@@ -70,30 +45,6 @@ app.get('*', (req, res) => {
 
 server.listen(port, (req, res) => {
     console.log(`Server run on port ${port}!`);
-});
-
-
-io.on('connection', (socket) => {
-
-    console.log('a user connected', socket.id);
-    socket.on('test 1', (state) => {
-        console.log('test 1 GOT');
-        console.log('state', state);
-    });
-
-    socket.on('update analogs', (point) => {
-        console.log('update analogs', point);
-    });
-
-    socket.on('update binary', (point) => {
-        console.log('update binary', point);
-    });
-
-    socket.on('disconnect', function () {
-        io.emit('user disconnected', socket.id);
-    });
-
-
 });
 
 backnetLoop.run();

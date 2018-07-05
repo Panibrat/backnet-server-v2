@@ -1,8 +1,5 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
-
-import { getAIs } from '../../actions/AnalogInputActions';
 
 import AnalogInputItem from '../AnalogInputItem/AnalogInputItem';
 
@@ -14,7 +11,6 @@ export class AnalogInputsPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getAIs();
         console.log('this.props', this.props);
     }
 
@@ -42,10 +38,4 @@ const mapStateToProps = (store) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        getAIs: getAIs
-    }, dispatch)
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AnalogInputsPage);
+export default connect(mapStateToProps)(AnalogInputsPage);
