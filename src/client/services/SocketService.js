@@ -8,13 +8,12 @@ import {
     CREATE_BINARY_INPUT,
     CREATE_BINARY_OUTPUT,
     CREATE_BINARY_VALUE,
-    UPDATE_ANALOG_INPUT ,
+    UPDATE_ANALOG_INPUT,
     UPDATE_ANALOG_OUTPUT,
     UPDATE_ANALOG_VALUE,
     UPDATE_BINARY_INPUT,
     UPDATE_BINARY_OUTPUT,
-    UPDATE_BINARY_VALUE
-
+    UPDATE_BINARY_VALUE,
 } from './EventsConstants';
 
 import { updateAI, getAIs } from '../actions/AnalogInputActions';

@@ -6,12 +6,10 @@ export const bvReducer = (bv = [], action) => {
             return action.payload;
 
         case UPDATE_BINARY_VALUE:
-            return bv.map((point) => {
-                if (point.title === action.payload.title) {
-                    point.value = action.payload.value;
-                }
-                return point;
-            });
+            return bv.map((point) => point.title === action.payload.title
+                ? { ...point, value: action.payload.value }
+                : point
+            );
 
         default:
             return bv;
