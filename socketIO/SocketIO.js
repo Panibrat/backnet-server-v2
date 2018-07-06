@@ -1,5 +1,8 @@
 const { io } = require('../server');
 const buffer = require('../backnet/dataBuffer');
+
+const writeAV = require('../backnet/writeData/writeAVpromise');
+
 const {
     CONNECT,
     CREATE_ANALOG_INPUTS,
@@ -31,6 +34,11 @@ class SocketIO {
 
             socket.on('test AO', (point) => {
                 console.log(`${socket.id} updated analogs } -----> `, point);
+            });
+
+            socket.on('WRITE_AV', (point) => {
+                console.log(`${socket.id} WRITE_AV -----> `, point);
+                writeAV(point);
             });
         });
     }

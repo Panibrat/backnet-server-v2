@@ -74,10 +74,15 @@ class SocketService{
         });
     }
 
+    writeAV(point) {
+        this.socket.emit('WRITE_AV', point);
+    }
+
     emit(some) {
         this.socket.emit('test 1', some);
         console.log('test 12 SEND');
     }
+
     sendAO() {
         this.socket.emit('test AO', {
             ao: 'testedAO',
