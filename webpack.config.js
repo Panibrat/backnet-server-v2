@@ -8,7 +8,7 @@ module.exports = function(env, options) {
         entry: './client/index',
         output: {
             filename: 'bundle.js',
-            path: path.resolve(__dirname, 'public/js')
+            path: path.resolve(__dirname, 'public')
         },
         mode: isProduction ? "production" : "development",
         devtool: isProduction ? "none" : "source-map",
@@ -29,7 +29,19 @@ module.exports = function(env, options) {
                 {
                     test: /\.css$/,
                     loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-                }
+                },
+                {
+                    test: /\.(png|jpg|gif|svg)$/,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: '[path][name].[ext]',
+                                outputPath: 'images/'
+                            }
+                        }
+                    ]
+                },
             ]
         },
 
