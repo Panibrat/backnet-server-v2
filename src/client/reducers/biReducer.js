@@ -6,12 +6,10 @@ export const biReducer = (bi = [], action) => {
             return action.payload;
 
         case UPDATE_BINARY_INPUT:
-            return bi.map((point) => {
-                if (point.title === action.payload.title) {
-                    point.value = action.payload.value;
-                }
-                return point;
-            });
+            return bi.map((point) => point.title === action.payload.title
+                ? { ...point, value: action.payload.value }
+                : point
+            );
 
         default:
             return bi;

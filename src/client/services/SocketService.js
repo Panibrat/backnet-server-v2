@@ -8,13 +8,12 @@ import {
     CREATE_BINARY_INPUT,
     CREATE_BINARY_OUTPUT,
     CREATE_BINARY_VALUE,
-    UPDATE_ANALOG_INPUT ,
+    UPDATE_ANALOG_INPUT,
     UPDATE_ANALOG_OUTPUT,
     UPDATE_ANALOG_VALUE,
     UPDATE_BINARY_INPUT,
     UPDATE_BINARY_OUTPUT,
-    UPDATE_BINARY_VALUE
-
+    UPDATE_BINARY_VALUE,
 } from './EventsConstants';
 
 import { updateAI, getAIs } from '../actions/AnalogInputActions';
@@ -75,10 +74,15 @@ class SocketService{
         });
     }
 
+    writeAV(point) {
+        this.socket.emit('WRITE_AV', point);
+    }
+
     emit(some) {
         this.socket.emit('test 1', some);
         console.log('test 12 SEND');
     }
+
     sendAO() {
         this.socket.emit('test AO', {
             ao: 'testedAO',

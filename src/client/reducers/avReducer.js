@@ -6,12 +6,10 @@ export const avReducer = (av = [], action) => {
             return action.payload;
 
         case UPDATE_ANALOG_VALUE:
-            return av.map((point) => {
-                if (point.title === action.payload.title ) {
-                    point.value = action.payload.value;
-                }
-                return point;
-            });
+            return av.map((point) => point.title === action.payload.title
+                ? { ...point, value: action.payload.value }
+                : point
+            );
 
         default:
             return av;

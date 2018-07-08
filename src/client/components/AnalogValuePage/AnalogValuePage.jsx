@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import SocketService from '../../services/SocketService';
+
 import AnalogOutputItem from '../AnalogOutputItem/AnalogOutputItem';
 
 import styles from './AnalogValuePage.css';
@@ -12,6 +14,11 @@ export class AnalogValuePage extends React.Component {
 
     componentDidMount() {
         console.log('this.props', this.props);
+        this.writeValue({ title: 'AV3000130', value: 777 });
+    }
+
+    writeValue(point) {
+        SocketService.writeAV(point);
     }
 
     render() {
