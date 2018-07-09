@@ -28,14 +28,14 @@ export class AnalogInputsPage extends React.Component {
                     />
                 )}
             </div>
-        )
+        );
     }
 }
 
 const mapStateToProps = (store) => {
     return {
-        ai: store.ai
-    }
+        ai: store.ai,
+    };
 };
 
 export default connect(mapStateToProps)(AnalogInputsPage);

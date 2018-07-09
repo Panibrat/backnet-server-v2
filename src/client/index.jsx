@@ -6,12 +6,15 @@ import thunk from 'redux-thunk';
 import { applyMiddleware, createStore, compose } from 'redux';
 import logger from 'redux-logger';
 
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 import reducers from './reducers/index';
 
 import Layout from './components/Layout/Layout';
 import AnalogInputsPage from './components/AnalogInputsPage/AnalogInputsPage';
 import AnalogValuePage from './components/AnalogValuePage/AnalogValuePage';
 import AnalogOutputPage from './components/AnalogOutputPage/AnalogOutputPage';
+import AnalogInputsFolderList from './components/AnalogInputsFolderList/AnalogInputsFolderList';
 import { Menu } from './components/Menu/Menu';
 
 import styles from './Styles.css';
@@ -26,23 +29,24 @@ store.subscribe(function() {
     // console.log('state:\n', store.getState());
 });
 
-import SocketService from './services/SocketService';
-
 const App = () => (
     <Provider store={store}>
         <Router>
-            <Layout>
-                <Menu/>
-                <Switch>
-                    <Route path="/analogInputs" component={AnalogInputsPage} />
-                    <Route path='/analogOutputs' component={AnalogOutputPage} />
-                    <Route path='/analogValues' component={AnalogValuePage} />
-                    <Route path='*' component={AnalogInputsPage} />
-                </Switch>
-            </Layout>
+            <React.Fragment>
+                <CssBaseline />
+                <Layout>
+                    <Menu/>
+                    <Switch>
+                        <Route path="/analogInputs" component={AnalogInputsPage} />
+                        <Route path='/analogOutputs' component={AnalogOutputPage} />
+                        <Route path='/analogValues' component={AnalogValuePage} />
+                        <Route path='/AnalogInputsFolderList' component={AnalogInputsFolderList} />
+                        <Route path='*' component={AnalogInputsPage} />
+                    </Switch>
+                </Layout>
+            </React.Fragment>
         </Router>
     </Provider>
 );
 
 ReactDom.render(<App />, document.getElementById("app"));
-

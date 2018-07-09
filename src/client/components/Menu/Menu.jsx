@@ -11,5 +11,6 @@ export const Menu = () => (
         <NavLink to="/binaryInputs">Binary Inputs</NavLink>
         <NavLink to="/binaryOutputs">Binary Outputs</NavLink>
         <NavLink to="/binaryValues">Binary Value</NavLink>
+        <NavLink to="/AnalogInputsFolderList">Material UI</NavLink>
     </div>
 );
