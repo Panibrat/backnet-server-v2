@@ -14,7 +14,6 @@ import Layout from './components/Layout/Layout';
 import AnalogInputsPage from './components/AnalogInputsPage/AnalogInputsPage';
 import AnalogValuePage from './components/AnalogValuePage/AnalogValuePage';
 import AnalogOutputPage from './components/AnalogOutputPage/AnalogOutputPage';
-import AnalogInputsFolderList from './components/AnalogInputsFolderList/AnalogInputsFolderList';
 import { Menu } from './components/Menu/Menu';
 
 import styles from './Styles.css';
@@ -40,7 +39,6 @@ const App = () => (
                         <Route path="/analogInputs" component={AnalogInputsPage} />
                         <Route path='/analogOutputs' component={AnalogOutputPage} />
                         <Route path='/analogValues' component={AnalogValuePage} />
-                        <Route path='/AnalogInputsFolderList' component={AnalogInputsFolderList} />
                         <Route path='*' component={AnalogInputsPage} />
                     </Switch>
                 </Layout>

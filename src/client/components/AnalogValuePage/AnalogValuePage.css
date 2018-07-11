@@ -6,4 +6,13 @@
     background-size: cover;
     padding: 60px;
     color: black;
+    width: 100%;
+    max-width: 420px;
+}
+
+.title {
+    color: darkred;
+    font-size: xx-large;
+    text-align: center;
+    padding: 20px;
 }

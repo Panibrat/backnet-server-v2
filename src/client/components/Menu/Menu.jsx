@@ -3,14 +3,39 @@ import {
     NavLink,
 } from 'react-router-dom';
 
+import Button from '@material-ui/core/Button';
+
 export const Menu = () => (
     <div>
-        <NavLink to="analogInputs">Analog Inputs</NavLink>
-        <NavLink to="/analogOutputs">Analog Outputs</NavLink>
-        <NavLink to="/analogValues">Analog Value</NavLink>
-        <NavLink to="/binaryInputs">Binary Inputs</NavLink>
-        <NavLink to="/binaryOutputs">Binary Outputs</NavLink>
-        <NavLink to="/binaryValues">Binary Value</NavLink>
-        <NavLink to="/AnalogInputsFolderList">Material UI</NavLink>
+        <NavLink to="analogInputs">
+            <Button variant="outlined">
+                Analog Inputs
+            </Button>
+        </NavLink>
+        <NavLink to="/analogOutputs">
+            <Button variant="outlined">
+                Analog Outputs
+            </Button>
+        </NavLink>
+        <NavLink to="/analogValues">
+            <Button variant="outlined">
+                Analog Value
+            </Button>
+        </NavLink>
+        <NavLink to="/binaryInputs">
+            <Button variant="outlined">
+                Binary Inputs
+            </Button>
+        </NavLink>
+        <NavLink to="/binaryOutputs">
+            <Button variant="outlined">
+                Binary Outputs
+            </Button>
+        </NavLink>
+        <NavLink to="/binaryValues">
+            <Button variant="outlined">
+                Binary Value
+            </Button>
+        </NavLink>
     </div>
 );

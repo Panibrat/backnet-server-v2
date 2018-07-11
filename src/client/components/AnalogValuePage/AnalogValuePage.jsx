@@ -1,16 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import List from '@material-ui/core/List';
 
 import SocketService from '../../services/SocketService';
 
-import AnalogOutputItem from '../AnalogOutputItem/AnalogOutputItem';
+import { AnalogOutputItem } from '../AnalogOutputItem/AnalogOutputItem';
 
 import styles from './AnalogValuePage.css';
 
 export class AnalogValuePage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         console.log('this.props', this.props);
@@ -23,8 +21,10 @@ export class AnalogValuePage extends React.Component {
 
     render() {
         return (
-            <div className={styles.container}>
-                <h1>Analog Value Page</h1>
+            <List className={styles.container}>
+                <div className={styles.title}>
+                    Analog Value Page
+                </div>
                 { this.props.av.map((av) =>
                     <AnalogOutputItem
                         key={av.title}
@@ -34,7 +34,7 @@ export class AnalogValuePage extends React.Component {
                         units={av.units}
                     />
                 )}
-            </div>
+            </List>
         )
     }
 }

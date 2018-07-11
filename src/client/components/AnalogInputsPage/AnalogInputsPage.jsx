@@ -1,23 +1,22 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import List from '@material-ui/core/List';
 
-import AnalogInputItem from '../AnalogInputItem/AnalogInputItem';
+import { AnalogInputItem } from '../AnalogInputItem/AnalogInputItem';
 
 import styles from './AnalogInputsPage.css';
 
 export class AnalogInputsPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         console.log('this.props', this.props);
     }
 
     render() {
         return (
-            <div className={styles.container}>
-                <h1>Analog Inputs Page</h1>
+            <List className={styles.container}>
+                <div className={styles.title}>
+                    Analog Inputs Page
+                </div>
                 { this.props.ai.map((ai) =>
                     <AnalogInputItem
                         key={ai.title}
@@ -27,7 +26,7 @@ export class AnalogInputsPage extends React.Component {
                         units={ai.units}
                     />
                 )}
-            </div>
+            </List>
         );
     }
 }

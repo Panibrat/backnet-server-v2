@@ -2,7 +2,7 @@ import * as React from 'react';
 import SocketIO from '../../services/SocketService';
 import { connect } from 'react-redux';
 
-import AnalogOutputItem from '../AnalogOutputItem/AnalogOutputItem';
+import { AnalogOutputItem } from '../AnalogOutputItem/AnalogOutputItem';
 
 import { Fan } from '../Animated/Fan/Fan';
 import { Spin } from '../Animated/Spin/Spin';
