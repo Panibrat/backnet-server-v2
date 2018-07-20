@@ -7,7 +7,8 @@
     padding: 60px;
     color: black;
     width: 100%;
-    max-width: 420px;
+    max-width: 800px;
+    min-width: 420px;
 }
 
 .title {

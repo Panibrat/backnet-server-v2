@@ -1,7 +1,8 @@
 [
   {
     "title": "AI3000141",
-    "description": "iT_OUT",
+    "name": "T_OUT",
+    "description": "Outdoor temperature",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
@@ -9,7 +10,8 @@
   },
   {
     "title": "AI3000142",
-    "description": "iT_OUT",
+    "name": "Т Бойлер",
+    "description": "Температура воды в бойлере",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,

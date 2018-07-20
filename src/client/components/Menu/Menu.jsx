@@ -37,5 +37,10 @@ export const Menu = () => (
                 Binary Value
             </Button>
         </NavLink>
+        <NavLink to="/allPoints">
+            <Button variant="outlined">
+                All Points
+            </Button>
+        </NavLink>
     </div>
 );

@@ -14,6 +14,7 @@ import Layout from './components/Layout/Layout';
 import AnalogInputsPage from './components/AnalogInputsPage/AnalogInputsPage';
 import AnalogValuePage from './components/AnalogValuePage/AnalogValuePage';
 import AnalogOutputPage from './components/AnalogOutputPage/AnalogOutputPage';
+import { AllPointsPage } from './components/AllPointsPage/AllPointsPage';
 import { Menu } from './components/Menu/Menu';
 
 import styles from './Styles.css';
@@ -37,9 +38,10 @@ const App = () => (
                     <Menu/>
                     <Switch>
                         <Route path="/analogInputs" component={AnalogInputsPage} />
-                        <Route path='/analogOutputs' component={AnalogOutputPage} />
-                        <Route path='/analogValues' component={AnalogValuePage} />
-                        <Route path='*' component={AnalogInputsPage} />
+                        <Route path="/analogOutputs" component={AnalogOutputPage} />
+                        <Route path="/analogValues" component={AnalogValuePage} />
+                        <Route path="/allPoints" component={AllPointsPage} />
+                        <Route path="*" component={AnalogInputsPage} />
                     </Switch>
                 </Layout>
             </React.Fragment>
