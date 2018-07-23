@@ -1,4 +1,6 @@
 import * as React from 'react';
+import List from '@material-ui/core/List';
+import Switch from '@material-ui/core/Switch';
 import SocketIO from '../../services/SocketService';
 import { connect } from 'react-redux';
 
@@ -15,6 +17,7 @@ export class AnalogOutputPage extends React.Component {
         super(props);
         this.state = { isFanOn: false };
         this.toggleFan = this.toggleFan.bind(this);
+        this.toggleFanWithDelay = this.toggleFanWithDelay.bind(this);
     }
 
     componentDidMount() {
@@ -27,26 +30,37 @@ export class AnalogOutputPage extends React.Component {
 
     }
 
+    toggleFanWithDelay() {
+        const self = this;
+        setTimeout(() => self.toggleFan(), 3000);
+    }
+
     render() {
         return (
-            <div className={styles.container}>
+            <List className={styles.container}>
+                <div className={styles.title}>
+                    Analog Output Page
+                </div>
+                { this.props.ao.map((ao) =>
+                    <AnalogOutputItem
+                        key={ao.title}
+                        title={ao.title}
+                        description={ao.description}
+                        value={ao.value}
+                        units={ao.units}
+                    />
+                )}
                 <h1>Spin</h1>
                 <Spin />
-                <h1>Analog Output Page</h1>
                 <Fan isOn={this.state.isFanOn}/>
+                <Switch
+                    checked={this.state.isFanOn}
+                    onChange={this.toggleFanWithDelay}
+                />
                 <button onClick={this.toggleFan} >
                     ON/OFF
                 </button>
-                { this.props.ao.map((ai) =>
-                    <AnalogOutputItem
-                        key={ai.title}
-                        title={ai.title}
-                        description={ai.description}
-                        value={ai.value}
-                        units={ai.units}
-                    />
-                )}
-            </div>
+            </List>
         )
     }
 }

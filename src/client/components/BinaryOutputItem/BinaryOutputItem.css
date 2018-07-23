@@ -1,0 +1,23 @@
+.container {
+    color: gray;
+}
+
+.value {
+    font-size: x-large;
+    flex: 1;
+    color: black;
+    font-weight: 400;
+}
+
+.units {
+    font-size: medium;
+    text-align: center;
+    flex: 1;
+}
+
+.data {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

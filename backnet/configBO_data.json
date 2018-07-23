@@ -4,13 +4,39 @@
     "description": "sSTR_SO",
     "status": "alarm",
     "readOnly": false,
-    "value": true
+    "value": true,
+    "units": ["Off", "On"]
+  },
+    {
+    "title": "BO3000248",
+    "description": "Розетка",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+    {
+    "title": "BO3000249",
+    "description": "Утюг",
+    "status": "alarm",
+    "readOnly": false,
+    "value": false,
+    "units": ["Off", "On"]
+  },
+    {
+    "title": "BO3000250",
+    "description": "Свет в коридоре",
+    "status": "alarm",
+    "readOnly": false,
+    "value": true,
+    "units": ["Off", "On"]
   },
   {
-    "title": "BO3000248",
-    "description": "sSO_AUTO",
+    "title": "BO3000251",
+    "description": "Ракета",
     "status": "norm",
     "readOnly": false,
-    "value": true
+    "value": false,
+    "units": ["Off", "On"]
   }
 ]

@@ -2,6 +2,9 @@ const { io } = require('../server');
 const buffer = require('../backnet/dataBuffer');
 
 const writeAV = require('../backnet/writeData/writeAVpromise');
+const writeAO = require('../backnet/writeData/writeAOpromise');
+const writeBV = require('../backnet/writeData/writeBVpromise');
+const writeBO = require('../backnet/writeData/writeBOpromise');
 
 const {
     CONNECT,
@@ -17,6 +20,10 @@ const {
     UPDATE_BINARY_INPUT,
     UPDATE_BINARY_OUTPUT,
     UPDATE_BINARY_VALUE,
+    WRITE_ANALOG_VALUE,
+    WRITE_ANALOG_OUTPUT,
+    WRITE_BINARY_VALUE,
+    WRITE_BINARY_OUTPUT
 } = require('./EventsConstants');
 
 class SocketIO {
@@ -36,9 +43,24 @@ class SocketIO {
                 console.log(`${socket.id} updated analogs } -----> `, point);
             });
 
-            socket.on('WRITE_AV', (point) => {
-                console.log(`${socket.id} WRITE_AV -----> `, point);
+            socket.on(WRITE_ANALOG_VALUE, (point) => {
+                console.log(`${socket.id} WRITE_ANALOG_VALUE -----> `, point);
                 writeAV(point);
+            });
+
+            socket.on(WRITE_ANALOG_OUTPUT, (point) => {
+                console.log(`${socket.id} WRITE_ANALOG_OUTPUT -----> `, point);
+                writeAO(point);
+            });
+
+            socket.on(WRITE_BINARY_VALUE, (point) => {
+                console.log(`${socket.id} WRITE_BINARY_VALUE -----> `, point);
+                writeBV(point);
+            });
+
+            socket.on(WRITE_BINARY_OUTPUT, (point) => {
+                console.log(`${socket.id} WRITE_BINARY_OUTPUT -----> `, point);
+                writeBO(point);
             });
         });
     }

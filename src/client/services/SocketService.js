@@ -92,4 +92,4 @@ class SocketService{
     }
 }
 
-export default new SocketService(io)
+export default new SocketService(io);

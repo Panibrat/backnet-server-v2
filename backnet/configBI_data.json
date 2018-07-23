@@ -4,13 +4,47 @@
     "description": "oKOTEL",
     "status": "alarm",
     "readOnly": true,
-    "value": true
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000235",
+    "description": "Насос",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000236",
+    "description": "Ракета",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000237",
+    "description": "Полив",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
   },
   {
     "title": "BI3000238",
-    "description": "oBoyler",
+    "description": "oKOTEL",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000239",
+    "description": "Ворота",
     "status": "norm",
     "readOnly": true,
-    "value": true
+    "value": true,
+    "units": ["Выкл", "Вкл"]
   }
 ]
