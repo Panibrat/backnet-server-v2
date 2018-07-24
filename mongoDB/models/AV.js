@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const AVSchema = mongoose.Schema({
   title: String,
+  name: String,
   description: String,
   status: String,
   units: String,

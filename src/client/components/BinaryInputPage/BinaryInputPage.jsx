@@ -21,6 +21,7 @@ export class BinaryInputPage extends React.Component {
                     <BinaryInputItem
                         key={bi.title}
                         title={bi.title}
+                        name={bi.name}
                         description={bi.description}
                         value={bi.value}
                         units={bi.units}

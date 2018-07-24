@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const BVSchema = mongoose.Schema({
   title: String,
+  name: String,
   description: String,
   status: String,
   value: Boolean,

@@ -21,6 +21,7 @@ export class AnalogInputsPage extends React.Component {
                     <AnalogInputItem
                         key={ai.title}
                         title={ai.title}
+                        name={ai.name}
                         description={ai.description}
                         value={ai.value}
                         units={ai.units}

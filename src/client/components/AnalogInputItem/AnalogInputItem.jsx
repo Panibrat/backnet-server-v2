@@ -15,7 +15,7 @@ export const AnalogInputItem = (props) => (
                 alt="term"
                 src={thermometerImg}
             />
-            <ListItemText primary={props.title} secondary={props.description}/>
+            <ListItemText primary={props.name} secondary={props.description}/>
             <div className={styles.data}>
                 <div className={styles.value}>
                     {props.value}

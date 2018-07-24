@@ -1,7 +1,8 @@
 [
   {
     "title": "AO3000173",
-    "description": "cT_OUT",
+    "name": "cT_OUT",
+    "description": "коррекция наружной температуры",
     "status": "norm",
     "units": "deg C",
     "readOnly": false,
@@ -9,7 +10,8 @@
   },
   {
     "title": "AO3000174",
-    "description": "cT_SUP",
+    "name": "cT_SUP",
+    "description": "коррекция температуры подающего воздуха",
     "status": "norm",
     "units": "deg C",
     "readOnly": false,

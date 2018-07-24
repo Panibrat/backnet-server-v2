@@ -29,6 +29,7 @@ export class AnalogValuePage extends React.Component {
                     <AnalogOutputItem
                         key={av.title}
                         title={av.title}
+                        name={av.name}
                         description={av.description}
                         value={av.value}
                         units={av.units}

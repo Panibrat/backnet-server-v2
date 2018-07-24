@@ -19,6 +19,7 @@
   },
   {
     "title": "AI3000143",
+    "name": "Т Котла",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",
@@ -27,6 +28,7 @@
   },
   {
     "title": "AI3000144",
+    "name": "Т Котла2",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",
@@ -35,6 +37,7 @@
   },
   {
     "title": "AI3000145",
+    "name": "Т Холодильник",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",
@@ -43,6 +46,7 @@
   },
   {
     "title": "AI3000146",
+    "name": "H Bedroom",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",
@@ -51,7 +55,8 @@
   },
   {
     "title": "AI3000147",
-    "description": "iT_OUT",
+    "name": "T Bedroom",
+    "description": "Long description",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
@@ -59,6 +64,7 @@
   },
   {
     "title": "AI3000148",
+    "name": "T Kitchen",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",
@@ -67,7 +73,8 @@
   },
   {
     "title": "AI3000149",
-    "description": "iT_OUT",
+    "name": "Теплый пол холл",
+    "description": "теплый пол на 1м этаже в ванной",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
@@ -75,6 +82,7 @@
   },
   {
     "title": "AI3000151",
+    "name": "Теплый пол зал",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",
@@ -83,6 +91,7 @@
   },
   {
     "title": "AI3000152",
+    "name": "Теплый пол холвывл",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",
@@ -91,6 +100,7 @@
   },
   {
     "title": "AI3000153",
+    "name": "Теплый пол холл",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",
@@ -99,6 +109,7 @@
   },
   {
     "title": "AI3000154",
+    "name": "Теплый пол холл",
     "description": "iT_SUP",
     "status": "norm",
     "units": "deg C",

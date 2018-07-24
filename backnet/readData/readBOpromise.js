@@ -1,5 +1,7 @@
 const BACnetClient = require('../BACnetClient');
 
+const mongoDB = require('../../mongoDB/MongoDB');
+
 const readBO = pointNumber => new Promise((resolve, reject) => {
     BACnetClient.client.readProperty(
         BACnetClient.ip, // IP device
@@ -15,15 +17,22 @@ const readBO = pointNumber => new Promise((resolve, reject) => {
                     value: itemValue,
                 });
             } catch (error) {
+                mongoDB.findOneBV({ title: `BO${pointNumber}` }).then((itemValue) => {
+                    //console.log('itemValue', itemValue);
+                    resolve({
+                        title: `BO${pointNumber}`,
+                        value: itemValue,
+                    });
+                });
                 // console.log('BO ERRRRROR CATCH: ', error);
-                const itemValue = Math.random() >= 0.5;
+                //const itemValue = Math.random() >= 0.5;
                 // itemValue = undefined;
-                resolve({
+/*                resolve({
                     title: `BO${pointNumber}`,
                     value: itemValue,
-                });
+                });*/
             }
-            reject(err);
+            //reject(err);
         },
     );
 });

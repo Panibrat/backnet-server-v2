@@ -7,6 +7,34 @@ class MongoDB {
         this.BVsModel = BVsModel;
     }
 
+    findOneAV(av) {
+        return new Promise((resolve, reject) => {
+            this.AVsModel.findOne(av,
+                (err, avs) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    resolve(avs.value);
+                }
+            );
+        });
+    }
+
+    findOneBV(bv) {
+        return new Promise((resolve, reject) => {
+            this.BVsModel.findOne(bv,
+                (err, bvs) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    if (bvs) {
+                        resolve(bvs.value);
+                    }
+                }
+            );
+        });
+    }
+
     updateAV(av) {
         const query = { title: av.title };
         const update = {

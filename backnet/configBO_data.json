@@ -1,6 +1,7 @@
 [
   {
     "title": "BO3000247",
+    "name": "sSTR_SO",
     "description": "sSTR_SO",
     "status": "alarm",
     "readOnly": false,
@@ -9,6 +10,7 @@
   },
     {
     "title": "BO3000248",
+    "name": "Розетка",
     "description": "Розетка",
     "status": "normal",
     "readOnly": false,
@@ -17,6 +19,7 @@
   },
     {
     "title": "BO3000249",
+    "name": "Утюг",
     "description": "Утюг",
     "status": "alarm",
     "readOnly": false,
@@ -25,6 +28,7 @@
   },
     {
     "title": "BO3000250",
+    "name": "Свет в коридоре",
     "description": "Свет в коридоре",
     "status": "alarm",
     "readOnly": false,
@@ -33,6 +37,7 @@
   },
   {
     "title": "BO3000251",
+    "name": "Ракета",
     "description": "Ракета",
     "status": "norm",
     "readOnly": false,

@@ -39,10 +39,6 @@ class SocketIO {
             socket.emit(CREATE_BINARY_OUTPUT, buffer.getBinaryOutputsData());
             socket.emit(CREATE_BINARY_VALUE, buffer.getBinaryValueData());
 
-            socket.on('test AO', (point) => {
-                console.log(`${socket.id} updated analogs } -----> `, point);
-            });
-
             socket.on(WRITE_ANALOG_VALUE, (point) => {
                 console.log(`${socket.id} WRITE_ANALOG_VALUE -----> `, point);
                 writeAV(point);

@@ -21,6 +21,7 @@ export class BinaryOutputPage extends React.Component {
                     <BinaryOutputItem
                         key={bo.title}
                         title={bo.title}
+                        name={bo.name}
                         description={bo.description}
                         value={bo.value}
                         units={bo.units}

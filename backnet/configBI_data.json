@@ -1,7 +1,8 @@
 [
   {
     "title": "BI3000234",
-    "description": "oKOTEL",
+    "name": "oKOTEL",
+    "description": "oKOTEL description",
     "status": "alarm",
     "readOnly": true,
     "value": true,
@@ -9,7 +10,8 @@
   },
   {
     "title": "BI3000235",
-    "description": "Насос",
+    "name": "Насос",
+    "description": "Насос description",
     "status": "alarm",
     "readOnly": true,
     "value": true,
@@ -17,7 +19,8 @@
   },
   {
     "title": "BI3000236",
-    "description": "Ракета",
+    "name": "Ракета",
+    "description": "Ракета description",
     "status": "alarm",
     "readOnly": true,
     "value": true,
@@ -25,7 +28,8 @@
   },
   {
     "title": "BI3000237",
-    "description": "Полив",
+    "name": "Полив",
+    "description": "Полив description",
     "status": "alarm",
     "readOnly": true,
     "value": true,
@@ -33,7 +37,8 @@
   },
   {
     "title": "BI3000238",
-    "description": "oKOTEL",
+    "name": "oKOTEL",
+    "description": "oKOTEL description",
     "status": "alarm",
     "readOnly": true,
     "value": true,
@@ -41,7 +46,8 @@
   },
   {
     "title": "BI3000239",
-    "description": "Ворота",
+    "name": "Ворота",
+    "description": "Ворота description",
     "status": "norm",
     "readOnly": true,
     "value": true,

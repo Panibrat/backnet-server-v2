@@ -24,7 +24,7 @@ import styles from './Styles.css';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middeleware = applyMiddleware(
     thunk,
-    logger
+    //logger
 );
 export const store = createStore(reducers, composeEnhancers(middeleware));
 store.subscribe(function() {

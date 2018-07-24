@@ -19,15 +19,24 @@ import settingsImg from './settings.svg';
 
 import styles from './AnalogOutputItem.css';
 
+import SocketIO from '../../services/SocketService';
 
 export class AnalogOutputItem extends React.Component {
     state = {
         open: false,
-        age: '',
     };
 
-    handleChange = name => event => {
-        this.setState({ [name]: Number(event.target.value) });
+    handleChange = () => event => {
+        this.setState(
+            {value: Number(event.target.value)},
+            () => {
+                console.log('this.state.value', this.state.value);
+                SocketIO.writeAO({
+                    title: this.props.title,
+                    value: this.state.value
+                })
+            }
+        );
     };
 
     handleClickOpen = () => {
@@ -38,6 +47,10 @@ export class AnalogOutputItem extends React.Component {
         this.setState({ open: false });
     };
 
+    componentDidMount() {
+        this.setState({ value: this.props.value });
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -46,7 +59,7 @@ export class AnalogOutputItem extends React.Component {
                         alt="term"
                         src={voltageImg}
                     />
-                    <ListItemText primary={this.props.title} secondary={this.props.description}/>
+                    <ListItemText primary={this.props.name} secondary={this.props.description}/>
                     <div className={styles.data}>
                         <div className={styles.value}>
                             {this.props.value}
@@ -72,31 +85,40 @@ export class AnalogOutputItem extends React.Component {
 
                                             <Select
                                                 native
-                                                value={this.state.age}
-                                                onChange={this.handleChange('age')}
-                                                input={<Input id="age-native-simple" />}
+                                                value={this.state.value}
+                                                onChange={this.handleChange()}
+                                                input={<Input id="value-native-simple" />}
                                             >
-                                                <option value={16}>+16.0 deg C</option>
-                                                <option value={17}>+17.0 deg C</option>
-                                                <option value={18}>+18.0 deg C</option>
-                                                <option value={19}>+19.0 deg C</option>
-                                                <option value={20}>+20.0 deg C</option>
-                                                <option value={21}>+21.0 deg C</option>
-                                                <option value={22}>+22.0 deg C</option>
-                                                <option value={23}>+23.0 deg C</option>
-                                                <option value={24}>+24.0 deg C</option>
-                                                <option value={25}>+25.0 deg C</option>
-                                                <option value={26}>+26.0 deg C</option>
-                                                <option value={27}>+27.0 deg C</option>
-                                                <option value={28}>+28.0 deg C</option>
+                                                <option value={16}>16.0 C</option>
+                                                <option value={16.5}>16.5 C</option>
+                                                <option value={17}>17.0 C</option>
+                                                <option value={17.5}>17.5 C</option>
+                                                <option value={18}>18.0 C</option>
+                                                <option value={18.5}>18.5 C</option>
+                                                <option value={19}>19.0 C</option>
+                                                <option value={19.5}>19.5 C</option>
+                                                <option value={20}>20.0 C</option>
+                                                <option value={20.5}>20.5 C</option>
+                                                <option value={21}>21.0 C</option>
+                                                <option value={21.5}>21.5 C</option>
+                                                <option value={22}>22.0 C</option>
+                                                <option value={22.5}>22.5 C</option>
+                                                <option value={23}>23.0 C</option>
+                                                <option value={23.5}>23.5 C</option>
+                                                <option value={24}>24.0 C</option>
+                                                <option value={24.5}>24.5 C</option>
+                                                <option value={25}>25.0 C</option>
+                                                <option value={25.5}>25.5 C</option>
+                                                <option value={26}>26.0 C</option>
+                                                <option value={26.5}>26.5 C</option>
+                                                <option value={27}>27.0 C</option>
+                                                <option value={27.5}>27.5 C</option>
+                                                <option value={28}>28.0 C</option>
                                             </Select>
                                         </FormControl>
                                     </form>
                                 </DialogContent>
                                 <DialogActions>
-                                    <Button onClick={this.handleClose} color="primary">
-                                        Cancel
-                                    </Button>
                                     <Button onClick={this.handleClose} color="primary">
                                         Ok
                                     </Button>

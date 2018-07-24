@@ -16,7 +16,7 @@ const readAI = pointNumber => new Promise((resolve, reject) => {
                 });
             } catch (error) {
                 // console.log('AI ERRRRROR CATCH: ', error);
-                const itemValue = +Math.random().toFixed(2) + 99;// TODO: need for MOCK. Delete in prod :)
+                const itemValue = (+Math.random() - 99).toFixed(1);// TODO: need for MOCK. Delete in prod :)
                 resolve({
                     title: `AI${pointNumber}`,
                     value: itemValue,

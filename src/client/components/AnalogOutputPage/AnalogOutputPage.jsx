@@ -1,7 +1,6 @@
 import * as React from 'react';
 import List from '@material-ui/core/List';
 import Switch from '@material-ui/core/Switch';
-import SocketIO from '../../services/SocketService';
 import { connect } from 'react-redux';
 
 import { AnalogOutputItem } from '../AnalogOutputItem/AnalogOutputItem';
@@ -21,13 +20,11 @@ export class AnalogOutputPage extends React.Component {
     }
 
     componentDidMount() {
-        console.log('this.props', this.props);
-        SocketIO.sendAO();
+        //console.log('this.props', this.props);
     }
 
     toggleFan() {
         this.setState({ isFanOn: !this.state.isFanOn });
-
     }
 
     toggleFanWithDelay() {
@@ -45,6 +42,7 @@ export class AnalogOutputPage extends React.Component {
                     <AnalogOutputItem
                         key={ao.title}
                         title={ao.title}
+                        name={ao.name}
                         description={ao.description}
                         value={ao.value}
                         units={ao.units}

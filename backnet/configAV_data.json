@@ -1,7 +1,8 @@
 [
   {
     "title": "AV3000130",
-    "description": "Energy Total",
+    "name": "Energy Total",
+    "description": "Energy Total всего",
     "status": "norm",
     "units": "kW",
     "readOnly": true,
@@ -9,7 +10,8 @@
   },
   {
     "title": "AV3000131",
-    "description": "I1",
+    "name": "I1",
+    "description": "Ток Фазы 1",
     "status": "norm",
     "units": "A",
     "readOnly": true,

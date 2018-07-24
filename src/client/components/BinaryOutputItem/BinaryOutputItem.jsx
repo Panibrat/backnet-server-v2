@@ -9,6 +9,8 @@ import buttonImg from './power.svg';
 
 import styles from './BinaryOutputItem.css';
 
+import SocketIO from '../../services/SocketService';
+
 export default class BinaryOutputItem extends React.Component {
     constructor(props) {
         super(props);
@@ -17,7 +19,10 @@ export default class BinaryOutputItem extends React.Component {
     }
 
     toggleOutput() {
-        this.setState({ isOn: !this.state.isOn });
+        SocketIO.writeBO({
+            title: this.props.title,
+            value: !this.props.value
+        });
     }
 
     render() {
@@ -28,10 +33,10 @@ export default class BinaryOutputItem extends React.Component {
                         alt="button"
                         src={buttonImg}
                     />
-                    <ListItemText primary={this.props.title} secondary={this.props.description}/>
+                    <ListItemText primary={this.props.name} secondary={this.props.description}/>
                     <div className={styles.data}>
                         <Switch
-                            checked={this.state.isOn}
+                            checked={this.props.value}
                             onChange={this.toggleOutput}
                         />
                     </div>

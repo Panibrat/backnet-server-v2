@@ -16,7 +16,7 @@ export const BinaryInputItem = (props) => (
                 alt="switch"
                 src={props.value ? switchOnImg : switchOffImg}
             />
-            <ListItemText primary={props.title} secondary={props.description}/>
+            <ListItemText primary={props.name} secondary={props.description}/>
             <div className={styles.data}>
                 <div className={styles.value}>
                     {props.value ? props.units[1] : props.units[0]}

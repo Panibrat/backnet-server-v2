@@ -1,7 +1,9 @@
 const bacnet = require('bacstack');
 const BACnetClient = require('../BACnetClient');
 
-const writeBV = (bo) => {
+const mongoDB = require('../../mongoDB/MongoDB');
+
+const writeBO = (bo) => {
     return new Promise((resolve, reject) => {
         const pointNumber = +(bo.title.substring(2));
         const valueToSave = bo.value;
@@ -20,6 +22,7 @@ const writeBV = (bo) => {
             (err, value) => { // NOTE: type changed to correct value
                 if (err) {
                     console.log('writePropertyError: ', err);
+                    mongoDB.updateBV(bo);
                     reject(err);
                 } else {
                     console.log('writeProperty: ', value);
@@ -29,4 +32,4 @@ const writeBV = (bo) => {
         );
     });
 };
-module.exports = writeBV;
+module.exports = writeBO;

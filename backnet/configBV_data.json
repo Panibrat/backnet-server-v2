@@ -1,13 +1,15 @@
 [
   {
     "title": "BV3000998",
-    "description": "sSTR_SOqweqwe",
+    "name": "sSTR_SOqweqwe",
+    "description": "sSTR_SOqweqwe description",
     "status": "alarm",
     "readOnly": false,
     "value": true
   },
   {
     "title": "BV3000999",
+    "name": "Свет в коридоре",
     "description": "sSO_AUTOqweqweqwe",
     "status": "norm",
     "readOnly": false,
