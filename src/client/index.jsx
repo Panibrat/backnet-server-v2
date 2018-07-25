@@ -16,6 +16,7 @@ import AnalogValuePage from './components/AnalogValuePage/AnalogValuePage';
 import AnalogOutputPage from './components/AnalogOutputPage/AnalogOutputPage';
 import BinaryInputPage from './components/BinaryInputPage/BinaryInputPage';
 import BinaryOutputPage from './components/BinaryOutputPage/BinaryOutputPage';
+import BinaryValuePage from "./components/BinaryValuePage/BinaryValuePage";
 import { AllPointsPage } from './components/AllPointsPage/AllPointsPage';
 import { Menu } from './components/Menu/Menu';
 
@@ -44,6 +45,7 @@ const App = () => (
                         <Route path="/analogValues" component={AnalogValuePage} />
                         <Route path="/binaryInputs" component={BinaryInputPage} />
                         <Route path="/binaryOutputs" component={BinaryOutputPage} />
+                        <Route path="/binaryValues" component={BinaryValuePage} />
                         <Route path="/allPoints" component={AllPointsPage} />
                         <Route path="*" component={AnalogInputsPage} />
                     </Switch>

@@ -4,7 +4,8 @@ const getPointsArrayFromJSON = (jsonData, pointType) => {
             return Number(item.title.slice(2));
         }
         return null;
-    }).filter(item => item);
+    //}).filter(item => item);
+    });
 };
 
 module.exports = getPointsArrayFromJSON;

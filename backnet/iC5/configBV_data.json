@@ -1,0 +1,18 @@
+[
+  {
+    "title": "BV0",
+    "name": "sSTR_SOqweqwe",
+    "description": "sSTR_SOqweqwe description",
+    "status": "alarm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BV1",
+    "name": "Свет в коридоре",
+    "description": "sSO_AUTOqweqweqwe",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  }
+]

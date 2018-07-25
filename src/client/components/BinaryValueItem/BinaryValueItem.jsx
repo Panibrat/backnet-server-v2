@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 
 import buttonImg from './power.svg';
 
-import styles from './BinaryOutputItem.css';
+import styles from './BinaryValueItem.css';
 
 import SocketIO from '../../services/SocketService';
 

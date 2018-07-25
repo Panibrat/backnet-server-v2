@@ -4,8 +4,10 @@ import styles from './AllPointsPage.css';
 
 import AnalogInputsPage from '../AnalogInputsPage/AnalogInputsPage';
 import AnalogOutputPage from '../AnalogOutputPage/AnalogOutputPage';
+import AnalogValuePage from '../AnalogValuePage/AnalogValuePage'
 import BinaryInputPage from '../BinaryInputPage/BinaryInputPage';
 import BinaryOutputPage from '../BinaryOutputPage/BinaryOutputPage';
+import BinaryValuePage from '../BinaryValuePage/BinaryValuePage';
 
 
 export const AllPointsPage = (props) => (
@@ -23,6 +25,12 @@ export const AllPointsPage = (props) => (
             </Grid>
             <Grid item={true}>
                 <BinaryOutputPage />
+            </Grid>
+            <Grid item={true}>
+                <BinaryValuePage />
+            </Grid>
+            <Grid item={true}>
+                <AnalogValuePage />
             </Grid>
         </Grid>
     </React.Fragment>

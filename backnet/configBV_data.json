@@ -1,9 +1,65 @@
 [
   {
-    "title": "BV3000998",
-    "name": "sSTR_SOqweqwe",
-    "description": "sSTR_SOqweqwe description",
-    "status": "alarm",
+    "title": "BV10",
+    "name": "BO1",
+    "description": "Relay Output 1",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BV11",
+    "name": "BO2",
+    "description": "Relay Output 2",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BV12",
+    "name": "BO3",
+    "description": "Relay Output 3",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BV13",
+    "name": "BO4",
+    "description": "Relay Output 4",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BV14",
+    "name": "BO5",
+    "description": "Relay Output 5",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BV15",
+    "name": "BO6",
+    "description": "Relay Output 6",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BV16",
+    "name": "BO7",
+    "description": "Relay Output 7",
+    "status": "norm",
+    "readOnly": false,
+    "value": true
+  },
+  {
+    "title": "BV17",
+    "name": "BO8",
+    "description": "Relay Output 8",
+    "status": "norm",
     "readOnly": false,
     "value": true
   },
