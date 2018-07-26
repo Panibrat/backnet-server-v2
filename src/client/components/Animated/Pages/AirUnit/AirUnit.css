@@ -1,0 +1,39 @@
+.container {
+    width: 100%;
+    height: 100%;
+    border: solid 1px grey;
+}
+
+.air_unit {
+    padding: 1px;
+    width: 420px;
+}
+
+.kkb_box {
+    position: relative;
+    left: 50px;
+    bottom: 120px;
+    z-index: 5;
+}
+
+.supply_fan_box {
+    position: relative;
+    left: 200px;
+    bottom: 330px;
+}
+
+.coil_box {
+    position: relative;
+    left: 80px;
+    bottom: 475px;
+}
+.t_for_box {
+    position: relative;
+    left: 17px;
+    bottom: 650px;
+    background-color: #ffff7c;
+    width: 55px;
+    font-size: 20px;
+    padding: 2px;
+    border: solid 1px gray;
+}

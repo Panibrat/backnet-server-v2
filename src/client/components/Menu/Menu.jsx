@@ -42,5 +42,20 @@ export const Menu = () => (
                 All Points
             </Button>
         </NavLink>
+        <NavLink to="/kkb">
+            <Button variant="outlined">
+                KKB
+            </Button>
+        </NavLink>
+        <NavLink to="/supply-fan">
+            <Button variant="outlined">
+                S.FAN
+            </Button>
+        </NavLink>
+        <NavLink to="/air-unit">
+            <Button variant="outlined">
+                AHU
+            </Button>
+        </NavLink>
     </div>
 );

@@ -1,0 +1,33 @@
+<svg width="50" height="220" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="52" height="222" id="canvas_background" fill="none"/>
+  <g id="canvasGrid" display="none">
+   <rect id="svg_3" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse fill="#fff" stroke="#000" stroke-width="1.5" cx="208.5" cy="267.5" id="svg_4" ry="0.5"/>
+  <ellipse ry="52.584645" rx="0.188679" id="svg_6" cy="26.292322" cx="364.754295" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <ellipse transform="rotate(-84.80553436279297 82.12664794921875,3.465556383132945) " id="svg_7" cy="3.465558" cx="82.12665" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <ellipse rx="56.769711" id="svg_15" cy="6.959655" cx="25.132825" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <rect stroke="#000" id="svg_16" height="109.615606" width="48.077019" y="1.846032" x="0.823313" stroke-opacity="null" stroke-width="1.5" fill="#ff0000"/>
+  <line stroke="#ff5656" stroke-linecap="null" stroke-linejoin="null" id="svg_18" y2="206.383062" x2="8.055622" y1="111.382872" x1="8.055622" stroke-width="10" fill="none"/>
+  <line stroke="#005fbf" stroke-linecap="null" stroke-linejoin="null" id="svg_20" y2="206.767678" x2="38.824915" y1="111.767488" x1="38.824915" stroke-width="10" fill="none"/>
+  <ellipse ry="10.961561" rx="10.961561" id="svg_21" cy="57.421205" cx="25.132825" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#ff0000"/>
+  <line stroke="#000" stroke-linecap="null" stroke-linejoin="null" id="svg_22" y2="64.215711" x2="25.132825" y1="51.33424" x1="25.132825" stroke-opacity="null" stroke-width="1.5" fill="none"/>
+  <line stroke="#000" stroke-linecap="null" stroke-linejoin="null" id="svg_23" y2="57.660033" x2="17.589255" y1="57.660033" x1="31.616708" stroke-opacity="null" stroke-width="1.5" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_24" y2="8.788254" x2="46.766537" y1="8.788254" x1="3.499112" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_26" y2="73.55786" x2="46.88361" y1="73.55786" x1="3.616185" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_27" y2="38.32753" x2="46.766537" y1="38.32753" x1="3.499112" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_28" y2="18.816908" x2="46.766537" y1="18.816908" x1="3.499112" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_29" y2="29.929572" x2="46.766537" y1="29.929572" x1="3.499112" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <ellipse rx="56.769711" id="svg_30" cy="72.81327" cx="25.945832" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_32" y2="104.181144" x2="47.579545" y1="104.181144" x1="4.31212" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_33" y2="84.670523" x2="47.579545" y1="84.670523" x1="4.31212" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_34" y2="95.783187" x2="47.579545" y1="95.783187" x1="4.31212" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+ </g>
+</svg>
