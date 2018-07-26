@@ -20,4 +20,9 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    max-width: 120px;
+}
+
+.item {
+    max-width: 200px;
 }

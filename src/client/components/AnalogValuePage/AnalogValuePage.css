@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    margin: auto !important;
     justify-content: center;
     align-content: center;
     flex-direction: column;
@@ -7,7 +8,8 @@
     padding: 60px;
     color: black;
     width: 100%;
-    max-width: 420px;
+    max-width: 800px;
+    min-width: 420px
 }
 
 .title {

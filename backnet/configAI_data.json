@@ -11,7 +11,7 @@
   {
     "title": "AI3000142",
     "name": "Т Бойлер",
-    "description": "Температура воды в бойлере",
+    "description": "Температура воды в бойлере а еще это длинный дискрипшн",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,

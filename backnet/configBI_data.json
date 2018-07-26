@@ -20,7 +20,7 @@
   {
     "title": "BI3000236",
     "name": "Ракета",
-    "description": "Ракета description",
+    "description": "Ракета  а еще это длинный дискрипшн",
     "status": "alarm",
     "readOnly": true,
     "value": true,

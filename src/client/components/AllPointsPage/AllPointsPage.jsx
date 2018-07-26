@@ -11,7 +11,7 @@ import BinaryValuePage from '../BinaryValuePage/BinaryValuePage';
 
 
 export const AllPointsPage = (props) => (
-    <React.Fragment>
+    <div className={styles.container}>
         <h1>All Points Page </h1>
         <Grid container={true}>
             <Grid item={true}>
@@ -33,5 +33,5 @@ export const AllPointsPage = (props) => (
                 <AnalogValuePage />
             </Grid>
         </Grid>
-    </React.Fragment>
+    </div>
 );

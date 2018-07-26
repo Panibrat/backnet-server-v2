@@ -20,7 +20,7 @@
   {
     "title": "AV8",
     "name": "AO1",
-    "description": "Analog Aoutput 1",
+    "description": "Analog Aoutput 1  а еще это длинный дискрипшн",
     "status": "norm",
     "units": "%",
     "readOnly": true,

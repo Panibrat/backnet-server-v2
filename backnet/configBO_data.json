@@ -6,7 +6,7 @@
     "status": "alarm",
     "readOnly": false,
     "value": true,
-    "units": ["Off", "On"]
+    "units": ["Выкл", "Вкл"]
   },
     {
     "title": "BO3000248",
@@ -24,12 +24,12 @@
     "status": "alarm",
     "readOnly": false,
     "value": false,
-    "units": ["Off", "On"]
+    "units": ["Норма", "Авария"]
   },
     {
     "title": "BO3000250",
     "name": "Свет в коридоре",
-    "description": "Свет в коридоре",
+    "description": "Свет в коридоре  а еще это длинный дискрипшн",
     "status": "alarm",
     "readOnly": false,
     "value": true,
@@ -42,6 +42,6 @@
     "status": "norm",
     "readOnly": false,
     "value": false,
-    "units": ["Off", "On"]
+    "units": ["Норма", "Авария"]
   }
 ]

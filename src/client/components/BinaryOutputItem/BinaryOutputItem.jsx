@@ -33,8 +33,19 @@ export default class BinaryValueItem extends React.Component {
                         alt="button"
                         src={buttonImg}
                     />
-                    <ListItemText primary={this.props.name} secondary={this.props.description}/>
+                    <ListItemText
+                        className={styles.item}
+                        primary={this.props.name}
+                        secondary={this.props.description}/>
                     <div className={styles.data}>
+                        <div className={styles.value}>
+                            {
+                                this.props.value ?
+                                    this.props.units[1]
+                                    :
+                                    this.props.units[0]
+                            }
+                        </div>
                         <Switch
                             checked={this.props.value}
                             onChange={this.toggleOutput}

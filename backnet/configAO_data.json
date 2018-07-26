@@ -11,7 +11,7 @@
   {
     "title": "AO3000174",
     "name": "cT_SUP",
-    "description": "коррекция температуры подающего воздуха",
+    "description": "коррекция температуры подающего воздуха  а еще это длинный дискрипшн",
     "status": "norm",
     "units": "deg C",
     "readOnly": false,
