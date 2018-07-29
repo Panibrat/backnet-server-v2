@@ -34,7 +34,7 @@
     animation: rotating 1s linear infinite;
 }
 img {
-    width: 50px;
+    width: 75px;
 }
 
 .fab_box {
@@ -44,10 +44,10 @@ img {
 }
 .fan_rotor {
     position: relative;
-    left: 22px;
-    bottom: 61px;
+    left: 34px;
+    bottom: 91px;
 }
 
 .box_img {
-    width: 95px;
+    width: 145px;
 }

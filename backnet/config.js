@@ -1,5 +1,5 @@
-const IP = '192.168.0.222';
-const pollingTime = 500;
+const IP = '192.168.1.207';
+const pollingTime = 250;
 
 module.exports = {
     IP,

@@ -4,7 +4,7 @@ const BACnetClient = require('../BACnetClient');
 const writeBV = (bv) => {
     return new Promise((resolve, reject) => {
         const pointNumber = +(bv.title.substring(2));
-        const valueToSave = bv.value;
+        const valueToSave = bv.value ? 1: 0;
         BACnetClient.client.writeProperty(
             BACnetClient.ip, // IP device
             5,  //5 = Binary Value
@@ -20,6 +20,7 @@ const writeBV = (bv) => {
             (err, value) => { // NOTE: type changed to correct value
                 if (err) {
                     console.log('writePropertyError: ', err);
+                    console.log('valueToSave', valueToSave);
                     reject(err);
                 } else {
                     console.log('writeProperty: ', value);

@@ -10,7 +10,7 @@ export const Kkb = (props) => (
             src={kkbImage}
         />
         <div className={styles.fan_box}>
-            <Fan isOn={true} />
+            <Fan isOn={props.isOn} />
         </div>
     </div>
 );

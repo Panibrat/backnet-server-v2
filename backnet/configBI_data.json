@@ -1,7 +1,7 @@
 [
   {
-    "title": "BI3000234",
-    "name": "oKOTEL",
+    "title": "BI3000382",
+    "name": "oPV",
     "description": "oKOTEL description",
     "status": "alarm",
     "readOnly": true,
@@ -9,8 +9,8 @@
     "units": ["Off", "On"]
   },
   {
-    "title": "BI3000235",
-    "name": "Насос",
+    "title": "BI3000384",
+    "name": "oKKB",
     "description": "Насос description",
     "status": "alarm",
     "readOnly": true,
@@ -18,8 +18,8 @@
     "units": ["Off", "On"]
   },
   {
-    "title": "BI3000236",
-    "name": "Ракета",
+    "title": "BI3000386",
+    "name": "o4X VLV",
     "description": "Ракета  а еще это длинный дискрипшн",
     "status": "alarm",
     "readOnly": true,
@@ -27,8 +27,8 @@
     "units": ["Off", "On"]
   },
   {
-    "title": "BI3000237",
-    "name": "Полив",
+    "title": "BI3000392",
+    "name": "oDamperTop",
     "description": "Полив description",
     "status": "alarm",
     "readOnly": true,
@@ -36,21 +36,12 @@
     "units": ["Off", "On"]
   },
   {
-    "title": "BI3000238",
-    "name": "oKOTEL",
+    "title": "BI3000393",
+    "name": "oDamperButtom",
     "description": "oKOTEL description",
     "status": "alarm",
     "readOnly": true,
     "value": true,
     "units": ["Off", "On"]
-  },
-  {
-    "title": "BI3000239",
-    "name": "Ворота",
-    "description": "Ворота description",
-    "status": "norm",
-    "readOnly": true,
-    "value": true,
-    "units": ["Выкл", "Вкл"]
   }
 ]

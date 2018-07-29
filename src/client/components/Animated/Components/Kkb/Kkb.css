@@ -1,14 +1,14 @@
 .container {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 
 .kkb {
-    width: 100px;
+    width: 150px;
 }
 
 .fan_box {
     position: relative;
-    left: 9px;
-    bottom: 64px;
+    left: 13px;
+    bottom: 95px;
 }

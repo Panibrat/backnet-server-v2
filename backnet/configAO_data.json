@@ -1,19 +1,28 @@
 [
   {
-    "title": "AO3000173",
-    "name": "cT_OUT",
-    "description": "коррекция наружной температуры",
+    "title": "AO3000330",
+    "name": "sT_FOR_L",
+    "description": "Минимальная температура в канале",
     "status": "norm",
     "units": "deg C",
     "readOnly": false,
     "value": 0
   },
   {
-    "title": "AO3000174",
-    "name": "cT_SUP",
-    "description": "коррекция температуры подающего воздуха  а еще это длинный дискрипшн",
+    "title": "AO3000331",
+    "name": "sT_FOR_H",
+    "description": "Минимальная температура в канал а еще это длинный дискрипшн",
     "status": "norm",
     "units": "deg C",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000339",
+    "name": "sDAMPER_SUMMER",
+    "description": "Минимальное положение заслонки наружного воздуха летом",
+    "status": "norm",
+    "units": "%",
     "readOnly": false,
     "value": 0
   }

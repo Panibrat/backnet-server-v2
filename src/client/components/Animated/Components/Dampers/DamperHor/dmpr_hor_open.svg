@@ -1,0 +1,23 @@
+<svg width="20" height="45" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="22" height="47" id="canvas_background" fill="none"/>
+  <g id="canvasGrid" display="none">
+   <rect id="svg_2" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g transform="rotate(90 9.87747001647949,22.422466278076175) " id="svg_3">
+   <line fill="none" stroke="#bfbf00" stroke-width="3" x1="-10.65567" y1="22.422465" x2="30.41061" y2="22.422465" id="svg_1" stroke-linejoin="undefined" stroke-linecap="undefined"/>
+   <line fill="none" stroke-width="3" x1="24.782664" y1="13.70818" x2="24.782664" y2="31.13675" id="svg_7" stroke-linejoin="undefined" stroke-linecap="undefined" stroke="#000000"/>
+   <line fill="none" stroke-width="3" x1="9.058613" y1="13.70818" x2="9.058613" y2="31.13675" id="svg_8" stroke-linejoin="undefined" stroke-linecap="undefined" stroke="#000000"/>
+   <line stroke="#000000" fill="none" stroke-width="3" x1="-5.170932" y1="13.70818" x2="-5.170932" y2="31.13675" id="svg_9" stroke-linejoin="undefined" stroke-linecap="undefined"/>
+   <ellipse fill="#000000" stroke="#000000" stroke-width="3" cx="9.106232" cy="22.422464" id="svg_10" rx="1.190476" ry="1.190476"/>
+   <ellipse fill="#000000" stroke="#000000" stroke-width="3" cx="24.915753" cy="22.422465" id="svg_13" rx="1.190476" ry="1.190476"/>
+   <ellipse fill="#000000" stroke="#000000" stroke-width="3" cx="-5.465194" cy="22.422465" id="svg_14" rx="1.190476" ry="1.190476"/>
+  </g>
+ </g>
+</svg>

@@ -36,9 +36,9 @@
     "units": ["Off", "On"]
   },
   {
-    "title": "BV14",
-    "name": "BO5",
-    "description": "Relay Output 5",
+    "title": "BV3000760",
+    "name": "NAE55 test",
+    "description": "test",
     "status": "norm",
     "readOnly": false,
     "value": true,

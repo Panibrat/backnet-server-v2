@@ -22,6 +22,7 @@ import { AllPointsPage } from './components/AllPointsPage/AllPointsPage';
 import { Kkb } from './components/Animated/Components/Kkb/Kkb';
 import { SupplyFan } from './components/Animated/Components/SupplyFan/SupplyFan';
 import { AirUnit } from './components/Animated/Pages/AirUnit/AirUnit';
+import AhuPage from './components/Pages/AHU/AhuPage';
 
 import { Menu } from './components/Menu/Menu';
 
@@ -53,7 +54,7 @@ const App = () => (
                         <Route path="/binaryValues" component={BinaryValuePage} />
                         <Route path="/kkb" component={Kkb} />
                         <Route path="/supply-fan" component={SupplyFan} />
-                        <Route path="/air-unit" component={AirUnit} />
+                        <Route path="/air-unit" component={AhuPage} />
                         <Route path="/allPoints" component={AllPointsPage} />
                         <Route path="*" component={AnalogInputsPage} />
                     </Switch>

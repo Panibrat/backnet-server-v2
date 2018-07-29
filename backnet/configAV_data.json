@@ -1,26 +1,26 @@
 [
   {
-    "title": "AV0",
-    "name": "AI1",
-    "description": "Analog Input 1",
+    "title": "AV3000726",
+    "name": "PwrActiveTotal",
+    "description": "Потребляемая Мощьность Общая",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
     "value": 0
   },
   {
-    "title": "AV1",
-    "name": "AI1",
-    "description": "Analog Input 2",
+    "title": "AV3000715",
+    "name": "I1",
+    "description": "Ток 1й фазы",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
     "value": 0
   },
   {
-    "title": "AV8",
-    "name": "AO1",
-    "description": "Analog Aoutput 1  а еще это длинный дискрипшн",
+    "title": "AV3000719",
+    "name": "L1N",
+    "description": "Напряжение 1й фазы  а еще это длинный дискрипшн",
     "status": "norm",
     "units": "%",
     "readOnly": true,

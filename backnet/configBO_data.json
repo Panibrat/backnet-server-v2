@@ -1,47 +1,20 @@
 [
   {
-    "title": "BO3000247",
-    "name": "sSTR_SO",
-    "description": "sSTR_SO",
-    "status": "alarm",
+    "title": "BO3000409",
+    "name": "sSTART",
+    "description": "Старт Приточки",
+    "status": "norm",
     "readOnly": false,
     "value": true,
     "units": ["Выкл", "Вкл"]
   },
     {
-    "title": "BO3000248",
-    "name": "Розетка",
-    "description": "Розетка",
+    "title": "BO3000412",
+    "name": "sTrace",
+    "description": "Температура слежения",
     "status": "normal",
     "readOnly": false,
     "value": true,
-    "units": ["Off", "On"]
-  },
-    {
-    "title": "BO3000249",
-    "name": "Утюг",
-    "description": "Утюг",
-    "status": "alarm",
-    "readOnly": false,
-    "value": false,
-    "units": ["Норма", "Авария"]
-  },
-    {
-    "title": "BO3000250",
-    "name": "Свет в коридоре",
-    "description": "Свет в коридоре  а еще это длинный дискрипшн",
-    "status": "alarm",
-    "readOnly": false,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BO3000251",
-    "name": "Ракета",
-    "description": "Ракета",
-    "status": "norm",
-    "readOnly": false,
-    "value": false,
-    "units": ["Норма", "Авария"]
+    "units": ["Приток", "Комнаты"]
   }
 ]

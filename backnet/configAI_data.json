@@ -1,61 +1,61 @@
 [
   {
-    "title": "AI3000141",
-    "name": "T_OUT",
-    "description": "Outdoor temperature",
+    "title": "AI3000308",
+    "name": "iT_FOR",
+    "description": "T Supply temperature",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
     "value": 0
   },
   {
-    "title": "AI3000142",
-    "name": "Т Бойлер",
-    "description": "Температура воды в бойлере а еще это длинный дискрипшн",
+    "title": "AI3000307",
+    "name": "Т OUT",
+    "description": "Температура наружного воздуха а еще это длинный дискрипшн",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
     "value": 0
   },
   {
-    "title": "AI3000143",
-    "name": "Т Котла",
-    "description": "iT_OUT",
+    "title": "AI3000310",
+    "name": "T ISP",
+    "description": "Температура испарителя",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
     "value": 0
   },
   {
-    "title": "AI3000144",
-    "name": "Т Котла2",
-    "description": "iT_OUT",
+    "title": "AI3000309",
+    "name": "Т RET",
+    "description": "Температура в камере смешивания",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
     "value": 0
   },
   {
-    "title": "AI3000145",
-    "name": "Т Холодильник",
-    "description": "iT_OUT",
+    "title": "AI3000359",
+    "name": "Т компрессора",
+    "description": "Температура компрессора ККБ",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
     "value": 0
   },
   {
-    "title": "AI3000146",
-    "name": "H Bedroom",
-    "description": "iT_OUT",
+    "title": "AI3000312",
+    "name": "P Freon",
+    "description": "Давление фреона",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
     "value": 0
   },
   {
-    "title": "AI3000147",
-    "name": "T Bedroom",
+    "title": "AI3000311",
+    "name": "DP FAN",
     "description": "Long description",
     "status": "norm",
     "units": "deg C",
@@ -63,8 +63,8 @@
     "value": 0
   },
   {
-    "title": "AI3000148",
-    "name": "T Kitchen",
+    "title": "AI3000321",
+    "name": "SP T FOR",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",
@@ -72,8 +72,8 @@
     "value": 0
   },
   {
-    "title": "AI3000149",
-    "name": "Теплый пол холл",
+    "title": "AI3000366",
+    "name": "SP T RET",
     "description": "теплый пол на 1м этаже в ванной",
     "status": "norm",
     "units": "deg C",
@@ -81,17 +81,17 @@
     "value": 0
   },
   {
-    "title": "AI3000151",
-    "name": "Теплый пол зал",
+    "title": "AI3000313",
+    "name": "FAN SPEED",
     "description": "iT_OUT",
     "status": "norm",
-    "units": "deg C",
+    "units": "%",
     "readOnly": true,
     "value": 0
   },
   {
-    "title": "AI3000152",
-    "name": "Теплый пол холвывл",
+    "title": "AI3000314",
+    "name": "damperFreshLevel",
     "description": "iT_OUT",
     "status": "norm",
     "units": "deg C",

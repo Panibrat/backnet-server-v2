@@ -10,7 +10,7 @@ export const SupplyFan = (props) => (
                  src={fanBoxImage} alt="" />
         </div>
         <div className={styles.fan_rotor}>
-            <img className={styles.rotating}
+            <img className={props.isOn ? styles.rotating : null}
                  src={fanImage} alt="" />
         </div>
 

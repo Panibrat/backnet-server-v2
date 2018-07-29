@@ -6,7 +6,7 @@ const mongoDB = require('../../mongoDB/MongoDB');
 const writeBO = (bo) => {
     return new Promise((resolve, reject) => {
         const pointNumber = +(bo.title.substring(2));
-        const valueToSave = bo.value;
+        const valueToSave = bo.value ? 1 : 0;
         BACnetClient.client.writeProperty(
             BACnetClient.ip, // IP device
             4,  //4 = Binary Output
