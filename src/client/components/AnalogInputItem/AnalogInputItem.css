@@ -21,6 +21,8 @@
     justify-content: center;
     align-content: center;
     max-width: 120px;
+    min-width: 100px;
+    line-height: 0px;
 }
 
 .item {

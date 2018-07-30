@@ -1,72 +1,70 @@
 .container {
+    position: relative;
     margin: auto;
-    width: 720px;
-    height: 400px;
-    border: solid 1px grey;
+    width: 360px;
+    height: 250px;
+    border: 1px solid grey;
 }
 
 .air_unit {
     padding: 1px;
-    width: 720px;
+    width: 360px;
 }
 
 .kkb_box {
-    position: relative;
-    left: 100px;
-    bottom: 160px;
+    position: absolute;
+    left: 63px;
+    bottom: 26px;
     z-index: 5;
 }
 
 .supply_fan_box {
-    position: relative;
-    left: 375px;
-    bottom: 430px;
+    position: absolute;
+    left: 150px;
+    bottom: 120px;
 }
 
 .coil_box {
-    position: relative;
-    left: 200px;
-    bottom: 640px;
+    position: absolute;
+    left: 85px;
+    bottom: 83px;
 }
 
 .damper_bottom_box {
-    position: relative;
-    left: 562px;
-    bottom: 732px;
+    position: absolute;
+    left: 280px;
+    bottom: 105px;
 }
 
 .damper_top_box {
-    position: relative;
-    left: 562px;
-    bottom: 965px;
+    position: absolute;
+    left: 281px;
+    bottom: 190px;
 }
 
 .damper_fresh_box {
-    position: relative;
-    left: 694px;
-    bottom: 913px;
+    position: absolute;
+    left: 340px;
+    bottom: 137px;
 }
 
 .t_for_box {
-    position: relative;
-    left: 50px;
-    bottom: 850px;
+    position: absolute;
+    left: 35px;
+    bottom: 170px;
     background-color: #ffff7c;
-    width: 75px;
-    font-size: 24px;
-    padding: 2px;
+    font-size: 14px;
+    padding: 1px;
     border: solid 1px gray;
     font-weight: 600;
-    text-align: center;
 }
 
 .t_out_box {
-    position: relative;
-    left: 625px;
-    bottom: 1111px;
+    position: absolute;
+    left: 310px;
+    bottom: 211px;
     background-color: #7ccaff;
-    width: 75px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;
@@ -74,12 +72,11 @@
 }
 
 .t_ret_box {
-    position: relative;
-    left: 265px;
-    bottom: 1047px;
+    position: absolute;
+    left: 231px;
+    bottom: 170px;
     background-color: #ffff7c;
-    width: 75px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;
@@ -87,12 +84,11 @@
 }
 
 .sp_t_ret_box {
-    position: relative;
-    left: 265px;
-    bottom: 1117px;
+    position: absolute;
+    left: 231px;
+    bottom: 196px;
     background-color: #2aff2d;
-    width: 75px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;
@@ -100,12 +96,11 @@
 }
 
 .sp_t_for_box {
-    position: relative;
-    left: 50px;
-    bottom: 1152px;
+    position: absolute;
+    left: 35px;
+    bottom: 194px;
     background-color: #2aff2d;
-    width: 75px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;
@@ -113,12 +108,11 @@
 }
 
 .damper_level_box {
-    position: relative;
-    left: 630px;
-    bottom: 1047px;
+    position: absolute;
+    left: 307px;
+    bottom: 120px;
     background-color: #ffff7c;
-    width: 75px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;
@@ -126,12 +120,11 @@
 }
 
 .fan_pressue_box {
-    position: relative;
-    left: 376px;
-    bottom: 1187px;
+    position: absolute;
+    left: 150px;
+    bottom: 180px;
     background-color: #ffff7c;
-    width: 75px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;
@@ -139,12 +132,11 @@
 }
 
 .fan_speed_box {
-    position: relative;
-    left: 412px;
-    bottom: 1076px;
+    position: absolute;
+    left: 170px;
+    bottom: 100px;
     background-color: #ffff7c;
-    width: 75px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;
@@ -152,24 +144,22 @@
 }
 
 .freon_pressue_box {
-    position: relative;
-    left: 118px;
-    bottom: 1133px;
+    position: absolute;
+    left: 33px;
+    bottom: 107px;
     background-color: #ffff7c;
-    width: 90px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;
     text-align: center;
 }
 .t_evaparator_box {
-    position: relative;
-    left: 239px;
-    bottom: 1118px;
+    position: absolute;
+    left: 133px;
+    bottom: 75px;
     background-color: #ffff7c;
-    width: 75px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;
@@ -178,12 +168,11 @@
 }
 
 .t_copmpressor_box {
-    position: relative;
-    left: 238px;
-    bottom: 1086px;
+    position: absolute;
+    left: 133px;
+    bottom: 49px;
     background-color: #ffff7c;
-    width: 75px;
-    font-size: 24px;
+    font-size: 14px;
     padding: 2px;
     border: solid 1px gray;
     font-weight: 600;

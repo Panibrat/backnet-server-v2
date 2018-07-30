@@ -17,6 +17,7 @@ export class AnalogInputsPage extends React.Component {
                 <div className={styles.title}>
                     Analog Inputs Page
                 </div>
+                <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
                 { this.props.ai.map((ai) =>
                     <AnalogInputItem
                         key={ai.title}

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import List from '@material-ui/core/List';
 
 import  AirUnit  from '../../Animated/Pages/AirUnit/AirUnit';
-import AnalogInputsPage from '../../AnalogInputsPage/AnalogInputsPage';
+import  AirDuct  from '../../Animated/Pages/AirDuct/AirDuct';
 import { AnalogInputItem } from '../../AnalogInputItem/AnalogInputItem';
 
 export class AhuPage extends React.Component {
@@ -12,6 +12,8 @@ export class AhuPage extends React.Component {
         return (
             <div>
                 <h1>AHU page</h1>
+                <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
+                <AirDuct />
                 <AirUnit />
                 <List>
                     <AnalogInputItem {...this.props.tFor}/>

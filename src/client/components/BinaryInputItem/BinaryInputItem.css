@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    line-height: 0px;
 }
 
 .item {

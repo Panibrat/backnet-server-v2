@@ -1,0 +1,42 @@
+.container {
+    position: relative;
+    margin: auto;
+    width: 360px;
+    height: 200px;
+    border: 1px solid grey;
+}
+
+.air_duct {
+    padding: 1px;
+    width: 360px;
+}
+
+.damper_bottom_box {
+    position: absolute;
+    left: 280px;
+    bottom: 105px;
+}
+
+.damper_top_box {
+    position: absolute;
+    left: 281px;
+    bottom: 190px;
+}
+
+.damper_fresh_box {
+    position: absolute;
+    left: 340px;
+    bottom: 137px;
+}
+
+.damper_level_box {
+    position: absolute;
+    left: 307px;
+    bottom: 120px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}

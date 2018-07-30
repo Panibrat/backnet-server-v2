@@ -18,6 +18,7 @@ export class AnalogValuePage extends React.Component {
                 <div className={styles.title}>
                     Analog Value Page
                 </div>
+                <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
                 { this.props.av.map((av) =>
                     <AnalogValueItem
                         key={av.title}
