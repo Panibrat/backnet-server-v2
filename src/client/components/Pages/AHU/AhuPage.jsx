@@ -4,16 +4,18 @@ import { connect } from 'react-redux';
 import List from '@material-ui/core/List';
 
 import  AirUnit  from '../../Animated/Pages/AirUnit/AirUnit';
-import  AirDuct  from '../../Animated/Pages/AirDuct/AirDuct';
 import { AnalogInputItem } from '../../AnalogInputItem/AnalogInputItem';
+
+import styles from './AhuPage.css';
 
 export class AhuPage extends React.Component {
     render() {
         return (
-            <div>
-                <h1>AHU page</h1>
+            <div className={styles.container}>
+                <div className={styles.title}>
+                    AHU page
+                </div>
                 <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
-                <AirDuct />
                 <AirUnit />
                 <List>
                     <AnalogInputItem {...this.props.tFor}/>

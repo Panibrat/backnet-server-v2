@@ -25,5 +25,50 @@
     "units": "%",
     "readOnly": false,
     "value": 0
+  },
+  {
+    "title": "AO3000354",
+    "name": "sDAMPER_ZAL_RIGHT",
+    "description": "Зал (Родители). Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000353",
+    "name": "sDAMPER_K+B_RIGHT",
+    "description": "Кабинет + Спальня (Родители). Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000355",
+    "name": "sDAMPER_ZAL_LEFT",
+    "description": "Зал. Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000351",
+    "name": "sDAMPER_K+B_LEFT",
+    "description": "Кабинет + Спальня. Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000352",
+    "name": "sDAMPER_D1+D2",
+    "description": "Детские. Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
   }
 ]

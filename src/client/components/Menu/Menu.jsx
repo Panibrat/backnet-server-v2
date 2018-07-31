@@ -47,9 +47,9 @@ export const Menu = () => (
                 KKB
             </Button>
         </NavLink>
-        <NavLink to="/supply-fan">
+        <NavLink to="/dampers">
             <Button variant="outlined">
-                S.FAN
+                DAMPERS
             </Button>
         </NavLink>
         <NavLink to="/air-unit">

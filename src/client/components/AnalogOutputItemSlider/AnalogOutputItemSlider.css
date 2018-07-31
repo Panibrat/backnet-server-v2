@@ -1,0 +1,36 @@
+.container {
+    color: gray;
+}
+
+.value {
+    font-size: x-large;
+    flex: 1;
+    color: black;
+    font-weight: 400;
+}
+
+.units {
+    font-size: medium;
+    text-align: center;
+    flex: 1;
+    min-width: 40px;
+}
+
+.data {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    max-width: 120px;
+    margin: 5px;
+    line-height: 0px;
+}
+
+.item {
+    max-width: 200px;
+}
+
+.dialog_value {
+    text-align: center;
+    color: #aaaaaa;
+}
