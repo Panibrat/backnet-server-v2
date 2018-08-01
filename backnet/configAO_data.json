@@ -4,7 +4,7 @@
     "name": "sT_FOR_L",
     "description": "Минимальная температура в канале",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": false,
     "value": 0
   },
@@ -13,7 +13,7 @@
     "name": "sT_FOR_H",
     "description": "Минимальная температура в канал а еще это длинный дискрипшн",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": false,
     "value": 0
   },
@@ -68,6 +68,60 @@
     "description": "Детские. Положение воздушной заслонки",
     "status": "norm",
     "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000332",
+    "name": "setTemperatureDayHeat",
+    "description": "Уставка День на Обогрев",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000333",
+    "name": "setTemperatureNightHeat",
+    "description": "Уставка Ночь на Обогрев",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000334",
+    "name": "setTemperatureDayCool",
+    "description": "Уставка День на Холод",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000335",
+    "name": "setTemperatureNightCool",
+    "description": "Уставка Ночь на Холод",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000338",
+    "name": "setDamperMinWinter",
+    "description": "Свежий воздух Зимой",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000339",
+    "name": "setDamperMinSummer",
+    "description": "Свежий воздух Летом",
+    "status": "norm",
+    "units": "℃",
     "readOnly": false,
     "value": 0
   }

@@ -89,13 +89,13 @@ export class AnalogOutputItemSlider extends React.Component {
                             onClose={this.handleClose}
                         >
                             <DialogTitle>Положение заслонки</DialogTitle>
-                            <h1 className={styles.dialog_value}>{this.state.value}%</h1>
+                            <h1 className={styles.dialog_value}>{this.state.value.toFixed(1)}{this.props.units}</h1>
                             <DialogContent>
                                 <Slider
                                     value={this.state.value}
-                                    min={0}
-                                    max={100}
-                                    step={5}
+                                    min={this.props.minValue}
+                                    max={this.props.maxValue}
+                                    step={this.props.stepValue}
                                     onChange={this.handleChange} />
                             </DialogContent>
                             <DialogActions>

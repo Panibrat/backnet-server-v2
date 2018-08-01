@@ -11,7 +11,7 @@ import styles from './BinaryOutputItem.css';
 
 import SocketIO from '../../services/SocketService';
 
-export default class BinaryValueItem extends React.Component {
+export default class BinaryOutputItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = { isOn: false };
@@ -26,6 +26,10 @@ export default class BinaryValueItem extends React.Component {
     }
 
     render() {
+        const units = this.props.units ?
+            this.props.units
+            :
+            ['log_off', 'log_on'];
         return (
             <React.Fragment>
                 <ListItem className={styles.container}>
@@ -41,9 +45,9 @@ export default class BinaryValueItem extends React.Component {
                         <div className={styles.value}>
                             {
                                 this.props.value ?
-                                    this.props.units[1]
+                                    units[1]
                                     :
-                                    this.props.units[0]
+                                    units[0]
                             }
                         </div>
                         <Switch

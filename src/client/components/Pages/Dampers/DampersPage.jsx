@@ -18,11 +18,41 @@ export class DampersPage extends React.Component {
                 <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
                 <AirDuct />
                 <List>
-                    <AnalogOutputItemSlider {...this.props.sD_L_K_B}/>
-                    <AnalogOutputItemSlider {...this.props.sD_D1_D2}/>
-                    <AnalogOutputItemSlider {...this.props.sD_R_K_B}/>
-                    <AnalogOutputItemSlider {...this.props.sD_R_ZAL}/>
-                    <AnalogOutputItemSlider {...this.props.sD_L_ZAL}/>
+                    <AnalogOutputItemSlider
+                        {...this.props.sD_L_K_B}
+                        minValue={0}
+                        maxValue={100}
+                        stepValue={5}
+                        units={'%'}
+                    />
+                    <AnalogOutputItemSlider
+                        {...this.props.sD_D1_D2}
+                        minValue={0}
+                        maxValue={100}
+                        stepValue={5}
+                        units={'%'}
+                    />
+                    <AnalogOutputItemSlider
+                        {...this.props.sD_R_K_B}
+                        minValue={0}
+                        maxValue={100}
+                        stepValue={5}
+                        units={'%'}
+                    />
+                    <AnalogOutputItemSlider
+                        {...this.props.sD_R_ZAL}
+                        minValue={0}
+                        maxValue={100}
+                        stepValue={5}
+                        units={'%'}
+                    />
+                    <AnalogOutputItemSlider
+                        {...this.props.sD_L_ZAL}
+                        minValue={0}
+                        maxValue={100}
+                        stepValue={5}
+                        units={'%'}
+                    />
                 </List>
             </div>
         );

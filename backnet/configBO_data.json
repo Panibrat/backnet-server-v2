@@ -16,5 +16,32 @@
     "readOnly": false,
     "value": true,
     "units": ["Приток", "Комнаты"]
+  },
+    {
+    "title": "BO3000411",
+    "name": "SEASON",
+    "description": "Режим работы",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Охлаждение", "Нагрев"]
+  },
+    {
+    "title": "BO3000418",
+    "name": "Управление",
+    "description": "Управлять с пульта или с телефона",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["BMS", "NRM"]
+  },
+    {
+    "title": "BO3000421",
+    "name": "T_CONTROL",
+    "description": "Выключение при достижении температуры",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Всегда вкл", "Автовыкл"]
   }
 ]

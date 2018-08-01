@@ -4,7 +4,7 @@
     "name": "iT_FOR",
     "description": "T Supply temperature",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -13,7 +13,7 @@
     "name": "Т OUT",
     "description": "Температура наружного воздуха а еще это длинный дискрипшн",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -22,7 +22,7 @@
     "name": "T ISP",
     "description": "Температура испарителя",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -31,7 +31,7 @@
     "name": "Т RET",
     "description": "Температура в камере смешивания",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -40,7 +40,7 @@
     "name": "Т компрессора",
     "description": "Температура компрессора ККБ",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -49,7 +49,7 @@
     "name": "P Freon",
     "description": "Давление фреона",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -58,7 +58,7 @@
     "name": "DP FAN",
     "description": "Long description",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -67,7 +67,7 @@
     "name": "SP T FOR",
     "description": "iT_OUT",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -76,7 +76,7 @@
     "name": "SP T RET",
     "description": "теплый пол на 1м этаже в ванной",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -94,7 +94,7 @@
     "name": "damperFreshLevel",
     "description": "iT_OUT",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -103,7 +103,7 @@
     "name": "Теплый пол холл",
     "description": "iT_OUT",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   },
@@ -112,7 +112,7 @@
     "name": "Теплый пол холл",
     "description": "iT_SUP",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": true,
     "value": 0
   }
