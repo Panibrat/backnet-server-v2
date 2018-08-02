@@ -12,6 +12,7 @@ export const AnalogInputItem = (props) => (
     <React.Fragment>
         <ListItem className={styles.container}>
             <Avatar
+                className={styles.avatar}
                 alt="term"
                 src={thermometerImg}
             />

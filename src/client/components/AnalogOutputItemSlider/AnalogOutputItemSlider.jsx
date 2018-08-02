@@ -60,6 +60,7 @@ export class AnalogOutputItemSlider extends React.Component {
             <React.Fragment>
                 <ListItem className={styles.container}>
                     <Avatar
+                        className={styles.avatar}
                         alt="term"
                         src={voltageImg}
                     />
@@ -69,15 +70,19 @@ export class AnalogOutputItemSlider extends React.Component {
                         secondary={this.props.description}/>
                     <div className={styles.data}>
                         <div className={styles.value}>
-                            {this.props.value}
+                            {Number(this.props.value).toFixed(1)}
                         </div>
                         <div className={styles.units}>
                             {this.props.units}
                         </div>
                     </div>
                     <div>
-                        <Button onClick={this.handleClickOpen} color="primary">
+                        <Button
+                            className={styles.button}
+                            onClick={this.handleClickOpen} c
+                            olor="primary">
                             <Avatar
+                                className={styles.avatar}
                                 alt="term"
                                 src={settingsImg}
                             />

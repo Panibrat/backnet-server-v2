@@ -17,3 +17,13 @@
     text-align: center;
     padding: 20px;
 }
+
+.values_container {
+    /*display: flex;*/
+    justify-content: center;
+    width: 100%;
+}
+
+.list_type {
+    flex: 1;
+}

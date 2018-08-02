@@ -26,3 +26,9 @@
 .item {
     max-width: 200px;
 }
+
+.avatar {
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 2%!important;
+}

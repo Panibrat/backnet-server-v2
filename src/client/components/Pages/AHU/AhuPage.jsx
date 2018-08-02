@@ -5,6 +5,8 @@ import List from '@material-ui/core/List';
 
 import AirUnit  from '../../Animated/Pages/AirUnit/AirUnit';
 import { AnalogInputItem } from '../../AnalogInputItem/AnalogInputItem';
+import { BinaryInputItem } from '../../BinaryInputItem/BinaryInputItem';
+
 import  BinaryOutputItem  from '../../BinaryOutputItem/BinaryOutputItem';
 import { AnalogOutputItemSlider } from '../../AnalogOutputItemSlider/AnalogOutputItemSlider';
 
@@ -19,60 +21,73 @@ export class AhuPage extends React.Component {
                 </div>
                 <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
                 <AirUnit />
-                <List>
-                    <BinaryOutputItem {...this.props.sSTART} />
-                    <BinaryOutputItem {...this.props.sSEASON} />
-                    <BinaryOutputItem {...this.props.sLOCAL} />
-                    <BinaryOutputItem {...this.props.sALWAYS} />
-                    <AnalogOutputItemSlider
-                        {...this.props.setTemperatureDayHeat}
-                        minValue={12}
-                        maxValue={28}
-                        stepValue={0.5}
-                        units={'℃'}
-                    />
-                    <AnalogOutputItemSlider
-                        {...this.props.setTemperatureNightHeat}
-                        minValue={12}
-                        maxValue={28}
-                        stepValue={0.5}
-                        units={'℃'}
-                    />
-                    <AnalogOutputItemSlider
-                        {...this.props.setTemperatureDayCool}
-                        minValue={12}
-                        maxValue={28}
-                        stepValue={0.5}
-                        units={'℃'}
-                    />
-                    <AnalogOutputItemSlider
-                        {...this.props.setTemperatureNightCool}
-                        minValue={12}
-                        maxValue={28}
-                        stepValue={0.5}
-                        units={'℃'}
-                    />
-                    <AnalogOutputItemSlider
-                        {...this.props.setDamperMinWinter}
-                        minValue={0}
-                        maxValue={100}
-                        stepValue={5}
-                        units={'%'}
-                    />
-                    <AnalogOutputItemSlider
-                        {...this.props.setDamperMinSummer}
-                        minValue={0}
-                        maxValue={100}
-                        stepValue={5}
-                        units={'%'}
-                    />
-                    <AnalogInputItem {...this.props.tFor}/>
-                    <AnalogInputItem {...this.props.tOut}/>
-                    <AnalogInputItem {...this.props.tRet}/>
-                    <AnalogInputItem {...this.props.tIsp}/>
-                    <AnalogInputItem {...this.props.tComp}/>
-                    <AnalogInputItem {...this.props.pFreon}/>
-                </List>
+                <div className={styles.values_container}>
+                    <List className={styles.list_type}>
+                        <BinaryOutputItem {...this.props.sSTART} />
+                        <BinaryOutputItem {...this.props.sSEASON} />
+                        <BinaryOutputItem {...this.props.sLOCAL} />
+                        <BinaryOutputItem {...this.props.sALWAYS} />
+                    </List>
+                    <List className={styles.list_type}>
+                        <AnalogOutputItemSlider
+                            {...this.props.setTemperatureDayHeat}
+                            minValue={12}
+                            maxValue={28}
+                            stepValue={0.5}
+                            units={'℃'}
+                        />
+                        <AnalogOutputItemSlider
+                            {...this.props.setTemperatureNightHeat}
+                            minValue={12}
+                            maxValue={28}
+                            stepValue={0.5}
+                            units={'℃'}
+                        />
+                        <AnalogOutputItemSlider
+                            {...this.props.setTemperatureDayCool}
+                            minValue={12}
+                            maxValue={28}
+                            stepValue={0.5}
+                            units={'℃'}
+                        />
+                        <AnalogOutputItemSlider
+                            {...this.props.setTemperatureNightCool}
+                            minValue={12}
+                            maxValue={28}
+                            stepValue={0.5}
+                            units={'℃'}
+                        />
+                        <AnalogOutputItemSlider
+                            {...this.props.setDamperMinWinter}
+                            minValue={0}
+                            maxValue={100}
+                            stepValue={5}
+                            units={'%'}
+                        />
+                        <AnalogOutputItemSlider
+                            {...this.props.setDamperMinSummer}
+                            minValue={0}
+                            maxValue={100}
+                            stepValue={5}
+                            units={'%'}
+                        />
+                    </List>
+                    <List className={styles.list_type}>
+                        <AnalogInputItem {...this.props.tFor} />
+                        <AnalogInputItem {...this.props.tOut} />
+                        <AnalogInputItem {...this.props.tRet} />
+                        <AnalogInputItem {...this.props.tIsp} />
+                        <AnalogInputItem {...this.props.tComp} />
+                        <AnalogInputItem {...this.props.pFreon} />
+                    </List>
+                    <List>
+                        <BinaryInputItem {...this.props.oKKB} />
+                        <BinaryInputItem {...this.props.oFan} />
+                        <BinaryInputItem {...this.props.oHeat} />
+                        <BinaryInputItem {...this.props.oDamperTop} />
+                        <BinaryInputItem {...this.props.oDamperButtom} />
+                    </List>
+                </div>
             </div>
         );
     }
@@ -80,14 +95,11 @@ export class AhuPage extends React.Component {
 
 const findPoint = (point, pointsList) => {
     const index = pointsList.findIndex(item => item.title === point);
-    if (point === 'BO3000409') {
-        console.log('pointsList', pointsList);
-    }
     if (index === -1) {
-        return 99
+        return 99;
     }
-    return pointsList[index]
-}
+    return pointsList[index];
+};
 
 const mapStateToProps = (store) => {
     return {
@@ -107,6 +119,11 @@ const mapStateToProps = (store) => {
         sSEASON: findPoint('BO3000411', store.bo),
         sLOCAL: findPoint('BO3000418', store.bo),
         sALWAYS: findPoint('BO3000421', store.bo),
+        oKKB: findPoint('BI3000384', store.bi),
+        oFan: findPoint('BI3000382', store.bi),
+        oHeat: findPoint('BI3000386', store.bi),
+        oDamperTop: findPoint('BI3000392', store.bi),
+        oDamperButtom: findPoint('BI3000393', store.bi)
     };
 };
 

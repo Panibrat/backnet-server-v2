@@ -19,7 +19,7 @@ export default class BinaryOutputItem extends React.Component {
     }
 
     toggleOutput() {
-        SocketIO.writeBV({
+        SocketIO.writeBO({
             title: this.props.title,
             value: !this.props.value
         });
@@ -34,6 +34,7 @@ export default class BinaryOutputItem extends React.Component {
             <React.Fragment>
                 <ListItem className={styles.container}>
                     <Avatar
+                        className={styles.avatar}
                         alt="button"
                         src={buttonImg}
                     />
@@ -53,6 +54,7 @@ export default class BinaryOutputItem extends React.Component {
                         <Switch
                             checked={this.props.value}
                             onChange={this.toggleOutput}
+                            color='primary'
                         />
                     </div>
                 </ListItem>

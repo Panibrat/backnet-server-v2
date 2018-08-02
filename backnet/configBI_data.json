@@ -2,7 +2,7 @@
   {
     "title": "BI3000382",
     "name": "oPV",
-    "description": "oKOTEL description",
+    "description": "Приточный Вентилятор",
     "status": "alarm",
     "readOnly": true,
     "value": true,
@@ -11,7 +11,7 @@
   {
     "title": "BI3000384",
     "name": "oKKB",
-    "description": "Насос description",
+    "description": "Наружный Блок ККБ",
     "status": "alarm",
     "readOnly": true,
     "value": true,
@@ -20,7 +20,7 @@
   {
     "title": "BI3000386",
     "name": "o4X VLV",
-    "description": "Ракета  а еще это длинный дискрипшн",
+    "description": "Клапан Теплового Насоса",
     "status": "alarm",
     "readOnly": true,
     "value": true,

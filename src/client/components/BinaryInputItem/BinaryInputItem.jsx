@@ -13,6 +13,7 @@ export const BinaryInputItem = (props) => (
     <React.Fragment>
         <ListItem className={styles.container}>
             <Avatar
+                className={styles.avatar}
                 alt="switch"
                 src={props.value ? switchOnImg : switchOffImg}
             />
@@ -22,9 +23,14 @@ export const BinaryInputItem = (props) => (
                 secondary={props.description}
             />
             <div className={styles.data}>
-                <div className={styles.value}>
-                    {props.value ? props.units[1] : props.units[0]}
-                </div>
+                {
+                    props.units ?
+                        <div className={styles.value}>
+                            {props.value ? props.units[1] : props.units[0]}
+                        </div>
+                        :
+                        null
+                }
             </div>
         </ListItem>
         <li>
