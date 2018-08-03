@@ -42,9 +42,9 @@ export const Menu = () => (
                 All Points
             </Button>
         </NavLink>
-        <NavLink to="/kkb">
+        <NavLink to="/hf-right">
             <Button variant="outlined">
-                KKB
+                HeatFloor-R
             </Button>
         </NavLink>
         <NavLink to="/dampers">

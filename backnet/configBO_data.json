@@ -43,5 +43,50 @@
     "readOnly": false,
     "value": true,
     "units": ["Пост", "Авто"]
+  },
+     {
+    "title": "BO3000267",
+    "name": "sHF_AUTO",
+    "description": "Уставка темпрературы подачи",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Ручное", "Авто"]
+  },
+    {
+    "title": "BO3000268",
+    "name": "sSTR_KITCHEN",
+    "description": "Теплый пол в кухне",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+    {
+    "title": "BO3000269",
+    "name": "sSTR_WC1",
+    "description": "Теплый пол в с/у1",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+    {
+    "title": "BO3000270",
+    "name": "sSTR_WC2",
+    "description": "Теплый пол в с/у2",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+    {
+    "title": "BO3000271",
+    "name": "sSTR_HALL",
+    "description": "Теплый пол в тамбуре",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
   }
 ]

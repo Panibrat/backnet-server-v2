@@ -124,5 +124,50 @@
     "units": "℃",
     "readOnly": false,
     "value": 0
+  },
+  {
+    "title": "AO3000219",
+    "name": "sT_HF_FOR",
+    "description": "Ручная уставка подачи теплого пола",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000222",
+    "name": "sHF_WC1",
+    "description": "Клапан теплого пола с/у1",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000223",
+    "name": "sHF_WC2",
+    "description": "Клапан теплого пола с/у2",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000224",
+    "name": "sHF_KITCHEN",
+    "description": "Клапан теплого пола кухни",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000225",
+    "name": "sHF_HALL",
+    "description": "Клапан теплого пола тамбура",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
   }
 ]

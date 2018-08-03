@@ -19,7 +19,7 @@ import BinaryOutputPage from './components/BinaryOutputPage/BinaryOutputPage';
 import BinaryValuePage from "./components/BinaryValuePage/BinaryValuePage";
 import { AllPointsPage } from './components/AllPointsPage/AllPointsPage';
 
-import { Kkb } from './components/Animated/Components/Kkb/Kkb';
+import HeatFloorRightPage from './components/Pages/HeatFloorRight/HeatFloorRight';
 import AhuPage from './components/Pages/AHU/AhuPage';
 import DampersPage from './components/Pages/Dampers/DampersPage';
 
@@ -51,7 +51,7 @@ const App = () => (
                         <Route path="/binaryInputs" component={BinaryInputPage} />
                         <Route path="/binaryOutputs" component={BinaryOutputPage} />
                         <Route path="/binaryValues" component={BinaryValuePage} />
-                        <Route path="/kkb" component={Kkb} />
+                        <Route path="/hf-right" component={HeatFloorRightPage} />
                         <Route path="/dampers" component={DampersPage} />
                         <Route path="/air-unit" component={AhuPage} />
                         <Route path="/allPoints" component={AllPointsPage} />

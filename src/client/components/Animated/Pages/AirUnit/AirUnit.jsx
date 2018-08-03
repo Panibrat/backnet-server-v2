@@ -25,7 +25,7 @@ export const AirUnit = (props) => (
             <Coil isHeat={props.oHeat} />
         </div>
         <div className={styles.t_for_box}>
-            {props.tFor}C
+            {props.tFor}℃
         </div>
         <div className={styles.damper_bottom_box}>
             <DamperVer isOpen={props.oDamperButtom}/>
@@ -37,16 +37,16 @@ export const AirUnit = (props) => (
             <DamperHor isOpen={props.damperFreshLevel > 5}/>
         </div>
         <div className={styles.t_out_box}>
-            {props.tOut}C
+            {props.tOut}℃
         </div>
         <div className={styles.t_ret_box}>
-            {props.tRet}C
+            {props.tRet}℃
         </div>
         <div className={styles.sp_t_ret_box}>
-            {props.spTRet}C
+            {props.spTRet}℃
         </div>
         <div className={styles.sp_t_for_box}>
-            {props.spTFor}C
+            {props.spTFor}℃
         </div>
         <div className={styles.damper_level_box}>
             {props.damperFreshLevel}%
@@ -61,10 +61,10 @@ export const AirUnit = (props) => (
             {props.pFreon}bar
         </div>
         <div className={styles.t_evaparator_box}>
-            {props.tIsp}C
+            {props.tIsp}℃
         </div>
         <div className={styles.t_copmpressor_box}>
-            {props.tComp}C
+            {props.tComp}℃
         </div>
     </div>
 );

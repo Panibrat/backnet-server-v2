@@ -43,5 +43,14 @@
     "readOnly": true,
     "value": true,
     "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000261",
+    "name": "oPUMP_HF",
+    "description": "Насос теплого пола",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
   }
 ]
