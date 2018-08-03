@@ -88,5 +88,23 @@
     "readOnly": false,
     "value": true,
     "units": ["Выкл", "Вкл"]
+  },
+    {
+    "title": "BO3000262",
+    "name": "sSTR_SO",
+    "description": "Радиаторное отопление",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3000263",
+    "name": "sSO_AUTO",
+    "description": "Уставка темпрературы подачи",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Ручное", "Авто"]
   }
 ]

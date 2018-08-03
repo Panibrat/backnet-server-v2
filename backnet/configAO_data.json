@@ -169,5 +169,14 @@
     "units": "%",
     "readOnly": false,
     "value": 0
+  },
+  {
+    "title": "AO3000206",
+    "name": "sT_SO_FOR",
+    "description": "Ручная уставка подачи радиаторного отопления",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
   }
 ]

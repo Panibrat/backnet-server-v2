@@ -178,5 +178,104 @@
     "units": "%",
     "readOnly": true,
     "value": 0
+  },
+  {
+    "title": "AI3000159",
+    "name": "iT_SO_FO",
+    "description": "Температура на гребенке радиаторного отопления",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000169",
+    "name": "oSP_SO",
+    "description": "Уставка подачи радиаторного отопления",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000161",
+    "name": "oHEAT_SO",
+    "description": "Клапан радиаторного отопления",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000172",
+    "name": "iT_ZAL",
+    "description": "Температура в зале",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000187",
+    "name": "iT_CABINET",
+    "description": "Температура в кабинете",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000180",
+    "name": "iT_BEDROOM",
+    "description": "Температура в спальне",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000164",
+    "name": "oSO_ZAL",
+    "description": "Клапан радиатора зала",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000163",
+    "name": "oSO_KITCH",
+    "description": "Клапан радиатора кухни",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000165",
+    "name": "oSO_BEDROOM",
+    "description": "Клапан радиатора спальни",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000166",
+    "name": "oSO_CABINET",
+    "description": "Клапан радиатора кабинета",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000162",
+    "name": "oSO_BASE",
+    "description": "Клапан радиатора подвала",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 0
   }
 ]

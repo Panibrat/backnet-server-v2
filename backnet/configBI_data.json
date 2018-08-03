@@ -52,5 +52,14 @@
     "readOnly": true,
     "value": true,
     "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000247",
+    "name": "oPUMP_SO",
+    "description": "Насос радиаторного отопления",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
   }
 ]

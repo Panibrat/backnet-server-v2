@@ -1,0 +1,197 @@
+.container {
+    position: relative;
+    margin: auto;
+    width: 360px;
+    height: 250px;
+    border: 1px solid grey;
+}
+
+.base_img {
+    padding: 1px;
+    width: 359px;
+}
+
+.valve_level_box {
+    position: absolute;
+    left: 304px;
+    bottom: 57px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
+
+.t_for_box {
+    position: absolute;
+    left: 304px;
+    bottom: 164px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
+
+.t_zal_box {
+    position: absolute;
+    left: 7px;
+    bottom: 192px;
+    background-color: #e0e8ff;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
+
+.t_kitchen_box {
+    position: absolute;
+    left: 63px;
+    bottom: 192px;
+    background-color: #e0e8ff;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
+
+.t_cabinet_box {
+    position: absolute;
+    left: 179px;
+    bottom: 192px;
+    background-color: #e0e8ff;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
+
+.t_bedroom_box {
+    position: absolute;
+    left: 120px;
+    bottom: 192px;
+    background-color: #e0e8ff;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
+
+.sp_t_for_box {
+    position: absolute;
+    left: 304px;
+    bottom: 190px;
+    background-color: #2aff2d;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+.zal_level_box {
+    position: absolute;
+    left: 7px;
+    bottom: 120px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 1px;
+    border: solid 1px gray;
+    font-weight: 600;
+}
+
+.kitchen_level_box {
+    position: absolute;
+    left: 63px;
+    bottom: 120px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 1px;
+    border: solid 1px gray;
+    font-weight: 600;
+}
+
+.bedroom_level_box {
+    position: absolute;
+    left: 120px;
+    bottom: 120px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 1px;
+    border: solid 1px gray;
+    font-weight: 600;
+}
+
+.cabinet_level_box {
+    position: absolute;
+    left: 179px;
+    bottom: 120px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 1px;
+    border: solid 1px gray;
+    font-weight: 600;
+}
+
+.basement_level_box {
+    position: absolute;
+    left: 237px;
+    bottom: 120px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 1px;
+    border: solid 1px gray;
+    font-weight: 600;
+}
+
+.zal_lable {
+    position: absolute;
+    left: 8px;
+    bottom: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #aaaaaa;
+}
+
+.kitchen_lable {
+    position: absolute;
+    left: 63px;
+    bottom: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #aaaaaa;
+}
+
+.bedroom_lable {
+    position: absolute;
+    left: 117px;
+    bottom: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #aaaaaa;
+}
+
+.cabinet_lable {
+    position: absolute;
+    left: 178px;
+    bottom: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #aaaaaa;
+}
+
+.basement_lable {
+    position: absolute;
+    left: 240px;
+    bottom: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #aaaaaa;
+}

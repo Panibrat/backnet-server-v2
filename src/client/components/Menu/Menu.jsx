@@ -44,7 +44,12 @@ export const Menu = () => (
         </NavLink>
         <NavLink to="/hf-right">
             <Button variant="outlined">
-                HeatFloor-R
+                HF-R
+            </Button>
+        </NavLink>
+        <NavLink to="/so-right">
+            <Button variant="outlined">
+                SO-R
             </Button>
         </NavLink>
         <NavLink to="/dampers">
