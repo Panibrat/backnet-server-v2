@@ -1,80 +1,8 @@
 [
   {
-    "title": "BV10",
-    "name": "BO1",
-    "description": "Relay Output 1",
-    "status": "norm",
-    "readOnly": false,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BV11",
-    "name": "BO2",
-    "description": "Relay Output 2",
-    "status": "norm",
-    "readOnly": false,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BV12",
-    "name": "BO3",
-    "description": "Relay Output 3  а еще это длинный дискрипшн",
-    "status": "norm",
-    "readOnly": false,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BV13",
-    "name": "BO4",
-    "description": "Relay Output 4",
-    "status": "norm",
-    "readOnly": false,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
     "title": "BV3000760",
     "name": "NAE55 test",
     "description": "test",
-    "status": "norm",
-    "readOnly": false,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BV15",
-    "name": "BO6",
-    "description": "Relay Output 6",
-    "status": "norm",
-    "readOnly": false,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BV16",
-    "name": "BO7",
-    "description": "Relay Output 7",
-    "status": "norm",
-    "readOnly": false,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BV17",
-    "name": "BO8",
-    "description": "Relay Output 8",
-    "status": "norm",
-    "readOnly": false,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BV3000999",
-    "name": "Свет в коридоре",
-    "description": "sSO_AUTOqweqweqwe",
     "status": "norm",
     "readOnly": false,
     "value": true,

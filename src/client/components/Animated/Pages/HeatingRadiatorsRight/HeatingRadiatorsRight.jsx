@@ -44,10 +44,10 @@ export const HeatingRadiatorsRight = (props) => (
             {props.oSO_BEDROOM}%
         </div>
         <div className={styles.cabinet_level_box}>
-            {props.oSO_BASE}%
+            {props.oSO_CABINET}%
         </div>
         <div className={styles.basement_level_box}>
-            {props.oSO_CABINET}%
+            {props.oSO_BASE}%
         </div>
         <div className={styles.zal_lable}>
             зал
@@ -83,7 +83,7 @@ const mapStateToProps = (store) => {
         iT_KITCHEN: findPoint('AI3000160', store.ai),
         iT_ZAL: findPoint('AI3000172', store.ai),
         iT_CABINET: findPoint('AI3000187', store.ai),
-        iT_BEDROOM: findPoint('AI3000180', store.ai),
+        iT_BEDROOM: findPoint('AI3000179', store.ai),
         oSO_ZAL: findPoint('AI3000164', store.ai),
         oSO_KITCH: findPoint('AI3000163', store.ai),
         oSO_BEDROOM: findPoint('AI3000165', store.ai),

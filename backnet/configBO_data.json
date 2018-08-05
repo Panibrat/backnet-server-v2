@@ -33,7 +33,7 @@
     "status": "normal",
     "readOnly": false,
     "value": true,
-    "units": ["BMS", "NRM"]
+    "units": ["NRM", "BMS"]
   },
     {
     "title": "BO3000421",
@@ -42,7 +42,7 @@
     "status": "normal",
     "readOnly": false,
     "value": true,
-    "units": ["Пост", "Авто"]
+    "units": ["Авто", "Пост"]
   },
      {
     "title": "BO3000267",
