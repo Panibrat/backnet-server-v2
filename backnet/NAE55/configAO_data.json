@@ -1,17 +1,181 @@
 [
   {
-    "title": "AO3000188",
-    "description": "cT_OUT",
+    "title": "AO3000330",
+    "name": "sT_FOR_L",
+    "description": "Минимальная температура в канале",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
     "readOnly": false,
     "value": 0
   },
   {
-    "title": "AO3000189",
-    "description": "cT_SUP",
+    "title": "AO3000331",
+    "name": "sT_FOR_H",
+    "description": "Минимальная температура в канал а еще это длинный дискрипшн",
     "status": "norm",
-    "units": "deg C",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000339",
+    "name": "sDMPR_SUM",
+    "description": "Минимальное положение заслонки наружного воздуха летом",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000354",
+    "name": "sDMPR_ZAL_R",
+    "description": "Зал (Родители). Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000353",
+    "name": "sDMPR_K+B_R",
+    "description": "Кабинет + Спальня (Родители). Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000355",
+    "name": "sDMPR_ZAL_L",
+    "description": "Зал. Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000351",
+    "name": "sDMPR_K+B_L",
+    "description": "Кабинет + Спальня. Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000352",
+    "name": "sDMPR_D1+D2",
+    "description": "Детские. Положение воздушной заслонки",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000332",
+    "name": "sHEAT_DAY",
+    "description": "Уставка День на Обогрев",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000333",
+    "name": "sHEAT_NIGHT",
+    "description": "Уставка Ночь на Обогрев",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000334",
+    "name": "sCOOL_DAY",
+    "description": "Уставка День на Холод",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000335",
+    "name": "sCOOL_NIGHT",
+    "description": "Уставка Ночь на Холод",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000338",
+    "name": "sDMPR_WIN",
+    "description": "Свежий воздух Зимой",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000339",
+    "name": "sDMPR_SUM",
+    "description": "Свежий воздух Летом",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000219",
+    "name": "sT_HF_FOR",
+    "description": "Ручная уставка подачи теплого пола",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000222",
+    "name": "sHF_WC1",
+    "description": "Клапан теплого пола с/у1",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000223",
+    "name": "sHF_WC2",
+    "description": "Клапан теплого пола с/у2",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000224",
+    "name": "sHF_KITCHEN",
+    "description": "Клапан теплого пола кухни",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000225",
+    "name": "sHF_HALL",
+    "description": "Клапан теплого пола тамбура",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 0
+  },
+  {
+    "title": "AO3000206",
+    "name": "sT_SO_FOR",
+    "description": "Ручная уставка подачи радиаторного отопления",
+    "status": "norm",
+    "units": "℃",
     "readOnly": false,
     "value": 0
   }

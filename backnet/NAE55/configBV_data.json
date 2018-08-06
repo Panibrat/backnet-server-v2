@@ -1,3 +1,11 @@
 [
-
+  {
+    "title": "BV3000760",
+    "name": "NAE55 test",
+    "description": "test",
+    "status": "norm",
+    "readOnly": false,
+    "value": true,
+    "units": ["Off", "On"]
+  }
 ]

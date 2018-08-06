@@ -2,7 +2,7 @@
   {
     "title": "AV3000726",
     "name": "PwrActiveTotal",
-    "description": "Потребляемая Мощьность Общая",
+    "description": "Потребляемая Мощность Общая",
     "status": "norm",
     "units": "deg C",
     "readOnly": true,

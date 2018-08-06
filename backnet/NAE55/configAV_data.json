@@ -1,17 +1,28 @@
 [
   {
     "title": "AV3000726",
-    "description": "Energy Total",
+    "name": "PwrActiveTotal",
+    "description": "Потребляемая Мощность Общая",
     "status": "norm",
-    "units": "kW",
+    "units": "deg C",
     "readOnly": true,
     "value": 0
   },
   {
     "title": "AV3000715",
-    "description": "I1",
+    "name": "I1",
+    "description": "Ток 1й фазы",
     "status": "norm",
-    "units": "A",
+    "units": "deg C",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AV3000719",
+    "name": "L1N",
+    "description": "Напряжение 1й фазы  а еще это длинный дискрипшн",
+    "status": "norm",
+    "units": "%",
     "readOnly": true,
     "value": 0
   }

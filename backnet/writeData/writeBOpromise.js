@@ -4,6 +4,7 @@ const BACnetClient = require('../BACnetClient');
 const mongoDB = require('../../mongoDB/MongoDB');
 
 const writeBO = (bo) => {
+    const startTime = new Date();
     return new Promise((resolve, reject) => {
         const pointNumber = +(bo.title.substring(2));
         const valueToSave = bo.value ? 1 : 0;
@@ -23,9 +24,11 @@ const writeBO = (bo) => {
                 if (err) {
                     console.log('writePropertyError: ', err);
                     mongoDB.updateBV(bo);
+                    console.log('Write Error. Time: ', (new Date() - startTime));
                     reject(err);
                 } else {
                     console.log('writeProperty: ', value);
+                    console.log('Write Ok. Time: ', (new Date() - startTime));
                     resolve(bo);
                 }
             },

@@ -1,16 +1,110 @@
 [
   {
-    "title": "BO3000262",
-    "description": "sSTR_SO",
-    "status": "alarm",
+    "title": "BO3000409",
+    "name": "sSTART",
+    "description": "Старт Приточки",
+    "status": "norm",
     "readOnly": false,
-    "value": true
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+    {
+    "title": "BO3000412",
+    "name": "sTrace",
+    "description": "Температура слежения",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Приток", "Комнаты"]
+  },
+    {
+    "title": "BO3000411",
+    "name": "SEASON",
+    "description": "Режим работы",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Охлаж", "Нагрев"]
+  },
+    {
+    "title": "BO3000418",
+    "name": "Управление",
+    "description": "Управлять с пульта или с телефона",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["NRM", "BMS"]
+  },
+    {
+    "title": "BO3000421",
+    "name": "T_CONTROL",
+    "description": "Выключение при достижении температуры",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Авто", "Пост"]
+  },
+     {
+    "title": "BO3000267",
+    "name": "sHF_AUTO",
+    "description": "Уставка темпрературы подачи",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Ручное", "Авто"]
+  },
+    {
+    "title": "BO3000268",
+    "name": "sSTR_KITCHEN",
+    "description": "Теплый пол в кухне",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+    {
+    "title": "BO3000269",
+    "name": "sSTR_WC1",
+    "description": "Теплый пол в с/у1",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+    {
+    "title": "BO3000270",
+    "name": "sSTR_WC2",
+    "description": "Теплый пол в с/у2",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+    {
+    "title": "BO3000271",
+    "name": "sSTR_HALL",
+    "description": "Теплый пол в тамбуре",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+    {
+    "title": "BO3000262",
+    "name": "sSTR_SO",
+    "description": "Радиаторное отопление",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
   },
   {
     "title": "BO3000263",
-    "description": "sSO_AUTO",
-    "status": "norm",
+    "name": "sSO_AUTO",
+    "description": "Уставка темпрературы подачи",
+    "status": "normal",
     "readOnly": false,
-    "value": true
+    "value": true,
+    "units": ["Ручное", "Авто"]
   }
 ]

@@ -86,7 +86,9 @@ class SocketIO {
     }
 
     updateData(dataPoint) {
-        if (dataPoint.title.search(/AI/i) !== -1) {
+        if (dataPoint.title.search(/BO/i) !== -1) {
+            this.updateBO(dataPoint);
+        } else if (dataPoint.title.search(/AI/i) !== -1) {
             this.updateAI(dataPoint);
         } else if (dataPoint.title.search(/AO/i) !== -1) {
             this.updateAO(dataPoint);
@@ -94,8 +96,6 @@ class SocketIO {
             this.updateAV(dataPoint);
         } else if (dataPoint.title.search(/BI/i) !== -1) {
             this.updateBI(dataPoint);
-        } else if (dataPoint.title.search(/BO/i) !== -1) {
-            this.updateBO(dataPoint);
         } else if (dataPoint.title.search(/BV/i) !== -1) {
             this.updateBV(dataPoint);
         }

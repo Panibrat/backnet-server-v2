@@ -1,16 +1,65 @@
 [
   {
-    "title": "BI3000239",
-    "description": "iSTR_SO",
+    "title": "BI3000382",
+    "name": "oPV",
+    "description": "Приточный Вентилятор",
     "status": "alarm",
     "readOnly": true,
-    "value": true
+    "value": true,
+    "units": ["Off", "On"]
   },
   {
-    "title": "BI3000240",
-    "description": "iSTR_KOT",
-    "status": "norm",
+    "title": "BI3000384",
+    "name": "oKKB",
+    "description": "Наружный Блок ККБ",
+    "status": "alarm",
     "readOnly": true,
-    "value": true
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000386",
+    "name": "o4X VLV",
+    "description": "Клапан Теплового Насоса",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000392",
+    "name": "oDamperTop",
+    "description": "Полив description",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000393",
+    "name": "oDamperButtom",
+    "description": "oKOTEL description",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000261",
+    "name": "oPUMP_HF",
+    "description": "Насос теплого пола",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000247",
+    "name": "oPUMP_SO",
+    "description": "Насос радиаторного отопления",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
   }
 ]
