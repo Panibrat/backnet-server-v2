@@ -1,0 +1,41 @@
+.container {
+    position: relative;
+    width: 115px;
+}
+
+.base_img {
+    padding: 1px;
+    width: 115px;
+}
+
+.electric_heater_img {
+    width: 20px;
+}
+
+.electric_heater_box {
+    position: absolute;
+    left: 48px;
+    bottom: 4px;
+}
+
+.water_heater_img {
+    width: 70px;
+}
+
+.water_heater_box {
+    position: absolute;
+    left: 0px;
+    bottom: 43px;
+}
+
+.t_gvs_box {
+    position: absolute;
+    left: 36px;
+    bottom: 110px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}

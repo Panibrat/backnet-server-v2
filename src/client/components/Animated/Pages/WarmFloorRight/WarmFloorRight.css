@@ -11,6 +11,12 @@
     width: 359px;
 }
 
+.pump_box {
+    position: absolute;
+    left: 273px;
+    bottom: 74px;
+}
+
 .valve_level_box {
     position: absolute;
     left: 304px;

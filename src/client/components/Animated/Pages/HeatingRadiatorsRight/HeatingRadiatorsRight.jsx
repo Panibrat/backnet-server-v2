@@ -10,7 +10,7 @@ export const HeatingRadiatorsRight = (props) => (
         <img className={styles.base_img}
              src={heatFloorRight}
         />
-        <div>
+        <div className={styles.pump_box}>
             <Pump isOn={props.oPUMP_SO} />
         </div>
         <div className={styles.valve_level_box}>

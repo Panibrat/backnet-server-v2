@@ -62,5 +62,10 @@ export const Menu = () => (
                 AHU
             </Button>
         </NavLink>
+        <NavLink to="/boiler">
+            <Button variant="outlined">
+                Boiler
+            </Button>
+        </NavLink>
     </div>
 );

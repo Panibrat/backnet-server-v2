@@ -1,0 +1,33 @@
+.container {
+    position: relative;
+    margin: auto;
+    width: 360px;
+    height: 250px;
+    border: 1px solid grey;
+}
+
+.base_img {
+    padding: 1px;
+    width: 359px;
+}
+
+.boiler_box {
+    position: absolute;
+    left: 111px;
+    bottom: 48px;
+
+}
+
+.pump_recirc_box {
+    transform: scaleX(-1) rotate(90deg);
+    position: absolute;
+    left: 273px;
+    bottom: 71px;
+}
+
+.pump_circ_box {
+    transform: scaleX(-1) rotate(90deg);
+    position: absolute;
+    left: 30px;
+    bottom: 153px;
+}

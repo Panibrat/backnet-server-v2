@@ -35,9 +35,7 @@
 }
 
 .container {
-    position: absolute;
-    left: 273px;
-    bottom: 74px;
+    position: relative;
 }
 
 img {
