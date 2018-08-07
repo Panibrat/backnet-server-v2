@@ -178,5 +178,14 @@
     "units": "℃",
     "readOnly": false,
     "value": 0
+  },
+  {
+    "title": "AO3000209",
+    "name": "sT_GVS",
+    "description": "Уставка ГВС",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
   }
 ]

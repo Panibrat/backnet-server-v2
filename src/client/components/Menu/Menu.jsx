@@ -67,5 +67,10 @@ export const Menu = () => (
                 Boiler
             </Button>
         </NavLink>
+        <NavLink to="/fire">
+            <Button variant="outlined">
+                Fire
+            </Button>
+        </NavLink>
     </div>
 );

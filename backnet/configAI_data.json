@@ -277,5 +277,14 @@
     "units": "%",
     "readOnly": true,
     "value": 0
+  },
+  {
+    "title": "AI3000174",
+    "name": "iT_GVS_R",
+    "description": "Температура в горячей воды в бойлере",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 0
   }
 ]

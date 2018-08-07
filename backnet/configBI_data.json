@@ -61,5 +61,32 @@
     "readOnly": true,
     "value": true,
     "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000254",
+    "name": "oPUMP_BOY",
+    "description": "Насос бойлера",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000255",
+    "name": "oPUMP_REC",
+    "description": "Насос рециркуляции ГВС",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000253",
+    "name": "oBOYLER",
+    "description": "Электрический нагрев бойлера",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
   }
 ]

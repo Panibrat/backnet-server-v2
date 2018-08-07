@@ -13,15 +13,25 @@ export const BoilerUnit = (props) => (
         />
         <div className={styles.boiler_box}>
             <Boiler
-                isElHeaterOn={true}
-                isWaterHeaterOn={false}
+                isElHeaterOn={props.oBOYLER}
+                isWaterHeaterOn={props.oPUMP_BOY}
+                tGVS={props.iT_GVS_R}
             />
         </div>
         <div className={styles.pump_recirc_box}>
-            <Pump isOn={true} />
+            <Pump isOn={props.oPUMP_REC} />
         </div>
         <div className={styles.pump_circ_box}>
-            <Pump isOn={true} />
+            <Pump isOn={props.oPUMP_BOY} />
+        </div>
+        <div className={styles.recirc_lable}>
+            рециркуляция
+        </div>
+        <div className={styles.sp_t_gvs}>
+            {props.sT_GVS}℃
+        </div>
+        <div className={styles.circ_lable}>
+            циркуляция
         </div>
     </div>
 );
@@ -36,7 +46,11 @@ const findPoint = (point, pointsList) => {
 
 const mapStateToProps = (store) => {
     return {
-        iT_SO_FO: findPoint('AI3000159', store.ai),
+        iT_GVS_R: findPoint('AI3000174', store.ai),
+        sT_GVS: findPoint('AO3000209', store.ao),
+        oPUMP_BOY: findPoint('BI3000254', store.bi),
+        oPUMP_REC: findPoint('BI3000255', store.bi),
+        oBOYLER: findPoint('BI3000253', store.bi),
     };
 };
 

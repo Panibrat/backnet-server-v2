@@ -13,18 +13,16 @@ export const Boiler = (props) => (
         />
         <div className={styles.electric_heater_box}>
             <img className={styles.electric_heater_img}
-                 /*src={props.isElHeaterOn ? HeaterElectricOn : HeaterElectricOff}*/
-                 src={HeaterElectricOn}
+                 src={props.isElHeaterOn ? HeaterElectricOn : HeaterElectricOff}
             />
         </div>
         <div className={styles.water_heater_box}>
             <img className={styles.water_heater_img}
-                 /*src={props.isElHeaterOn ? HeaterElectricOn : HeaterElectricOff}*/
-                 src={HeaterWaterOff}
+                 src={props.isWaterHeaterOn ? HeaterWaterOn : HeaterWaterOff}
             />
         </div>
         <div className={styles.t_gvs_box}>
-            55℃
+            {props.tGVS}℃
         </div>
     </div>
 );

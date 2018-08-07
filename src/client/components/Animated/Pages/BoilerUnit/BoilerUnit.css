@@ -31,3 +31,32 @@
     left: 30px;
     bottom: 153px;
 }
+
+.recirc_lable {
+    position: absolute;
+    left: 246px;
+    bottom: 140px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #aaaaaa;
+}
+.circ_lable {
+    position: absolute;
+    left: 17px;
+    bottom: 140px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #aaaaaa;
+}
+
+.sp_t_gvs {
+    position: absolute;
+    left: 147px;
+    bottom: 213px;
+    background-color: #2aff2d;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
