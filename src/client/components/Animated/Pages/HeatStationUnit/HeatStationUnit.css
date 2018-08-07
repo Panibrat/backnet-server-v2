@@ -1,0 +1,60 @@
+.container {
+    position: relative;
+    margin: auto;
+    width: 360px;
+    height: 250px;
+    border: 1px solid grey;
+}
+
+.base_img {
+    padding: 1px;
+    width: 359px;
+}
+
+.gas_boiler_box {
+    position: absolute;
+    left: 245px;
+    bottom: 84px;
+}
+
+.el_boiler_box {
+    position: absolute;
+    left: 116px;
+    bottom: 83px;
+}
+
+.sp_t_for {
+    position: absolute;
+    left: 44px;
+    bottom: 213px;
+    background-color: #2aff2d;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
+
+.t_for {
+    position: absolute;
+    left: 44px;
+    bottom: 188px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}
+
+.t_ret {
+    position: absolute;
+    left: 44px;
+    bottom: 123px;
+    background-color: #ffff7c;
+    font-size: 14px;
+    padding: 2px;
+    border: solid 1px gray;
+    font-weight: 600;
+    text-align: center;
+}

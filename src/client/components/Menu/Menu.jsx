@@ -67,9 +67,19 @@ export const Menu = () => (
                 Boiler
             </Button>
         </NavLink>
-        <NavLink to="/fire">
+        <NavLink to="/gas-boiler">
             <Button variant="outlined">
-                Fire
+                Gas
+            </Button>
+        </NavLink>
+        <NavLink to="/el-boiler">
+            <Button variant="outlined">
+                Electro
+            </Button>
+        </NavLink>
+        <NavLink to="/heat-station">
+            <Button variant="outlined">
+                Heat Station
             </Button>
         </NavLink>
     </div>

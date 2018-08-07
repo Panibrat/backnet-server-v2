@@ -1,0 +1,30 @@
+.container {
+    position: relative;
+    width: 115px;
+}
+
+.base_img {
+    padding: 1px;
+    width: 100px;
+}
+
+.fire_box {
+    position: absolute;
+    left: 33px;
+    bottom: 47px;
+}
+
+.pump_box {
+    position: absolute;
+    left: 40px;
+    bottom: -7px;
+}
+
+.boiler_lable {
+    position: absolute;
+    left: 24px;
+    bottom: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #9c0000;
+}
