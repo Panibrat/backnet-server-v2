@@ -11,7 +11,7 @@ const readAV = pointNumber => new Promise((resolve, reject) => {
         null,
         (err, value) => {
             try {
-                const itemValue = +value.valueList[0].value.toFixed(1);
+                const itemValue = +value.valueList[0].value;
                 resolve({
                     title: `AV${pointNumber}`,
                     value: itemValue,

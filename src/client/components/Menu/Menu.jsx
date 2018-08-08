@@ -72,5 +72,10 @@ export const Menu = () => (
                 Heat Station
             </Button>
         </NavLink>
+        <NavLink to="/consumption">
+            <Button variant="outlined">
+                Consumption
+            </Button>
+        </NavLink>
     </div>
 );

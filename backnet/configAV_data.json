@@ -25,5 +25,32 @@
     "units": "%",
     "readOnly": true,
     "value": 0
+  },
+  {
+    "title": "AV3000729",
+    "name": "EnergyTotal",
+    "description": "Электрический счетчик(кВт*ч)",
+    "status": "norm",
+    "units": "kW*h",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AV3000730",
+    "name": "EnergyDayTotal",
+    "description": "Электрический счетчик. День.",
+    "status": "norm",
+    "units": "kW*h",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AV3000730",
+    "name": "EnergyDayTotal",
+    "description": "Электрический счетчик. Ночь.",
+    "status": "norm",
+    "units": "kW*h",
+    "readOnly": true,
+    "value": 0
   }
 ]

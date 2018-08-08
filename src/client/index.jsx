@@ -25,6 +25,7 @@ import AhuPage from './components/Pages/AHU/AhuPage';
 import DampersPage from './components/Pages/Dampers/DampersPage';
 import BoilerPage from './components/Pages/BoilerPage/BoilerPage';
 import HeatStationPage from './components/Pages/HeatStationPage/HeatStationPage';
+import ConsumptionPage from './components/Pages/ConsumptionPage/ConsumptionPage';
 
 import { Menu } from './components/Menu/Menu';
 
@@ -61,6 +62,7 @@ const App = () => (
                         <Route path="/allPoints" component={AllPointsPage} />
                         <Route path="/boiler" component={BoilerPage} />
                         <Route path="/heat-station" component={HeatStationPage} />
+                        <Route path="/consumption" component={ConsumptionPage} />
                         <Route path="*" component={AnalogInputsPage} />
                     </Switch>
                 </Layout>
