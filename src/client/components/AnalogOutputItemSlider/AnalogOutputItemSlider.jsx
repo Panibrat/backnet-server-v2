@@ -93,7 +93,7 @@ export class AnalogOutputItemSlider extends React.Component {
                             open={this.state.open}
                             onClose={this.handleClose}
                         >
-                            <DialogTitle>Положение заслонки</DialogTitle>
+                            <DialogTitle>Задать значение</DialogTitle>
                             <h1 className={styles.dialog_value}>{this.state.value.toFixed(1)}{this.props.units}</h1>
                             <DialogContent>
                                 <Slider

@@ -133,5 +133,14 @@
     "readOnly": false,
     "value": true,
     "units": ["Вкл", "Выкл"]
+  },
+  {
+    "title": "BO3000248",
+    "name": "sEL_KOTEL",
+    "description": "Включение Электрического котла",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
   }
 ]

@@ -28,3 +28,7 @@
     font-weight: 600;
     color: #9c0000;
 }
+
+.hidden {
+    display: none;
+}

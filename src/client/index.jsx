@@ -24,9 +24,7 @@ import HeatingRadiatorsRightPage from './components/Pages/HeatingRadiatorsRightP
 import AhuPage from './components/Pages/AHU/AhuPage';
 import DampersPage from './components/Pages/Dampers/DampersPage';
 import BoilerPage from './components/Pages/BoilerPage/BoilerPage';
-import HeatStationUnit from './components/Animated/Pages/HeatStationUnit/HeatStationUnit';
-import { GasBoiler } from './components/Animated/Components/GasBoiler/GasBoiler';
-import { ElectroBoiler } from './components/Animated/Components/ElectroBoiler/ElectroBoiler';
+import HeatStationPage from './components/Pages/HeatStationPage/HeatStationPage';
 
 import { Menu } from './components/Menu/Menu';
 
@@ -62,9 +60,7 @@ const App = () => (
                         <Route path="/air-unit" component={AhuPage} />
                         <Route path="/allPoints" component={AllPointsPage} />
                         <Route path="/boiler" component={BoilerPage} />
-                        <Route path="/gas-boiler" component={GasBoiler} />
-                        <Route path="/el-boiler" component={ElectroBoiler} />
-                        <Route path="/heat-station" component={HeatStationUnit} />
+                        <Route path="/heat-station" component={HeatStationPage} />
                         <Route path="*" component={AnalogInputsPage} />
                     </Switch>
                 </Layout>

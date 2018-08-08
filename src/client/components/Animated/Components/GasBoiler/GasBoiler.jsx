@@ -9,11 +9,11 @@ export const GasBoiler = (props) => (
         <img className={styles.base_img}
              src={BoilerBox}
         />
-        <div className={styles.fire_box}>
-            <Fire/>
+        <div className={props.isOn ? styles.fire_box : styles.hidden}>
+            <Fire />
         </div>
         <div className={styles.pump_box}>
-            <Pump isOn={true} />
+            <Pump isOn={props.isPumpOn} />
         </div>
         <div className={styles.boiler_lable}>
             газовый

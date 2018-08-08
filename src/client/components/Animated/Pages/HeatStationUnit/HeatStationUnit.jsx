@@ -12,19 +12,26 @@ export const HeatStationUnit = (props) => (
              src={Pipes}
         />
         <div className={styles.gas_boiler_box}>
-            <GasBoiler />
+            <GasBoiler
+                isOn={props.oKOTEL}
+                isPumpOn={props.oKOTEL}
+            />
         </div>
         <div className={styles.el_boiler_box}>
-            <ElectroBoiler />
+            <ElectroBoiler
+                isFirstStageOn={props.oEL_1X}
+                isSecondStageOn={props.oEL_2X}
+                isPumpOn={props.oPUMP_EL}
+            />
         </div>
         <div className={styles.sp_t_for}>
-            67,5℃
+            {props.oSP_KOT}℃
         </div>
         <div className={styles.t_for}>
-            56,2℃
+            {props.iT_SUP}℃
         </div>
         <div className={styles.t_ret}>
-            31,9℃
+            {props.iT_RET}℃
         </div>
     </div>
 );
@@ -34,16 +41,19 @@ const findPoint = (point, pointsList) => {
     if (index === -1) {
         return 99
     }
-    return pointsList[index].value
+    return pointsList[index].value;
 }
 
 const mapStateToProps = (store) => {
     return {
-        iT_GVS_R: findPoint('AI3000174', store.ai),
-        sT_GVS: findPoint('AO3000209', store.ao),
-        oPUMP_BOY: findPoint('BI3000254', store.bi),
-        oPUMP_REC: findPoint('BI3000255', store.bi),
-        oBOYLER: findPoint('BI3000253', store.bi),
+        iT_SUP: findPoint('AI3000157', store.ai),
+        iT_RET: findPoint('AI3000158', store.ai),
+        oSP_KOT: findPoint('AI3000171', store.ai),
+
+        oPUMP_EL: findPoint('BI3000279', store.bi),
+        oKOTEL: findPoint('BI3000249', store.bi),
+        oEL_1X: findPoint('BI3000278', store.bi),
+        oEL_2X: findPoint('BI3000277', store.bi),
     };
 };
 

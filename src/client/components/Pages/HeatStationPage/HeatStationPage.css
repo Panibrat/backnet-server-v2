@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    margin: auto !important;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    background-size: cover;
+    color: black;
+    width: 100%;
+    max-width: 800px;
+    min-width: 360px
+}
+
+.title {
+    color: darkred;
+    font-size: xx-large;
+    text-align: center;
+    padding: 20px;
+}
+
+.values_container {
+    /*display: flex;*/
+    justify-content: center;
+    width: 100%;
+}
+
+.list_type {
+    flex: 1;
+}

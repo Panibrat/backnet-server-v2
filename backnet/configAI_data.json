@@ -286,5 +286,32 @@
     "units": "℃",
     "readOnly": true,
     "value": 0
+  },
+  {
+    "title": "AI3000157",
+    "name": "iT_SUP",
+    "description": "Температура подачи котлов",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000158",
+    "name": "iT_RET",
+    "description": "Температура обратки котлов",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 0
+  },
+  {
+    "title": "AI3000171",
+    "name": "oSP_KOT",
+    "description": "Рабочая уставка подачи котлов",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 0
   }
 ]

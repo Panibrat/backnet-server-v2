@@ -88,5 +88,41 @@
     "readOnly": true,
     "value": true,
     "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000279",
+    "name": "oPUMP_EL",
+    "description": "Насос электрического котла",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000249",
+    "name": "oKOTEL",
+    "description": "Работа газового котла",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000278",
+    "name": "oEL_1X",
+    "description": "Включение 1й супени электрического котла",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000277",
+    "name": "oEL_2X",
+    "description": "Включение 2й супени электрического котла",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
   }
 ]
