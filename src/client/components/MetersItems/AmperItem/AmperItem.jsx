@@ -4,7 +4,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 
-import ampermeterImg from './amperMeter.svg';
+import ampermeterImg from './amper-meter.svg';
 
 import styles from './AmperItem.css';
 
@@ -23,7 +23,7 @@ export const AmperItem = (props) => (
             />
             <div className={styles.data}>
                 <div className={styles.value}>
-                    {props.value ? (props.value).toFixed(2) : -99.99}
+                    {props.value ? Number(props.value).toFixed(1) : -99.9}
                 </div>
                 <div className={styles.units}>
                     {props.units}

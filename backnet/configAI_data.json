@@ -313,5 +313,41 @@
     "units": "℃",
     "readOnly": true,
     "value": 0
+  },
+  {
+  "title": "AI3000375",
+  "name": "oPWR_DAY",
+  "description": "Потребление энергии. День.",
+  "status": "norm",
+  "units": "kW*h",
+  "readOnly": true,
+  "value": 7.912
+  },
+  {
+  "title": "AI3000376",
+  "name": "oPWR_NIGHT",
+  "description": "Потребление энергии. Ночь.",
+  "status": "norm",
+  "units": "kW*h",
+  "readOnly": true,
+  "value": 12.765
+  },
+  {
+  "title": "AI3000370",
+  "name": "oWATER_COUNT",
+  "description": "Счетчик воды",
+  "status": "norm",
+  "units": "m3",
+  "readOnly": true,
+  "value": 89180
+  },
+  {
+  "title": "AI3000371",
+  "name": "oWATER_DAY",
+  "description": "Воды сегодня потребили",
+  "status": "norm",
+  "units": "m3",
+  "readOnly": true,
+  "value": 120
   }
 ]

@@ -18,12 +18,12 @@ export const PowerDayConsumptionItem = (props) => (
             />
             <ListItemText
                 className={styles.item}
-                primary={'PowerDay'}
-                secondary={'Потребление энергии. День.'}
+                primary={props.name}
+                secondary={props.description}
             />
             <div className={styles.data}>
                 <div className={styles.value}>
-                    {props.value ? (props.value).toFixed(3) : -9999.999}
+                    {props.value ? Number(props.value).toFixed(1) : -9999.9}
                 </div>
                 <div className={styles.units}>
                     kW*h

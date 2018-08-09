@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import List from '@material-ui/core/List';
 
 import { PowerConsumptionItem } from '../../MetersItems/PowerConsumptionItem/PowerConsumptionItem';
 import { VoltageItem } from '../../MetersItems/VoltageItem/VoltageItem';
@@ -21,102 +22,36 @@ export class ConsumptionPage extends React.Component {
                 </div>
                 <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
                 <div className={styles.values_container}>
-                    <WaterConsumptionItem
-                        name={'oWATER_COUNT'}
-                        description={'Счетчик воды'}
-                        value={9168670}
-                        units={'м3'}
-                    />
-                    <WaterConsumptionItem
-                        name={'oWATER_DAY'}
-                        description={'Сегодня потребили'}
-                        value={1234}
-                        units={'м3'}
-                    />
-                    <MoneyItem
-                        name={'oWATER_DAY'}
-                        description={'Сегодня потребили'}
-                        value={1234}
-                        units={'UAH'}
-                        multiple={0.01427}
-                    />
-                    <PowerConsumptionItem />
-                    <PowerConsumptionItem value={225789123} />
-                    <PowerConsumptionItem value={25789123} />
-                    <PowerDayConsumptionItem
-                        value={15.587}
-                    />
-                    <MoneyItem
-                        name={'PowerDay'}
-                        description={'Потребление энергии. День.'}
-                        value={15.587}
-                        units={'UAH'}
-                        multiple={1.68}
-                    />
-                    <PowerNightConsumptionItem
-                        value={32.432}
-                    />
-                    <MoneyItem
-                        name={'PowerNight'}
-                        description={'Потребление энергии. Ночь.'}
-                        value={32.432}
-                        units={'UAH'}
-                        multiple={0.84}
-                    />
-                    <VoltageItem
-                        name={'U1'}
-                        description={'Напряжение 1й фазы'}
-                        value={221.5}
-                        units={'V'}
-                    />
-                    <VoltageItem
-                        name={'U2'}
-                        description={'Напряжение 2й фазы'}
-                        value={223.4}
-                        units={'V'}
-                    />
-                    <VoltageItem
-                        name={'U3'}
-                        description={'Напряжение 3й фазы'}
-                        value={220.9}
-                        units={'V'}
-                    />
-                    <AmperItem
-                        name={'I1'}
-                        description={'Ток 1й фазы'}
-                        value={2.93}
-                        units={'A'}
-                    />
-                    <AmperItem
-                        name={'I2'}
-                        description={'Ток 2й фазы'}
-                        value={4.73}
-                        units={'A'}
-                    />
-                    <AmperItem
-                        name={'I3'}
-                        description={'Ток 3й фазы'}
-                        value={10.88}
-                        units={'A'}
-                    />
-                    <PowerItem
-                        name={'Power 1'}
-                        description={'Потребление 1й фазы'}
-                        value={3.68}
-                        units={'kW'}
-                    />
-                    <PowerItem
-                        name={'Power 2'}
-                        description={'Потребление 2й фазы'}
-                        value={15.77}
-                        units={'kW'}
-                    />
-                    <PowerItem
-                        name={'Power 3'}
-                        description={'Потребление 3й фазы'}
-                        value={0.97}
-                        units={'kW'}
-                    />
+                    <List>
+                        <PowerItem {...this.props.PwrActiveTotal} />
+                        <WaterConsumptionItem {...this.props.oWATER_COUNT} />
+                        <WaterConsumptionItem {...this.props.oWATER_DAY} />
+                        <MoneyItem {...this.props.oWATER_DAY}
+                                    multiple={0.01427}
+                        />
+                        <PowerConsumptionItem {...this.props.EnergyTotal} />
+                        <PowerConsumptionItem {...this.props.EnergyDayTotal} />
+                        <PowerConsumptionItem {...this.props.EnergyNightTotal} />
+
+                        <PowerDayConsumptionItem {...this.props.oPWR_DAY} />
+
+                        <MoneyItem {...this.props.oPWR_DAY}
+                                    multiple={1.68}
+                        />
+                        <PowerNightConsumptionItem {...this.props.oPWR_NIGHT} />
+                        <MoneyItem {...this.props.oPWR_NIGHT}
+                                   multiple={0.84}
+                        />
+                        <VoltageItem {...this.props.L1N} />
+                        <VoltageItem {...this.props.L2N} />
+                        <VoltageItem {...this.props.L3N} />
+                        <AmperItem {...this.props.I1} />
+                        <AmperItem {...this.props.I2} />
+                        <AmperItem {...this.props.I3} />
+                        <PowerItem {...this.props.PWR1} />
+                        <PowerItem {...this.props.PWR2} />
+                        <PowerItem {...this.props.PWR3} />
+                    </List>
                 </div>
             </div>
         );
@@ -133,16 +68,25 @@ const findPoint = (point, pointsList) => {
 
 const mapStateToProps = (store) => {
     return {
-        iT_SUP: findPoint('AI3000157', store.ai),
-        iT_RET: findPoint('AI3000158', store.ai),
-        oSP_KOT: findPoint('AI3000171', store.ai),
+        PwrActiveTotal: findPoint('AV3000726', store.av),
+        I1: findPoint('AV3000715', store.av),
+        I2: findPoint('AV3000716', store.av),
+        I3: findPoint('AV3000717', store.av),
+        L1N: findPoint('AV3000719', store.av),
+        L2N: findPoint('AV3000720', store.av),
+        L3N: findPoint('AV3000721', store.av),
+        PWR1: findPoint('AV3000723', store.av),
+        PWR2: findPoint('AV3000724', store.av),
+        PWR3: findPoint('AV3000725', store.av),
+        EnergyTotal: findPoint('AV3000729', store.av),
+        EnergyDayTotal: findPoint('AV3000730', store.av),
+        EnergyNightTotal: findPoint('AV3000731', store.av),
 
-        oPUMP_EL: findPoint('BI3000279', store.bi),
-        oKOTEL: findPoint('BI3000249', store.bi),
-        oEL_1X: findPoint('BI3000278', store.bi),
-        oEL_2X: findPoint('BI3000277', store.bi),
+        oPWR_DAY: findPoint('AI3000375', store.ai),
+        oPWR_NIGHT: findPoint('AI3000376', store.ai),
+        oWATER_COUNT: findPoint('AI3000370', store.ai),
+        oWATER_DAY: findPoint('AI3000371', store.ai),
 
-        sEL_KOTEL: findPoint('BO3000248', store.bo),
     };
 };
 

@@ -18,8 +18,8 @@ export const PowerConsumptionItem = (props) => (
             />
             <ListItemText
                 className={styles.item}
-                primary={'EnergyDayTotal'}
-                secondary={'Электрический счетчик. День.'}
+                primary={props.name}
+                secondary={props.description}
             />
             <div className={styles.data}>
                 <div className={styles.value}>
