@@ -47,7 +47,6 @@ const App = () => (
             <React.Fragment>
                 <CssBaseline />
                 <Layout>
-                    <Menu/>
                     <Switch>
                         <Route path="/analogInputs" component={AnalogInputsPage} />
                         <Route path="/analogOutputs" component={AnalogOutputPage} />

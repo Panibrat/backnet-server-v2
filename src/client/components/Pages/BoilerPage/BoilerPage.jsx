@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import List from '@material-ui/core/List';
 
@@ -9,16 +10,16 @@ import { BinaryInputItem } from '../../BinaryInputItem/BinaryInputItem';
 import  BinaryOutputItem  from '../../BinaryOutputItem/BinaryOutputItem';
 import { AnalogOutputItemSlider } from '../../AnalogOutputItemSlider/AnalogOutputItemSlider';
 
+import { setTitle } from '../../../actions/menuActions';
 import styles from './BoilerPage.css';
 
 export class BoilerPage extends React.Component {
+    componentDidMount() {
+        this.props.setTitle('Бойлер ГВС');
+}
     render() {
         return (
             <div className={styles.container}>
-                <div className={styles.title}>
-                    Boiler Page
-                </div>
-                <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
                 <BoilerUnit />
                 <div className={styles.values_container}>
                     <List className={styles.list_type}>
@@ -73,4 +74,10 @@ const mapStateToProps = (store) => {
     };
 };
 
-export default connect(mapStateToProps)(BoilerPage);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        setTitle: setTitle
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoilerPage);

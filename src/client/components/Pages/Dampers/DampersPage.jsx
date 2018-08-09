@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import List from '@material-ui/core/List';
 
 import  AirDuct  from '../../Animated/Pages/AirDuct/AirDuct';
 import { AnalogOutputItemSlider } from '../../AnalogOutputItemSlider/AnalogOutputItemSlider';
-
+import { setTitle } from '../../../actions/menuActions';
 import styles from './DampersPage.css';
 
 export class DampersPage extends React.Component {
+    componentDidMount() {
+        this.props.setTitle('Заслонки приточного воздуха');
+    }
     render() {
         return (
             <div className={styles.container}>
-                <div className={styles.title}>
-                    Dampers page
-                </div>
-                <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
                 <AirDuct />
                 <List>
                     <AnalogOutputItemSlider
@@ -77,4 +77,10 @@ const mapStateToProps = (store) => {
     };
 };
 
-export default connect(mapStateToProps)(DampersPage);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        setTitle: setTitle
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DampersPage);

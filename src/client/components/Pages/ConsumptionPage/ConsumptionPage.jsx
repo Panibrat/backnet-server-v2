@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import List from '@material-ui/core/List';
 
 import { PowerConsumptionItem } from '../../MetersItems/PowerConsumptionItem/PowerConsumptionItem';
@@ -10,17 +11,16 @@ import { WaterConsumptionItem } from '../../MetersItems/WaterConsumptionItem/Wat
 import { MoneyItem } from '../../MetersItems/MoneyItem/MoneyItem';
 import { PowerDayConsumptionItem } from '../../MetersItems/PowerDayConsumptionItem/PowerDayConsumptionItem';
 import { PowerNightConsumptionItem } from '../../MetersItems/PowerNightConsumptionItem/PowerNightConsumptionItem';
-
+import { setTitle } from '../../../actions/menuActions';
 import styles from './ConsumptionPage.css';
 
 export class ConsumptionPage extends React.Component {
+    componentDidMount() {
+        this.props.setTitle('Потребление ресурсов');
+    }
     render() {
         return (
             <div className={styles.container}>
-                <div className={styles.title}>
-                    Consumption Page
-                </div>
-                <p style={{textAlign: "center"}}>{window.innerWidth} x {window.innerHeight}</p>
                 <div className={styles.values_container}>
                     <List>
                         <PowerItem {...this.props.PwrActiveTotal} />
@@ -90,4 +90,10 @@ const mapStateToProps = (store) => {
     };
 };
 
-export default connect(mapStateToProps)(ConsumptionPage);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        setTitle: setTitle
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConsumptionPage);
