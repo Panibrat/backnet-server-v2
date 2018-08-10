@@ -56,6 +56,12 @@ export const TemporaryDrawer = (props) => {
                 Потребление
             </NavLink>
             <Divider inset />
+            <NavLink
+                className={styles.item}
+                to="/chart">
+                Тренд
+            </NavLink>
+            <Divider inset />
         </List>
     );
     return (

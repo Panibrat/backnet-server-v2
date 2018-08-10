@@ -27,6 +27,8 @@ import BoilerPage from './components/Pages/BoilerPage/BoilerPage';
 import HeatStationPage from './components/Pages/HeatStationPage/HeatStationPage';
 import ConsumptionPage from './components/Pages/ConsumptionPage/ConsumptionPage';
 
+import ChartPage from './components/Chart/ChartPage/ChartPage';
+
 import styles from './Styles.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -60,6 +62,7 @@ const App = () => (
                         <Route path="/boiler" component={BoilerPage} />
                         <Route path="/heat-station" component={HeatStationPage} />
                         <Route path="/consumption" component={ConsumptionPage} />
+                        <Route path="/chart" component={ChartPage} />
                         <Route path="*" component={AhuPage} />
                     </Switch>
                 </Layout>
