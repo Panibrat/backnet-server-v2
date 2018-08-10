@@ -11,7 +11,7 @@ import styles from './DampersPage.css';
 
 export class DampersPage extends React.Component {
     componentDidMount() {
-        this.props.setTitle('Заслонки приточного воздуха');
+        this.props.setTitle('Воздушные заслонки');
     }
     render() {
         return (
