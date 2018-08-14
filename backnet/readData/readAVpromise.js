@@ -10,6 +10,13 @@ const readAV = pointNumber => new Promise((resolve, reject) => {
         85, // propertyId???????????
         null,
         (err, value) => {
+/*            const now = new Date().getTime();
+            const day = 1000 * 60 * 60 * 24;
+            const hour = 1000 * 60 * 60;
+
+            mongoDB.getTrendData('AI3000308', (now - 12*hour), now)
+                .then(console.log);*/
+
             try {
                 const itemValue = +value.valueList[0].value;
                 resolve({

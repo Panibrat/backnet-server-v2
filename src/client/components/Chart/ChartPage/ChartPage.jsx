@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import {timeFormatDefaultLocale} from 'd3-time-format';
 import './ChartPage.css';
@@ -76,46 +77,51 @@ const day = 1000 * 60 * 60 * 24;
 const hour = 1000 * 60 * 60;
 
 class ChartPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            AI3000308: [],
+            AI3000307: [],
+            minDate: 0
+        };
+    }
+
+    componentDidMount() {
+        this.getTrendData("AI3000308",now - day, now)
+            .then((response) => {
+                this.setState({
+                    AI3000308: response.data,
+                    minDate: Math.max(response.data[0].x, now - day)
+                });
+            });
+
+        this.getTrendData("AI3000307",now - day, now)
+            .then((response) => {
+                this.setState({
+                    AI3000307: response.data
+                });
+            });
+
+    }
+
+    getTrendData(title, startTime, endTime) {
+        return axios.post('/trend', {
+            title: title,
+            startTime: startTime,
+            endTime: endTime
+        })
+    }
+
     render() {
-        const data = [
-            { x: now - 24 * hour, y: 8},
-            { x: now - 22 * hour, y: 5},
-            { x: now - 20 * hour, y: 4},
-            { x: now - 18 * hour, y: 9},
-            { x: now - 16 * hour, y: 1},
-            { x: now - 14 * hour, y: 7},
-            { x: now - 12 * hour, y: 6},
-            { x: now - 10 * hour, y: 3},
-            { x: now - 8 * hour, y: 2},
-            { x: now - 6 * hour, y: 0},
-            { x: now - 4 * hour, y: 5},
-            { x: now - 2 * hour, y: 1},
-            { x: now, y: 2},
-        ];
-        const data2 = [
-            { x: now - 24 * hour, y: 9},
-            { x: now - 22 * hour, y: 2},
-            { x: now - 20 * hour, y: 4},
-            { x: now - 18 * hour, y: 2},
-            { x: now - 16 * hour, y: 9},
-            { x: now - 14 * hour, y: 7},
-            { x: now - 12 * hour, y: 8},
-            { x: now - 10 * hour, y: 9},
-            { x: now - 8 * hour, y: 7},
-            { x: now - 6 * hour, y: 5},
-            { x: now - 4 * hour, y: 4},
-            { x: now - 2 * hour, y: 7},
-            { x: now, y: 1},
-        ];
         return (
-            <XYPlot width={360} height={300} xDomain={[now - day, now]} xType={'time'}>
-                <XAxis title="time" />
-                <YAxis title={"kW"} />
+            <XYPlot width={360} height={300} xDomain={[this.state.minDate, now]} xType={'time'}>
                 <HorizontalGridLines />
                 <VerticalGridLines />
                 {/*<VerticalBarSeries  data={data} />*/}
-                <LineMarkSeries   data={data} color={'blue'} />
-                <LineMarkSeries   data={data2} color={'green'}/>
+                <LineMarkSeries   data={this.state.AI3000307} color={'blue'} />
+                <LineMarkSeries   data={this.state.AI3000308} color={'green'} />
+                <XAxis title="time" />
+                <YAxis title={"℃"} />
             </XYPlot>
         );
     }

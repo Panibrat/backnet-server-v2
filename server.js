@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -31,12 +32,30 @@ const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAM
 
 mongoose.connect(dataBaseLink);
 
+const mongoDB = require('./mongoDB/MongoDB');
+
 const port = process.env.PORT || '3000';
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
 
 app.get('/buffer', (req, res) => {
     res.send(JSON.stringify(buffer.getData()));
+});
+
+app.post('/trend', function(req, res) {
+    const query = req.body;
+    mongoDB.getTrendData(
+        query.title,
+        query.startTime,
+        query.endTime
+    )
+        .then((trendData) => {
+            res.json(trendData);
+        })
+        .catch((err) => {
+        throw err;
+    });
 });
 
 app.get('*', (req, res) => {

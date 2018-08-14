@@ -1,10 +1,46 @@
 const AVsModel = require('./models/AV.js');
 const BVsModel = require('./models/BV.js');
+const trendModel = require('./models/trendItem');
 
 class MongoDB {
     constructor() {
         this.AVsModel = AVsModel;
         this.BVsModel = BVsModel;
+        this.trendModel = trendModel;
+    }
+
+    saveTrendData(av) {
+        const element = {
+            timeStamp: new Date().getTime(),
+            title: av.title,
+            value: av.value,
+        };
+        trendModel.create(element, (err, item) => {
+            if (err) {
+                console.log('MongoError', err);
+                throw err;
+            }
+            console.log('\nSAVE Trend Point\n', item);
+        });
+    }
+
+    getTrendData(point, startTime, endTime) {
+        const query = { title: point, timeStamp: {$gte: startTime, $lte: endTime} };
+        return new Promise((resolve, reject) => {
+            this.trendModel.find(query).sort({ timeStamp: 'asc'}).exec(
+                (err, res) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    if (res) {
+                        const data = res.map((point) => {
+                            return {x: point.timeStamp, y: point.value};
+                        });
+                        resolve(data);
+                    }
+                }
+            );
+        });
     }
 
     findOneAV(av) {
@@ -52,6 +88,8 @@ class MongoDB {
             // console.log(` ${query.title} updated to value: ${av.value}`);
             // console.log(`Mongo response --> ${res}`);
         });
+
+            this.saveTrendData(av);
     }
 
     updateBV(bv) {

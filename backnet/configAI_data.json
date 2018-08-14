@@ -6,7 +6,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000307",
@@ -15,7 +16,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000310",
@@ -24,7 +26,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000309",
@@ -33,7 +36,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000359",
