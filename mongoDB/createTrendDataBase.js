@@ -19,7 +19,7 @@ const element = {
 
 function createElement(title, name) {
     return {
-        timeStamp: new Date().getTime() - (+Math.random() * 1000000000).toFixed(0),
+        timeStamp: new Date().getTime() - (+Math.random() * 50000000).toFixed(0),
         title: title,
         name: name,
         units: '℃',

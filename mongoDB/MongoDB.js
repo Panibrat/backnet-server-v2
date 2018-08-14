@@ -88,8 +88,9 @@ class MongoDB {
             // console.log(` ${query.title} updated to value: ${av.value}`);
             // console.log(`Mongo response --> ${res}`);
         });
-
-            this.saveTrendData(av);
+            if (av.trend) {
+                this.saveTrendData(av);
+            }
     }
 
     updateBV(bv) {

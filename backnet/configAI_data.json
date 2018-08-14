@@ -7,7 +7,7 @@
     "units": "℃",
     "readOnly": true,
     "value": 0,
-    "trend": true
+    "trend": false
   },
   {
     "title": "AI3000307",
@@ -17,7 +17,7 @@
     "units": "℃",
     "readOnly": true,
     "value": 0,
-    "trend": true
+    "trend": false
   },
   {
     "title": "AI3000310",
@@ -73,7 +73,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000366",
@@ -136,7 +137,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000160",
@@ -145,7 +147,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000183",
@@ -190,7 +193,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000169",
@@ -217,7 +221,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000187",
@@ -226,7 +231,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000179",
@@ -235,7 +241,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000164",
@@ -289,7 +296,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000157",
@@ -298,7 +306,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000158",
@@ -307,7 +316,8 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AI3000171",
@@ -325,7 +335,8 @@
   "status": "norm",
   "units": "kW*h",
   "readOnly": true,
-  "value": 7.912
+  "value": 7.912,
+  "trend": true
   },
   {
   "title": "AI3000376",
@@ -334,7 +345,8 @@
   "status": "norm",
   "units": "kW*h",
   "readOnly": true,
-  "value": 12.765
+  "value": 12.765,
+    "trend": true
   },
   {
   "title": "AI3000370",
@@ -343,7 +355,8 @@
   "status": "norm",
   "units": "m3",
   "readOnly": true,
-  "value": 89180
+  "value": 89180,
+    "trend": true
   },
   {
   "title": "AI3000371",
@@ -352,6 +365,7 @@
   "status": "norm",
   "units": "m3",
   "readOnly": true,
-  "value": 120
+  "value": 120,
+    "trend": true
   }
 ]

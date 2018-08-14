@@ -6,7 +6,8 @@
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
-    "value": 0
+    "value": 333,
+    "trend": true
   },
   {
     "title": "AV3000715",
@@ -15,7 +16,8 @@
     "status": "norm",
     "units": "deg C",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   },
   {
     "title": "AV3000719",
@@ -24,6 +26,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 0,
+    "trend": true
   }
 ]
