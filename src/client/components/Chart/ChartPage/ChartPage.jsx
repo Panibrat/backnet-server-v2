@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import {timeFormatDefaultLocale} from 'd3-time-format';
+import { timeFormatDefaultLocale } from 'd3-time-format';
 import './ChartPage.css';
+import DateAndTimePickers from '../../DateAndTimePicker/DateAndTimePicker';
 import {
     XYPlot,
     VerticalBarSeries,
@@ -87,21 +88,22 @@ class ChartPage extends Component {
     }
 
     componentDidMount() {
-        this.getTrendData("AI3000308",now - day, now)
+        this.getTrendData('AI3000308', now - day, now)
             .then((response) => {
+                console.log('response.data', response.data);
                 this.setState({
                     AI3000308: response.data,
-                    minDate: Math.max(response.data[0].x, now - day)
+                    minDate: Math.max(response.data[0].x, now - day, this.state.minDate),
                 });
             });
 
-        this.getTrendData("AI3000307",now - day, now)
+        this.getTrendData('AI3000307', now - day, now)
             .then((response) => {
                 this.setState({
-                    AI3000307: response.data
+                    AI3000307: response.data,
+                    minDate: Math.max(response.data[0].x, now - day, this.state.minDate),
                 });
             });
-
     }
 
     getTrendData(title, startTime, endTime) {
@@ -114,15 +116,19 @@ class ChartPage extends Component {
 
     render() {
         return (
-            <XYPlot width={360} height={300} xDomain={[this.state.minDate, now]} xType={'time'}>
-                <HorizontalGridLines />
-                <VerticalGridLines />
-                {/*<VerticalBarSeries  data={data} />*/}
-                <LineMarkSeries   data={this.state.AI3000307} color={'blue'} />
-                <LineMarkSeries   data={this.state.AI3000308} color={'green'} />
-                <XAxis title="time" />
-                <YAxis title={"℃"} />
-            </XYPlot>
+            <div>
+                <XYPlot width={360} height={300} xDomain={[this.state.minDate, now]} xType={'time'}>
+                    <HorizontalGridLines />
+                    <VerticalGridLines />
+                    {/*<VerticalBarSeries  data={data} />*/}
+                    <LineMarkSeries   data={this.state.AI3000307} color={'blue'} />
+                    <LineMarkSeries   data={this.state.AI3000308} color={'green'} />
+                    <XAxis title="time" />
+                    <YAxis title={"℃"} />
+                </XYPlot>
+                <DateAndTimePickers/>
+            </div>
+
         );
     }
 }

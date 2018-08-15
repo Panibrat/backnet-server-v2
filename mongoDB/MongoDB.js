@@ -34,11 +34,11 @@ class MongoDB {
                     }
                     if (res) {
                         const data = res.map((point) => {
-                            return {x: point.timeStamp, y: point.value};
+                            return { x: point.timeStamp, y: point.value };
                         });
                         resolve(data);
                     }
-                }
+                },
             );
         });
     }
@@ -51,7 +51,7 @@ class MongoDB {
                         reject(err);
                     }
                     resolve(avs.value);
-                }
+                },
             );
         });
     }
@@ -88,9 +88,9 @@ class MongoDB {
             // console.log(` ${query.title} updated to value: ${av.value}`);
             // console.log(`Mongo response --> ${res}`);
         });
-            if (av.trend) {
-                this.saveTrendData(av);
-            }
+        if (av.trend) {
+            this.saveTrendData(av);
+        }
     }
 
     updateBV(bv) {

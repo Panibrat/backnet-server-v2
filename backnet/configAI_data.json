@@ -7,7 +7,7 @@
     "units": "℃",
     "readOnly": true,
     "value": 0,
-    "trend": false
+    "trend": true
   },
   {
     "title": "AI3000307",
@@ -17,7 +17,7 @@
     "units": "℃",
     "readOnly": true,
     "value": 0,
-    "trend": false
+    "trend": true
   },
   {
     "title": "AI3000310",
