@@ -8,6 +8,10 @@ class DataBuffer {
         return this.data;
     }
 
+    getItem(item) {
+        return this.data[item];
+    }
+
     getAnalogInputsData() {
         return this.getDataByType('AI');
     }
@@ -59,7 +63,7 @@ class DataBuffer {
         if (!this.data[point.title]) {
             this.data[point.title] = point;
             this.onDataChange(point);
-        } else if (Math.abs(this.data[point.title].value - point.value) > 0.1) {
+        } else if (Math.abs(this.data[point.title].value - point.value) > 0.3) {
             this.data[point.title].value = point.value;
             this.onDataChange({ ...point, trend: this.data[point.title].trend });
         } else {

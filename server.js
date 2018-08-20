@@ -11,6 +11,7 @@ module.exports.io = io;
 
 const backnetLoop = require('./backnet/BACnetLoop');
 const buffer = require('./backnet/dataBuffer');
+const trendLoop = require('./services/trendLoop');
 
 const configAVs = require('./backnet/configAV_data');
 const configBVs = require('./backnet/configBV_data');
@@ -43,7 +44,7 @@ app.get('/buffer', (req, res) => {
     res.send(JSON.stringify(buffer.getData()));
 });
 
-app.post('/trend', function(req, res) {
+app.post('/trend', (req, res) => {
     const query = req.body;
     mongoDB.getTrendData(
         query.title,
@@ -54,8 +55,8 @@ app.post('/trend', function(req, res) {
             res.json(trendData);
         })
         .catch((err) => {
-        throw err;
-    });
+            throw err;
+        });
 });
 
 app.get('*', (req, res) => {
@@ -67,3 +68,4 @@ server.listen(port, (req, res) => {
 });
 
 backnetLoop.run();
+trendLoop.run();

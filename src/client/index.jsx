@@ -28,6 +28,7 @@ import HeatStationPage from './components/Pages/HeatStationPage/HeatStationPage'
 import ConsumptionPage from './components/Pages/ConsumptionPage/ConsumptionPage';
 
 import ChartPage from './components/Chart/ChartPage/ChartPage';
+import ConsumptionChart from './components/Chart/ConsumptionChart/ConsumptionChart';
 
 import styles from './Styles.css';
 
@@ -63,6 +64,7 @@ const App = () => (
                         <Route path="/heat-station" component={HeatStationPage} />
                         <Route path="/consumption" component={ConsumptionPage} />
                         <Route path="/chart" component={ChartPage} />
+                        <Route path="/consumption-chart" component={ConsumptionChart} />
                         <Route path="*" component={AhuPage} />
                     </Switch>
                 </Layout>

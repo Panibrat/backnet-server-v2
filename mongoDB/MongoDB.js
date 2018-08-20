@@ -25,16 +25,16 @@ class MongoDB {
     }
 
     getTrendData(point, startTime, endTime) {
-        const query = { title: point, timeStamp: {$gte: startTime, $lte: endTime} };
+        const query = { title: point, timeStamp: { $gte: startTime, $lte: endTime } };
         return new Promise((resolve, reject) => {
-            this.trendModel.find(query).sort({ timeStamp: 'asc'}).exec(
+            this.trendModel.find(query).sort({ timeStamp: 'asc' }).exec(
                 (err, res) => {
                     if (err) {
                         reject(err);
                     }
                     if (res) {
-                        const data = res.map((point) => {
-                            return { x: point.timeStamp, y: point.value };
+                        const data = res.map((savedPoint) => {
+                            return { x: savedPoint.timeStamp, y: savedPoint.value };
                         });
                         resolve(data);
                     }
