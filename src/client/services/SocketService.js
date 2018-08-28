@@ -76,6 +76,7 @@ class SocketService{
         this.socket.on(UPDATE_BINARY_VALUE, (point) => {
             store.dispatch(updateBV(point));
         });
+        console.log('SOCKET_RUN');
     }
 
     writeAV(point) {

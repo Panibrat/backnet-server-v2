@@ -9,13 +9,6 @@ const {
 
 const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
-const element = {
-    timeStamp: new Date().getTime(),
-    title: 'AI3000308',
-    name: 'iT_FOR',
-    units: '℃',
-    value: (+Math.random() * 20 + 10).toFixed(1),
-};
 
 function createElement(title, name) {
     return {
@@ -35,14 +28,14 @@ mongoose.connect(dataBaseLink).then(() => {
                 console.log('MongoError', err);
                 throw err;
             }
-            console.log('\nSAVE Trend Point\n', item);
+            //console.log('\nSAVE Trend Point\n', item);
         });
         trendModel.create(createElement('AI3000307', 'Т OUT'), (err, item) => {
             if (err) {
                 console.log('MongoError', err);
                 throw err;
             }
-            console.log('\nSAVE Trend Point\n', item);
+            //console.log('\nSAVE Trend Point\n', item);
         });
     }
 });

@@ -1,12 +1,14 @@
 const AVsModel = require('./models/AV.js');
 const BVsModel = require('./models/BV.js');
 const trendModel = require('./models/trendItem');
+const userModel = require('./models/user');
 
 class MongoDB {
     constructor() {
         this.AVsModel = AVsModel;
         this.BVsModel = BVsModel;
         this.trendModel = trendModel;
+        this.userModel = userModel;
     }
 
     saveTrendData(av) {
@@ -20,7 +22,7 @@ class MongoDB {
                 console.log('MongoError', err);
                 throw err;
             }
-            console.log('\nSAVE Trend Point\n', item);
+            //console.log('\nSAVE Trend Point\n', item);
         });
     }
 
@@ -124,4 +126,4 @@ class MongoDB {
     }
 }
 
-module.exports = new MongoDB(AVsModel, BVsModel);
+module.exports = new MongoDB();

@@ -2,12 +2,16 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 module.exports.io = io;
+
+const { authenticate } = require('./middleware/authenticate');
+const User = require('./mongoDB/models/user');
 
 const backnetLoop = require('./backnet/BACnetLoop');
 const buffer = require('./backnet/dataBuffer');
@@ -40,7 +44,7 @@ const port = process.env.PORT || '3000';
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-app.get('/buffer', (req, res) => {
+app.get('/buffer', authenticate, (req, res) => {
     res.send(JSON.stringify(buffer.getData()));
 });
 
@@ -57,6 +61,22 @@ app.post('/trend', (req, res) => {
         .catch((err) => {
             throw err;
         });
+});
+
+app.post('/users/login', (req, res) => {
+    console.log('body: ', req.body);
+    User.findOne({ email: req.body.email, password: req.body.password }, (err, user) => {
+        if (err) {
+            console.log('ERR', err);
+            res.status(401).send();
+        }
+        if (user) {
+            res.status(200).send(jwt.sign({ email: user.email }, 'abc123').toString());
+        } else {
+            res.status(401).send();
+            console.log('no users');
+        }
+    });
 });
 
 app.get('*', (req, res) => {

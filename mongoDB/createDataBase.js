@@ -26,7 +26,7 @@ mongoose.connect(dataBaseLink).then(() => {
                 console.log('MongoError', err);
                 throw err;
             }
-            console.log('\nSAVE Analog Point\n', av);
+            //console.log('\nSAVE Analog Point\n', av);
         });
     });
     binaryPoints.forEach(element => {
@@ -35,7 +35,7 @@ mongoose.connect(dataBaseLink).then(() => {
                 console.log('MongoError', err);
                 throw err;
             }
-            console.log('\nSAVE Binary Point\n', bv);
+            //console.log('\nSAVE Binary Point\n', bv);
         });
     });
 });
