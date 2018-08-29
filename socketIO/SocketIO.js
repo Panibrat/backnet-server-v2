@@ -1,6 +1,9 @@
 const { io } = require('../server');
 const buffer = require('../backnet/dataBuffer');
 
+const { isTokenValid } = require('../middleware/checkToken');
+
+
 const writeAV = require('../backnet/writeData/writeAVpromise');
 const writeAO = require('../backnet/writeData/writeAOpromise');
 const writeBV = require('../backnet/writeData/writeBVpromise');
@@ -39,24 +42,33 @@ class SocketIO {
             socket.emit(CREATE_BINARY_OUTPUT, buffer.getBinaryOutputsData());
             socket.emit(CREATE_BINARY_VALUE, buffer.getBinaryValueData());
 
-            socket.on(WRITE_ANALOG_VALUE, (point) => {
-                console.log(`${socket.id} WRITE_ANALOG_VALUE -----> `, point);
-                writeAV(point);
+            socket.on(WRITE_ANALOG_VALUE, (data) => {
+                if (isTokenValid(data.token)) {
+                    writeAV(data.point);
+                    console.log(`${socket.id} WRITE_ANALOG_VALUE -----> `, data.point);
+                }
             });
 
-            socket.on(WRITE_ANALOG_OUTPUT, (point) => {
-                console.log(`${socket.id} WRITE_ANALOG_OUTPUT -----> `, point);
-                writeAO(point);
+            socket.on(WRITE_ANALOG_OUTPUT, (data) => {
+                if (isTokenValid(data.token)) {
+                    writeAO(data.point);
+                    console.log(`${socket.id} WRITE_ANALOG_OUTPUT -----> `, data.point);
+                }
+
             });
 
-            socket.on(WRITE_BINARY_VALUE, (point) => {
-                console.log(`${socket.id} WRITE_BINARY_VALUE -----> `, point);
-                writeBV(point);
+            socket.on(WRITE_BINARY_VALUE, (data) => {
+                if (isTokenValid(data.token)) {
+                    writeBV(data.point);
+                    console.log(`${socket.id} WRITE_BINARY_VALUE -----> `, data.point);
+                }
             });
 
-            socket.on(WRITE_BINARY_OUTPUT, (point) => {
-                console.log(`${socket.id} WRITE_BINARY_OUTPUT -----> `, point);
-                writeBO(point);
+            socket.on(WRITE_BINARY_OUTPUT, (data) => {
+                if (isTokenValid(data.token)) {
+                    writeBO(data.point);
+                    console.log(`${socket.id} WRITE_BINARY_OUTPUT -----> `, data.point);
+                }
             });
         });
     }

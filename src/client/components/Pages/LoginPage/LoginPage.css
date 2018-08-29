@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    margin: auto !important;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    background-size: cover;
+    color: black;
+    width: 100%;
+    max-width: 300px;
+    min-width: 300px
+}
+
+.textField {
+
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.button {
+    top: 50px;
+}

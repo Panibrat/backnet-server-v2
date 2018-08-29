@@ -12,7 +12,7 @@ class TrendLoop {
 
     run() {
         this.cron.schedule('* * * * * *', () => {
-            console.log('\n running a task every second \n');
+            //console.log('\n running a task every second \n');
             mongoDB.saveTrendData(buffer.getItem(EnergyDayTotal));
             mongoDB.saveTrendData(buffer.getItem(EnergyNightTotal));
         });

@@ -48,6 +48,7 @@ app.get('/buffer', authenticate, (req, res) => {
     res.send(JSON.stringify(buffer.getData()));
 });
 
+//app.post('/trend', authenticate, (req, res) => {
 app.post('/trend', (req, res) => {
     const query = req.body;
     mongoDB.getTrendData(

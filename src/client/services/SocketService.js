@@ -27,9 +27,13 @@ import { updateBI, getBIs } from '../actions/BinaryInputActions';
 import { updateBO, getBOs } from '../actions/BinaryOutputActions';
 import { updateBV, getBVs } from '../actions/BinaryValueActions';
 
+let user = JSON.parse(localStorage.getItem('user'));
+const token = user ? user.token : null;
+
 class SocketService{
     constructor(io) {
         this.socket = io();
+        this.token = token;
         this.socket.on(CONNECT, () => {
             console.log('connected to server :)');
         });
@@ -76,23 +80,38 @@ class SocketService{
         this.socket.on(UPDATE_BINARY_VALUE, (point) => {
             store.dispatch(updateBV(point));
         });
-        console.log('SOCKET_RUN');
     }
 
     writeAV(point) {
-        this.socket.emit(WRITE_ANALOG_VALUE, point);
+        const data = {
+            point: point,
+            token: this.token
+        };
+        this.socket.emit(WRITE_ANALOG_VALUE, data);
     }
 
     writeAO(point) {
-        this.socket.emit(WRITE_ANALOG_OUTPUT, point);
+        const data = {
+            point: point,
+            token: this.token
+        };
+        this.socket.emit(WRITE_ANALOG_OUTPUT, data);
     }
 
     writeBV(point) {
-        this.socket.emit(WRITE_BINARY_VALUE, point);
+        const data = {
+            point: point,
+            token: this.token
+        };
+        this.socket.emit(WRITE_BINARY_VALUE, data);
     }
 
     writeBO(point) {
-        this.socket.emit(WRITE_BINARY_OUTPUT, point);
+        const data = {
+            point: point,
+            token: this.token
+        };
+        this.socket.emit(WRITE_BINARY_OUTPUT, data);
     }
 }
 

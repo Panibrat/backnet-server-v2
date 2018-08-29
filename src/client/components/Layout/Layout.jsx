@@ -14,6 +14,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import TemporaryDrawer from '../Menu/TemporaryDrawer';
 
 import { openMenu } from '../../actions/menuActions';
+import LoginPage from '../Pages/LoginPage/LoginPage';
+import { logout } from '../../actions/userActions';
 
 const styles = {
     root: {
@@ -50,11 +52,14 @@ export class Layout extends React.Component {
                         <Typography variant="title" color="inherit" className={classes.flex}>
                             {this.props.menu.title}
                         </Typography>
-                        <Button color="inherit">Login</Button>
+                        <Button color="inherit" onClick={this.props.logout}>
+                            {this.props.user.token && 'Logout'}
+                        </Button>
                     </Toolbar>
                 </AppBar>
                 <TemporaryDrawer />
-                {this.props.children}
+                {this.props.user.token && this.props.children}
+                {!this.props.user.token && <LoginPage/>}
             </div>
         )
     }
@@ -63,13 +68,15 @@ export class Layout extends React.Component {
 
 const mapStateToProps = (store) => {
     return {
-        menu: store.menu
+        menu: store.menu,
+        user: store.user
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        openMenu: openMenu
+        openMenu: openMenu,
+        logout: logout
     }, dispatch)
 };
 
