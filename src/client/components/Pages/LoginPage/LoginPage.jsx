@@ -54,7 +54,7 @@ class LoginPage extends React.Component {
                         error = { submitted && !username }
                         id="name"
                         name="username"
-                        label="Name"
+                        label="Name / Email"
                         className={styles.textField}
                         value={username}
                         onChange={this.handleChange}

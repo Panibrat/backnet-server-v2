@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const app = express();
 const server = require('http').Server(app);
@@ -44,12 +45,11 @@ const port = process.env.PORT || '3000';
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-app.get('/buffer', authenticate, (req, res) => {
+app.get('/buffer', (req, res) => { //TODO: delete in prod
     res.send(JSON.stringify(buffer.getData()));
 });
 
-//app.post('/trend', authenticate, (req, res) => {
-app.post('/trend', (req, res) => {
+app.post('/trend', authenticate, (req, res) => {
     const query = req.body;
     mongoDB.getTrendData(
         query.title,
@@ -65,14 +65,18 @@ app.post('/trend', (req, res) => {
 });
 
 app.post('/users/login', (req, res) => {
-    console.log('body: ', req.body);
-    User.findOne({ email: req.body.email, password: req.body.password }, (err, user) => {
+    User.findOne({ email: req.body.email }, (err, user) => {
         if (err) {
-            console.log('ERR', err);
-            res.status(401).send();
+            res.status(401).send(err);
         }
         if (user) {
-            res.status(200).send(jwt.sign({ email: user.email }, 'abc123').toString());
+            bcrypt.compare(req.body.password, user.password, (error, result) => {
+                if (result) {
+                    res.status(200).send(jwt.sign({ email: user.email }, 'abc123').toString());
+                } else {
+                    res.status(401).send(error);
+                }
+            });
         } else {
             res.status(401).send();
             console.log('no users');

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import { timeFormatDefaultLocale } from 'd3-time-format';
@@ -107,11 +108,18 @@ class ChartPage extends Component {
     }
 
     getTrendData(title, startTime, endTime) {
+        const token = this.props.user ? this.props.user.token : 'fakeToken';
         return axios.post('/trend', {
-            title: title,
-            startTime: startTime,
-            endTime: endTime
-        })
+                title: title,
+                startTime: startTime,
+                endTime: endTime
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "x-auth": token,
+                }
+            }
+        )
     }
 
     render() {
@@ -133,4 +141,10 @@ class ChartPage extends Component {
     }
 }
 
-export default ChartPage;
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    };
+}
+
+export default connect(mapStateToProps)(ChartPage);

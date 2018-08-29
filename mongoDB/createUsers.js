@@ -30,4 +30,14 @@ mongoose.connect(dataBaseLink).then(() => {
         }
         console.log('\nSAVE User\n', user);
     });
+    userModel.create({
+        email: 'a.panibratenko@gmail.com',
+        password: '4571',
+    }, (err, user) => {
+        if (err) {
+            console.log('MongoError', err);
+            throw err;
+        }
+        console.log('\nSAVE User\n', user);
+    });
 });

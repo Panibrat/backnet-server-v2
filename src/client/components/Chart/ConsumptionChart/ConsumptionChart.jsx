@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import './ConsumptionChart.css';
@@ -51,11 +52,18 @@ class ConsumptionChart extends Component {
 
 
     getTrendData(title, startTime, endTime) {
+        const token = this.props.user ? this.props.user.token : 'fakeToken';
         return axios.post('/trend', {
-            title: title,
-            startTime: startTime,
-            endTime: endTime,
-        });
+                title: title,
+                startTime: startTime,
+                endTime: endTime
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "x-auth": token,
+                }
+            }
+        )
     }
 
     convertDataToRelative(dataArray) {
@@ -109,5 +117,10 @@ class ConsumptionChart extends Component {
         );
     }
 }
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    };
+}
 
-export default ConsumptionChart;
+export default connect(mapStateToProps)(ConsumptionChart);
