@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 import ErrorMessagesPage from '../../ErrorMessagesPage/ErrorMessagesPage';
 
 import { login, logout } from '../../../actions/userActions';
-import { bindActionCreators } from "redux";
 import styles from './LoginPage.css';
 
 import { setTitle } from '../../../actions/menuActions';
