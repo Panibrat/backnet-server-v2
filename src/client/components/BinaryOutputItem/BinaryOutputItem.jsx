@@ -16,20 +16,18 @@ export default class BinaryOutputItem extends React.Component {
         super(props);
         this.state = {
             isOn: false,
-            shouldSync: true,
         };
         this.toggleOutput = this.toggleOutput.bind(this);
     }
 
     shouldComponentUpdate(nextProps, nextState) {
         const result = (this.props.value !== nextProps.value) || (this.state.isOn !== nextState.isOn);
-        console.log('result', result);
         return result;
     }
 
-    componentDidUpdate() {
-        if (this.props.value !== this.state.isOn && this.state.shouldSync) {
-            this.setState({ isOn: this.props.value, shouldSync: false });
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.value !== this.state.isOn && prevProps.value !== this.props.value) {
+            this.setState({ isOn: this.props.value });
         }
     }
 
