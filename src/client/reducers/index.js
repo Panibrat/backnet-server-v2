@@ -7,6 +7,7 @@ import { boReducer } from './boReducer';
 import { bvReducer } from './bvReducer';
 import { menuReducer } from './menuReducer';
 import { userReducer } from './userReducer';
+import { errorsReducer } from './errorsReducer';
 
 export default combineReducers({
     av: avReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
     bo: boReducer,
     bv: bvReducer,
     menu: menuReducer,
-    user: userReducer
+    user: userReducer,
+    errors: errorsReducer,
 });

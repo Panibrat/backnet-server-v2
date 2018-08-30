@@ -18,13 +18,17 @@ export function login(email, password) {
             }
         }).then((user) => {
             dispatch({
-                type:'SET_USER',
-                payload: user
-            })
+                type: 'SET_USER',
+                payload: user,
+            });
         })
             .catch((e) => {
-            console.log('Error: cannot save to localstorage', e);
-        });
+                dispatch({
+                    type: 'SET_ERROR',
+                    payload: '401: Unauthorized',
+                });
+                console.log('Error: cannot save to localstorage', e);
+            });
     }
 }
 
@@ -33,7 +37,7 @@ export function logout() {
         console.log('Logout...');
         localStorage.removeItem('user');
         dispatch({
-            type:'CLEAR_USER'
+            type: 'CLEAR_USER',
         })
     }
 }
