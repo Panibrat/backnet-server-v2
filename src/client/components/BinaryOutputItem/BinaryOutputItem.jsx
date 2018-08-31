@@ -15,7 +15,7 @@ export default class BinaryOutputItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOn: false,
+            isOn: props.value,
         };
         this.toggleOutput = this.toggleOutput.bind(this);
     }

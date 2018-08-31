@@ -9,32 +9,41 @@ import switchOnImg from './switchOn.svg';
 
 import styles from './BinaryInputItem.css';
 
-export const BinaryInputItem = (props) => (
-    <React.Fragment>
-        <ListItem className={styles.container}>
-            <Avatar
-                className={styles.avatar}
-                alt="switch"
-                src={props.value ? switchOnImg : switchOffImg}
-            />
-            <ListItemText
-                className={styles.item}
-                primary={props.name}
-                secondary={props.description}
-            />
-            <div className={styles.data}>
-                {
-                    props.units ?
-                        <div className={styles.value}>
-                            {props.value ? props.units[1] : props.units[0]}
-                        </div>
-                        :
-                        null
-                }
-            </div>
-        </ListItem>
-        <li>
-            <Divider inset />
-        </li>
-    </React.Fragment>
-);
+export class BinaryInputItem extends React.Component {
+
+    shouldComponentUpdate(nextProps) {
+        return (this.props.value !== nextProps.value);
+    }
+
+    render() {
+        return (
+            <React.Fragment>
+                <ListItem className={styles.container}>
+                    <Avatar
+                        className={styles.avatar}
+                        alt="switch"
+                        src={this.props.value ? switchOnImg : switchOffImg}
+                    />
+                    <ListItemText
+                        className={styles.item}
+                        primary={this.props.name}
+                        secondary={this.props.description}
+                    />
+                    <div className={styles.data}>
+                        {
+                            this.props.units ?
+                                <div className={styles.value}>
+                                    {this.props.value ? this.props.units[1] : this.props.units[0]}
+                                </div>
+                                :
+                                null
+                        }
+                    </div>
+                </ListItem>
+                <li>
+                    <Divider inset />
+                </li>
+            </React.Fragment>
+        )
+    }
+}

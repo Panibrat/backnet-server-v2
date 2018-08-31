@@ -28,6 +28,10 @@ export class AnalogOutputItemSlider extends React.Component {
         };
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return (this.props.value !== nextProps.value) || (this.state !== nextState);
+    }
+
     handleClickOpen = () => {
         this.setState({
             open: true,
@@ -79,8 +83,8 @@ export class AnalogOutputItemSlider extends React.Component {
                     <div>
                         <Button
                             className={styles.button}
-                            onClick={this.handleClickOpen} c
-                            olor="primary">
+                            onClick={this.handleClickOpen}
+                            color="primary">
                             <Avatar
                                 className={styles.avatar}
                                 alt="term"

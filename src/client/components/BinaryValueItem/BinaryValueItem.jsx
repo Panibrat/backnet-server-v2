@@ -14,15 +14,29 @@ import SocketIO from '../../services/SocketService';
 export default class BinaryValueItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isOn: false };
+        this.state = {
+            isOn: props.value,
+        };
         this.toggleOutput = this.toggleOutput.bind(this);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        const result = (this.props.value !== nextProps.value) || (this.state.isOn !== nextState.isOn);
+        return result;
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.value !== this.state.isOn && prevProps.value !== this.props.value) {
+            this.setState({ isOn: this.props.value });
+        }
+    }
+
     toggleOutput() {
-        SocketIO.writeBV({
+        SocketIO.writeBO({
             title: this.props.title,
-            value: !this.props.value
+            value: !this.state.isOn,
         });
+        this.setState({ isOn: !this.state.isOn });
     }
 
     render() {
@@ -47,7 +61,7 @@ export default class BinaryValueItem extends React.Component {
                             }
                         </div>
                         <Switch
-                            checked={this.props.value}
+                            checked={this.state.isOn}
                             onChange={this.toggleOutput}
                         />
                     </div>

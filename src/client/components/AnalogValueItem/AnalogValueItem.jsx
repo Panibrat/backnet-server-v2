@@ -47,6 +47,10 @@ export class AnalogValueItem extends React.Component {
         this.setState({ open: false });
     };
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return (this.props.value !== nextProps.value) || (this.state !== nextState);
+    }
+
     componentDidMount() {
         this.setState({ value: this.props.value });
     }
