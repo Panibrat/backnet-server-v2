@@ -37,6 +37,15 @@ class BACnetLoop {
     }
 
     run() {
+        this.runAI();
+        this.runAO();
+        this.runAV();
+        this.runBI();
+        this.runBO();
+        this.runBV();
+    }
+
+    runAV() {
         const stop = setInterval(() => {
             this.pointsAV.forEach((pointNumber) => {
                 readAV(pointNumber)
@@ -44,30 +53,51 @@ class BACnetLoop {
                         buffer.setData(point);
                     });
             });
+        }, pollingTime);
+    }
+    runBV() {
+        const stop = setInterval(() => {
             this.pointsBV.forEach((pointNumber) => {
                 readBV(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
                     });
             });
+        }, pollingTime * 3);
+    }
+    runAI() {
+        const stop = setInterval(() => {
             this.pointsAI.forEach((pointNumber) => {
                 readAI(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
                     });
             });
+
+        }, pollingTime * 3);
+    }
+    runAO() {
+        const stop = setInterval(() => {
             this.pointsAO.forEach((pointNumber) => {
                 readAO(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
                     });
             });
+        }, pollingTime * 2);
+    }
+    runBI() {
+        const stop = setInterval(() => {
             this.pointsBI.forEach((pointNumber) => {
                 readBI(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
                     });
             });
+        }, pollingTime * 2);
+    }
+    runBO() {
+        const stop = setInterval(() => {
             this.pointsBO.forEach((pointNumber) => {
                 readBO(pointNumber)
                     .then((point) => {
