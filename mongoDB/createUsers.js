@@ -9,7 +9,7 @@ const {
 
 const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
-mongoose.connect(dataBaseLink).then(() => {
+mongoose.connect(dataBaseLink, { useNewUrlParser: true }).then(() => {
     userModel.create({
         email: 'pan@mail.com',
         password: '1234',

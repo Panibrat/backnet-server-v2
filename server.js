@@ -32,10 +32,15 @@ const {
     DATABASE_HOST,
     DATABASE_PORT,
     DATABASE_NAME,
+    DATABASE_USER_NAME,
+    DATABASE_USER_PASS,
 } = require('./mongoDB/config');
+
+//const dataBaseLink = `mongodb://${DATABASE_USER_NAME}:${DATABASE_USER_PASS}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
 const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
+//mongoose.connect('mongodb://username:password@host:port/database?options...');
 mongoose.connect(dataBaseLink);
 
 const mongoDB = require('./mongoDB/MongoDB');
