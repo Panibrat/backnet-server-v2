@@ -2,12 +2,15 @@ const mongoose = require('mongoose');
 const userModel = require('./models/user');
 
 const {
+    DATABASE_USER_NAME,
+    DATABASE_USER_PASSWORD,
     DATABASE_HOST,
     DATABASE_PORT,
     DATABASE_NAME,
 } = require('./config');
 
-const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
+//const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
+const dataBaseLink = `mongodb://${DATABASE_USER_NAME}:${DATABASE_USER_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
 mongoose.connect(dataBaseLink).then(() => {
     userModel.create({
