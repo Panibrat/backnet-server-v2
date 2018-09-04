@@ -23,7 +23,7 @@ export const AmperItem = (props) => (
             />
             <div className={styles.data}>
                 <div className={styles.value}>
-                    {props.value ? Number(props.value).toFixed(1) : -99.9}
+                    {props.value ? Number(props.value).toFixed(1) : (0).toFixed(1)}
                 </div>
                 <div className={styles.units}>
                     {props.units}

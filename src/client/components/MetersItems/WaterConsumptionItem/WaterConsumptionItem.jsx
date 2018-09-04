@@ -23,7 +23,7 @@ export const WaterConsumptionItem = (props) => (
             />
             <div className={styles.data}>
                 <div className={styles.value}>
-                    {props.value ? (props.value/1000).toFixed(3) : -9999.999}
+                    {props.value ? (props.value/1000).toFixed(3) : (0).toFixed(3)}
                 </div>
                 <div className={styles.units}>
                     {props.units}

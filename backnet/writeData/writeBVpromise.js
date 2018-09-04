@@ -19,8 +19,7 @@ const writeBV = (bv) => {
             ], // value to write!!!!
             (err, value) => { // NOTE: type changed to correct value
                 if (err) {
-                    console.log('writePropertyError: ', err);
-                    console.log('valueToSave', valueToSave);
+                    console.log('[ERROR] [BACnet] writePropertyError: ', err);
                     reject(err);
                 } else {
                     console.log('writeProperty: ', value);

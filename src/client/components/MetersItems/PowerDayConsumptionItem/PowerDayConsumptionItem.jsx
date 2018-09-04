@@ -23,7 +23,7 @@ export const PowerDayConsumptionItem = (props) => (
             />
             <div className={styles.data}>
                 <div className={styles.value}>
-                    {props.value ? Number(props.value).toFixed(1) : -9999.9}
+                    {props.value ? Number(props.value).toFixed(1) : (0).toFixed(1)}
                 </div>
                 <div className={styles.units}>
                     kW*h

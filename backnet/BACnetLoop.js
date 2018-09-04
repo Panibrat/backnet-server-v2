@@ -51,6 +51,9 @@ class BACnetLoop {
                 readAV(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
+                    })
+                    .catch((err) => {
+                        //console.log('[ERROR] pointsAV', err);
                     });
             });
         }, pollingTime);
@@ -61,6 +64,9 @@ class BACnetLoop {
                 readBV(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
+                    })
+                    .catch((err) => {
+                        //console.log('[ERROR] pointsBV', err);
                     });
             });
         }, pollingTime * 3);
@@ -71,6 +77,9 @@ class BACnetLoop {
                 readAI(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
+                    })
+                    .catch((err) => {
+                        //console.log('[ERROR] pointsAI', err);
                     });
             });
 
@@ -82,6 +91,9 @@ class BACnetLoop {
                 readAO(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
+                    })
+                    .catch((err) => {
+                        //console.log('[ERROR] pointsAO', err);
                     });
             });
         }, pollingTime * 2);
@@ -92,6 +104,9 @@ class BACnetLoop {
                 readBI(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
+                    })
+                    .catch((err) => {
+                        //console.log('[ERROR] pointsBI', err);
                     });
             });
         }, pollingTime * 2);
@@ -102,6 +117,9 @@ class BACnetLoop {
                 readBO(pointNumber)
                     .then((point) => {
                         buffer.setData(point);
+                    })
+                    .catch((err) => {
+                        //console.log('[ERROR] pointsBO', err);
                     });
             });
         }, pollingTime);

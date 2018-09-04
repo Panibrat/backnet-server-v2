@@ -17,16 +17,16 @@ export const WarmFloorRight = (props) => (
             {props.oHEAT_HF}%
         </div>
         <div className={styles.t_for_box}>
-            {props.iT_HF_FO}℃
+            {props.iT_HF_FO.toFixed(1)}℃
         </div>
         <div className={styles.t_kitchen_box}>
-            {props.iT_KITCHEN}℃
+            {props.iT_KITCHEN.toFixed(1)}℃
         </div>
         <div className={styles.t_hf_kitchen_box}>
-            {props.iT_HF_KITCH}℃
+            {props.iT_HF_KITCH.toFixed(1)}℃
         </div>
         <div className={styles.sp_t_for_box}>
-            {props.oSP_HF}℃
+            {props.oSP_HF.toFixed(1)}℃
         </div>
         <div className={styles.hall_level_box}>
             {props.oHF_HALL}%

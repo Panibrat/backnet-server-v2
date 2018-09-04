@@ -22,7 +22,7 @@ export const Boiler = (props) => (
             />
         </div>
         <div className={styles.t_gvs_box}>
-            {props.tGVS}℃
+            {props.tGVS.toFixed(1)}℃
         </div>
     </div>
 );

@@ -44,30 +44,49 @@ class SocketIO {
 
             socket.on(WRITE_ANALOG_VALUE, (data) => {
                 if (isTokenValid(data.token)) {
-                    writeAV(data.point);
-                    console.log(`${socket.id} WRITE_ANALOG_VALUE -----> `, data.point);
+                    writeAV(data.point)
+                        .then((av) => {
+                            console.log(`${socket.id} WRITE_ANALOG_VALUE -----> `, av);
+                        })
+                        .catch((e) => {
+                            console.log('[ERROR] to write AV');
+                        });
                 }
             });
 
             socket.on(WRITE_ANALOG_OUTPUT, (data) => {
                 if (isTokenValid(data.token)) {
-                    writeAO(data.point);
-                    console.log(`${socket.id} WRITE_ANALOG_OUTPUT -----> `, data.point);
+                    writeAO(data.point)
+                        .then((ao) => {
+                            console.log(`${socket.id} WRITE_ANALOG_OUTPUT -----> `, ao);
+                        })
+                        .catch((e) => {
+                            console.log('[ERROR] to write AO');
+                        });
                 }
-
             });
 
             socket.on(WRITE_BINARY_VALUE, (data) => {
                 if (isTokenValid(data.token)) {
-                    writeBV(data.point);
-                    console.log(`${socket.id} WRITE_BINARY_VALUE -----> `, data.point);
+                    writeBV(data.point)
+                        .then((bv) => {
+                            console.log(`${socket.id} WRITE_BINARY_VALUE -----> `, bv);
+                        })
+                        .catch((e) => {
+                            console.log('[ERROR] to write BV');
+                        });
                 }
             });
 
             socket.on(WRITE_BINARY_OUTPUT, (data) => {
                 if (isTokenValid(data.token)) {
-                    writeBO(data.point);
-                    console.log(`${socket.id} WRITE_BINARY_OUTPUT -----> `, data.point);
+                    writeBO(data.point)
+                        .then((bo) => {
+                            console.log(`${socket.id} WRITE_BINARY_OUTPUT -----> `, bo);
+                        })
+                        .catch((e) => {
+                            console.log('[ERROR] to write BO');
+                        });
                 }
             });
         });

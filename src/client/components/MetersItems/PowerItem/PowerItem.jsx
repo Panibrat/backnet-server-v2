@@ -23,7 +23,7 @@ export const PowerItem = (props) => (
             />
             <div className={styles.data}>
                 <div className={styles.value}>
-                    {props.value ? (props.value).toFixed(3) : -99.999}
+                    {props.value ? (props.value).toFixed(3) : (0).toFixed(3)}
                 </div>
                 <div className={styles.units}>
                     {props.units}

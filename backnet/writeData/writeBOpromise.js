@@ -1,8 +1,6 @@
 const bacnet = require('bacstack');
 const BACnetClient = require('../BACnetClient');
 
-const mongoDB = require('../../mongoDB/MongoDB');
-
 const writeBO = (bo) => {
     const startTime = new Date();
     return new Promise((resolve, reject) => {
@@ -22,13 +20,10 @@ const writeBO = (bo) => {
             ], // value to write!!!!
             (err, value) => { // NOTE: type changed to correct value
                 if (err) {
-                    console.log('writePropertyError: ', err);
-                    mongoDB.updateBV(bo);
-                    console.log('Write Error. Time: ', (new Date() - startTime));
+                    console.log('[ERROR] [BACnet] writePropertyError: ', err);
                     reject(err);
                 } else {
                     console.log('writeProperty: ', value);
-                    console.log('Write Ok. Time: ', (new Date() - startTime));
                     resolve(bo);
                 }
             },

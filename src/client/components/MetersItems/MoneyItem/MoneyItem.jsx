@@ -23,7 +23,7 @@ export const MoneyItem = (props) => (
             />
             <div className={styles.data}>
                 <div className={styles.value}>
-                    {props.value ? (props.value * props.multiple).toFixed(2) : -99.99}
+                    {props.value ? (props.value * props.multiple).toFixed(2) : (0).toFixed(2)}
                 </div>
                 <div className={styles.units}>
                     UAH

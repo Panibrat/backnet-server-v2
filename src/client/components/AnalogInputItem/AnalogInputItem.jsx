@@ -30,7 +30,7 @@ export class AnalogInputItem extends React.Component {
                     />
                     <div className={styles.data}>
                         <div className={styles.value}>
-                            {this.props.value}
+                            {typeof (this.props.value) === 'undefined' ? 0 : this.props.value.toFixed(1)}
                         </div>
                         <div className={styles.units}>
                             {this.props.units}
@@ -38,7 +38,7 @@ export class AnalogInputItem extends React.Component {
                     </div>
                 </ListItem>
                 <li>
-                    <Divider inset/>
+                    <Divider inset />
                 </li>
             </React.Fragment>
         )
