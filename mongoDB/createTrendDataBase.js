@@ -2,13 +2,15 @@ const mongoose = require('mongoose');
 const trendModel = require('./models/trendItem');
 
 const {
+    DATABASE_USER_NAME,
+    DATABASE_USER_PASSWORD,
     DATABASE_HOST,
     DATABASE_PORT,
     DATABASE_NAME,
 } = require('./config');
 
-const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
-
+//const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
+const dataBaseLink = `mongodb://${DATABASE_USER_NAME}:${DATABASE_USER_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
 function createElement(title, name) {
     return {

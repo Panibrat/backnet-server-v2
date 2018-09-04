@@ -12,6 +12,8 @@ const analogPoints = [...pointsAV, pointsAI, ...pointsAO];
 const binaryPoints = [...pointsBV, pointsBI, ...pointsBO];
 
 const {
+    DATABASE_USER_NAME,
+    DATABASE_USER_PASSWORD,
     DATABASE_HOST,
     DATABASE_PORT,
     DATABASE_NAME,
@@ -19,7 +21,7 @@ const {
     DATABASE_USER_PASS,
 } = require('./config');
 
-const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
+const dataBaseLink = `mongodb://${DATABASE_USER_NAME}:${DATABASE_USER_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
 mongoose.connect(dataBaseLink, { useNewUrlParser: true }).then(() => {
     analogPoints.forEach((element) => {
@@ -28,7 +30,7 @@ mongoose.connect(dataBaseLink, { useNewUrlParser: true }).then(() => {
                 console.log('MongoError', err);
                 throw err;
             }
-            //console.log('\nSAVE Analog Point\n', av);
+            console.log('\nSAVE Analog Point\n', av);
         });
     });
     binaryPoints.forEach(element => {
@@ -37,7 +39,7 @@ mongoose.connect(dataBaseLink, { useNewUrlParser: true }).then(() => {
                 console.log('MongoError', err);
                 throw err;
             }
-            //console.log('\nSAVE Binary Point\n', bv);
+            console.log('\nSAVE Binary Point\n', bv);
         });
     });
 });
