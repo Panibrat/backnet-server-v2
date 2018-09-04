@@ -12,7 +12,10 @@ const {
 //const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 const dataBaseLink = `mongodb://${DATABASE_USER_NAME}:${DATABASE_USER_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
-mongoose.connect(dataBaseLink)
+mongoose.connect(dataBaseLink, {
+    useCreateIndex: true,
+    useNewUrlParser: true
+})
     .then(() => {
         userModel.create({
             email: 'pan@mail.com', //TODO: delete in prod

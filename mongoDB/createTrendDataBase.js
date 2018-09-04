@@ -23,7 +23,10 @@ function createElement(title, name) {
 }
 
 
-mongoose.connect(dataBaseLink)
+mongoose.connect(dataBaseLink, {
+    useCreateIndex: true,
+    useNewUrlParser: true
+})
     .then(() => {
         for (let i = 0; i < 100; i++) {
             trendModel.create(createElement('AI3000308', 'iT_FOR'), (err, item) => {
