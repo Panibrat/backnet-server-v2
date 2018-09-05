@@ -14,11 +14,11 @@ class TrendLoop {
         //this.cron.schedule('* * * * * * *', () => { //every second
         //this.cron.schedule('* * * * * *', () => { //every minute
         this.cron.schedule('0 0 * * * *', () => { //every hour
-            console.log('\n running a task every hour at xx-00-00 \n');
-            if (buffer.getItem(EnergyDayTotal) >= 0) {
+            console.log(`\n running a task every hour at ${new Date()}`);
+            if (buffer.getItem(EnergyDayTotal).value > 0) {
                 mongoDB.saveTrendData(buffer.getItem(EnergyDayTotal));
             }
-            if (buffer.getItem(EnergyNightTotal) >= 0) {
+            if (buffer.getItem(EnergyNightTotal).value > 0) {
                 mongoDB.saveTrendData(buffer.getItem(EnergyNightTotal));
             }
         });
