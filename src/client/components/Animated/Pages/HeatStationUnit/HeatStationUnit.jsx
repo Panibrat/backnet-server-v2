@@ -32,7 +32,7 @@ export const HeatStationUnit = (props) => (
         </div>
         <div className={styles.t_ret}>
             {props.iT_RET.toFixed(1)}℃
-        </div>.HeatFloorRightPage__container___1zGc-
+        </div>
     </div>
 );
 
