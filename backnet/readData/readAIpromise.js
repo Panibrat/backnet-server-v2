@@ -8,6 +8,9 @@ const readAI = pointNumber => new Promise((resolve, reject) => {
         85, // propertyId???????????
         null,
         (err, value) => {
+            if (err) {
+                reject(err);
+            }
             try {
                 const itemValue = +value.valueList[0].value.toFixed(1);
                 resolve({
@@ -15,14 +18,8 @@ const readAI = pointNumber => new Promise((resolve, reject) => {
                     value: itemValue,
                 });
             } catch (error) {
-                // console.log('AI ERRRRROR CATCH: ', error);
-                const itemValue = (+Math.random() - 99).toFixed(1);// TODO: need for MOCK. Delete in prod :)
-                resolve({
-                    title: `AI${pointNumber}`,
-                    value: itemValue,
-                });
+                reject(error);
             }
-            reject(err);
         },
     );
 });

@@ -27,7 +27,7 @@ export class ConsumptionPage extends React.Component {
                         <WaterConsumptionItem {...this.props.oWATER_COUNT} />
                         <WaterConsumptionItem {...this.props.oWATER_DAY} />
                         <MoneyItem {...this.props.oWATER_DAY}
-                                    multiple={0.01427}
+                            multiple={0.01427}
                         />
                         <PowerConsumptionItem {...this.props.EnergyTotal} />
                         <PowerConsumptionItem {...this.props.EnergyDayTotal} />
@@ -36,11 +36,11 @@ export class ConsumptionPage extends React.Component {
                         <PowerDayConsumptionItem {...this.props.oPWR_DAY} />
 
                         <MoneyItem {...this.props.oPWR_DAY}
-                                    multiple={1.68}
+                            multiple={1.68}
                         />
                         <PowerNightConsumptionItem {...this.props.oPWR_NIGHT} />
                         <MoneyItem {...this.props.oPWR_NIGHT}
-                                   multiple={0.84}
+                            multiple={0.84}
                         />
                         <VoltageItem {...this.props.L1N} />
                         <VoltageItem {...this.props.L2N} />

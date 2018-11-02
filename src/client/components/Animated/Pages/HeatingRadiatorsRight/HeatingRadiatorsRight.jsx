@@ -17,22 +17,22 @@ export const HeatingRadiatorsRight = (props) => (
             {props.oHEAT_SO}%
         </div>
         <div className={styles.t_for_box}>
-            {props.iT_SO_FO}℃
+            {props.iT_SO_FO.toFixed(1)}℃
         </div>
         <div className={styles.t_kitchen_box}>
-            {props.iT_KITCHEN}℃
+            {props.iT_KITCHEN.toFixed(1)}℃
         </div>
         <div className={styles.t_zal_box}>
-            {props.iT_ZAL}℃
+            {props.iT_ZAL.toFixed(1)}℃
         </div>
         <div className={styles.t_cabinet_box}>
-            {props.iT_CABINET}℃
+            {props.iT_CABINET.toFixed(1)}℃
         </div>
         <div className={styles.t_bedroom_box}>
-            {props.iT_BEDROOM}℃
+            {props.iT_BEDROOM.toFixed(1)}℃
         </div>
         <div className={styles.sp_t_for_box}>
-            {props.oSP_SO}℃
+            {props.oSP_SO.toFixed(1)}℃
         </div>
         <div className={styles.zal_level_box}>
             {props.oSO_ZAL}%

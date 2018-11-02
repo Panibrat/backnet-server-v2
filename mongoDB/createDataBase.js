@@ -21,23 +21,31 @@ const {
 
 const dataBaseLink = `mongodb://${DATABASE_USER_NAME}:${DATABASE_USER_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
-mongoose.connect(dataBaseLink).then(() => {
-    analogPoints.forEach((element) => {
-        AnalogModel.create(element, (err, av) => {
-            if (err) {
-                console.log('MongoError', err);
-                throw err;
-            }
-            console.log('\nSAVE Analog Point\n', av);
+mongoose.connect(dataBaseLink, {
+    useCreateIndex: true,
+    useNewUrlParser: true
+})
+    .then(() => {
+        analogPoints.forEach((element) => {
+            AnalogModel.create(element, (err, av) => {
+                if (err) {
+                    console.log('MongoError', err);
+                    throw err;
+                }
+                console.log('\nSAVE Analog Point\n', av);
+            });
         });
-    });
-    binaryPoints.forEach(element => {
-        BinaryModel.create(element, (err, bv) => {
-            if (err) {
-                console.log('MongoError', err);
-                throw err;
-            }
-            console.log('\nSAVE Binary Point\n', bv);
+        binaryPoints.forEach(element => {
+            BinaryModel.create(element, (err, bv) => {
+                if (err) {
+                    console.log('MongoError', err);
+                    throw err;
+                }
+                console.log('\nSAVE Binary Point\n', bv);
+            });
         });
+    })
+    .catch((e) => {
+        console.log('[ERROR] with connection to MongoDB: ', e);
     });
-});
+

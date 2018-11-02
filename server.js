@@ -40,7 +40,16 @@ const {
 const dataBaseLink = `mongodb://${DATABASE_USER_NAME}:${DATABASE_USER_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
 
 
-mongoose.connect(dataBaseLink);
+mongoose.connect(dataBaseLink, {
+    useCreateIndex: true,
+    useNewUrlParser: true
+})
+    .then(() => {
+        console.log('connected to MongoDB');
+    })
+    .catch((e) => {
+        console.log('[ERROR] with connection to MongoDB: ', e);
+    });
 
 const mongoDB = require('./mongoDB/MongoDB');
 

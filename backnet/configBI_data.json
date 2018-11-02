@@ -29,7 +29,7 @@
   {
     "title": "BI3000392",
     "name": "oDamperTop",
-    "description": "Полив description",
+    "description": "Воздушная заслонка рециркуляции(Л)",
     "status": "alarm",
     "readOnly": true,
     "value": true,
@@ -38,7 +38,7 @@
   {
     "title": "BI3000393",
     "name": "oDamperButtom",
-    "description": "oKOTEL description",
+    "description": "Воздушная заслонка рециркуляции(П)",
     "status": "alarm",
     "readOnly": true,
     "value": true,

@@ -25,7 +25,7 @@ export const AirUnit = (props) => (
             <Coil isHeat={props.oHeat} />
         </div>
         <div className={styles.t_for_box}>
-            {props.tFor}℃
+            {props.tFor.toFixed(1)}℃
         </div>
         <div className={styles.damper_bottom_box}>
             <DamperVer isOpen={props.oDamperButtom}/>
@@ -37,16 +37,16 @@ export const AirUnit = (props) => (
             <DamperHor isOpen={props.damperFreshLevel > 5}/>
         </div>
         <div className={styles.t_out_box}>
-            {props.tOut}℃
+            {props.tOut.toFixed(1)}℃
         </div>
         <div className={styles.t_ret_box}>
-            {props.tRet}℃
+            {props.tRet.toFixed(1)}℃
         </div>
         <div className={styles.sp_t_ret_box}>
-            {props.spTRet}℃
+            {props.spTRet.toFixed(1)}℃
         </div>
         <div className={styles.sp_t_for_box}>
-            {props.spTFor}℃
+            {props.spTFor.toFixed(1)}℃
         </div>
         <div className={styles.damper_level_box}>
             {props.damperFreshLevel}%
@@ -58,13 +58,13 @@ export const AirUnit = (props) => (
             {props.speedFan}%
         </div>
         <div className={styles.freon_pressue_box}>
-            {props.pFreon}bar
+            {(props.pFreon/100).toFixed(2)}bar
         </div>
         <div className={styles.t_evaparator_box}>
-            {props.tIsp}℃
+            {props.tIsp.toFixed(1)}℃
         </div>
         <div className={styles.t_copmpressor_box}>
-            {props.tComp}℃
+            {props.tComp.toFixed(1)}℃
         </div>
     </div>
 );
@@ -74,7 +74,7 @@ const findPoint = (point, pointsList) => {
     if (index === -1) {
         return 99
     }
-    return pointsList[index].value
+    return pointsList[index].value;
 }
 
 const mapStateToProps = (store) => {

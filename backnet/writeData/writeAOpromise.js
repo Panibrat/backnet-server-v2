@@ -1,8 +1,6 @@
 const bacnet = require('bacstack');
 const BACnetClient = require('../BACnetClient');
 
-const mongoDB = require('../../mongoDB/MongoDB');
-
 const writeAO = (ao) => {
     return new Promise((resolve, reject) => {
         const pointNumber = +(ao.title.substring(2));
@@ -22,8 +20,7 @@ const writeAO = (ao) => {
             ], // value to write!!!!
             (err, value) => { // NOTE: type changed to correct value
                 if (err) {
-                    console.log('writePropertyError: ', err);
-                    mongoDB.updateAV(ao);
+                    console.log('[ERROR] [BACnet] writePropertyError: ', err);
                     reject(err);
                 } else {
                     console.log('writeProperty: ', value);

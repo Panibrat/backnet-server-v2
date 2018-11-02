@@ -8,6 +8,9 @@ const readBI = pointNumber => new Promise((resolve, reject) => {
         85, // propertyId???????????
         null,
         (err, value) => {
+            if (err) {
+                reject(err);
+            }
             try {
                 const itemValue = value.valueList[0].value;
                 resolve({
@@ -15,15 +18,8 @@ const readBI = pointNumber => new Promise((resolve, reject) => {
                     value: itemValue,
                 });
             } catch (error) {
-                // console.log('BI ERRRRROR CATCH: ', error);
-                itemValue = Math.random() >= 0.5;
-                // itemValue = undefined;
-                resolve({
-                    title: `BI${pointNumber}`,
-                    value: itemValue,
-                });
+                reject(error);
             }
-            reject(err);
         },
     );
 });

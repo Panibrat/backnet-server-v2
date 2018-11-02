@@ -1,7 +1,5 @@
 const BACnetClient = require('../BACnetClient');
 
-const mongoDB = require('../../mongoDB/MongoDB');
-
 const readAO = pointNumber => new Promise((resolve, reject) => {
     BACnetClient.client.readProperty(
         BACnetClient.ip, // IP device
@@ -10,6 +8,9 @@ const readAO = pointNumber => new Promise((resolve, reject) => {
         85, // propertyId???????????
         null,
         (err, value) => {
+            if (err) {
+                reject(err);
+            }
             try {
                 const itemValue = +value.valueList[0].value.toFixed(1);
                 resolve({
@@ -17,21 +18,8 @@ const readAO = pointNumber => new Promise((resolve, reject) => {
                     value: itemValue,
                 });
             } catch (error) {
-                mongoDB.findOneAV({ title: `AO${pointNumber}` }).then((itemValue) => {
-                    //console.log('itemValue', itemValue);
-                    resolve({
-                        title: `AO${pointNumber}`,
-                        value: itemValue,
-                    });
-                });
-                // console.log('AO ERRRRROR CATCH: ', error);
-                //const itemValue = +Math.random().toFixed(2) + 99;// TODO: need for MOCK. Delete in prod :)
+                reject(error);
             }
-/*            resolve({
-                title: `AO${pointNumber}`,
-                value: 34,
-            });
-            reject(err);*/
         },
     );
 });

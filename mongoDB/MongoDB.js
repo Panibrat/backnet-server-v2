@@ -12,18 +12,20 @@ class MongoDB {
     }
 
     saveTrendData(av) {
-        const element = {
-            timeStamp: new Date().getTime(),
-            title: av.title,
-            value: av.value,
-        };
-        trendModel.create(element, (err, item) => {
-            if (err) {
-                console.log('MongoError', err);
-                throw err;
-            }
-            //console.log('\nSAVE Trend Point\n', item);
-        });
+        if (av.value > -50) {
+            const element = {
+                timeStamp: new Date().getTime(),
+                title: av.title,
+                value: av.value,
+            };
+            trendModel.create(element, (err, item) => {
+                if (err) {
+                    console.log('MongoError', err);
+                    throw err;
+                }
+                //console.log('\nSAVE Trend Point\n', item);
+            });
+        }
     }
 
     getTrendData(point, startTime, endTime) {

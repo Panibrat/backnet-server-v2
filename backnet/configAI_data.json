@@ -6,7 +6,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 18.5,
     "trend": true
   },
   {
@@ -16,7 +16,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 5.6,
     "trend": true
   },
   {
@@ -26,7 +26,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": -12.9,
     "trend": true
   },
   {
@@ -36,7 +36,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 23.4,
     "trend": true
   },
   {
@@ -46,16 +46,16 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 48.0
   },
   {
     "title": "AI3000312",
     "name": "P Freon",
     "description": "Давление фреона",
     "status": "norm",
-    "units": "℃",
+    "units": "kPa",
     "readOnly": true,
-    "value": 0
+    "value": 758
   },
   {
     "title": "AI3000311",
@@ -64,7 +64,7 @@
     "status": "norm",
     "units": "Pa",
     "readOnly": true,
-    "value": 0
+    "value": 168
   },
   {
     "title": "AI3000321",
@@ -73,7 +73,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 22,
     "trend": true
   },
   {
@@ -83,7 +83,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 25
   },
   {
     "title": "AI3000313",
@@ -92,7 +92,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 75
   },
   {
     "title": "AI3000314",
@@ -101,7 +101,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 47.3
   },
   {
     "title": "AI3000178",
@@ -110,7 +110,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 35.6
   },
   {
     "title": "AI3000181",
@@ -119,7 +119,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 40.2
   },
   {
     "title": "AI3000182",
@@ -128,7 +128,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 58
   },
   {
     "title": "AI3000177",
@@ -137,7 +137,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 24.6,
     "trend": true
   },
   {
@@ -147,7 +147,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 23.1,
     "trend": true
   },
   {
@@ -157,7 +157,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 59
   },
   {
     "title": "AI3000184",
@@ -166,7 +166,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 41
   },
   {
     "title": "AI3000185",
@@ -175,7 +175,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 69
   },
   {
     "title": "AI3000186",
@@ -184,7 +184,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 100
   },
   {
     "title": "AI3000159",
@@ -193,7 +193,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 68.9,
     "trend": true
   },
   {
@@ -203,7 +203,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 75.6
   },
   {
     "title": "AI3000161",
@@ -212,7 +212,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 95.4
   },
   {
     "title": "AI3000172",
@@ -221,7 +221,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 24.0,
     "trend": true
   },
   {
@@ -231,7 +231,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 22.1,
     "trend": true
   },
   {
@@ -241,7 +241,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 18.9,
     "trend": true
   },
   {
@@ -260,7 +260,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 54
   },
   {
     "title": "AI3000165",
@@ -269,7 +269,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 100
   },
   {
     "title": "AI3000166",
@@ -278,7 +278,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 80
   },
   {
     "title": "AI3000162",
@@ -287,7 +287,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 50
   },
   {
     "title": "AI3000174",
@@ -296,7 +296,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 42.8,
     "trend": true
   },
   {
@@ -306,7 +306,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 76.4,
     "trend": true
   },
   {
@@ -316,7 +316,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0,
+    "value": 59.4,
     "trend": true
   },
   {
@@ -326,7 +326,7 @@
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 0
+    "value": 72.1
   },
   {
   "title": "AI3000375",

@@ -25,13 +25,13 @@ export const HeatStationUnit = (props) => (
             />
         </div>
         <div className={styles.sp_t_for}>
-            {props.oSP_KOT}℃
+            {props.oSP_KOT.toFixed(1)}℃
         </div>
         <div className={styles.t_for}>
-            {props.iT_SUP}℃
+            {props.iT_SUP.toFixed(1)}℃
         </div>
         <div className={styles.t_ret}>
-            {props.iT_RET}℃
+            {props.iT_RET.toFixed(1)}℃
         </div>
     </div>
 );
