@@ -108,15 +108,6 @@
     "trend": false
   },
   {
-    "name": "Pwr3",
-    "address": 3057,
-    "type": "FloatBE",
-    "description": "Power Line 3",
-    "units": "kW",
-    "value": 0,
-    "trend": false
-  },
-  {
     "name": "PwrActiveTotal",
     "address": 3059,
     "type": "FloatBE",

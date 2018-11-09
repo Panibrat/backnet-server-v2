@@ -14,6 +14,7 @@ const initBuffer = getBufferFromTable(modbusTable);
 
 class ModbusLoop {
     constructor(client, ip, port, id, buffer) {
+        this.isChanged = false;
         this.buffer = buffer;
         this.client = client;
         this.ip = ip;
@@ -46,6 +47,13 @@ class ModbusLoop {
         return this.buffer;
     }
 
+    updateBuffer(data) {
+        if ((Math.abs(this.buffer[data.name] - data.value) > 0.1)) {
+            this.buffer[data.name] = data.value;
+            this.isChanged = true;
+        }
+    }
+
     getIntBE8Bytes(registerAddress) {
         return this.client.readHoldingRegisters(registerAddress, 8)
             .then((data) => {
@@ -70,7 +78,7 @@ class ModbusLoop {
                     .then((value) => {
                         return {
                             name: point.name,
-                            value: value,
+                            value,
                         };
                     });
             };
@@ -80,7 +88,7 @@ class ModbusLoop {
                     .then((value) => {
                         return {
                             name: point.name,
-                            value: value,
+                            value,
                         };
                     });
             };
@@ -95,12 +103,14 @@ class ModbusLoop {
         });
         this.stop = setInterval(() => {
             console.log(this.buffer);
+            if (this.isChanged) {
+                // UPDATE DATA
+                // this.onDataChange();
+            }
             arrTask.reduce((sum, currentPromise) => {
                 return sum
                     .then(currentPromise)
-                    .then((data) => {
-                        this.buffer[data.name] = data.value;
-                    })
+                    .then(this.updateBuffer)
                     .catch(e => console.log(e));
             }, Promise.resolve([]));
         }, POLING_TIME);
