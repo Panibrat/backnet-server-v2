@@ -88,6 +88,7 @@ class ModbusLoop {
                             return {
                                 title: point.title,
                                 trend: point.trend,
+                                type: point.type,
                                 value,
                             };
                         });
@@ -99,6 +100,7 @@ class ModbusLoop {
                             return {
                                 title: point.title,
                                 trend: point.trend,
+                                type: point.type,
                                 value,
                             };
                         });

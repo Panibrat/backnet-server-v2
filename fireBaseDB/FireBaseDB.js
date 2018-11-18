@@ -5,7 +5,7 @@ class FireBaseDB {
     }
 
     updateData(dataPoint) {
-        console.log('fireBase write: ', dataPoint);
+        // console.log('fireBase write: ', dataPoint);
     }
 }
 
