@@ -2,6 +2,9 @@ const AVsModel = require('./models/AV.js');
 const BVsModel = require('./models/BV.js');
 const trendModel = require('./models/trendItem');
 const userModel = require('./models/user');
+const modbusModel = require('./models/modbusModel');
+
+const modbusTypes = ["IntBE", 'FloatBE'];
 
 class MongoDB {
     constructor() {
@@ -9,6 +12,7 @@ class MongoDB {
         this.BVsModel = BVsModel;
         this.trendModel = trendModel;
         this.userModel = userModel;
+        this.modbusModel = modbusModel;
     }
 
     saveTrendData(av) {
@@ -97,6 +101,28 @@ class MongoDB {
         }
     }
 
+    updateModbusPoint(point) {
+        const query = { title: point.title };
+        const update = {
+            '$set': {
+                value: point.value,
+            }
+        };
+        const options = {
+            new: true,
+        };
+        this.modbusModel.findOneAndUpdate(query, update, options, (err,res) => {
+            if (err) {
+                throw err;
+            }
+            // console.log(` ${query.title} updated to value: ${av.value}`);
+            // console.log(`Mongo response --> ${res}`);
+        });
+        if (point.trend) {
+            this.saveTrendData(point);
+        }
+    }
+
     updateBV(bv) {
         const query = { title: bv.title };
         const update = {
@@ -124,6 +150,8 @@ class MongoDB {
             || dataPoint.title.search(/BI/i) !== -1
             || dataPoint.title.search(/BO/i) !== -1) {
             this.updateBV(dataPoint);
+        } else if (dataPoint.type && modbusTypes.indexOf(dataPoint.type) > -1) {
+            this.updateModbusPoint(dataPoint);
         }
     }
 }

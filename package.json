@@ -9,6 +9,7 @@
     "start": "node server",
     "lint": "eslint src --fix",
     "create-db": "node ./mongoDB/createDataBase",
+    "create-modbus-db": "node ./mongoDB/createModbusDataBase",
     "create-trend-db": "node ./mongoDB/createTrendDataBase",
     "create-users": "node ./mongoDB/createUsers",
     "dev": "webpack --mode development",
