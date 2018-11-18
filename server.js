@@ -111,5 +111,5 @@ server.listen(port, (req, res) => {
 
 backnetLoop.run();
 trendLoop.run();
-modbusLoop.setDataListeners(fireBase);
+modbusLoop.setDataListeners(mongoDB);
 modbusLoop.connect();

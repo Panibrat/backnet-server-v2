@@ -113,7 +113,7 @@ class ModbusLoop {
             return this.readPoint(this.buffer[point]);
         });
         this.stop = setInterval(() => {
-            console.log(this.buffer);
+            // console.log(this.buffer);
             if (this.isChanged) {
                 // UPDATE DATA
                 // this.onDataChange();
