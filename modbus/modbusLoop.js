@@ -57,8 +57,8 @@ class ModbusLoop {
     }
 
     updateBuffer(data) {
-        if ((Math.abs(this.buffer[data.name].value - data.value) > 0.01)) {
-            this.buffer[data.name].value = data.value;
+        if ((Math.abs(this.buffer[data.title].value - data.value) > 0.01)) {
+            this.buffer[data.title].value = data.value;
             this.onDataChange(data);
         }
     }
@@ -86,7 +86,8 @@ class ModbusLoop {
                     return this.getFloatBE(point.address)
                         .then((value) => {
                             return {
-                                name: point.name,
+                                title: point.title,
+                                trend: point.trend,
                                 value,
                             };
                         });
@@ -96,7 +97,8 @@ class ModbusLoop {
                     return this.getIntBE8Bytes(point.address)
                         .then((value) => {
                             return {
-                                name: point.name,
+                                title: point.title,
+                                trend: point.trend,
                                 value,
                             };
                         });

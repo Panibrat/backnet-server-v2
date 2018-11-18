@@ -1,7 +1,7 @@
 const getBufferFromTable = (table) => {
     return table.reduce((sum, point) => {
-        sum[point.name] = {
-            name: point.name,
+        sum[point.title] = {
+            title: point.title,
             address: point.address,
             type: point.type,
             description: point.description,

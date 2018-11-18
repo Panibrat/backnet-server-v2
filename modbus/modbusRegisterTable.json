@@ -1,6 +1,6 @@
 [
   {
-    "name": "EnergyTotal",
+    "title": "EnergyTotal",
     "address": 3203,
     "type": "IntBE",
     "description": "Energy Total Description",
@@ -9,7 +9,7 @@
     "trend": true
   },
   {
-    "name": "EnergyDayTotal",
+    "title": "EnergyDayTotal",
     "address": 4195,
     "type": "IntBE",
     "description": "Energy Day Total Description",
@@ -18,7 +18,7 @@
     "trend": true
   },
   {
-    "name": "EnergyNightTotal",
+    "title": "EnergyNightTotal",
     "address": 4199,
     "type": "IntBE",
     "description": "Energy Night Total Description",
@@ -27,7 +27,7 @@
     "trend": true
   },
   {
-    "name": "I1",
+    "title": "I1",
     "address": 2999,
     "type": "FloatBE",
     "description": "Current I1",
@@ -36,7 +36,7 @@
     "trend": false
   },
   {
-    "name": "I2",
+    "title": "I2",
     "address": 3001,
     "type": "FloatBE",
     "description": "Current I2",
@@ -45,7 +45,7 @@
     "trend": false
   },
   {
-    "name": "I3",
+    "title": "I3",
     "address": 3003,
     "type": "FloatBE",
     "description": "Current I3",
@@ -54,7 +54,7 @@
     "trend": false
   },
   {
-    "name": "L1N",
+    "title": "L1N",
     "address": 3027,
     "type": "FloatBE",
     "description": "Voltage L1N",
@@ -63,7 +63,7 @@
     "trend": false
   },
   {
-    "name": "L2N",
+    "title": "L2N",
     "address": 3029,
     "type": "FloatBE",
     "description": "Voltage L2N",
@@ -72,7 +72,7 @@
     "trend": false
   },
   {
-    "name": "L3N",
+    "title": "L3N",
     "address": 3031,
     "type": "FloatBE",
     "description": "Voltage L3N",
@@ -81,7 +81,7 @@
     "trend": false
   },
   {
-    "name": "Pwr1",
+    "title": "Pwr1",
     "address": 3053,
     "type": "FloatBE",
     "description": "Power Line 1",
@@ -90,7 +90,7 @@
     "trend": false
   },
   {
-    "name": "Pwr2",
+    "title": "Pwr2",
     "address": 3055,
     "type": "FloatBE",
     "description": "Power Line 2",
@@ -99,7 +99,7 @@
     "trend": false
   },
   {
-    "name": "Pwr3",
+    "title": "Pwr3",
     "address": 3057,
     "type": "FloatBE",
     "description": "Power Line 3",
@@ -108,7 +108,7 @@
     "trend": false
   },
   {
-    "name": "PwrActiveTotal",
+    "title": "PwrActiveTotal",
     "address": 3059,
     "type": "FloatBE",
     "description": "Power Active Total",
@@ -117,7 +117,7 @@
     "trend": false
   },
   {
-    "name": "Frq",
+    "title": "Frq",
     "address": 3109,
     "type": "FloatBE",
     "description": "Frequency",

@@ -9,11 +9,11 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
+module.exports.io = io;
+
 const mongoDB = require('./mongoDB/MongoDB');
 const fireBase = require('./fireBaseDB/FireBaseDB');
 const socketIO = require('./socketIO/SocketIO');
-
-module.exports.io = io;
 
 const { authenticate } = require('./middleware/authenticate');
 const User = require('./mongoDB/models/user');
@@ -22,8 +22,6 @@ const modbusLoop = require('./modbus/modbusLoop');
 const backnetLoop = require('./backnet/BACnetLoop');
 const buffer = require('./backnet/dataBuffer');
 const trendLoop = require('./services/trendLoop');
-
-modbusLoop.setDataListeners(fireBase);
 
 const configAVs = require('./backnet/configAV_data');
 const configBVs = require('./backnet/configBV_data');
@@ -113,4 +111,5 @@ server.listen(port, (req, res) => {
 
 backnetLoop.run();
 trendLoop.run();
+modbusLoop.setDataListeners(fireBase);
 modbusLoop.connect();
