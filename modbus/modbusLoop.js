@@ -14,7 +14,7 @@ const initBuffer = getBufferFromTable(modbusTable);
 
 class ModbusLoop {
     constructor(client, ip, port, id, buffer) {
-        this.isChanged = false;
+        this.dataListeners = [];
         this.buffer = buffer;
         this.client = client;
         this.ip = ip;
@@ -23,6 +23,15 @@ class ModbusLoop {
         this.stop = null;
         this.connect = this.connect.bind(this);
         this.readPoint = this.readPoint.bind(this);
+        this.updateBuffer = this.updateBuffer.bind(this);
+    }
+
+    setDataListeners(listener) {
+        this.dataListeners.push(listener);
+    }
+
+    onDataChange(dataPoint) {
+        this.dataListeners.forEach((listener) => { listener.updateData(dataPoint); });
     }
 
     connect() {
@@ -32,7 +41,7 @@ class ModbusLoop {
                 this.client.setID(this.id);
             })
             .then(() => {
-                console.log('loop read Promise All');
+                // console.log('loop read Promise All');
                 this.runLoop();
             })
             .catch((e) => {
@@ -48,9 +57,9 @@ class ModbusLoop {
     }
 
     updateBuffer(data) {
-        if ((Math.abs(this.buffer[data.name] - data.value) > 0.1)) {
-            this.buffer[data.name] = data.value;
-            this.isChanged = true;
+        if ((Math.abs(this.buffer[data.name].value - data.value) > 0.01)) {
+            this.buffer[data.name].value = data.value;
+            this.onDataChange(data);
         }
     }
 
@@ -72,28 +81,28 @@ class ModbusLoop {
 
     readPoint(point) {
         switch (point.type) {
-        case 'FloatBE':
-            return () => {
-                return this.getFloatBE(point.address)
-                    .then((value) => {
-                        return {
-                            name: point.name,
-                            value,
-                        };
-                    });
-            };
-        case 'IntBE':
-            return () => {
-                return this.getIntBE8Bytes(point.address)
-                    .then((value) => {
-                        return {
-                            name: point.name,
-                            value,
-                        };
-                    });
-            };
-        default:
-            return null;
+            case 'FloatBE':
+                return () => {
+                    return this.getFloatBE(point.address)
+                        .then((value) => {
+                            return {
+                                name: point.name,
+                                value,
+                            };
+                        });
+                };
+            case 'IntBE':
+                return () => {
+                    return this.getIntBE8Bytes(point.address)
+                        .then((value) => {
+                            return {
+                                name: point.name,
+                                value,
+                            };
+                        });
+                };
+            default:
+                return null;
         }
     }
 
@@ -117,5 +126,7 @@ class ModbusLoop {
     }
 }
 
-const loop = new ModbusLoop(modbusClient, MODBUS_IP, MODBUS_PORT, MODBUS_ID, initBuffer);
-loop.connect();
+module.exports = new ModbusLoop(modbusClient, MODBUS_IP, MODBUS_PORT, MODBUS_ID, initBuffer);
+
+/*const loop = new ModbusLoop(modbusClient, MODBUS_IP, MODBUS_PORT, MODBUS_ID, initBuffer);
+loop.connect();*/
