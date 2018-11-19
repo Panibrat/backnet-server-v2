@@ -1,13 +1,14 @@
 const { io } = require('../server');
 const buffer = require('../backnet/dataBuffer');
+const modbusLoop = require('../modbus/modbusLoop');
 
 const { isTokenValid } = require('../middleware/checkToken');
-
-
 const writeAV = require('../backnet/writeData/writeAVpromise');
 const writeAO = require('../backnet/writeData/writeAOpromise');
 const writeBV = require('../backnet/writeData/writeBVpromise');
 const writeBO = require('../backnet/writeData/writeBOpromise');
+
+const modbusTypes = ["IntBE", 'FloatBE'];
 
 const {
     CONNECT,
@@ -26,7 +27,9 @@ const {
     WRITE_ANALOG_VALUE,
     WRITE_ANALOG_OUTPUT,
     WRITE_BINARY_VALUE,
-    WRITE_BINARY_OUTPUT
+    WRITE_BINARY_OUTPUT,
+    UPDATE_MODBUS_VALUE,
+    CREATE_MODBUS_VALUES,
 } = require('./EventsConstants');
 
 class SocketIO {
@@ -41,6 +44,7 @@ class SocketIO {
             socket.emit(CREATE_BINARY_INPUT, buffer.getBinaryInputsData());
             socket.emit(CREATE_BINARY_OUTPUT, buffer.getBinaryOutputsData());
             socket.emit(CREATE_BINARY_VALUE, buffer.getBinaryValueData());
+            socket.emit(CREATE_MODBUS_VALUES, modbusLoop.getBuffer());
 
             socket.on(WRITE_ANALOG_VALUE, (data) => {
                 if (isTokenValid(data.token)) {
@@ -116,6 +120,11 @@ class SocketIO {
         this.io.emit(UPDATE_BINARY_VALUE, bv);
     }
 
+    updateModbusPoint(dataPoint) {
+        this.io.emit(UPDATE_MODBUS_VALUE, dataPoint);
+    }
+
+
     updateData(dataPoint) {
         if (dataPoint.title.search(/BO/i) !== -1) {
             this.updateBO(dataPoint);
@@ -129,6 +138,8 @@ class SocketIO {
             this.updateBI(dataPoint);
         } else if (dataPoint.title.search(/BV/i) !== -1) {
             this.updateBV(dataPoint);
+        } else if (dataPoint.type && modbusTypes.indexOf(dataPoint.type) > -1) {
+            this.updateModbusPoint(dataPoint);
         }
     }
 }

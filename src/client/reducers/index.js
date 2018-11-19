@@ -8,6 +8,7 @@ import { bvReducer } from './bvReducer';
 import { menuReducer } from './menuReducer';
 import { userReducer } from './userReducer';
 import { errorsReducer } from './errorsReducer';
+import { modbusReducer } from './modbusReducer';
 
 export default combineReducers({
     av: avReducer,
@@ -19,4 +20,5 @@ export default combineReducers({
     menu: menuReducer,
     user: userReducer,
     errors: errorsReducer,
+    modbus: modbusReducer,
 });

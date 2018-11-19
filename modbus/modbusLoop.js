@@ -57,7 +57,7 @@ class ModbusLoop {
     }
 
     updateBuffer(data) {
-        if ((Math.abs(this.buffer[data.title].value - data.value) > 0.01)) {
+        if ((Math.abs(this.buffer[data.title].value - data.value) > 0.1)) {
             this.buffer[data.title].value = data.value;
             this.onDataChange(data);
         }

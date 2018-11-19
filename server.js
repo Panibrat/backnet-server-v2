@@ -66,6 +66,10 @@ app.get('/buffer', (req, res) => { //TODO: delete in prod
     res.send(JSON.stringify(buffer.getData()));
 });
 
+app.get('/modbus', (req, res) => { //TODO: delete in prod
+    res.send(JSON.stringify(modbusLoop.getBuffer()));
+});
+
 app.post('/trend', authenticate, (req, res) => {
     const query = req.body;
     mongoDB.getTrendData(

@@ -13,3 +13,5 @@ export const UPDATE_BINARY_VALUE = 'UPDATE_BINARY_VALUE';
 export const OPEN_MENU = 'OPEN_MENU';
 export const CLOSE_MENU = 'CLOSE_MENU';
 export const SET_TITLE = 'SET_TITLE';
+export const UPDATE_MODBUS_VALUE = 'UPDATE_MODBUS_VALUE';
+export const GET_MODBUS_POINTS = 'GET_MODBUS_POINTS';

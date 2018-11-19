@@ -18,6 +18,8 @@ import {
     WRITE_ANALOG_OUTPUT,
     WRITE_BINARY_VALUE,
     WRITE_BINARY_OUTPUT,
+    UPDATE_MODBUS_VALUE,
+    CREATE_MODBUS_VALUES,
 } from './EventsConstants';
 
 import { updateAI, getAIs } from '../actions/AnalogInputActions';
@@ -26,6 +28,7 @@ import { updateAV, getAVs } from '../actions/AnalogValueActions';
 import { updateBI, getBIs } from '../actions/BinaryInputActions';
 import { updateBO, getBOs } from '../actions/BinaryOutputActions';
 import { updateBV, getBVs } from '../actions/BinaryValueActions';
+import { getModbusPoints, updateModbusPoint } from '../actions/ModbusActions';
 
 let user = JSON.parse(localStorage.getItem('user'));
 const token = user ? user.token : null;
@@ -57,6 +60,10 @@ class SocketService{
             store.dispatch(getBVs(points));
         });
 
+        this.socket.on(CREATE_MODBUS_VALUES, (points) => {
+            store.dispatch(getModbusPoints(points));
+        });
+
         this.socket.on(UPDATE_ANALOG_INPUT, (point) => {
             store.dispatch(updateAI(point));
         });
@@ -79,6 +86,10 @@ class SocketService{
 
         this.socket.on(UPDATE_BINARY_VALUE, (point) => {
             store.dispatch(updateBV(point));
+        });
+
+        this.socket.on(UPDATE_MODBUS_VALUE, (point) => {
+            store.dispatch(updateModbusPoint(point));
         });
     }
 
