@@ -116,4 +116,5 @@ server.listen(port, (req, res) => {
 backnetLoop.run();
 trendLoop.run();
 modbusLoop.setDataListeners(mongoDB);
+modbusLoop.setDataListeners(socketIO);
 modbusLoop.connect();
