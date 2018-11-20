@@ -18,6 +18,7 @@ export class ConsumptionPage extends React.Component {
     componentDidMount() {
         this.props.setTitle('Потребление ресурсов');
     }
+
     render() {
         return (
             <div className={styles.container}>
@@ -67,21 +68,20 @@ const findPoint = (point, pointsList) => {
 };
 
 const mapStateToProps = (store) => {
-    console.log('modbus', store.modbus);
     return {
-        PwrActiveTotal: {...store.modbus.PwrActiveTotal},
-        I1: store.modbus.I1,
-        I2: store.modbus.I2,
-        I3: store.modbus.I3,
-        L1N: store.modbus.L1N,
-        L2N: store.modbus.L2N,
-        L3N: store.modbus.L3N,
-        PWR1: store.modbus.Pwr1,
-        PWR2: store.modbus.Pwr2,
-        PWR3: store.modbus.Pwr3,
-        EnergyTotal: {...store.modbus.EnergyTotal},
-        EnergyDayTotal: store.modbus.EnergyDayTotal,
-        EnergyNightTotal: store.modbus.EnergyNightTotal,
+        PwrActiveTotal: { ...store.modbus.PwrActiveTotal },
+        I1: { ...store.modbus.I1 },
+        I2: { ...store.modbus.I2 },
+        I3: { ...store.modbus.I3 },
+        L1N: { ...store.modbus.L1N },
+        L2N: { ...store.modbus.L2N },
+        L3N: { ...store.modbus.L3N },
+        PWR1: { ...store.modbus.Pwr1 },
+        PWR2: { ...store.modbus.Pwr2 },
+        PWR3: { ...store.modbus.Pwr3 },
+        EnergyTotal: { ...store.modbus.EnergyTotal },
+        EnergyDayTotal: { ...store.modbus.EnergyDayTotal },
+        EnergyNightTotal: { ...store.modbus.EnergyNightTotal },
 
         oPWR_DAY: findPoint('AI3000375', store.ai),
         oPWR_NIGHT: findPoint('AI3000376', store.ai),
@@ -93,8 +93,8 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        setTitle: setTitle
-    }, dispatch)
+        setTitle,
+    }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConsumptionPage);
