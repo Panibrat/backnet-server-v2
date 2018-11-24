@@ -66,7 +66,7 @@ class ModbusLoop {
     getIntBE8Bytes(registerAddress) {
         return this.client.readHoldingRegisters(registerAddress, 8)
             .then((data) => {
-                return data.buffer.readIntBE(0, 8);
+                return data.buffer.readIntBE(2, 6);
             })
             .catch(e => console.log(e));
     }
