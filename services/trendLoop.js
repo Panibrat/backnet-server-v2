@@ -9,8 +9,8 @@ class TrendLoop {
 
     run() {
         //this.cron.schedule('* * * * * * *', () => { //every second
-        this.cron.schedule('* * * * * *', () => { //every minute
-        //this.cron.schedule('0 0 * * * *', () => { //every hour
+        //this.cron.schedule('* * * * * *', () => { //every minute
+        this.cron.schedule('0 0 * * * *', () => { //every hour
             console.log(`\n running a task every hour at ${new Date()}`);
             const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
             const EnergyNightTotal = modbusLoop.getBuffer().EnergyNightTotal;

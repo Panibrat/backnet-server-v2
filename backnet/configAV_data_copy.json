@@ -1,66 +1,119 @@
 [
   {
-    "title": "AV0",
-    "description": "Температура в канале",
+    "title": "AV3000726",
+    "name": "PwrActiveTotal",
+    "description": "Потребляемая Мощность Общая",
     "status": "norm",
-    "units": "deg C",
+    "units": "kW",
     "readOnly": true,
-    "value": 22.5
+    "value": 1.839
   },
   {
-    "title": "AV1",
-    "description": "Влажность в помещении",
+    "title": "AV3000715",
+    "name": "I1",
+    "description": "Ток 1й фазы",
     "status": "norm",
-    "units": "%",
+    "units": "A",
     "readOnly": true,
-    "value": 34
+    "value": 0.95
   },
   {
-    "title": "AV2",
-    "description": "Температура в помещении",
+    "title": "AV3000716",
+    "name": "I2",
+    "description": "Ток 2й фазы",
     "status": "norm",
-    "units": "deg C",
+    "units": "A",
     "readOnly": true,
-    "value": 24.5
+    "value": 0.5
   },
   {
-    "title": "AV3",
-    "description": "Температура наружная",
+    "title": "AV3000717",
+    "name": "I3",
+    "description": "Ток 3й фазы",
     "status": "norm",
-    "units": "deg C",
+    "units": "A",
     "readOnly": true,
-    "value": -5
+    "value": 14.51
   },
   {
-    "title": "AV4",
-    "description": "Температура Теплого Пола",
+    "title": "AV3000719",
+    "name": "L1N",
+    "description": "Напряжение 1й фазы",
     "status": "norm",
-    "units": "deg C",
+    "units": "V",
     "readOnly": true,
-    "value": 28
+    "value": 222.9
   },
   {
-    "title": "AV10",
-    "description": "Клапан Тепло",
+    "title": "AV3000720",
+    "name": "L2N",
+    "description": "Напряжение 2й фазы",
     "status": "norm",
-    "units": "%",
-    "readOnly": false,
-    "value": 100
+    "units": "V",
+    "readOnly": true,
+    "value": 225.3
   },
   {
-    "title": "AV11",
-    "description": "Клапан Холод",
+    "title": "AV3000721",
+    "name": "L3N",
+    "description": "Напряжение 3й фазы",
     "status": "norm",
-    "units": "%",
-    "readOnly": false,
-    "value": 20
+    "units": "V",
+    "readOnly": true,
+    "value": 219.7
   },
   {
-    "title": "AV12",
-    "description": "Уставка ГВС",
+    "title": "AV3000723",
+    "name": "PWR1",
+    "description": "Потребление 1й фазы",
     "status": "norm",
-    "units": "deg C",
-    "readOnly": false,
-    "value": 55
+    "units": "kW",
+    "readOnly": true,
+    "value": 0.745
+  },
+  {
+    "title": "AV3000724",
+    "name": "PWR2",
+    "description": "Потребление 2й фазы",
+    "status": "norm",
+    "units": "kW",
+    "readOnly": true,
+    "value": 10.745
+  },
+  {
+    "title": "AV3000725",
+    "name": "PWR3",
+    "description": "Потребление 3й фазы",
+    "status": "norm",
+    "units": "kW",
+    "readOnly": true,
+    "value": 7.856
+  },
+  {
+    "title": "AV3000729",
+    "name": "EnergyTotal",
+    "description": "Электрический счетчик",
+    "status": "norm",
+    "units": "W*h",
+    "readOnly": true,
+    "value": 21524932
+  },
+  {
+    "title": "AV3000730",
+    "name": "EnergyDayTotal",
+    "description": "Электрический счетчик: День.",
+    "status": "norm",
+    "units": "W*h",
+    "readOnly": true,
+    "value": 12112761
+  },
+  {
+    "title": "AV3000731",
+    "name": "EnergyNightTotal",
+    "description": "Электрический счетчик: Ночь.",
+    "status": "norm",
+    "units": "kW*h",
+    "readOnly": true,
+    "value": 9412143
   }
 ]
