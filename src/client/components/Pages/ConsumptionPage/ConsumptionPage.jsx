@@ -18,6 +18,7 @@ export class ConsumptionPage extends React.Component {
     componentDidMount() {
         this.props.setTitle('Потребление ресурсов');
     }
+
     render() {
         return (
             <div className={styles.container}>
@@ -68,19 +69,19 @@ const findPoint = (point, pointsList) => {
 
 const mapStateToProps = (store) => {
     return {
-        PwrActiveTotal: findPoint('AV3000726', store.av),
-        I1: findPoint('AV3000715', store.av),
-        I2: findPoint('AV3000716', store.av),
-        I3: findPoint('AV3000717', store.av),
-        L1N: findPoint('AV3000719', store.av),
-        L2N: findPoint('AV3000720', store.av),
-        L3N: findPoint('AV3000721', store.av),
-        PWR1: findPoint('AV3000723', store.av),
-        PWR2: findPoint('AV3000724', store.av),
-        PWR3: findPoint('AV3000725', store.av),
-        EnergyTotal: findPoint('AV3000729', store.av),
-        EnergyDayTotal: findPoint('AV3000730', store.av),
-        EnergyNightTotal: findPoint('AV3000731', store.av),
+        PwrActiveTotal: { ...store.modbus.PwrActiveTotal },
+        I1: { ...store.modbus.I1 },
+        I2: { ...store.modbus.I2 },
+        I3: { ...store.modbus.I3 },
+        L1N: { ...store.modbus.L1N },
+        L2N: { ...store.modbus.L2N },
+        L3N: { ...store.modbus.L3N },
+        PWR1: { ...store.modbus.Pwr1 },
+        PWR2: { ...store.modbus.Pwr2 },
+        PWR3: { ...store.modbus.Pwr3 },
+        EnergyTotal: { ...store.modbus.EnergyTotal },
+        EnergyDayTotal: { ...store.modbus.EnergyDayTotal },
+        EnergyNightTotal: { ...store.modbus.EnergyNightTotal },
 
         oPWR_DAY: findPoint('AI3000375', store.ai),
         oPWR_NIGHT: findPoint('AI3000376', store.ai),
@@ -92,8 +93,8 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        setTitle: setTitle
-    }, dispatch)
+        setTitle,
+    }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConsumptionPage);

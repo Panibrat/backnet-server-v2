@@ -1,9 +1,6 @@
 const cron = require('node-cron');
-const buffer = require('../backnet/dataBuffer');
 const mongoDB = require('../mongoDB/MongoDB');
-
-const EnergyDayTotal = 'AV3000730';
-const EnergyNightTotal = 'AV3000731';
+const modbusLoop = require('../modbus/modbusLoop');
 
 class TrendLoop {
     constructor(nodeCron) {
@@ -15,11 +12,13 @@ class TrendLoop {
         //this.cron.schedule('* * * * * *', () => { //every minute
         this.cron.schedule('0 0 * * * *', () => { //every hour
             console.log(`\n running a task every hour at ${new Date()}`);
-            if (buffer.getItem(EnergyDayTotal).value > 0) {
-                mongoDB.saveTrendData(buffer.getItem(EnergyDayTotal));
+            const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
+            const EnergyNightTotal = modbusLoop.getBuffer().EnergyNightTotal;
+            if (EnergyDayTotal && EnergyDayTotal.value > 0) {
+                mongoDB.saveTrendData(EnergyDayTotal);
             }
-            if (buffer.getItem(EnergyNightTotal).value > 0) {
-                mongoDB.saveTrendData(buffer.getItem(EnergyNightTotal));
+             if (EnergyNightTotal && EnergyNightTotal.value > 0) {
+                mongoDB.saveTrendData(EnergyNightTotal);
             }
         });
     }

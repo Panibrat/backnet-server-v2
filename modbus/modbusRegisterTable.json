@@ -1,0 +1,128 @@
+[
+  {
+    "title": "EnergyTotal",
+    "address": 3203,
+    "type": "IntBE",
+    "description": "Energy Total Description",
+    "units": "W*h",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "EnergyDayTotal",
+    "address": 4195,
+    "type": "IntBE",
+    "description": "Energy Day Total Description",
+    "units": "W*h",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "EnergyNightTotal",
+    "address": 4199,
+    "type": "IntBE",
+    "description": "Energy Night Total Description",
+    "units": "W*h",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "I1",
+    "address": 2999,
+    "type": "FloatBE",
+    "description": "Current I1",
+    "units": "A",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "I2",
+    "address": 3001,
+    "type": "FloatBE",
+    "description": "Current I2",
+    "units": "A",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "I3",
+    "address": 3003,
+    "type": "FloatBE",
+    "description": "Current I3",
+    "units": "A",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "L1N",
+    "address": 3027,
+    "type": "FloatBE",
+    "description": "Voltage L1N",
+    "units": "V",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "L2N",
+    "address": 3029,
+    "type": "FloatBE",
+    "description": "Voltage L2N",
+    "units": "V",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "L3N",
+    "address": 3031,
+    "type": "FloatBE",
+    "description": "Voltage L3N",
+    "units": "V",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "Pwr1",
+    "address": 3053,
+    "type": "FloatBE",
+    "description": "Power Line 1",
+    "units": "kW",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "Pwr2",
+    "address": 3055,
+    "type": "FloatBE",
+    "description": "Power Line 2",
+    "units": "kW",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "Pwr3",
+    "address": 3057,
+    "type": "FloatBE",
+    "description": "Power Line 3",
+    "units": "kW",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "PwrActiveTotal",
+    "address": 3059,
+    "type": "FloatBE",
+    "description": "Power Active Total",
+    "units": "kW",
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "Frq",
+    "address": 3109,
+    "type": "FloatBE",
+    "description": "Frequency",
+    "units": "Hz",
+    "value": 0,
+    "trend": false
+  }
+ ]

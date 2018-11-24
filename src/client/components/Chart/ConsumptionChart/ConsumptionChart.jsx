@@ -18,12 +18,15 @@ const minute = 1000 * 60;
 const day = 1000 * 60 * 60 * 24;
 const hour = 1000 * 60 * 60;
 
+const EnergyDayTotal = 'EnergyDayTotal';
+const EnergyNightTotal = 'EnergyNightTotal';
+
 class ConsumptionChart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            AV3000730: [],
-            AV3000731: [],
+            EnergyDayTotal: [],
+            EnergyNightTotal: [],
             minDate: 0
         };
         this.handleUpdateStartTime = this.handleUpdateStartTime.bind(this);
@@ -31,20 +34,20 @@ class ConsumptionChart extends Component {
 
     componentDidMount() {
         const now = new Date().getTime();
-        this.getTrendData('AV3000730', now - day, now)
+        this.getTrendData(EnergyDayTotal, now - day, now)
             .then((response) => {
                 console.log('response.data', response.data);
                 this.setState({
-                    AV3000730: this.convertDataToRelative(response.data),
+                    EnergyDayTotal: this.convertDataToRelative(response.data),
                     minDate: Math.max(response.data[0].x, now - day, this.state.minDate),
                 });
             });
 
-        this.getTrendData('AV3000731', now - day, now)
+        this.getTrendData(EnergyNightTotal, now - day, now)
             .then((response) => {
                 console.log('this.convertDataToRelative(response.data)', this.convertDataToRelative(response.data));
                 this.setState({
-                    AV3000731: this.convertDataToRelative(response.data),
+                    EnergyNightTotal: this.convertDataToRelative(response.data),
                     minDate: Math.max(response.data[0].x, now - day, this.state.minDate),
                 });
             });
@@ -80,17 +83,17 @@ class ConsumptionChart extends Component {
     handleUpdateStartTime(hours) {
         const now = new Date().getTime();
         const startFrom = now - hours * 3600 * 1000;
-        this.getTrendData('AV3000730', startFrom, now)
+        this.getTrendData(EnergyDayTotal, startFrom, now)
             .then((response) => {
                 this.setState({
-                    AV3000730: this.convertDataToRelative(response.data),
+                    EnergyDayTotal: this.convertDataToRelative(response.data),
                     minDate: startFrom,
                 });
             });
-        this.getTrendData('AV3000731', startFrom, now)
+        this.getTrendData(EnergyNightTotal, startFrom, now)
             .then((response) => {
                 this.setState({
-                    AV3000731: this.convertDataToRelative(response.data),
+                    EnergyNightTotal: this.convertDataToRelative(response.data),
                     minDate: startFrom,
                 });
             });
@@ -103,8 +106,8 @@ class ConsumptionChart extends Component {
                 <XYPlot width={360} height={300} xDomain={[this.state.minDate, now]} xType={'time'}>
                     <HorizontalGridLines />
                     <VerticalGridLines />
-                    <VerticalBarSeries   data={this.state.AV3000730} color={'orange'} />
-                    <VerticalBarSeries   data={this.state.AV3000731} color={'blue'} />
+                    <VerticalBarSeries   data={this.state.EnergyDayTotal} color={'orange'} />
+                    <VerticalBarSeries   data={this.state.EnergyNightTotal} color={'blue'} />
                     <XAxis title="time" />
                     <YAxis title={"kW"} />
                 </XYPlot>

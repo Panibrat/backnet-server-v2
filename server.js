@@ -11,9 +11,14 @@ const io = require('socket.io')(server);
 
 module.exports.io = io;
 
+const mongoDB = require('./mongoDB/MongoDB');
+const fireBase = require('./fireBaseDB/FireBaseDB');
+const socketIO = require('./socketIO/SocketIO');
+
 const { authenticate } = require('./middleware/authenticate');
 const User = require('./mongoDB/models/user');
 
+const modbusLoop = require('./modbus/modbusLoop');
 const backnetLoop = require('./backnet/BACnetLoop');
 const buffer = require('./backnet/dataBuffer');
 const trendLoop = require('./services/trendLoop');
@@ -51,7 +56,6 @@ mongoose.connect(dataBaseLink, {
         console.log('[ERROR] with connection to MongoDB: ', e);
     });
 
-const mongoDB = require('./mongoDB/MongoDB');
 
 const port = process.env.PORT || '3000';
 
@@ -60,6 +64,10 @@ app.use(bodyParser.json());
 
 app.get('/buffer', (req, res) => { //TODO: delete in prod
     res.send(JSON.stringify(buffer.getData()));
+});
+
+app.get('/modbus', (req, res) => { //TODO: delete in prod
+    res.send(JSON.stringify(modbusLoop.getBuffer()));
 });
 
 app.post('/trend', authenticate, (req, res) => {
@@ -107,3 +115,6 @@ server.listen(port, (req, res) => {
 
 backnetLoop.run();
 trendLoop.run();
+modbusLoop.setDataListeners(mongoDB);
+modbusLoop.setDataListeners(socketIO);
+modbusLoop.connect();
