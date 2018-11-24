@@ -131,6 +131,3 @@ class ModbusLoop {
 }
 
 module.exports = new ModbusLoop(modbusClient, MODBUS_IP, MODBUS_PORT, MODBUS_ID, initBuffer);
-
-/*const loop = new ModbusLoop(modbusClient, MODBUS_IP, MODBUS_PORT, MODBUS_ID, initBuffer);
-loop.connect();*/

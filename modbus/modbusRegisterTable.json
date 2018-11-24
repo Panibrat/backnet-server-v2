@@ -6,7 +6,7 @@
     "description": "Energy Total Description",
     "units": "W*h",
     "value": 0,
-    "trend": true
+    "trend": false
   },
   {
     "title": "EnergyDayTotal",
@@ -15,7 +15,7 @@
     "description": "Energy Day Total Description",
     "units": "W*h",
     "value": 0,
-    "trend": true
+    "trend": false
   },
   {
     "title": "EnergyNightTotal",
@@ -24,7 +24,7 @@
     "description": "Energy Night Total Description",
     "units": "W*h",
     "value": 0,
-    "trend": true
+    "trend": false
   },
   {
     "title": "I1",
