@@ -29,14 +29,14 @@ mongoose.connect(dataBaseLink, {
 })
     .then(() => {
         for (let i = 0; i < 100; i++) {
-            trendModel.create(createElement('AI3000308', 'iT_FOR'), (err, item) => {
+            trendModel.create(createElement('AI3001122', 'iT_FOR'), (err, item) => {
                 if (err) {
                     console.log('MongoError', err);
                     throw err;
                 }
                 //console.log('\nSAVE Trend Point\n', item);
             });
-            trendModel.create(createElement('AI3000307', 'Т OUT'), (err, item) => {
+            trendModel.create(createElement('AI3001121', 'Т OUT'), (err, item) => {
                 if (err) {
                     //console.log('MongoError', err);
                     throw err;

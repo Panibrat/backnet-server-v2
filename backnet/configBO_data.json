@@ -1,6 +1,6 @@
 [
   {
-    "title": "BO3000409",
+    "title": "BO3001224",
     "name": "sSTART",
     "description": "Старт Приточки",
     "status": "norm",
@@ -9,7 +9,7 @@
     "units": ["Выкл", "Вкл"]
   },
     {
-    "title": "BO3000412",
+    "title": "BO3001227",
     "name": "sTrace",
     "description": "Температура слежения",
     "status": "normal",
@@ -18,7 +18,7 @@
     "units": ["Приток", "Комнаты"]
   },
     {
-    "title": "BO3000411",
+    "title": "BO3001226",
     "name": "SEASON",
     "description": "Режим работы",
     "status": "normal",
@@ -27,7 +27,7 @@
     "units": ["Охлаж", "Нагрев"]
   },
     {
-    "title": "BO3000418",
+    "title": "BO3001233",
     "name": "Управление",
     "description": "Управлять с пульта или с телефона",
     "status": "normal",
@@ -36,7 +36,7 @@
     "units": ["NRM", "BMS"]
   },
     {
-    "title": "BO3000421",
+    "title": "BO3001236",
     "name": "T_CONTROL",
     "description": "Выключение при достижении температуры",
     "status": "normal",

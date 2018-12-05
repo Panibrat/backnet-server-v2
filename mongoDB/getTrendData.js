@@ -12,4 +12,4 @@ function printTrendData(point) {
     });
 }
 
-printTrendData({title: 'AI3000308'});
+printTrendData({title: 'AI3001122'});
