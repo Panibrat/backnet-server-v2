@@ -79,22 +79,22 @@ const findPoint = (point, pointsList) => {
 
 const mapStateToProps = (store) => {
     return {
-        tFor: findPoint('AI3000308', store.ai),
-        tOut: findPoint('AI3000307', store.ai),
-        tRet: findPoint('AI3000309', store.ai),
-        tIsp: findPoint('AI3000310', store.ai),
-        tComp: findPoint('AI3000359', store.ai),
-        pFreon: findPoint('AI3000312', store.ai),
-        dpFan: findPoint('AI3000311', store.ai),
-        spTFor: findPoint('AI3000321', store.ai),
-        spTRet: findPoint('AI3000366', store.ai),
-        speedFan: findPoint('AI3000313', store.ai),
-        damperFreshLevel: findPoint('AI3000314', store.ai),
-        oKKB: findPoint('BI3000384', store.bi),
-        oFan: findPoint('BI3000382', store.bi),
-        oHeat: findPoint('BI3000386', store.bi),
-        oDamperTop: findPoint('BI3000392', store.bi),
-        oDamperButtom: findPoint('BI3000393', store.bi)
+        tFor: findPoint('AI3001122', store.ai),
+        tOut: findPoint('AI3001121', store.ai),
+        tRet: findPoint('AI3001123', store.ai),
+        tIsp: findPoint('AI3001124', store.ai),
+        tComp: findPoint('AI3001154', store.ai),
+        pFreon: findPoint('AI3001126', store.ai),
+        dpFan: findPoint('AI3001125', store.ai),
+        spTFor: findPoint('AI3001133', store.ai),
+        spTRet: findPoint('AI3001157', store.ai),
+        speedFan: findPoint('AI3001127', store.ai),
+        damperFreshLevel: findPoint('AI3001128', store.ai),
+        oKKB: findPoint('BI3001200', store.bi),
+        oFan: findPoint('BI3001199', store.bi),
+        oHeat: findPoint('BI3001202', store.bi),
+        oDamperTop: findPoint('BI3001208', store.bi),
+        oDamperButtom: findPoint('BI3001209', store.bi)
     };
 };
 

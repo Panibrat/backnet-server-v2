@@ -1,33 +1,6 @@
 [
   {
-    "title": "AO3000330",
-    "name": "sT_FOR_L",
-    "description": "Минимальная температура в канале",
-    "status": "norm",
-    "units": "℃",
-    "readOnly": false,
-    "value": 10
-  },
-  {
-    "title": "AO3000331",
-    "name": "sT_FOR_H",
-    "description": "Максимальная температура в канал а еще это длинный дискрипшн",
-    "status": "norm",
-    "units": "℃",
-    "readOnly": false,
-    "value": 39
-  },
-  {
-    "title": "AO3000339",
-    "name": "sDMPR_SUM",
-    "description": "Минимальное положение заслонки наружного воздуха летом",
-    "status": "norm",
-    "units": "%",
-    "readOnly": false,
-    "value": 25
-  },
-  {
-    "title": "AO3000354",
+    "title": "AO3001149",
     "name": "sDMPR_ZAL_R",
     "description": "Зал (Родители). Положение воздушной заслонки",
     "status": "norm",
@@ -36,7 +9,7 @@
     "value": 100
   },
   {
-    "title": "AO3000353",
+    "title": "AO3001148",
     "name": "sDMPR_K+B_R",
     "description": "Кабинет + Спальня (Родители). Положение воздушной заслонки",
     "status": "norm",
@@ -45,7 +18,7 @@
     "value": 10
   },
   {
-    "title": "AO3000355",
+    "title": "AO3001150",
     "name": "sDMPR_ZAL_L",
     "description": "Зал. Положение воздушной заслонки",
     "status": "norm",
@@ -54,7 +27,7 @@
     "value": 0
   },
   {
-    "title": "AO3000351",
+    "title": "AO3001146",
     "name": "sDMPR_K+B_L",
     "description": "Кабинет + Спальня. Положение воздушной заслонки",
     "status": "norm",
@@ -63,7 +36,7 @@
     "value": 0
   },
   {
-    "title": "AO3000352",
+    "title": "AO3001147",
     "name": "sDMPR_D1+D2",
     "description": "Детские. Положение воздушной заслонки",
     "status": "norm",
@@ -72,7 +45,7 @@
     "value": 0
   },
   {
-    "title": "AO3000332",
+    "title": "AO3001137",
     "name": "sHEAT_DAY",
     "description": "Уставка День на Обогрев",
     "status": "norm",
@@ -81,7 +54,7 @@
     "value": 21
   },
   {
-    "title": "AO3000333",
+    "title": "AO3001138",
     "name": "sHEAT_NIGHT",
     "description": "Уставка Ночь на Обогрев",
     "status": "norm",
@@ -90,7 +63,7 @@
     "value": 23
   },
   {
-    "title": "AO3000334",
+    "title": "AO3001139",
     "name": "sCOOL_DAY",
     "description": "Уставка День на Холод",
     "status": "norm",
@@ -99,7 +72,7 @@
     "value": 25
   },
   {
-    "title": "AO3000335",
+    "title": "AO3001140",
     "name": "sCOOL_NIGHT",
     "description": "Уставка Ночь на Холод",
     "status": "norm",
@@ -108,7 +81,7 @@
     "value": 27
   },
   {
-    "title": "AO3000338",
+    "title": "AO3001142",
     "name": "sDMPR_WIN",
     "description": "Свежий воздух Зимой",
     "status": "norm",
@@ -117,7 +90,7 @@
     "value": 10
   },
   {
-    "title": "AO3000339",
+    "title": "AO3001143",
     "name": "sDMPR_SUM",
     "description": "Свежий воздух Летом",
     "status": "norm",

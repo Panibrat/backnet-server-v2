@@ -82,26 +82,26 @@ class ChartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            AI3000308: [],
-            AI3000307: [],
+            AI3001122: [],
+            AI3001121: [],
             minDate: 0
         };
     }
 
     componentDidMount() {
-        this.getTrendData('AI3000308', now - day, now)
+        this.getTrendData('AI3001122', now - day, now)
             .then((response) => {
                 console.log('response.data', response.data);
                 this.setState({
-                    AI3000308: response.data,
+                    AI3001122: response.data,
                     minDate: Math.max(response.data[0].x, now - day, this.state.minDate),
                 });
             });
 
-        this.getTrendData('AI3000307', now - day, now)
+        this.getTrendData('AI3001121', now - day, now)
             .then((response) => {
                 this.setState({
-                    AI3000307: response.data,
+                    AI3001121: response.data,
                     minDate: Math.max(response.data[0].x, now - day, this.state.minDate),
                 });
             });
@@ -129,8 +129,8 @@ class ChartPage extends Component {
                     <HorizontalGridLines />
                     <VerticalGridLines />
                     {/*<VerticalBarSeries  data={data} />*/}
-                    <LineMarkSeries   data={this.state.AI3000307} color={'blue'} />
-                    <LineMarkSeries   data={this.state.AI3000308} color={'green'} />
+                    <LineMarkSeries   data={this.state.AI3001121} color={'blue'} />
+                    <LineMarkSeries   data={this.state.AI3001122} color={'green'} />
                     <XAxis title="time" />
                     <YAxis title={"℃"} />
                 </XYPlot>

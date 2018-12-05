@@ -69,11 +69,11 @@ const findPoint = (point, pointsList) => {
 
 const mapStateToProps = (store) => {
     return {
-        sD_L_K_B: findPoint('AO3000351', store.ao),
-        sD_D1_D2: findPoint('AO3000352', store.ao),
-        sD_R_K_B: findPoint('AO3000353', store.ao),
-        sD_R_ZAL: findPoint('AO3000354', store.ao),
-        sD_L_ZAL: findPoint('AO3000355', store.ao)
+        sD_L_K_B: findPoint('AO3001146', store.ao),
+        sD_D1_D2: findPoint('AO3001147', store.ao),
+        sD_R_K_B: findPoint('AO3001148', store.ao),
+        sD_R_ZAL: findPoint('AO3001149', store.ao),
+        sD_L_ZAL: findPoint('AO3001150', store.ao)
     };
 };
 

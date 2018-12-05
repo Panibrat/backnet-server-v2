@@ -1,6 +1,6 @@
 [
   {
-    "title": "AI3000308",
+    "title": "AI3001122",
     "name": "iT_FOR",
     "description": "T Supply temperature",
     "status": "norm",
@@ -10,7 +10,7 @@
     "trend": true
   },
   {
-    "title": "AI3000307",
+    "title": "AI3001121",
     "name": "Т OUT",
     "description": "Температура наружного воздуха а еще это длинный дискрипшн",
     "status": "norm",
@@ -20,7 +20,7 @@
     "trend": true
   },
   {
-    "title": "AI3000310",
+    "title": "AI3001124",
     "name": "T ISP",
     "description": "Температура испарителя",
     "status": "norm",
@@ -30,7 +30,7 @@
     "trend": true
   },
   {
-    "title": "AI3000309",
+    "title": "AI3001123",
     "name": "Т RET",
     "description": "Температура в камере смешивания",
     "status": "norm",
@@ -40,7 +40,7 @@
     "trend": true
   },
   {
-    "title": "AI3000359",
+    "title": "AI3001154",
     "name": "Т_COMPR",
     "description": "Температура компрессора ККБ",
     "status": "norm",
@@ -49,8 +49,8 @@
     "value": 48.0
   },
   {
-    "title": "AI3000312",
-    "name": "P Freon",
+    "title": "AI3001126",
+    "name": "iP_KKB",
     "description": "Давление фреона",
     "status": "norm",
     "units": "kPa",
@@ -58,8 +58,8 @@
     "value": 758
   },
   {
-    "title": "AI3000311",
-    "name": "DP FAN",
+    "title": "AI3001125",
+    "name": "iDP_PV",
     "description": "Давление на вентиляторе",
     "status": "norm",
     "units": "Pa",
@@ -67,7 +67,7 @@
     "value": 168
   },
   {
-    "title": "AI3000321",
+    "title": "AI3001133",
     "name": "SP T FOR",
     "description": "Уставка приточного воздуха",
     "status": "norm",
@@ -77,7 +77,7 @@
     "trend": true
   },
   {
-    "title": "AI3000366",
+    "title": "AI3001157",
     "name": "SP T RET",
     "description": "Уставка вытяжного воздуха",
     "status": "norm",
@@ -86,7 +86,7 @@
     "value": 25
   },
   {
-    "title": "AI3000313",
+    "title": "AI3001127",
     "name": "FAN SPEED",
     "description": "Скорость вентилятора",
     "status": "norm",
@@ -95,8 +95,8 @@
     "value": 75
   },
   {
-    "title": "AI3000314",
-    "name": "damperFreshLevel",
+    "title": "AI3001128",
+    "name": "oDMPR_PV",
     "description": "Заслонка свежего воздуха",
     "status": "norm",
     "units": "%",

@@ -104,27 +104,27 @@ const findPoint = (point, pointsList) => {
 
 const mapStateToProps = (store) => {
     return {
-        tFor: findPoint('AI3000308', store.ai),
-        tOut: findPoint('AI3000307', store.ai),
-        tRet: findPoint('AI3000309', store.ai),
-        tIsp: findPoint('AI3000310', store.ai),
-        tComp: findPoint('AI3000359', store.ai),
-        pFreon: findPoint('AI3000312', store.ai),
-        setTemperatureDayHeat: findPoint('AO3000332', store.ao),
-        setTemperatureNightHeat: findPoint('AO3000333', store.ao),
-        setTemperatureDayCool: findPoint('AO3000334', store.ao),
-        setTemperatureNightCool: findPoint('AO3000335', store.ao),
-        setDamperMinWinter: findPoint('AO3000338', store.ao),
-        setDamperMinSummer: findPoint('AO3000339', store.ao),
-        sSTART: findPoint('BO3000409', store.bo),
-        sSEASON: findPoint('BO3000411', store.bo),
-        sLOCAL: findPoint('BO3000418', store.bo),
-        sALWAYS: findPoint('BO3000421', store.bo),
-        oKKB: findPoint('BI3000384', store.bi),
-        oFan: findPoint('BI3000382', store.bi),
-        oHeat: findPoint('BI3000386', store.bi),
-        oDamperTop: findPoint('BI3000392', store.bi),
-        oDamperButtom: findPoint('BI3000393', store.bi)
+        tFor: findPoint('AI3001122', store.ai),
+        tOut: findPoint('AI3001121', store.ai),
+        tRet: findPoint('AI3001123', store.ai),
+        tIsp: findPoint('AI3001124', store.ai),
+        tComp: findPoint('AI3001154', store.ai),
+        pFreon: findPoint('AI3001126', store.ai),
+        setTemperatureDayHeat: findPoint('AO3001137', store.ao),
+        setTemperatureNightHeat: findPoint('AO3001138', store.ao),
+        setTemperatureDayCool: findPoint('AO3001139', store.ao),
+        setTemperatureNightCool: findPoint('AO3001140', store.ao),
+        setDamperMinWinter: findPoint('AO3001142', store.ao),
+        setDamperMinSummer: findPoint('AO3001143', store.ao),
+        sSTART: findPoint('BO3001224', store.bo),
+        sSEASON: findPoint('BO3001226', store.bo),
+        sLOCAL: findPoint('BO3001233', store.bo),
+        sALWAYS: findPoint('BO3001236', store.bo),
+        oKKB: findPoint('BI3001200', store.bi),
+        oFan: findPoint('BI3001199', store.bi),
+        oHeat: findPoint('BI3001202', store.bi),
+        oDamperTop: findPoint('BI3001208', store.bi),
+        oDamperButtom: findPoint('BI3001209', store.bi)
     };
 };
 
