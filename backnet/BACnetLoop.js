@@ -21,10 +21,12 @@ const { pollingTime } = config;
 const mongoDB = require('../mongoDB/MongoDB');
 const fireBase = require('../fireBaseDB/FireBaseDB');
 const socketIO = require('../socketIO/SocketIO');
+const sqlite3 = require('../SQLite3/SQLite');
 
 buffer.setDataListeners(mongoDB);
 buffer.setDataListeners(fireBase);
 buffer.setDataListeners(socketIO);
+buffer.setDataListeners(sqlite3);
 
 class BACnetLoop {
     constructor(avArray, bvArray, aiArray, aoArray, biArray, boArray) {
@@ -56,7 +58,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsAV', err);
                     });
             });
-        }, pollingTime);
+        }, pollingTime * 100);
     }
     runBV() {
         const stop = setInterval(() => {
@@ -69,7 +71,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsBV', err);
                     });
             });
-        }, pollingTime * 3);
+        }, pollingTime * 1);
     }
     runAI() {
         const stop = setInterval(() => {
@@ -83,7 +85,7 @@ class BACnetLoop {
                     });
             });
 
-        }, pollingTime * 3);
+        }, pollingTime * 1);
     }
     runAO() {
         const stop = setInterval(() => {
@@ -96,7 +98,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsAO', err);
                     });
             });
-        }, pollingTime * 2);
+        }, pollingTime * 1);
     }
     runBI() {
         const stop = setInterval(() => {
@@ -109,7 +111,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsBI', err);
                     });
             });
-        }, pollingTime * 2);
+        }, pollingTime * 1);
     }
     runBO() {
         const stop = setInterval(() => {
