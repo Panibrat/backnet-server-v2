@@ -56,7 +56,7 @@ class ConsumptionChart extends Component {
 
     getTrendData(title, startTime, endTime) {
         const token = this.props.user ? this.props.user.token : 'fakeToken';
-        return axios.post('/trend', {
+        return axios.post('/consumption', {
                 title: title,
                 startTime: startTime,
                 endTime: endTime
