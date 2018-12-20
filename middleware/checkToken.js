@@ -1,9 +1,15 @@
 const jwt = require('jsonwebtoken');
 
 const isTokenValid = (token) => {
+    console.log('token', token);
     try {
-        const decoded = jwt.verify(token, 'abc123');
-        return true;
+        const user = jwt.verify(token, 'abc123');
+        if (user.role === 'admin') {
+            return true;
+        } else {
+            console.log('User has no rights to change values');
+            return false;
+        }
     } catch (e) {
         return false;
     }

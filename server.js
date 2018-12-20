@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const sqlite3 = require('./SQLite3/SQLite');
+const { insertUsersToDataBase } = require('./SQLite3/insertUsers');
+const { users } = require('./SQLite3/users');
 
 const app = express();
 const server = require('http').Server(app);
@@ -29,6 +32,8 @@ const configAIs = require('./backnet/configAI_data');
 const configAOs = require('./backnet/configAO_data');
 const configBIs = require('./backnet/configBI_data');
 const configBOs = require('./backnet/configBO_data');
+
+insertUsersToDataBase(users, sqlite3);
 
 const allPoints = [...configAVs, ...configAIs, ...configAOs, ...configBVs, ...configBIs, ...configBOs];
 buffer.readDataFromConfig(allPoints);
@@ -70,39 +75,39 @@ app.get('/modbus', (req, res) => { //TODO: delete in prod
     res.send(JSON.stringify(modbusLoop.getBuffer()));
 });
 
+app.post('/consumption', authenticate, (req, res) => {
+    const query = req.body;
+    console.log('query', query);
+    const callback = (data) => {
+       return res.json(data);
+    };
+    sqlite3.getConsumptionTrendData(query.title, query.startTime, query.endTime, callback);
+});
+
 app.post('/trend', authenticate, (req, res) => {
     const query = req.body;
-    mongoDB.getTrendData(
-        query.title,
-        query.startTime,
-        query.endTime
-    )
-        .then((trendData) => {
-            res.json(trendData);
-        })
-        .catch((err) => {
-            throw err;
-        });
+    const callback = (data) => {
+        return res.json(data);
+    };
+    sqlite3.getTrendData(query.title, query.startTime, query.endTime, callback);
 });
 
 app.post('/users/login', (req, res) => {
-    User.findOne({ email: req.body.email }, (err, user) => {
+    const callback = (err, user) => {
         if (err) {
             res.status(401).send(err);
         }
         if (user) {
             bcrypt.compare(req.body.password, user.password, (error, result) => {
                 if (result) {
-                    res.status(200).send(jwt.sign({ email: user.email }, 'abc123').toString());
+                    res.status(200).send(jwt.sign({ email: user.email, role: user.role }, 'abc123').toString());
                 } else {
                     res.status(401).send(error);
                 }
             });
-        } else {
-            res.status(401).send();
-            console.log('no users');
         }
-    });
+    };
+    sqlite3.findUser(req.body.email, callback);
 });
 
 app.get('*', (req, res) => {
