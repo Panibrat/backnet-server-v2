@@ -15,7 +15,7 @@ export default class BinaryOutputItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOn: props.value,
+            isOn: null,
         };
         this.toggleOutput = this.toggleOutput.bind(this);
     }
@@ -65,11 +65,15 @@ export default class BinaryOutputItem extends React.Component {
                                     units[0]
                             }
                         </div>
-                        <Switch
-                            checked={this.state.isOn}
-                            onChange={this.toggleOutput}
-                            color='primary'
-                        />
+                        {
+                            (this.state.isOn !== null) && (
+                                <Switch
+                                    checked={this.state.isOn}
+                                    onChange={this.toggleOutput}
+                                    color='primary'
+                                />
+                            )
+                        }
                     </div>
                 </ListItem>
                 <li>
@@ -79,4 +83,5 @@ export default class BinaryOutputItem extends React.Component {
         )
     }
 }
+
 
