@@ -20,6 +20,12 @@ export default class BinaryOutputItem extends React.Component {
         this.toggleOutput = this.toggleOutput.bind(this);
     }
 
+    static getDerivedStateFromProps(props, state) {
+        if ((state.isOn === null) && props.value) {
+            return { isOn: props.value }
+        }
+    }
+
     shouldComponentUpdate(nextProps, nextState) {
         const result = (this.props.value !== nextProps.value) || (this.state.isOn !== nextState.isOn);
         return result;
