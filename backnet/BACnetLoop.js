@@ -85,7 +85,7 @@ class BACnetLoop {
                     });
             });
 
-        }, pollingTime * 2);
+        }, pollingTime * 3);
     }
     runAO() {
         const stop = setInterval(() => {
@@ -98,7 +98,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsAO', err);
                     });
             });
-        }, pollingTime * 1);
+        }, pollingTime * 2);
     }
     runBI() {
         const stop = setInterval(() => {
@@ -111,7 +111,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsBI', err);
                     });
             });
-        }, pollingTime * 2);
+        }, pollingTime * 3);
     }
     runBO() {
         const stop = setInterval(() => {
