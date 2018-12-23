@@ -33,9 +33,7 @@ export class ConsumptionPage extends React.Component {
                         <PowerConsumptionItem {...this.props.EnergyTotal} />
                         <PowerConsumptionItem {...this.props.EnergyDayTotal} />
                         <PowerConsumptionItem {...this.props.EnergyNightTotal} />
-
                         <PowerDayConsumptionItem {...this.props.oPWR_DAY} />
-
                         <MoneyItem {...this.props.oPWR_DAY}
                             multiple={1.68}
                         />
@@ -43,6 +41,8 @@ export class ConsumptionPage extends React.Component {
                         <MoneyItem {...this.props.oPWR_NIGHT}
                             multiple={0.84}
                         />
+                        <PowerDayConsumptionItem {...this.props.oPWR_MONTH_DAY} />
+                        <PowerNightConsumptionItem {...this.props.oPWR_MONTH_NIGHT} />
                         <VoltageItem {...this.props.L1N} />
                         <VoltageItem {...this.props.L2N} />
                         <VoltageItem {...this.props.L3N} />
@@ -87,6 +87,25 @@ const countNightConsumption = (store) => {
     }
 };
 
+const countMonthConsumptionDay = (store) => {
+    const zeroDay = findPoint('AV3001396', store.av);
+    const nowDay = store.modbus.EnergyDayTotal;
+    return {
+        title: 'Month: Day Energy',
+        description: 'За месяц: дневной тариф',
+        value: (nowDay.value - zeroDay.value) / 1000,
+    }
+};
+
+const countMonthConsumptionNight = (store) => {
+    const zeroNight = findPoint('AV3001395', store.av);
+    const nowNight = store.modbus.EnergyNightTotal;
+    return {
+        title: 'Month: Night Energy',
+        description: 'За месяц: ночной тариф',
+        value: (nowNight.value - zeroNight.value) / 1000,
+    }
+};
 const mapStateToProps = (store) => {
     return {
         PwrActiveTotal: { ...store.modbus.PwrActiveTotal },
@@ -107,6 +126,8 @@ const mapStateToProps = (store) => {
         oWATER_DAY: findPoint('AI3000371', store.ai),
         oPWR_DAY: countDayConsumption(store),
         oPWR_NIGHT: countNightConsumption(store),
+        oPWR_MONTH_DAY: countMonthConsumptionDay(store),
+        oPWR_MONTH_NIGHT: countMonthConsumptionNight(store),
     };
 };
 

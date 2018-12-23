@@ -24,8 +24,7 @@ class TrendLoop {
                 sql3.savePointToTable(EnergyNightTotal, TABLE_DAY_CONSUMPTION);
             }
         });
-        // this.cron.schedule('0 0 0 * * *', () => { //every 0:00:00
-        this.cron.schedule('0 * * * * *', () => { //every 0:00:00
+        this.cron.schedule('59 59 22 * * *', () => { //every 22:59:59
             console.log(`\n Every midnight: ${new Date()}`);
             const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
             const EnergyNightTotal = modbusLoop.getBuffer().EnergyNightTotal;
@@ -36,8 +35,7 @@ class TrendLoop {
                 writeAV({ title: 'AV3001394', value: EnergyNightTotal.value })
             }
         });
-        // this.cron.schedule('0 0 0 1 * *', () => { //every 0:00:00 at month begining
-        this.cron.schedule('30 * * * * *', () => { //every 0:00:00 at month begining
+        this.cron.schedule('0 0 0 1 * *', () => { //every 0:00:00 at month begining
             console.log(`\n Every month, run at midnight: ${new Date()}`);
             const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
             const EnergyNightTotal = modbusLoop.getBuffer().EnergyNightTotal;
