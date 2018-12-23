@@ -24,6 +24,7 @@ export default class BinaryOutputItem extends React.Component {
         if ((state.isOn === null) && (props.value !== undefined)) {
             return { isOn: props.value }
         }
+        return null;
     }
 
     shouldComponentUpdate(nextProps, nextState) {

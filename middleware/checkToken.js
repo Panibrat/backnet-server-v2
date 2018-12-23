@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 
 const isTokenValid = (token) => {
-    console.log('token', token);
     try {
         const user = jwt.verify(token, 'abc123');
         if (user.role === 'admin') {

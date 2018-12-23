@@ -67,6 +67,16 @@ const findPoint = (point, pointsList) => {
     return pointsList[index];
 };
 
+const countDayConsumption = (store) => {
+    const zeroDay = findPoint('AV3001393', store.av);
+    const nowDay = store.modbus.EnergyDayTotal;
+    return {
+        title: zeroDay.title,
+        description: zeroDay.description,
+        value: nowDay.value - zeroDay.value,
+    }
+};
+
 const mapStateToProps = (store) => {
     return {
         PwrActiveTotal: { ...store.modbus.PwrActiveTotal },
@@ -83,11 +93,9 @@ const mapStateToProps = (store) => {
         EnergyDayTotal: { ...store.modbus.EnergyDayTotal },
         EnergyNightTotal: { ...store.modbus.EnergyNightTotal },
 
-        oPWR_DAY: findPoint('AI3000375', store.ai),
-        oPWR_NIGHT: findPoint('AI3000376', store.ai),
         oWATER_COUNT: findPoint('AI3000370', store.ai),
         oWATER_DAY: findPoint('AI3000371', store.ai),
-
+        oPWR_DAY: countDayConsumption(store),
     };
 };
 

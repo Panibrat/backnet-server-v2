@@ -329,26 +329,6 @@
     "value": 72.1
   },
   {
-  "title": "AI3000375",
-  "name": "oPWR_DAY",
-  "description": "Потребление энергии. День.",
-  "status": "norm",
-  "units": "kW*h",
-  "readOnly": true,
-  "value": 7.912,
-  "trend": true
-  },
-  {
-  "title": "AI3000376",
-  "name": "oPWR_NIGHT",
-  "description": "Потребление энергии. Ночь.",
-  "status": "norm",
-  "units": "kW*h",
-  "readOnly": true,
-  "value": 12.765,
-    "trend": true
-  },
-  {
   "title": "AI3000370",
   "name": "oWATER_COUNT",
   "description": "Счетчик воды",

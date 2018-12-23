@@ -3,6 +3,7 @@ const mongoDB = require('../mongoDB/MongoDB');
 const sql3 = require('../SQLite3/SQLite');
 const { TABLE_DAY_CONSUMPTION } = require('../SQLite3/config');
 const modbusLoop = require('../modbus/modbusLoop');
+const writeAV = require('../backnet/writeData/writeAVpromise');
 
 class TrendLoop {
     constructor(nodeCron) {
@@ -10,8 +11,6 @@ class TrendLoop {
     }
 
     run() {
-        //this.cron.schedule('* * * * * * *', () => { //every second
-        //this.cron.schedule('* * * * * *', () => { //every minute
         this.cron.schedule('0 0 * * * *', () => { //every hour
             console.log(`\n running a task every hour at ${new Date()}`);
             const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
@@ -25,13 +24,27 @@ class TrendLoop {
                 sql3.savePointToTable(EnergyNightTotal, TABLE_DAY_CONSUMPTION);
             }
         });
-        this.cron.schedule('0 0 0 * * *', () => { //every hour
+        this.cron.schedule('0 0 0 * * *', () => { //every 0:00:00
             console.log(`\n Every midnight: ${new Date()}`);
-            // save day & night consumption values to NAE
+            const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
+            const EnergyNightTotal = modbusLoop.getBuffer().EnergyNightTotal;
+            if (EnergyDayTotal && EnergyDayTotal.value > 0) {
+                writeAV({ title: 'AV3001393', value: EnergyDayTotal.value })
+            }
+            if (EnergyNightTotal && EnergyNightTotal.value > 0) {
+                writeAV({ title: 'AV3001394', value: EnergyNightTotal.value })
+            }
         });
-        this.cron.schedule('0 0 0 1 * *', () => { //every hour
+        this.cron.schedule('0 0 0 1 * *', () => { //every 0:00:00 at month begining
             console.log(`\n Every month, run at midnight: ${new Date()}`);
-            // save total  consumption values to NAE
+            const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
+            const EnergyNightTotal = modbusLoop.getBuffer().EnergyNightTotal;
+            if (EnergyDayTotal && EnergyDayTotal.value > 0) {
+                writeAV({ title: 'AV3001396', value: EnergyDayTotal.value })
+            }
+            if (EnergyNightTotal && EnergyNightTotal.value > 0) {
+                writeAV({ title: 'AV3001395', value: EnergyNightTotal.value })
+            }
         });
     }
 }
