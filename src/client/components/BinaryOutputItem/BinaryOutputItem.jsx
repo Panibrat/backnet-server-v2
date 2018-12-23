@@ -21,7 +21,7 @@ export default class BinaryOutputItem extends React.Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        if ((state.isOn === null) && (props.value === false || props.value === true)) {
+        if ((state.isOn === null) && (props.value !== undefined)) {
             return { isOn: props.value }
         }
     }
