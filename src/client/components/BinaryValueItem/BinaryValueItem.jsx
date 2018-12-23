@@ -31,6 +31,12 @@ export default class BinaryValueItem extends React.Component {
         return result;
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.value !== this.state.isOn && prevProps.value !== this.props.value) {
+            this.setState({ isOn: this.props.value });
+        }
+    }
+
     toggleOutput() {
         SocketIO.writeBO({
             title: this.props.title,
