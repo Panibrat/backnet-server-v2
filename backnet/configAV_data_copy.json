@@ -1,5 +1,39 @@
 [
   {
+    "title": "AV3001393",
+    "name": "EnergyDayZeroDay",
+    "description": "Показания счетчика (день) в начале суток",
+    "units": "W",
+    "readOnly": true,
+    "value": 18605809
+  },
+  {
+    "title": "AV3001394",
+    "name": "EnergyDayZeroNight",
+    "description": "Показания счетчика (ночь) в начале суток",
+    "units": "W",
+    "readOnly": true,
+    "value": 14102032
+  },
+  {
+    "title": "AV3001395",
+    "name": "EnergyMonthZeroNight",
+    "description": "Показания счетчика (ночь) в начале месяца",
+    "units": "W",
+    "readOnly": true,
+    "value": 13405509
+  },
+  {
+    "title": "AV3001396",
+    "name": "EnergyMonthZeroDay",
+    "description": "Показания счетчика (день) в начале месяца",
+    "units": "W",
+    "readOnly": true,
+    "value": 17005809
+  },
+
+
+  {
     "title": "AV3000726",
     "name": "PwrActiveTotal",
     "description": "Потребляемая Мощность Общая",
