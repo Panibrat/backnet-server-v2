@@ -71,9 +71,19 @@ const countDayConsumption = (store) => {
     const zeroDay = findPoint('AV3001393', store.av);
     const nowDay = store.modbus.EnergyDayTotal;
     return {
-        title: zeroDay.title,
-        description: zeroDay.description,
-        value: nowDay.value - zeroDay.value,
+        title: 'Day Energy',
+        description: 'Сегодня: дневной тариф',
+        value: (nowDay.value - zeroDay.value) / 1000,
+    }
+};
+
+const countNightConsumption = (store) => {
+    const zeroNight = findPoint('AV3001394', store.av);
+    const nowNight = store.modbus.EnergyNightTotal;
+    return {
+        title: 'Night Energy',
+        description: 'Сегодня: ночной тариф',
+        value: (nowNight.value - zeroNight.value) / 1000,
     }
 };
 
@@ -96,6 +106,7 @@ const mapStateToProps = (store) => {
         oWATER_COUNT: findPoint('AI3000370', store.ai),
         oWATER_DAY: findPoint('AI3000371', store.ai),
         oPWR_DAY: countDayConsumption(store),
+        oPWR_NIGHT: countNightConsumption(store),
     };
 };
 
