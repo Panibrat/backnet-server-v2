@@ -105,8 +105,8 @@ const mapStateToProps = (store) => {
 
         oWATER_COUNT: findPoint('AI3000370', store.ai),
         oWATER_DAY: findPoint('AI3000371', store.ai),
-        oPWR_DAY: { title: 'XXX', value: 12345, description: 'YYY'},
-        oPWR_NIGHT: { title: 'XXX2', value: 12345333, description: 'YYY2'},
+        oPWR_DAY: countDayConsumption(store),
+        oPWR_NIGHT: countNightConsumption(store),
     };
 };
 
