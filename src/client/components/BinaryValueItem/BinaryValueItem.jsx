@@ -20,15 +20,15 @@ export default class BinaryValueItem extends React.Component {
         this.toggleOutput = this.toggleOutput.bind(this);
     }
 
+    static getDerivedStateFromProps(props, state) {
+        if ((state.isOn === null) && (props.value !== undefined)) {
+            return { isOn: props.value }
+        }
+    }
+
     shouldComponentUpdate(nextProps, nextState) {
         const result = (this.props.value !== nextProps.value) || (this.state.isOn !== nextState.isOn);
         return result;
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (this.props.value !== this.state.isOn && prevProps.value !== this.props.value) {
-            this.setState({ isOn: this.props.value });
-        }
     }
 
     toggleOutput() {
