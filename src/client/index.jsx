@@ -29,6 +29,8 @@ import ConsumptionPage from './components/Pages/ConsumptionPage/ConsumptionPage'
 
 import ChartPage from './components/Chart/ChartPage/ChartPage';
 import ConsumptionChart from './components/Chart/ConsumptionChart/ConsumptionChart';
+import FirstFloorItem from './components/FirstFloorItem';
+import SecondFloorItem from './components/SecondFloorItem';
 
 import styles from './Styles.css';
 
@@ -65,6 +67,8 @@ const App = () => (
                         <Route path="/consumption" component={ConsumptionPage} />
                         <Route path="/chart" component={ChartPage} />
                         <Route path="/consumption-chart" component={ConsumptionChart} />
+                        <Route path="/1-floor" component={FirstFloorItem} />
+                        <Route path="/2-floor" component={SecondFloorItem} />
                         <Route path="*" component={AhuPage} />
                     </Switch>
                 </Layout>

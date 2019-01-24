@@ -1,0 +1,14 @@
+<svg width="400" height="450" xmlns="http://www.w3.org/2000/svg" style="vector-effect: non-scaling-stroke;" stroke="null">
+ <title style="vector-effect: non-scaling-stroke;" stroke="null">Produce by Acme CAD Converter</title>
+
+ <desc style="vector-effect: non-scaling-stroke;" stroke="null">Produce by Acme CAD Converter</desc>
+ <g stroke="null">
+  <title stroke="null">background</title>
+  <rect stroke="null" fill="none" id="canvas_background" height="452" width="402" y="-1" x="-1"/>
+ </g>
+ <g stroke="null">
+  <title stroke="null">Layer 1</title>
+  <path id="svg_614" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <path id="svg_616" d="m204.846022,115.859149l36.563908,-0.000004l0,-15.198253l16.079311,-16.740104l50.881108,0l16.51984,16.740104l0.220265,15.198253l36.343648,0l0,87.445021l-156.608085,0l0.000005,-87.445017z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+ </g>
+</svg>
