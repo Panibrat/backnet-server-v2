@@ -14,5 +14,22 @@
 }
 
 .firstFloor_zalRight {
-    opacity: 0.5;
+    opacity: 0.1;
 }
+
+/*
+.temperatureText {
+    text-anchor: middle;
+    fill: white;
+    opacity: 0.85;
+}
+
+.temperaturePlate {
+    width: 50px;
+    height: 20px;
+    fill: black;
+    opacity: 0.75;
+    stroke: white;
+    stroke-width: 1px;
+    stroke-opacity: 0.5;
+}*/

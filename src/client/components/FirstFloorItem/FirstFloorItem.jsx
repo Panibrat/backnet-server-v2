@@ -1,11 +1,44 @@
 import React from 'react';
+import * as d3 from 'd3';
+
 import styles from './FirstFloorItem.css';
+import FirstFloorPlan from './FirstFloorPlan';
+import TemperatureTile from './Components/TemperatureTile/TemperatureTile';
+import HFTemperatureTile from './Components/HFTemperatureTile/HFTemperatureTile';
 
 const FirstFloorItem = (props) => {
-        const colorZalLeft = 'blue';
-        const colorZalRight = 'red';
-        const colorKitchenLeft = 'green';
-        const colorKitchenRight = 'yellow';
+        const temperatureOutdoor = -10.3;
+        const temperatureZalLeft = 23.7;
+        const spTemperatureZalLeft = 22;
+        const temperatureKitchenLeft = -6.9;
+        const spTemperatureKitchenLeft = 22;
+        const temperatureHFKitchenLeft = 32.3;
+        const temperatureHFWC1Left = 27.6;
+        const temperatureHFHallLeft = 22.3;
+        const temperatureHFZal_L_Left = 24.6;
+        const temperatureHFZal_R_Left = 23.3;
+        const temperatureZalRight = 19.5;
+        const spTemperatureZalRight = 22;
+        const spTemperatureKitchenRight = 22;
+        const temperatureKitchenRight = 29.9;
+        const temperatureHFKitchenRight = 33.3;
+        const isOnfirstFloorHF_WC_Left = false;
+        const isOnfirstFloorHF_kitchen_Left = true;
+        const isOnfirstFloorHF_zal_Left = true;
+        const isOnfirstFloorHF_hall_Left = true;
+        const isOnfirstFloorHF_kitchen_Right = false;
+        const isOnfirstFloorHF_WC_Right = true;
+        const isOnfirstFloorHF_hall_Right = false;
+
+        const convertDiffTemperaturesToColor = (temperature, setPoint) => {
+            const t = (temperature - setPoint + 5 ) / 10;
+            return d3.interpolateRgbBasis(['blue', 'lightblue', 'green', 'yellow', 'red'])(t);
+        };
+        const colorZalLeft = convertDiffTemperaturesToColor(temperatureZalLeft, spTemperatureZalLeft);
+        const colorZalRight = convertDiffTemperaturesToColor(temperatureZalRight, spTemperatureZalRight);
+        const colorKitchenLeft = convertDiffTemperaturesToColor(temperatureKitchenLeft, spTemperatureKitchenLeft);
+        const colorKitchenRight = convertDiffTemperaturesToColor(temperatureKitchenRight, spTemperatureKitchenRight);
+
     return (
         <div className={styles.container}>
             <svg viewBox="0 0 400 450" width="360" height="auto" xmlns="http://www.w3.org/2000/svg">
@@ -21,6 +54,7 @@ const FirstFloorItem = (props) => {
                             <path
                                 d="m204.846022,115.859149l36.563908,-0.000004l0,-15.198253l16.079311,-16.740104l50.881108,0l16.51984,16.740104l0.220265,15.198253l36.343648,0l0,87.445021l-156.608085,0l0.000005,-87.445017z"
                                 fill={colorZalRight}
+                                opacity="0.5"
                                 onClick={() => console.log('firstFloor_zal_Right')}
                             />
                     </g>
@@ -28,6 +62,7 @@ const FirstFloorItem = (props) => {
                             <path
                                 d="m38.546293,273.56856l32.158623,-0.000008l-0.220265,-5.947142l24.889893,-0.220265l0,17.841428l3.744497,0.220264l0,-20.264337l38.986822,0.220265l0,109.471473l-11.894285,12.334814l-43.392113,-0.220264l-12.334814,-12.11455l-0.220264,-14.977988l-31.938358,0l0.220264,-86.34369z"
                                 fill={colorKitchenLeft}
+                                opacity="0.5"
                                 onClick={() => console.log('firstFloor_Kitchen_Left')}
                             />
                     </g>
@@ -35,618 +70,107 @@ const FirstFloorItem = (props) => {
                             <path
                                 d="m276.872526,311.233796l-0.000006,-3.524241l24.008835,-23.568305l3.744497,0l-0.220265,-16.51984l25.110157,0l0,5.947142l31.938358,0l0.220264,86.343698l-32.158622,0l0.220265,14.977988l-12.11455,12.11455l-43.392113,0l-12.334814,-12.11455l0.220265,-63.436186l14.757729,-0.220256z"
                                 fill={colorKitchenRight}
+                                opacity="0.5"
                                 onClick={() => console.log('firstFloor_Kitchen_Right')}
                             />
                     </g>
-                    <g className="firstFloor_WC_Left">
-                        <path id="svg_631"
-                              d="m192.5421,216.85081c0,0 -32.79603,0.24349 -36.51377,0.09174c-3.71774,-0.15175 -4.11299,4.51128 -0.09174,4.58716c4.02125,0.07588 31.92661,0 31.9266,0c4.55236,-0.22762 4.99172,5.66873 -0.09174,5.13761c-3.0349,0.07588 -27.93362,-0.19937 -31.65137,-0.27523c-3.71775,-0.07586 -3.8095,4.96998 -0.09175,5.04587c3.71775,0.07589 32.01835,-0.18348 32.01835,-0.18348c4.85584,0.07587 4.36887,5.27349 -0.18349,5.04587c-4.55236,-0.22762 -28.19298,0 -31.83486,0c-3.64188,0 -4.17299,5.1376 0,5.13761c4.17299,0.00001 27.1149,0.07586 31.74312,0c4.62822,-0.07586 4.05299,5.03002 0.18349,4.95414c-3.8695,-0.07588 -35.77982,0.18348 -35.77982,0.18348"
+                    <g className="firstFloorHF_WC_Left">
+                        <path id="svg_5537"
+                              d="m153.953099,211.423513c-22.43008,0.37021 29.67218,-0.36468 34.61939,-0.4171c4.94721,-0.05242 5.10709,5.27423 0.10428,5.21376c-5.00281,-0.06047 -30.28756,0.1254 -34.6194,0.20855c-4.33184,0.08315 -4.38764,5.54326 0,5.31804c4.38764,-0.22522 29.54318,-0.25499 34.51512,-0.20855c4.97194,0.04644 5.20612,5.14805 -0.20855,5.00521c-5.41467,-0.14284 -30.04945,0.50117 -34.41084,0.52138c-4.36139,0.02022 -4.201,5.19185 0.10427,5.21376c4.30527,0.02191 29.38668,-0.22203 34.51512,-0.20855c5.12844,0.01348 5.12899,5.04903 0.10428,5.21377c-4.85997,-0.08238 -34.6194,0.31282 -34.72367,0.20855c-4.35147,0.0299 -4.23956,5.89988 0.10427,5.63086c4.55239,0.02191 34.6194,-0.20855 34.51512,-0.31282c5.10378,-0.05242 5.33754,5.17519 0.20855,5.21376c-5.12899,0.03857 -29.72423,0.17858 -34.61939,0.20855c-4.89516,0.02997 -4.8433,4.25339 -0.20855,4.27529c4.63475,0.0219 59.72629,-0.37329 34.82794,-0.31283"
                               opacity="0.5"
                               strokeWidth="2"
-                              stroke="red"
+                              stroke={isOnfirstFloorHF_WC_Left ? "red" : "grey"}
                               fill="none"
                         />
                     </g>
-                <g stroke="null" id="svg_599">
-                        <path stroke="black" d="m38.028403,360.364333l31.96062,0" fill="none" strokeWidth="0.5" id="svg_1"/>
-                        <path stroke="black" d="m31.181037,367.220964l31.951253,0" fill="none" strokeWidth="0.5" id="svg_2"/>
-                        <path stroke="black" d="m38.028403,255.219961l0,54.881147" fill="none" strokeWidth="0.5" id="svg_3"/>
-                        <path stroke="black" d="m38.028403,342.089351l0,18.274982" fill="none" strokeWidth="0.5" id="svg_4"/>
-                        <path stroke="black" d="m31.181037,255.219961l0,54.881147" fill="none" strokeWidth="0.5" id="svg_5"/>
-                        <path stroke="black" d="m31.181037,342.089351l0,25.131612" fill="none" strokeWidth="0.5" id="svg_6"/>
-                        <path stroke="black" d="m31.181037,342.089351l0,25.131612" fill="none" strokeWidth="0.5" id="svg_7"/>
-                        <path stroke="black" d="m147.220945,243.183389l0,37.674001" fill="none" strokeWidth="0.5" id="svg_8"/>
-                        <path stroke="black" d="m138.537622,308.227712l0,64.135725" fill="none" strokeWidth="0.5" id="svg_9"/>
-                        <path stroke="black" d="m138.537622,243.183389l0,37.674001" fill="none" strokeWidth="0.5" id="svg_10"/>
-                        <path stroke="black" d="m38.028403,264.40897l60.577178,0" fill="none" strokeWidth="0.5" id="svg_11"/>
-                        <path stroke="black" d="m98.605581,264.40897l0,2.735159" fill="none" strokeWidth="0.5" id="svg_12"/>
-                        <path stroke="black" d="m147.220945,260.296865l0,20.560525" fill="none" strokeWidth="0.5" id="svg_13"/>
-                        <path stroke="black" d="m147.220945,280.857391l-8.683322,0" fill="none" strokeWidth="0.5" id="svg_14"/>
-                        <path stroke="black" d="m147.220945,308.227712l-8.683322,0" fill="none" strokeWidth="0.5" id="svg_15"/>
-                        <path stroke="black" d="m98.605581,264.40897l0,19.21168" fill="none" strokeWidth="0.5" id="svg_16"/>
-                        <path stroke="black" d="m95.870382,267.144129l0,17.62866" fill="none" strokeWidth="0.5" id="svg_17"/>
-                        <path stroke="black" d="m147.220945,332.947177l4.571156,0" fill="none" strokeWidth="0.5" id="svg_18"/>
-                        <path stroke="black" d="m145.394356,339.803808l6.397744,0" fill="none" strokeWidth="0.5" id="svg_19"/>
-                        <path stroke="black" d="m138.537622,308.227712l0,64.838249" fill="none" strokeWidth="0.5" id="svg_20"/>
-                        <path stroke="black" d="m145.394356,370.040425l0,-30.236618" fill="none" strokeWidth="0.5" id="svg_21"/>
-                        <path stroke="black" d="m147.220945,308.227712l0,24.719465" fill="none" strokeWidth="0.5" id="svg_22"/>
-                        <path stroke="black" d="m129.058095,394.628753l-9.947884,0" fill="none" strokeWidth="0.5" id="svg_23"/>
-                        <path stroke="black" d="m89.416435,394.628753l-9.947884,0" fill="none" strokeWidth="0.5" id="svg_24"/>
-                        <path stroke="black" d="m63.13229,378.049195l3.334695,3.390847" fill="none" strokeWidth="0.5" id="svg_25"/>
-                        <path stroke="black" d="m76.08702,391.200438l3.381531,3.428315" fill="none" strokeWidth="0.5" id="svg_26"/>
-                        <path stroke="black" d="m82.33489,387.781489l-1.3676,-1.386313" fill="none" strokeWidth="0.5" id="svg_27"/>
-                        <path stroke="black" d="m71.347256,376.625414l-1.358233,-1.386313" fill="none" strokeWidth="0.5" id="svg_28"/>
-                        <path stroke="black" d="m69.989023,366.096926l0,-5.732593" fill="none" strokeWidth="0.5" id="svg_29"/>
-                        <path stroke="black" d="m126.191756,387.781489l-7.081544,0" fill="none" strokeWidth="0.5" id="svg_30"/>
-                        <path stroke="black" d="m89.416435,387.781489l-7.081544,0" fill="none" strokeWidth="0.5" id="svg_31"/>
-                        <path stroke="black" d="m69.989023,360.364333l0,14.874767" fill="none" strokeWidth="0.5" id="svg_32"/>
-                        <path stroke="black" d="m138.537622,366.096926l0,9.142174" fill="none" strokeWidth="0.5" id="svg_33"/>
-                        <path stroke="black" d="m145.394356,364.879218l0,13.169977" fill="none" strokeWidth="0.5" id="svg_34"/>
-                        <path stroke="black" d="m63.13229,378.049195l0,-10.828231" fill="none" strokeWidth="0.5" id="svg_35"/>
-                        <path stroke="black" d="m147.220945,332.947177l4.571156,0" fill="none" strokeWidth="0.5" id="svg_36"/>
-                        <path stroke="black" d="m147.220945,332.947177l4.571156,0" fill="none" strokeWidth="0.5" id="svg_37"/>
-                        <path stroke="black" d="m151.7921,332.947177l0,6.856631" fill="none" strokeWidth="0.5" id="svg_38"/>
-                        <path stroke="black" d="m151.7921,332.947177l9.254717,0" fill="none" strokeWidth="0.5" id="svg_39"/>
-                        <path stroke="black" d="m161.046817,339.803808l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_40"/>
-                        <path stroke="black" d="m89.416435,387.781489l0,6.847264" fill="none" strokeWidth="0.5" id="svg_41"/>
-                        <path stroke="black" d="m119.110211,387.781489l0,6.847264" fill="none" strokeWidth="0.5" id="svg_42"/>
-                        <path stroke="black" d="m80.96729,386.395176l-4.880271,4.805262" fill="none" strokeWidth="0.5" id="svg_43"/>
-                        <path stroke="black" d="m71.347256,376.625414l-4.880271,4.814629" fill="none" strokeWidth="0.5" id="svg_44"/>
-                        <path stroke="black" d="m89.416435,387.781489l29.693777,0" fill="none" strokeWidth="0.5" id="svg_45"/>
-                        <path stroke="black" d="m119.110211,394.628753l-29.693777,0" fill="none" strokeWidth="0.5" id="svg_46"/>
-                        <path stroke="black" d="m89.416435,391.209805l29.693777,0" fill="none" strokeWidth="0.5" id="svg_47"/>
-                        <path stroke="black" d="m119.110211,392.539916l-29.693777,0" fill="none" strokeWidth="0.5" id="svg_48"/>
-                        <path stroke="black" d="m71.347256,376.625414l9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_49"/>
-                        <path stroke="black" d="m66.466986,381.440042l9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_50"/>
-                        <path stroke="black" d="m68.911804,379.032728l9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_51"/>
-                        <path stroke="black" d="m67.85332,380.072463l9.610667,9.769762" fill="none" strokeWidth="0.5" id="svg_52"/>
-                        <path stroke="black" d="m145.394356,378.049195l-3.334695,3.390847" fill="none" strokeWidth="0.5" id="svg_53"/>
-                        <path stroke="black" d="m126.191756,387.781489l1.3676,-1.386313" fill="none" strokeWidth="0.5" id="svg_54"/>
-                        <path stroke="black" d="m137.17939,376.625414l1.358233,-1.386313" fill="none" strokeWidth="0.5" id="svg_55"/>
-                        <path stroke="black" d="m127.559355,386.395176l4.880271,4.805262" fill="none" strokeWidth="0.5" id="svg_56"/>
-                        <path stroke="black" d="m137.17939,376.625414l4.880271,4.814629" fill="none" strokeWidth="0.5" id="svg_57"/>
-                        <path stroke="black" d="m137.17939,376.625414l-9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_58"/>
-                        <path stroke="black" d="m142.05966,381.440042l-9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_59"/>
-                        <path stroke="black" d="m139.614841,379.032728l-9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_60"/>
-                        <path stroke="black" d="m140.682693,380.072463l-9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_61"/>
-                        <path stroke="black" d="m132.439626,391.200438l-3.381531,3.428315" fill="none" strokeWidth="0.5" id="svg_62"/>
-                        <path stroke="black" d="m161.046817,336.375492l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_63"/>
-                        <path stroke="black" d="m161.046817,337.621301l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_64"/>
-                        <path stroke="black" d="m161.046817,332.947177l0,7.961935" fill="none" strokeWidth="0.5" id="svg_65"/>
-                        <path stroke="black" d="m161.046817,332.947177l0,7.961935" fill="none" strokeWidth="0.5" id="svg_66"/>
-                        <path stroke="black" d="m145.394356,376.897056l108.068487,0" fill="none" strokeWidth="0.5" id="svg_67"/>
-                        <path stroke="black" d="m145.394356,370.040425l108.068487,0" fill="none" strokeWidth="0.5" id="svg_68"/>
-                        <path stroke="black" d="m140.870036,383.753687l118.259916,0" fill="none" strokeWidth="0.5" id="svg_69"/>
-                        <path stroke="black" d="m134.116341,390.610318l65.888336,0" fill="none" strokeWidth="0.5" id="svg_70"/>
-                        <path stroke="black" d="m129.058095,397.457581l70.946582,0" fill="none" strokeWidth="0.5" id="svg_71"/>
-                        <path stroke="black" d="m129.058095,404.314212l141.883797,0" fill="none" strokeWidth="0.5" id="svg_72"/>
-                        <path stroke="blue" d="m68.874336,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_73"/>
-                        <path stroke="blue" d="m75.731069,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_74"/>
-                        <path stroke="blue" d="m62.02697,264.40897l0,-54.834312" fill="none" strokeWidth="0.5" id="svg_75"/>
-                        <path stroke="blue" d="m75.731069,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_76"/>
-                        <path stroke="blue" d="m82.587803,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_77"/>
-                        <path stroke="blue" d="m89.444536,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_78"/>
-                        <path stroke="blue" d="m96.291902,247.304861l0,17.13221" fill="none" strokeWidth="0.5" id="svg_79"/>
-                        <path stroke="black" d="m38.028403,273.082796l32.09176,0" fill="none" strokeWidth="0.5" id="svg_80"/>
-                        <path stroke="black" d="m49.55933,273.082796l20.560833,0" fill="none" strokeWidth="0.5" id="svg_81"/>
-                        <path stroke="black" d="m70.120163,267.144129l0,5.938667" fill="none" strokeWidth="0.5" id="svg_82"/>
-                        <path stroke="black" d="m38.028403,310.101108l-6.847366,0" fill="none" strokeWidth="0.5" id="svg_83"/>
-                        <path stroke="black" d="m38.028403,342.089351l-6.847366,0" fill="none" strokeWidth="0.5" id="svg_84"/>
-                        <path stroke="black" d="m31.181037,342.089351l0,-31.988243" fill="none" strokeWidth="0.5" id="svg_85"/>
-                        <path stroke="black" d="m38.028403,342.089351l0,-31.988243" fill="none" strokeWidth="0.5" id="svg_86"/>
-                        <path stroke="black" d="m34.609404,342.089351l0,-31.988243" fill="none" strokeWidth="0.5" id="svg_87"/>
-                        <path stroke="black" d="m33.794464,342.089351l0,-31.988243" fill="none" strokeWidth="0.5" id="svg_88"/>
-                        <path stroke="black" d="m98.605581,264.40897l0,2.735159" fill="none" strokeWidth="0.5" id="svg_89"/>
-                        <path stroke="blue" d="m47.910717,264.474539l14.116253,-23.988841" fill="none" strokeWidth="0.5" id="svg_90"/>
-                        <path stroke="black" d="m129.058095,411.170843l141.883797,0" fill="none" strokeWidth="0.5" id="svg_91"/>
-                        <path stroke="black" d="m30.038248,367.839185l31.951253,0" fill="none" strokeWidth="0.5" id="svg_92"/>
-                        <path stroke="black" d="m30.038248,107.408986l0,260.430198" fill="none" strokeWidth="0.5" id="svg_93"/>
-                        <path stroke="black" d="m129.535818,395.256341l-50.54499,0" fill="none" strokeWidth="0.5" id="svg_94"/>
-                        <path stroke="black" d="m61.989501,367.839185l0,10.163175" fill="none" strokeWidth="0.5" id="svg_95"/>
-                        <path stroke="black" d="m146.537145,340.909112l0,37.093248" fill="none" strokeWidth="0.5" id="svg_96"/>
-                        <path stroke="black" d="m61.989501,378.00236l17.001326,17.253981" fill="none" strokeWidth="0.5" id="svg_97"/>
-                        <path stroke="black" d="m129.535818,395.256341l17.001326,-17.253981" fill="none" strokeWidth="0.5" id="svg_98"/>
-                        <path stroke="black" d="m161.046817,340.909112l-14.509672,0" fill="none" strokeWidth="0.5" id="svg_99"/>
-                        <path stroke="black" d="m64.415586,273.082796l2.969378,0" fill="none" strokeWidth="0.5" id="svg_100"/>
-                        <path stroke="black" d="m129.058095,418.027474l141.883797,0" fill="none" strokeWidth="0.5" id="svg_101"/>
-                        <path stroke="black" d="m129.058095,394.628753l0,23.398721" fill="none" strokeWidth="0.5" id="svg_102"/>
-                        <path stroke="blue" d="m98.605581,264.40897l4.543054,0" fill="none" strokeWidth="0.5" id="svg_103"/>
-                        <path stroke="blue" d="m103.148635,264.40897l0,-4.112105" fill="none" strokeWidth="0.5" id="svg_104"/>
-                        <path stroke="black" d="m70.120163,267.144129l0,5.938667" fill="none" strokeWidth="0.5" id="svg_105"/>
-                        <path stroke="black" d="m38.028403,287.610985l0,-13.713262" fill="none" strokeWidth="0.5" id="svg_106"/>
-                        <path stroke="RGB(255,159,127)" d="m147.220945,260.296865l0,13.703895" fill="none" strokeWidth="0.5" id="svg_107"/>
-                        <path stroke="black" d="m95.870382,284.772789l2.7352,0" fill="none" strokeWidth="0.5" id="svg_108"/>
-                        <path stroke="black" d="m98.605581,284.772789l0,-1.152139" fill="none" strokeWidth="0.5" id="svg_109"/>
-                        <path stroke="black" d="m204.341655,115.43649l0,88.424309" fill="none" strokeWidth="0.5" id="svg_110"/>
-                        <path stroke="black" d="m204.341655,223.278553l0,37.018313" fill="none" strokeWidth="0.5" id="svg_111"/>
-                        <path stroke="black" d="m195.658332,115.43649l0,88.424309" fill="none" strokeWidth="0.5" id="svg_112"/>
-                        <path stroke="black" d="m195.658332,206.605325l0,5.479684" fill="none" strokeWidth="0.5" id="svg_113"/>
-                        <path stroke="black" d="m195.658332,206.605325l0,53.69154" fill="none" strokeWidth="0.5" id="svg_114"/>
-                        <path stroke="black" d="m38.028403,115.43649l36.55051,0" fill="none" strokeWidth="0.5" id="svg_115"/>
-                        <path stroke="black" d="m31.181037,108.589226l36.541143,0" fill="none" strokeWidth="0.5" id="svg_116"/>
-                        <path stroke="black" d="m159.107822,115.43649l45.233832,0" fill="none" strokeWidth="0.5" id="svg_117"/>
-                        <path stroke="black" d="m165.964556,108.589226l38.377099,0" fill="none" strokeWidth="0.5" id="svg_118"/>
-                        <path stroke="black" d="m38.028403,360.364333l31.96062,0" fill="none" strokeWidth="0.5" id="svg_119"/>
-                        <path stroke="black" d="m31.181037,367.220964l31.951253,0" fill="none" strokeWidth="0.5" id="svg_120"/>
-                        <path stroke="black" d="m38.028403,115.43649l0,18.284349" fill="none" strokeWidth="0.5" id="svg_121"/>
-                        <path stroke="black" d="m38.028403,165.699715l0,43.874943" fill="none" strokeWidth="0.5" id="svg_122"/>
-                        <path stroke="black" d="m38.028403,209.574658l0,13.666427" fill="none" strokeWidth="0.5" id="svg_123"/>
-                        <path stroke="black" d="m38.028403,255.219961l0,54.881147" fill="none" strokeWidth="0.5" id="svg_124"/>
-                        <path stroke="black" d="m38.028403,342.089351l0,18.274982" fill="none" strokeWidth="0.5" id="svg_125"/>
-                        <path stroke="black" d="m31.181037,108.589226l0,25.131612" fill="none" strokeWidth="0.5" id="svg_126"/>
-                        <path stroke="black" d="m31.181037,165.699715l0,57.54137" fill="none" strokeWidth="0.5" id="svg_127"/>
-                        <path stroke="black" d="m31.181037,255.219961l0,54.881147" fill="none" strokeWidth="0.5" id="svg_128"/>
-                        <path stroke="black" d="m31.181037,342.089351l0,25.131612" fill="none" strokeWidth="0.5" id="svg_129"/>
-                        <path stroke="black" d="m31.181037,342.089351l0,25.131612" fill="none" strokeWidth="0.5" id="svg_130"/>
-                        <path stroke="black" d="m147.220945,206.605325l0,18.303083" fill="none" strokeWidth="0.5" id="svg_131"/>
-                        <path stroke="black" d="m147.220945,243.183389l0,37.674001" fill="none" strokeWidth="0.5" id="svg_132"/>
-                        <path stroke="black" d="m138.537622,308.227712l0,51.649538" fill="none" strokeWidth="0.5" id="svg_133"/>
-                        <path stroke="black" d="m138.537622,206.605325l0,18.303083" fill="none" strokeWidth="0.5" id="svg_134"/>
-                        <path stroke="black" d="m138.537622,243.183389l0,37.674001" fill="none" strokeWidth="0.5" id="svg_135"/>
-                        <path stroke="black" d="m145.122709,76.600983l-12.289664,0" fill="none" strokeWidth="0.5" id="svg_136"/>
-                        <path stroke="black" d="m100.853691,76.600983l-12.289664,0" fill="none" strokeWidth="0.5" id="svg_137"/>
-                        <path stroke="black" d="m67.72218,97.751628l3.990394,-4.037169" fill="none" strokeWidth="0.5" id="svg_138"/>
-                        <path stroke="black" d="m84.536164,80.684987l4.027862,-4.084004" fill="none" strokeWidth="0.5" id="svg_139"/>
-                        <path stroke="black" d="m91.430366,83.457614l-2.013931,2.042002" fill="none" strokeWidth="0.5" id="svg_140"/>
-                        <path stroke="black" d="m76.592844,98.519721l-2.013931,2.042002" fill="none" strokeWidth="0.5" id="svg_141"/>
-                        <path stroke="black" d="m74.578913,109.703897l0,4.046536" fill="none" strokeWidth="0.5" id="svg_142"/>
-                        <path stroke="black" d="m142.25637,83.457614l-9.423325,0" fill="none" strokeWidth="0.5" id="svg_143"/>
-                        <path stroke="black" d="m100.853691,83.457614l-9.423325,0" fill="none" strokeWidth="0.5" id="svg_144"/>
-                        <path stroke="black" d="m159.107822,109.703897l0,4.046536" fill="none" strokeWidth="0.5" id="svg_145"/>
-                        <path stroke="yellow" d="m97.434691,209.574658l-60.108822,0" fill="none" strokeWidth="0.5" id="svg_146"/>
-                        <path stroke="black" d="m38.028403,209.574658l59.406288,0" fill="none" strokeWidth="0.5" id="svg_147"/>
-                        <path stroke="black" d="m38.028403,203.860799l68.520498,0" fill="none" strokeWidth="0.5" id="svg_148"/>
-                        <path stroke="black" d="m133.966467,203.860799l61.691866,0" fill="none" strokeWidth="0.5" id="svg_149"/>
-                        <path stroke="black" d="m133.966467,206.605325l4.571156,0" fill="none" strokeWidth="0.5" id="svg_150"/>
-                        <path stroke="black" d="m147.220945,206.605325l48.437388,0" fill="none" strokeWidth="0.5" id="svg_151"/>
-                        <path stroke="black" d="m204.341655,203.860799l61.691866,0" fill="none" strokeWidth="0.5" id="svg_152"/>
-                        <path stroke="black" d="m204.341655,206.605325l48.437388,0" fill="none" strokeWidth="0.5" id="svg_153"/>
-                        <path stroke="black" d="m261.462365,206.605325l4.571156,0" fill="none" strokeWidth="0.5" id="svg_154"/>
-                        <path stroke="black" d="m293.451086,203.860799l68.520498,0" fill="none" strokeWidth="0.5" id="svg_155"/>
-                        <path stroke="black" d="m38.028403,264.40897l60.577178,0" fill="none" strokeWidth="0.5" id="svg_156"/>
-                        <path stroke="black" d="m70.120163,267.144129l25.750218,0" fill="none" strokeWidth="0.5" id="svg_157"/>
-                        <path stroke="black" d="m133.966467,203.860799l0,2.744526" fill="none" strokeWidth="0.5" id="svg_158"/>
-                        <path stroke="black" d="m106.548901,203.860799l0,2.969333" fill="none" strokeWidth="0.5" id="svg_159"/>
-                        <path stroke="black" d="m98.605581,264.40897l0,2.735159" fill="none" strokeWidth="0.5" id="svg_160"/>
-                        <path stroke="black" d="m74.578913,115.43649l0,-14.874767" fill="none" strokeWidth="0.5" id="svg_161"/>
-                        <path stroke="black" d="m159.107822,115.43649l0,-14.874767" fill="none" strokeWidth="0.5" id="svg_162"/>
-                        <path stroke="black" d="m165.964556,108.589226l0,-10.837598" fill="none" strokeWidth="0.5" id="svg_163"/>
-                        <path stroke="black" d="m67.72218,97.751628l0,10.837598" fill="none" strokeWidth="0.5" id="svg_164"/>
-                        <path stroke="black" d="m147.220945,257.55234l48.437388,0" fill="none" strokeWidth="0.5" id="svg_165"/>
-                        <path stroke="black" d="m147.220945,260.296865l48.437388,0" fill="none" strokeWidth="0.5" id="svg_166"/>
-                        <path stroke="black" d="m147.220945,260.296865l0,20.560525" fill="none" strokeWidth="0.5" id="svg_167"/>
-                        <path stroke="black" d="m147.220945,280.857391l-8.683322,0" fill="none" strokeWidth="0.5" id="svg_168"/>
-                        <path stroke="black" d="m147.220945,308.227712l-8.683322,0" fill="none" strokeWidth="0.5" id="svg_169"/>
-                        <path stroke="black" d="m98.605581,264.40897l0,19.21168" fill="none" strokeWidth="0.5" id="svg_170"/>
-                        <path stroke="black" d="m95.870382,267.144129l0,17.62866" fill="none" strokeWidth="0.5" id="svg_171"/>
-                        <path stroke="black" d="m147.220945,332.947177l4.571156,0" fill="none" strokeWidth="0.5" id="svg_172"/>
-                        <path stroke="black" d="m193.147944,332.947177l4.571156,0" fill="none" strokeWidth="0.5" id="svg_173"/>
-                        <path stroke="black" d="m145.394356,339.803808l6.397744,0" fill="none" strokeWidth="0.5" id="svg_174"/>
-                        <path stroke="black" d="m193.147944,339.803808l9.142311,0" fill="none" strokeWidth="0.5" id="svg_175"/>
-                        <path stroke="black" d="m202.290255,270.188398l0,62.758779" fill="none" strokeWidth="0.5" id="svg_176"/>
-                        <path stroke="black" d="m197.719099,270.188398l0,62.758779" fill="none" strokeWidth="0.5" id="svg_177"/>
-                        <path stroke="black" d="m138.537622,308.227712l0,64.838249" fill="none" strokeWidth="0.5" id="svg_178"/>
-                        <path stroke="black" d="m145.394356,370.040425l0,-30.236618" fill="none" strokeWidth="0.5" id="svg_179"/>
-                        <path stroke="black" d="m147.220945,308.227712l0,24.719465" fill="none" strokeWidth="0.5" id="svg_180"/>
-                        <path stroke="black" d="m147.220945,209.574658l0,15.333749" fill="none" strokeWidth="0.5" id="svg_181"/>
-                        <path stroke="black" d="m147.220945,224.908408l-8.683322,0" fill="none" strokeWidth="0.5" id="svg_182"/>
-                        <path stroke="black" d="m147.220945,243.183389l-8.683322,0" fill="none" strokeWidth="0.5" id="svg_183"/>
-                        <path stroke="black" d="m129.058095,394.628753l-9.947884,0" fill="none" strokeWidth="0.5" id="svg_184"/>
-                        <path stroke="black" d="m89.416435,394.628753l-9.947884,0" fill="none" strokeWidth="0.5" id="svg_185"/>
-                        <path stroke="black" d="m63.13229,378.049195l3.334695,3.390847" fill="none" strokeWidth="0.5" id="svg_186"/>
-                        <path stroke="black" d="m76.08702,391.200438l3.381531,3.428315" fill="none" strokeWidth="0.5" id="svg_187"/>
-                        <path stroke="black" d="m82.33489,387.781489l-1.3676,-1.386313" fill="none" strokeWidth="0.5" id="svg_188"/>
-                        <path stroke="black" d="m71.347256,376.625414l-1.358233,-1.386313" fill="none" strokeWidth="0.5" id="svg_189"/>
-                        <path stroke="black" d="m69.989023,366.096926l0,-5.732593" fill="none" strokeWidth="0.5" id="svg_190"/>
-                        <path stroke="black" d="m126.191756,387.781489l-7.081544,0" fill="none" strokeWidth="0.5" id="svg_191"/>
-                        <path stroke="black" d="m89.416435,387.781489l-7.081544,0" fill="none" strokeWidth="0.5" id="svg_192"/>
-                        <path stroke="black" d="m69.989023,360.364333l0,14.874767" fill="none" strokeWidth="0.5" id="svg_193"/>
-                        <path stroke="black" d="m138.537622,366.096926l0,9.142174" fill="none" strokeWidth="0.5" id="svg_194"/>
-                        <path stroke="black" d="m145.394356,364.879218l0,13.169977" fill="none" strokeWidth="0.5" id="svg_195"/>
-                        <path stroke="black" d="m63.13229,378.049195l0,-10.828231" fill="none" strokeWidth="0.5" id="svg_196"/>
-                        <path stroke="black" d="m147.220945,332.947177l4.571156,0" fill="none" strokeWidth="0.5" id="svg_197"/>
-                        <path stroke="black" d="m147.220945,332.947177l4.571156,0" fill="none" strokeWidth="0.5" id="svg_198"/>
-                        <path stroke="black" d="m151.7921,332.947177l0,6.856631" fill="none" strokeWidth="0.5" id="svg_199"/>
-                        <path stroke="black" d="m197.719099,332.947177l-4.571156,0" fill="none" strokeWidth="0.5" id="svg_200"/>
-                        <path stroke="black" d="m193.147944,332.947177l0,6.856631" fill="none" strokeWidth="0.5" id="svg_201"/>
-                        <path stroke="black" d="m151.7921,332.947177l9.254717,0" fill="none" strokeWidth="0.5" id="svg_202"/>
-                        <path stroke="black" d="m183.893227,332.947177l9.254717,0" fill="none" strokeWidth="0.5" id="svg_203"/>
-                        <path stroke="black" d="m193.147944,339.803808l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_204"/>
-                        <path stroke="black" d="m161.046817,339.803808l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_205"/>
-                        <path stroke="black" d="m100.853691,83.457614l0,-6.856631" fill="none" strokeWidth="0.5" id="svg_206"/>
-                        <path stroke="black" d="m132.833045,83.457614l0,-6.856631" fill="none" strokeWidth="0.5" id="svg_207"/>
-                        <path stroke="black" d="m89.416435,85.499616l-4.880271,-4.814629" fill="none" strokeWidth="0.5" id="svg_208"/>
-                        <path stroke="black" d="m76.592844,98.519721l-4.880271,-4.805262" fill="none" strokeWidth="0.5" id="svg_209"/>
-                        <path stroke="black" d="m100.853691,76.600983l31.979355,0" fill="none" strokeWidth="0.5" id="svg_210"/>
-                        <path stroke="black" d="m100.853691,83.457614l31.979355,0" fill="none" strokeWidth="0.5" id="svg_211"/>
-                        <path stroke="black" d="m100.853691,80.029298l31.979355,0" fill="none" strokeWidth="0.5" id="svg_212"/>
-                        <path stroke="black" d="m100.853691,81.228272l31.979355,0" fill="none" strokeWidth="0.5" id="svg_213"/>
-                        <path stroke="black" d="m84.536164,80.684987l-12.82359,13.029472" fill="none" strokeWidth="0.5" id="svg_214"/>
-                        <path stroke="black" d="m97.34102,28.623301l-51.762716,52.548769" fill="none" strokeWidth="0.5" id="svg_215"/>
-                        <path stroke="black" d="m89.416435,85.499616l-12.82359,13.020105" fill="none" strokeWidth="0.5" id="svg_216"/>
-                        <path stroke="black" d="m86.980983,83.092301l-12.832957,13.020105" fill="none" strokeWidth="0.5" id="svg_217"/>
-                        <path stroke="black" d="m87.767821,83.869761l-12.832957,13.020105" fill="none" strokeWidth="0.5" id="svg_218"/>
-                        <path stroke="black" d="m132.833045,76.600983l12.289664,0" fill="none" strokeWidth="0.5" id="svg_219"/>
-                        <path stroke="black" d="m165.964556,97.751628l-3.990394,-4.037169" fill="none" strokeWidth="0.5" id="svg_220"/>
-                        <path stroke="black" d="m149.150572,80.684987l-4.027862,-4.084004" fill="none" strokeWidth="0.5" id="svg_221"/>
-                        <path stroke="black" d="m142.25637,83.457614l2.013931,2.042002" fill="none" strokeWidth="0.5" id="svg_222"/>
-                        <path stroke="black" d="m157.093891,98.519721l2.013931,2.042002" fill="none" strokeWidth="0.5" id="svg_223"/>
-                        <path stroke="black" d="m144.270301,85.499616l5.69521,-5.610822" fill="none" strokeWidth="0.5" id="svg_224"/>
-                        <path stroke="black" d="m157.093891,98.519721l5.69521,-5.610822" fill="none" strokeWidth="0.5" id="svg_225"/>
-                        <path stroke="black" d="m89.416435,387.781489l0,6.847264" fill="none" strokeWidth="0.5" id="svg_226"/>
-                        <path stroke="black" d="m119.110211,387.781489l0,6.847264" fill="none" strokeWidth="0.5" id="svg_227"/>
-                        <path stroke="black" d="m80.96729,386.395176l-4.880271,4.805262" fill="none" strokeWidth="0.5" id="svg_228"/>
-                        <path stroke="black" d="m71.347256,376.625414l-4.880271,4.814629" fill="none" strokeWidth="0.5" id="svg_229"/>
-                        <path stroke="black" d="m89.416435,387.781489l29.693777,0" fill="none" strokeWidth="0.5" id="svg_230"/>
-                        <path stroke="black" d="m119.110211,394.628753l-29.693777,0" fill="none" strokeWidth="0.5" id="svg_231"/>
-                        <path stroke="black" d="m89.416435,391.209805l29.693777,0" fill="none" strokeWidth="0.5" id="svg_232"/>
-                        <path stroke="black" d="m119.110211,392.539916l-29.693777,0" fill="none" strokeWidth="0.5" id="svg_233"/>
-                        <path stroke="black" d="m71.347256,376.625414l9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_234"/>
-                        <path stroke="black" d="m66.466986,381.440042l9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_235"/>
-                        <path stroke="black" d="m68.911804,379.032728l9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_236"/>
-                        <path stroke="black" d="m67.85332,380.072463l9.610667,9.769762" fill="none" strokeWidth="0.5" id="svg_237"/>
-                        <path stroke="black" d="m145.394356,378.049195l-3.334695,3.390847" fill="none" strokeWidth="0.5" id="svg_238"/>
-                        <path stroke="black" d="m126.191756,387.781489l1.3676,-1.386313" fill="none" strokeWidth="0.5" id="svg_239"/>
-                        <path stroke="black" d="m137.17939,376.625414l1.358233,-1.386313" fill="none" strokeWidth="0.5" id="svg_240"/>
-                        <path stroke="black" d="m127.559355,386.395176l4.880271,4.805262" fill="none" strokeWidth="0.5" id="svg_241"/>
-                        <path stroke="black" d="m137.17939,376.625414l4.880271,4.814629" fill="none" strokeWidth="0.5" id="svg_242"/>
-                        <path stroke="black" d="m137.17939,376.625414l-9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_243"/>
-                        <path stroke="black" d="m142.05966,381.440042l-9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_244"/>
-                        <path stroke="black" d="m139.614841,379.032728l-9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_245"/>
-                        <path stroke="black" d="m140.682693,380.072463l-9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_246"/>
-                        <path stroke="black" d="m132.439626,391.200438l-3.381531,3.428315" fill="none" strokeWidth="0.5" id="svg_247"/>
-                        <path stroke="black" d="m193.147944,336.375492l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_248"/>
-                        <path stroke="black" d="m161.046817,336.375492l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_249"/>
-                        <path stroke="black" d="m193.147944,337.621301l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_250"/>
-                        <path stroke="black" d="m161.046817,337.621301l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_251"/>
-                        <path stroke="black" d="m183.893227,332.947177l0,6.856631" fill="none" strokeWidth="0.5" id="svg_252"/>
-                        <path stroke="black" d="m161.046817,332.947177l0,7.961935" fill="none" strokeWidth="0.5" id="svg_253"/>
-                        <path stroke="black" d="m183.893227,332.947177l0,7.961935" fill="none" strokeWidth="0.5" id="svg_254"/>
-                        <path stroke="black" d="m161.046817,332.947177l0,7.961935" fill="none" strokeWidth="0.5" id="svg_255"/>
-                        <path stroke="black" d="m38.028403,165.699715l-6.847366,0" fill="none" strokeWidth="0.5" id="svg_256"/>
-                        <path stroke="black" d="m38.028403,133.720839l-6.847366,0" fill="none" strokeWidth="0.5" id="svg_257"/>
-                        <path stroke="black" d="m31.181037,133.720839l0,31.978876" fill="none" strokeWidth="0.5" id="svg_258"/>
-                        <path stroke="black" d="m38.028403,133.720839l0,31.978876" fill="none" strokeWidth="0.5" id="svg_259"/>
-                        <path stroke="black" d="m34.609404,133.720839l0,31.978876" fill="none" strokeWidth="0.5" id="svg_260"/>
-                        <path stroke="black" d="m33.794464,133.720839l0,31.978876" fill="none" strokeWidth="0.5" id="svg_261"/>
-                        <path stroke="black" d="m145.394356,376.897056l108.068487,0" fill="none" strokeWidth="0.5" id="svg_262"/>
-                        <path stroke="black" d="m145.394356,370.040425l108.068487,0" fill="none" strokeWidth="0.5" id="svg_263"/>
-                        <path stroke="black" d="m140.870036,383.753687l118.259916,0" fill="none" strokeWidth="0.5" id="svg_264"/>
-                        <path stroke="black" d="m134.116341,390.610318l131.767305,0" fill="none" strokeWidth="0.5" id="svg_265"/>
-                        <path stroke="black" d="m129.058095,397.457581l141.883797,0" fill="none" strokeWidth="0.5" id="svg_266"/>
-                        <path stroke="black" d="m129.058095,404.314212l141.883797,0" fill="none" strokeWidth="0.5" id="svg_267"/>
-                        <path stroke="black" d="m38.028403,255.219961l-6.847366,0" fill="none" strokeWidth="0.5" id="svg_268"/>
-                        <path stroke="black" d="m38.028403,223.241085l-6.847366,0" fill="none" strokeWidth="0.5" id="svg_269"/>
-                        <path stroke="black" d="m31.181037,223.241085l0,31.978876" fill="none" strokeWidth="0.5" id="svg_270"/>
-                        <path stroke="black" d="m34.609404,223.241085l0,31.978876" fill="none" strokeWidth="0.5" id="svg_271"/>
-                        <path stroke="black" d="m33.794464,223.241085l0,31.978876" fill="none" strokeWidth="0.5" id="svg_272"/>
-                        <path stroke="black" d="m38.028403,223.241085l0,31.978876" fill="none" strokeWidth="0.5" id="svg_273"/>
-                        <path stroke="blue" d="m38.028403,240.448231l51.416133,0" fill="none" strokeWidth="0.5" id="svg_274"/>
-                        <path stroke="blue" d="m68.874336,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_275"/>
-                        <path stroke="blue" d="m75.731069,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_276"/>
-                        <path stroke="blue" d="m62.02697,264.40897l0,-54.834312" fill="none" strokeWidth="0.5" id="svg_277"/>
-                        <path stroke="blue" d="m68.874336,233.563499l0,-23.988841" fill="none" strokeWidth="0.5" id="svg_278"/>
-                        <path stroke="blue" d="m75.731069,233.563499l0,-23.988841" fill="none" strokeWidth="0.5" id="svg_279"/>
-                        <path stroke="blue" d="m82.587803,233.563499l0,-23.988841" fill="none" strokeWidth="0.5" id="svg_280"/>
-                        <path stroke="blue" d="m82.587803,233.563499l-44.559399,0" fill="none" strokeWidth="0.5" id="svg_281"/>
-                        <path stroke="blue" d="m75.731069,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_282"/>
-                        <path stroke="blue" d="m82.587803,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_283"/>
-                        <path stroke="blue" d="m89.444536,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_284"/>
-                        <path stroke="blue" d="m96.291902,247.304861l0,17.13221" fill="none" strokeWidth="0.5" id="svg_285"/>
-                        <path stroke="black" d="m195.658332,115.43649l0,88.424309" fill="none" strokeWidth="0.5" id="svg_286"/>
-                        <path stroke="black" d="m195.658332,206.605325l0,5.479684" fill="none" strokeWidth="0.5" id="svg_287"/>
-                        <path stroke="black" d="m195.658332,206.605325l0,8.449018" fill="none" strokeWidth="0.5" id="svg_288"/>
-                        <path stroke="black" d="m195.658332,206.605325l0,63.583073" fill="none" strokeWidth="0.5" id="svg_289"/>
-                        <path stroke="black" d="m204.341655,115.43649l0,88.424309" fill="none" strokeWidth="0.5" id="svg_290"/>
-                        <path stroke="black" d="m204.341655,206.605325l0,2.969333" fill="none" strokeWidth="0.5" id="svg_291"/>
-                        <path stroke="black" d="m204.341655,209.574658l0,60.61374" fill="none" strokeWidth="0.5" id="svg_292"/>
-                        <path stroke="black" d="m361.971584,115.43649l-36.55051,0" fill="none" strokeWidth="0.5" id="svg_293"/>
-                        <path stroke="black" d="m368.81895,108.589226l-36.541143,0" fill="none" strokeWidth="0.5" id="svg_294"/>
-                        <path stroke="black" d="m240.892165,115.43649l-36.55051,0" fill="none" strokeWidth="0.5" id="svg_295"/>
-                        <path stroke="black" d="m234.044799,108.589226l-38.386466,0" fill="none" strokeWidth="0.5" id="svg_296"/>
-                        <path stroke="black" d="m361.971584,360.364333l-31.96062,0" fill="none" strokeWidth="0.5" id="svg_297"/>
-                        <path stroke="black" d="m368.81895,367.220964l-31.951253,0" fill="none" strokeWidth="0.5" id="svg_298"/>
-                        <path stroke="black" d="m361.971584,115.43649l0,18.284349" fill="none" strokeWidth="0.5" id="svg_299"/>
-                        <path stroke="black" d="m361.971584,165.699715l0,43.874943" fill="none" strokeWidth="0.5" id="svg_300"/>
-                        <path stroke="black" d="m361.971584,209.574658l0,13.666427" fill="none" strokeWidth="0.5" id="svg_301"/>
-                        <path stroke="black" d="m361.971584,255.219961l0,54.881147" fill="none" strokeWidth="0.5" id="svg_302"/>
-                        <path stroke="black" d="m361.971584,273.082796l0,37.018313" fill="none" strokeWidth="0.5" id="svg_303"/>
-                        <path stroke="black" d="m361.971584,342.089351l0,18.274982" fill="none" strokeWidth="0.5" id="svg_304"/>
-                        <path stroke="black" d="m368.81895,108.589226l0,25.131612" fill="none" strokeWidth="0.5" id="svg_305"/>
-                        <path stroke="black" d="m368.81895,165.699715l0,57.54137" fill="none" strokeWidth="0.5" id="svg_306"/>
-                        <path stroke="black" d="m368.81895,255.219961l0,54.881147" fill="none" strokeWidth="0.5" id="svg_307"/>
-                        <path stroke="black" d="m368.81895,342.089351l0,25.131612" fill="none" strokeWidth="0.5" id="svg_308"/>
-                        <path stroke="black" d="m368.81895,342.089351l0,25.131612" fill="none" strokeWidth="0.5" id="svg_309"/>
-                        <path stroke="black" d="m252.779043,209.574658l0,15.333749" fill="none" strokeWidth="0.5" id="svg_310"/>
-                        <path stroke="black" d="m252.779043,243.183389l0,37.674001" fill="none" strokeWidth="0.5" id="svg_311"/>
-                        <path stroke="black" d="m261.462365,310.972237l0,48.905013" fill="none" strokeWidth="0.5" id="svg_312"/>
-                        <path stroke="black" d="m261.462365,206.605325l0,18.303083" fill="none" strokeWidth="0.5" id="svg_313"/>
-                        <path stroke="black" d="m261.462365,243.183389l0,37.674001" fill="none" strokeWidth="0.5" id="svg_314"/>
-                        <path stroke="black" d="m254.877278,76.600983l12.289664,0" fill="none" strokeWidth="0.5" id="svg_315"/>
-                        <path stroke="black" d="m299.155664,76.600983l12.280297,0" fill="none" strokeWidth="0.5" id="svg_316"/>
-                        <path stroke="black" d="m332.277807,97.751628l-3.990394,-4.037169" fill="none" strokeWidth="0.5" id="svg_317"/>
-                        <path stroke="black" d="m315.463823,80.684987l-4.027862,-4.084004" fill="none" strokeWidth="0.5" id="svg_318"/>
-                        <path stroke="black" d="m308.569621,83.457614l2.013931,2.042002" fill="none" strokeWidth="0.5" id="svg_319"/>
-                        <path stroke="black" d="m323.407143,98.519721l2.013931,2.042002" fill="none" strokeWidth="0.5" id="svg_320"/>
-                        <path stroke="black" d="m325.421074,109.703897l0,4.046536" fill="none" strokeWidth="0.5" id="svg_321"/>
-                        <path stroke="black" d="m257.743617,83.457614l9.423325,0" fill="none" strokeWidth="0.5" id="svg_322"/>
-                        <path stroke="black" d="m299.155664,83.457614l9.413958,0" fill="none" strokeWidth="0.5" id="svg_323"/>
-                        <path stroke="black" d="m240.892165,109.703897l0,4.046536" fill="none" strokeWidth="0.5" id="svg_324"/>
-                        <path stroke="yellow" d="m302.565296,209.574658l60.108822,0" fill="none" strokeWidth="0.5" id="svg_325"/>
-                        <path stroke="black" d="m361.971584,209.574658l-59.406288,0" fill="none" strokeWidth="0.5" id="svg_326"/>
-                        <path stroke="black" d="m361.971584,264.40897l-60.577178,0" fill="none" strokeWidth="0.5" id="svg_327"/>
-                        <path stroke="black" d="m266.03352,203.860799l0,2.744526" fill="none" strokeWidth="0.5" id="svg_328"/>
-                        <path stroke="black" d="m293.451086,203.860799l0,2.969333" fill="none" strokeWidth="0.5" id="svg_329"/>
-                        <path stroke="black" d="m301.394406,264.40897l0,2.735159" fill="none" strokeWidth="0.5" id="svg_330"/>
-                        <path stroke="black" d="m325.421074,115.43649l0,-14.874767" fill="none" strokeWidth="0.5" id="svg_331"/>
-                        <path stroke="black" d="m240.892165,115.43649l0,-14.874767" fill="none" strokeWidth="0.5" id="svg_332"/>
-                        <path stroke="black" d="m234.044799,108.589226l0,-10.837598" fill="none" strokeWidth="0.5" id="svg_333"/>
-                        <path stroke="black" d="m332.277807,97.751628l0,10.837598" fill="none" strokeWidth="0.5" id="svg_334"/>
-                        <path stroke="black" d="m252.779043,257.55234l-48.437388,0" fill="none" strokeWidth="0.5" id="svg_335"/>
-                        <path stroke="black" d="m252.779043,260.296865l-48.437388,0" fill="none" strokeWidth="0.5" id="svg_336"/>
-                        <path stroke="black" d="m252.779043,260.296865l0,20.560525" fill="none" strokeWidth="0.5" id="svg_337"/>
-                        <path stroke="black" d="m252.779043,280.857391l8.683322,0" fill="none" strokeWidth="0.5" id="svg_338"/>
-                        <path stroke="black" d="m261.462365,332.947177l-13.254478,0" fill="none" strokeWidth="0.5" id="svg_339"/>
-                        <path stroke="black" d="m206.852043,332.947177l-4.561788,0" fill="none" strokeWidth="0.5" id="svg_340"/>
-                        <path stroke="black" d="m254.605631,339.803808l-6.397744,0" fill="none" strokeWidth="0.5" id="svg_341"/>
-                        <path stroke="black" d="m206.852043,339.803808l-9.132944,0" fill="none" strokeWidth="0.5" id="svg_342"/>
-                        <path stroke="black" d="m197.719099,270.188398l0,62.758779" fill="none" strokeWidth="0.5" id="svg_343"/>
-                        <path stroke="black" d="m202.290255,270.188398l0,62.758779" fill="none" strokeWidth="0.5" id="svg_344"/>
-                        <path stroke="black" d="m261.462365,310.972237l0,62.093723" fill="none" strokeWidth="0.5" id="svg_345"/>
-                        <path stroke="black" d="m254.605631,370.040425l0,-30.236618" fill="none" strokeWidth="0.5" id="svg_346"/>
-                        <path stroke="black" d="m252.779043,308.227712l0,24.719465" fill="none" strokeWidth="0.5" id="svg_347"/>
-                        <path stroke="black" d="m252.779043,206.605325l0,18.303083" fill="none" strokeWidth="0.5" id="svg_348"/>
-                        <path stroke="black" d="m252.779043,224.908408l8.683322,0" fill="none" strokeWidth="0.5" id="svg_349"/>
-                        <path stroke="black" d="m252.779043,243.183389l8.683322,0" fill="none" strokeWidth="0.5" id="svg_350"/>
-                        <path stroke="black" d="m270.941892,394.628753l9.947884,0" fill="none" strokeWidth="0.5" id="svg_351"/>
-                        <path stroke="black" d="m310.59292,394.628753l9.938516,0" fill="none" strokeWidth="0.5" id="svg_352"/>
-                        <path stroke="black" d="m336.867697,378.049195l-3.334695,3.390847" fill="none" strokeWidth="0.5" id="svg_353"/>
-                        <path stroke="black" d="m323.912967,391.200438l-3.381531,3.428315" fill="none" strokeWidth="0.5" id="svg_354"/>
-                        <path stroke="black" d="m317.665097,387.781489l1.3676,-1.386313" fill="none" strokeWidth="0.5" id="svg_355"/>
-                        <path stroke="black" d="m328.652731,376.625414l1.358233,-1.386313" fill="none" strokeWidth="0.5" id="svg_356"/>
-                        <path stroke="black" d="m330.010964,366.096926l0,-4.046536" fill="none" strokeWidth="0.5" id="svg_357"/>
-                        <path stroke="black" d="m273.808232,387.781489l7.081544,0" fill="none" strokeWidth="0.5" id="svg_358"/>
-                        <path stroke="black" d="m310.59292,387.781489l7.072177,0" fill="none" strokeWidth="0.5" id="svg_359"/>
-                        <path stroke="black" d="m330.010964,360.364333l0,14.874767" fill="none" strokeWidth="0.5" id="svg_360"/>
-                        <path stroke="black" d="m261.462365,366.096926l0,9.142174" fill="none" strokeWidth="0.5" id="svg_361"/>
-                        <path stroke="black" d="m254.605631,368.907021l0,9.142174" fill="none" strokeWidth="0.5" id="svg_362"/>
-                        <path stroke="black" d="m336.867697,378.049195l0,-10.828231" fill="none" strokeWidth="0.5" id="svg_363"/>
-                        <path stroke="black" d="m252.779043,332.947177l-4.571156,0" fill="none" strokeWidth="0.5" id="svg_364"/>
-                        <path stroke="black" d="m252.779043,332.947177l-4.571156,0" fill="none" strokeWidth="0.5" id="svg_365"/>
-                        <path stroke="black" d="m202.290255,332.947177l4.561788,0" fill="none" strokeWidth="0.5" id="svg_366"/>
-                        <path stroke="black" d="m299.155664,83.457614l0,-6.856631" fill="none" strokeWidth="0.5" id="svg_367"/>
-                        <path stroke="black" d="m267.166942,83.457614l0,-6.856631" fill="none" strokeWidth="0.5" id="svg_368"/>
-                        <path stroke="black" d="m310.583553,85.499616l4.880271,-4.814629" fill="none" strokeWidth="0.5" id="svg_369"/>
-                        <path stroke="black" d="m323.407143,98.519721l4.880271,-4.805262" fill="none" strokeWidth="0.5" id="svg_370"/>
-                        <path stroke="black" d="m299.155664,76.600983l-31.988722,0" fill="none" strokeWidth="0.5" id="svg_371"/>
-                        <path stroke="black" d="m299.155664,83.457614l-31.988722,0" fill="none" strokeWidth="0.5" id="svg_372"/>
-                        <path stroke="black" d="m299.155664,80.029298l-31.988722,0" fill="none" strokeWidth="0.5" id="svg_373"/>
-                        <path stroke="black" d="m299.155664,81.228272l-31.988722,0" fill="none" strokeWidth="0.5" id="svg_374"/>
-                        <path stroke="black" d="m315.463823,80.684987l12.82359,13.029472" fill="none" strokeWidth="0.5" id="svg_375"/>
-                        <path stroke="black" d="m310.583553,85.499616l12.82359,13.020105" fill="none" strokeWidth="0.5" id="svg_376"/>
-                        <path stroke="black" d="m313.028371,83.092301l12.82359,13.020105" fill="none" strokeWidth="0.5" id="svg_377"/>
-                        <path stroke="black" d="m312.241533,83.869761l12.82359,13.020105" fill="none" strokeWidth="0.5" id="svg_378"/>
-                        <path stroke="black" d="m267.166942,76.600983l-12.289664,0" fill="none" strokeWidth="0.5" id="svg_379"/>
-                        <path stroke="black" d="m234.044799,97.751628l3.981027,-4.037169" fill="none" strokeWidth="0.5" id="svg_380"/>
-                        <path stroke="black" d="m250.849415,80.684987l4.027862,-4.084004" fill="none" strokeWidth="0.5" id="svg_381"/>
-                        <path stroke="black" d="m257.743617,83.457614l-2.013931,2.042002" fill="none" strokeWidth="0.5" id="svg_382"/>
-                        <path stroke="black" d="m242.906096,98.519721l-2.013931,2.042002" fill="none" strokeWidth="0.5" id="svg_383"/>
-                        <path stroke="black" d="m255.729686,85.499616l-5.69521,-5.610822" fill="none" strokeWidth="0.5" id="svg_384"/>
-                        <path stroke="black" d="m242.906096,98.519721l-5.69521,-5.610822" fill="none" strokeWidth="0.5" id="svg_385"/>
-                        <path stroke="black" d="m310.59292,387.781489l0,6.847264" fill="none" strokeWidth="0.5" id="svg_386"/>
-                        <path stroke="black" d="m280.889776,387.781489l0,6.847264" fill="none" strokeWidth="0.5" id="svg_387"/>
-                        <path stroke="black" d="m319.032697,386.395176l4.880271,4.805262" fill="none" strokeWidth="0.5" id="svg_388"/>
-                        <path stroke="black" d="m328.652731,376.625414l4.880271,4.814629" fill="none" strokeWidth="0.5" id="svg_389"/>
-                        <path stroke="black" d="m310.59292,387.781489l-29.703144,0" fill="none" strokeWidth="0.5" id="svg_390"/>
-                        <path stroke="black" d="m280.889776,394.628753l29.703144,0" fill="none" strokeWidth="0.5" id="svg_391"/>
-                        <path stroke="black" d="m310.59292,391.209805l-29.703144,0" fill="none" strokeWidth="0.5" id="svg_392"/>
-                        <path stroke="black" d="m280.889776,392.539916l29.703144,0" fill="none" strokeWidth="0.5" id="svg_393"/>
-                        <path stroke="black" d="m328.652731,376.625414l-9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_394"/>
-                        <path stroke="black" d="m333.533002,381.440042l-9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_395"/>
-                        <path stroke="black" d="m331.088183,379.032728l-9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_396"/>
-                        <path stroke="black" d="m332.156035,380.072463l-9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_397"/>
-                        <path stroke="black" d="m254.605631,378.049195l3.334695,3.390847" fill="none" strokeWidth="0.5" id="svg_398"/>
-                        <path stroke="black" d="m273.808232,387.781489l-1.358233,-1.386313" fill="none" strokeWidth="0.5" id="svg_399"/>
-                        <path stroke="black" d="m262.829965,376.625414l-1.3676,-1.386313" fill="none" strokeWidth="0.5" id="svg_400"/>
-                        <path stroke="black" d="m272.449999,386.395176l-4.889638,4.805262" fill="none" strokeWidth="0.5" id="svg_401"/>
-                        <path stroke="black" d="m262.829965,376.625414l-4.889638,4.814629" fill="none" strokeWidth="0.5" id="svg_402"/>
-                        <path stroke="black" d="m262.829965,376.625414l9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_403"/>
-                        <path stroke="black" d="m257.940327,381.440042l9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_404"/>
-                        <path stroke="black" d="m260.385146,379.032728l9.620034,9.760395" fill="none" strokeWidth="0.5" id="svg_405"/>
-                        <path stroke="black" d="m259.326661,380.072463l9.620034,9.769762" fill="none" strokeWidth="0.5" id="svg_406"/>
-                        <path stroke="black" d="m267.560361,391.200438l3.381531,3.428315" fill="none" strokeWidth="0.5" id="svg_407"/>
-                        <path stroke="black" d="m268.356567,390.610318l-0.187342,0" fill="none" strokeWidth="0.5" id="svg_408"/>
-                        <path stroke="black" d="m361.971584,255.219961l6.847366,0" fill="none" strokeWidth="0.5" id="svg_409"/>
-                        <path stroke="black" d="m361.971584,223.241085l6.847366,0" fill="none" strokeWidth="0.5" id="svg_410"/>
-                        <path stroke="black" d="m368.81895,223.241085l0,31.978876" fill="none" strokeWidth="0.5" id="svg_411"/>
-                        <path stroke="black" d="m365.399951,223.241085l0,31.978876" fill="none" strokeWidth="0.5" id="svg_412"/>
-                        <path stroke="black" d="m366.205523,223.241085l0,31.978876" fill="none" strokeWidth="0.5" id="svg_413"/>
-                        <path stroke="black" d="m361.971584,223.241085l0,31.978876" fill="none" strokeWidth="0.5" id="svg_414"/>
-                        <path stroke="black" d="m97.34102,28.623301l205.271112,0" fill="none" strokeWidth="0.5" id="svg_415"/>
-                        <path stroke="black" d="m66.588758,101.854366l-21.010455,-20.682296" fill="none" strokeWidth="0.5" id="svg_416"/>
-                        <path stroke="black" d="m69.108514,94.726093l-18.71551,-18.443587" fill="none" strokeWidth="0.5" id="svg_417"/>
-                        <path stroke="black" d="m73.923215,89.836528l-18.724877,-18.43422" fill="none" strokeWidth="0.5" id="svg_418"/>
-                        <path stroke="black" d="m78.728548,84.956331l-18.71551,-18.43422" fill="none" strokeWidth="0.5" id="svg_419"/>
-                        <path stroke="black" d="m83.543249,80.076133l-18.724877,-18.443587" fill="none" strokeWidth="0.5" id="svg_420"/>
-                        <path stroke="black" d="m88.620229,75.458211l-18.987156,-18.705863" fill="none" strokeWidth="0.5" id="svg_421"/>
-                        <path stroke="black" d="m31.181037,108.589226l0,-12.795297" fill="none" strokeWidth="0.5" id="svg_422"/>
-                        <path stroke="black" d="m368.81895,107.099876l0,-11.259112" fill="none" strokeWidth="0.5" id="svg_423"/>
-                        <path stroke="black" d="m195.658332,270.188398l8.683322,0" fill="none" strokeWidth="0.5" id="svg_424"/>
-                        <path stroke="black" d="m38.028403,273.082796l32.09176,0" fill="none" strokeWidth="0.5" id="svg_425"/>
-                        <path stroke="black" d="m49.55933,273.082796l20.560833,0" fill="none" strokeWidth="0.5" id="svg_426"/>
-                        <path stroke="black" d="m70.120163,267.144129l0,5.938667" fill="none" strokeWidth="0.5" id="svg_427"/>
-                        <path stroke="black" d="m361.971584,273.082796l0,37.018313" fill="none" strokeWidth="0.5" id="svg_428"/>
-                        <path stroke="black" d="m361.971584,342.089351l0,18.274982" fill="none" strokeWidth="0.5" id="svg_429"/>
-                        <path stroke="black" d="m361.971584,273.082796l-32.09176,0" fill="none" strokeWidth="0.5" id="svg_430"/>
-                        <path stroke="black" d="m329.879824,267.144129l0,5.938667" fill="none" strokeWidth="0.5" id="svg_431"/>
-                        <path stroke="black" d="m304.129606,267.144129l25.750218,0" fill="none" strokeWidth="0.5" id="svg_432"/>
-                        <path stroke="black" d="m106.548901,206.830132l-9.11421,0" fill="none" strokeWidth="0.5" id="svg_433"/>
-                        <path stroke="black" d="m97.434691,206.830132l0,2.744526" fill="none" strokeWidth="0.5" id="svg_434"/>
-                        <path stroke="black" d="m293.451086,203.860799l0,2.969333" fill="none" strokeWidth="0.5" id="svg_435"/>
-                        <path stroke="black" d="m293.451086,206.830132l9.11421,0" fill="none" strokeWidth="0.5" id="svg_436"/>
-                        <path stroke="black" d="m302.565296,206.830132l0,2.744526" fill="none" strokeWidth="0.5" id="svg_437"/>
-                        <path stroke="black" d="m368.81895,255.219961l0,-121.499122" fill="none" strokeWidth="0.5" id="svg_438"/>
-                        <path stroke="black" d="m248.207887,332.947177l0,6.856631" fill="none" strokeWidth="0.5" id="svg_439"/>
-                        <path stroke="black" d="m206.852043,332.947177l0,6.856631" fill="none" strokeWidth="0.5" id="svg_440"/>
-                        <path stroke="black" d="m248.207887,332.947177l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_441"/>
-                        <path stroke="black" d="m216.10676,332.947177l-9.254717,0" fill="none" strokeWidth="0.5" id="svg_442"/>
-                        <path stroke="black" d="m206.852043,339.803808l9.254717,0" fill="none" strokeWidth="0.5" id="svg_443"/>
-                        <path stroke="black" d="m238.95317,339.803808l9.254717,0" fill="none" strokeWidth="0.5" id="svg_444"/>
-                        <path stroke="black" d="m206.852043,336.375492l9.254717,0" fill="none" strokeWidth="0.5" id="svg_445"/>
-                        <path stroke="black" d="m238.95317,336.375492l9.254717,0" fill="none" strokeWidth="0.5" id="svg_446"/>
-                        <path stroke="black" d="m206.852043,337.621301l9.254717,0" fill="none" strokeWidth="0.5" id="svg_447"/>
-                        <path stroke="black" d="m238.95317,337.621301l9.254717,0" fill="none" strokeWidth="0.5" id="svg_448"/>
-                        <path stroke="black" d="m216.10676,332.947177l0,6.856631" fill="none" strokeWidth="0.5" id="svg_449"/>
-                        <path stroke="black" d="m238.95317,332.947177l0,6.856631" fill="none" strokeWidth="0.5" id="svg_450"/>
-                        <path stroke="black" d="m216.10676,332.947177l0,7.961935" fill="none" strokeWidth="0.5" id="svg_451"/>
-                        <path stroke="black" d="m238.95317,332.947177l0,7.961935" fill="none" strokeWidth="0.5" id="svg_452"/>
-                        <path stroke="black" d="m161.046817,339.803808l17.516518,6.294612" fill="none" strokeWidth="0.5" id="svg_453"/>
-                        <path stroke="black" d="m38.028403,310.101108l-6.847366,0" fill="none" strokeWidth="0.5" id="svg_454"/>
-                        <path stroke="black" d="m38.028403,342.089351l-6.847366,0" fill="none" strokeWidth="0.5" id="svg_455"/>
-                        <path stroke="black" d="m31.181037,342.089351l0,-31.988243" fill="none" strokeWidth="0.5" id="svg_456"/>
-                        <path stroke="black" d="m38.028403,342.089351l0,-31.988243" fill="none" strokeWidth="0.5" id="svg_457"/>
-                        <path stroke="black" d="m34.609404,342.089351l0,-31.988243" fill="none" strokeWidth="0.5" id="svg_458"/>
-                        <path stroke="black" d="m33.794464,342.089351l0,-31.988243" fill="none" strokeWidth="0.5" id="svg_459"/>
-                        <path stroke="black" d="m361.971584,165.699715l6.847366,0" fill="none" strokeWidth="0.5" id="svg_460"/>
-                        <path stroke="black" d="m361.971584,133.720839l6.847366,0" fill="none" strokeWidth="0.5" id="svg_461"/>
-                        <path stroke="black" d="m368.81895,133.720839l0,31.978876" fill="none" strokeWidth="0.5" id="svg_462"/>
-                        <path stroke="black" d="m361.971584,133.720839l0,31.978876" fill="none" strokeWidth="0.5" id="svg_463"/>
-                        <path stroke="black" d="m365.399951,133.720839l0,31.978876" fill="none" strokeWidth="0.5" id="svg_464"/>
-                        <path stroke="black" d="m366.205523,133.720839l0,31.978876" fill="none" strokeWidth="0.5" id="svg_465"/>
-                        <path stroke="black" d="m361.971584,310.101108l6.847366,0" fill="none" strokeWidth="0.5" id="svg_466"/>
-                        <path stroke="black" d="m361.971584,342.089351l6.847366,0" fill="none" strokeWidth="0.5" id="svg_467"/>
-                        <path stroke="black" d="m368.81895,367.220964l0,-25.131612" fill="none" strokeWidth="0.5" id="svg_468"/>
-                        <path stroke="black" d="m361.971584,360.364333l0,-18.274982" fill="none" strokeWidth="0.5" id="svg_469"/>
-                        <path stroke="black" d="m361.971584,310.101108l0,-37.018313" fill="none" strokeWidth="0.5" id="svg_470"/>
-                        <path stroke="black" d="m368.81895,310.101108l0,31.988243" fill="none" strokeWidth="0.5" id="svg_471"/>
-                        <path stroke="black" d="m361.971584,310.101108l0,31.988243" fill="none" strokeWidth="0.5" id="svg_472"/>
-                        <path stroke="black" d="m365.399951,310.101108l0,31.988243" fill="none" strokeWidth="0.5" id="svg_473"/>
-                        <path stroke="black" d="m366.205523,310.101108l0,31.988243" fill="none" strokeWidth="0.5" id="svg_474"/>
-                        <path stroke="black" d="m241.669636,97.31138l13.282579,-5.479684" fill="none" strokeWidth="0.5" id="svg_475"/>
-                        <path stroke="blue" d="m103.148635,240.448231l0,19.848635" fill="none" strokeWidth="0.5" id="svg_476"/>
-                        <path stroke="black" d="m31.181037,108.589226l0,25.131612" fill="none" strokeWidth="0.5" id="svg_477"/>
-                        <path stroke="black" d="m67.72218,108.589226l-36.541143,0" fill="none" strokeWidth="0.5" id="svg_478"/>
-                        <path stroke="black" d="m98.605581,264.40897l0,2.735159" fill="none" strokeWidth="0.5" id="svg_479"/>
-                        <path stroke="blue" d="m38.028403,219.456824l23.998567,14.097308" fill="none" strokeWidth="0.5" id="svg_480"/>
-                        <path stroke="blue" d="m47.910717,209.574658l14.116253,23.979474" fill="none" strokeWidth="0.5" id="svg_481"/>
-                        <path stroke="blue" d="m38.028403,254.592373l23.998567,-14.106675" fill="none" strokeWidth="0.5" id="svg_482"/>
-                        <path stroke="blue" d="m47.910717,264.474539l14.116253,-23.988841" fill="none" strokeWidth="0.5" id="svg_483"/>
-                        <path stroke="black" d="m195.658332,206.605325l0,5.479684" fill="none" strokeWidth="0.5" id="svg_484"/>
-                        <path stroke="black" d="m195.658332,206.605325l0,5.479684" fill="none" strokeWidth="0.5" id="svg_485"/>
-                        <path stroke="black" d="m204.341655,181.436244l0,2.744526" fill="none" strokeWidth="0.5" id="svg_486"/>
-                        <path stroke="black" d="m204.341655,181.436244l0,22.424555" fill="none" strokeWidth="0.5" id="svg_487"/>
-                        <path stroke="black" d="m204.341655,192.892063l0,10.968736" fill="none" strokeWidth="0.5" id="svg_488"/>
-                        <path stroke="black" d="m204.341655,181.436244l0,2.744526" fill="none" strokeWidth="0.5" id="svg_489"/>
-                        <path stroke="black" d="m204.341655,181.436244l0,22.424555" fill="none" strokeWidth="0.5" id="svg_490"/>
-                        <path stroke="black" d="m204.341655,175.722386l0,5.713859" fill="none" strokeWidth="0.5" id="svg_491"/>
-                        <path stroke="blue" d="m301.394406,264.40897l-4.543054,0" fill="none" strokeWidth="0.5" id="svg_492"/>
-                        <path stroke="black" d="m293.451086,205.340782l-9.348388,0" fill="none" strokeWidth="0.5" id="svg_493"/>
-                        <path stroke="black" d="m266.03352,205.340782l16.66411,4.720959" fill="none" strokeWidth="0.5" id="svg_494"/>
-                        <path stroke="black" d="m257.11602,224.908408l6.482048,14.752997" fill="none" strokeWidth="0.5" id="svg_495"/>
-                        <path stroke="black" d="m62.476592,234.013114l0,5.976134" fill="none" strokeWidth="0.5" id="svg_496"/>
-                        <path stroke="blue" d="m361.971584,240.448231l-51.406766,0" fill="none" strokeWidth="0.5" id="svg_497"/>
-                        <path stroke="black" d="m82.587803,234.013114l-20.111211,0" fill="none" strokeWidth="0.5" id="svg_498"/>
-                        <path stroke="black" d="m63.61938,235.155886l0,3.690591" fill="none" strokeWidth="0.5" id="svg_499"/>
-                        <path stroke="black" d="m82.587803,235.155886l-18.968422,0" fill="none" strokeWidth="0.5" id="svg_500"/>
-                        <path stroke="black" d="m62.476592,239.989248l26.977311,0" fill="none" strokeWidth="0.5" id="svg_501"/>
-                        <path stroke="black" d="m63.61938,238.846477l26.012498,0" fill="none" strokeWidth="0.5" id="svg_502"/>
-                        <path stroke="black" d="m82.587803,234.013114l0,1.142772" fill="none" strokeWidth="0.5" id="svg_503"/>
-                        <path stroke="blue" d="m96.291902,247.304861l-0.168608,-1.526818m0,0l-0.505825,-1.442515m0,0l-0.81494,-1.30201m0,0l-1.086586,-1.08657m0,0l-1.30203,-0.814927m0,0l-1.451904,-0.505817m0,0l-1.517474,-0.177973" fill="none" strokeWidth="0.5" id="svg_504"/>
-                        <path stroke="blue" d="m103.148635,240.448231l-0.168608,-1.526818m0,0l-0.505825,-1.442515m0,0l-0.824307,-1.30201m0,0l-1.077219,-1.08657m0,0l-1.30203,-0.814927m0,0l-1.451904,-0.505817m0,0l-1.526841,-0.168606m0,0l-1.526841,0.168606m0,0l-1.442537,0.505817m0,0l-1.30203,0.814927m0,0l-1.086586,1.08657m0,0l-0.81494,1.30201m0,0l-0.505825,1.442515m0,0l-0.168608,1.526818" fill="none" strokeWidth="0.5" id="svg_505"/>
-                        <path stroke="blue" d="m331.125651,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_506"/>
-                        <path stroke="blue" d="m324.268918,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_507"/>
-                        <path stroke="blue" d="m337.982385,264.40897l0,-54.834312" fill="none" strokeWidth="0.5" id="svg_508"/>
-                        <path stroke="blue" d="m331.125651,233.563499l0,-23.988841" fill="none" strokeWidth="0.5" id="svg_509"/>
-                        <path stroke="blue" d="m324.268918,233.563499l0,-23.988841" fill="none" strokeWidth="0.5" id="svg_510"/>
-                        <path stroke="blue" d="m317.412185,233.563499l0,-23.988841" fill="none" strokeWidth="0.5" id="svg_511"/>
-                        <path stroke="blue" d="m317.412185,233.563499l44.559399,0" fill="none" strokeWidth="0.5" id="svg_512"/>
-                        <path stroke="blue" d="m324.268918,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_513"/>
-                        <path stroke="blue" d="m317.412185,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_514"/>
-                        <path stroke="blue" d="m310.564818,240.448231l0,23.988841" fill="none" strokeWidth="0.5" id="svg_515"/>
-                        <path stroke="blue" d="m303.708085,247.304861l0,17.13221" fill="none" strokeWidth="0.5" id="svg_516"/>
-                        <path stroke="blue" d="m296.851352,240.448231l0,23.96074" fill="none" strokeWidth="0.5" id="svg_517"/>
-                        <path stroke="blue" d="m361.971584,219.456824l-23.989199,14.097308" fill="none" strokeWidth="0.5" id="svg_518"/>
-                        <path stroke="blue" d="m352.08927,209.574658l-14.106886,23.979474" fill="none" strokeWidth="0.5" id="svg_519"/>
-                        <path stroke="blue" d="m361.971584,254.592373l-23.989199,-14.106675" fill="none" strokeWidth="0.5" id="svg_520"/>
-                        <path stroke="blue" d="m352.08927,264.474539l-14.106886,-23.988841" fill="none" strokeWidth="0.5" id="svg_521"/>
-                        <path stroke="black" d="m317.412185,234.013114l20.111211,0" fill="none" strokeWidth="0.5" id="svg_522"/>
-                        <path stroke="black" d="m317.412185,235.155886l18.968422,0" fill="none" strokeWidth="0.5" id="svg_523"/>
-                        <path stroke="black" d="m337.523396,234.013114l0,5.976134" fill="none" strokeWidth="0.5" id="svg_524"/>
-                        <path stroke="black" d="m336.380607,235.155886l0,3.690591" fill="none" strokeWidth="0.5" id="svg_525"/>
-                        <path stroke="black" d="m337.523396,239.989248l-26.977311,0" fill="none" strokeWidth="0.5" id="svg_526"/>
-                        <path stroke="black" d="m336.380607,238.846477l-26.012498,0" fill="none" strokeWidth="0.5" id="svg_527"/>
-                        <path stroke="black" d="m317.412185,234.013114l0,1.142772" fill="none" strokeWidth="0.5" id="svg_528"/>
-                        <path stroke="blue" d="m310.564818,240.448231l-0.177975,-1.526818m0,0l-0.505825,-1.442515m0,0l-0.81494,-1.30201m0,0l-1.086586,-1.08657m0,0l-1.30203,-0.814927m0,0l-1.442537,-0.505817m0,0l-1.526841,-0.168606m0,0l-1.526841,0.168606m0,0l-1.451904,0.505817m0,0l-1.292663,0.814927m0,0l-1.086586,1.08657m0,0l-0.81494,1.30201m0,0l-0.515192,1.442515m0,0l-0.168608,1.526818" fill="none" strokeWidth="0.5" id="svg_529"/>
-                        <path stroke="blue" d="m310.564818,240.448231l-1.526841,0.177973m0,0l-1.451904,0.505817m0,0l-1.30203,0.814927m0,0l-1.077219,1.08657m0,0l-0.824307,1.30201m0,0l-0.505825,1.442515m0,0l-0.168608,1.526818" fill="none" strokeWidth="0.5" id="svg_530"/>
-                        <path stroke="black" d="m301.394406,264.40897l0,2.735159" fill="none" strokeWidth="0.5" id="svg_531"/>
-                        <path stroke="black" d="m252.779043,308.227712l23.651983,0" fill="none" strokeWidth="0.5" id="svg_532"/>
-                        <path stroke="black" d="m276.431026,310.972237l-14.968661,0" fill="none" strokeWidth="0.5" id="svg_533"/>
-                        <path stroke="black" d="m301.394406,264.40897l0,19.21168" fill="none" strokeWidth="0.5" id="svg_534"/>
-                        <path stroke="black" d="m304.129606,267.144129l0,16.476521" fill="none" strokeWidth="0.5" id="svg_535"/>
-                        <path stroke="black" d="m301.394406,264.40897l0,2.735159" fill="none" strokeWidth="0.5" id="svg_536"/>
-                        <path stroke="black" d="m129.058095,411.170843l141.883797,0" fill="none" strokeWidth="0.5" id="svg_537"/>
-                        <path stroke="black" d="m30.038248,107.408986l36.55051,0" fill="none" strokeWidth="0.5" id="svg_538"/>
-                        <path stroke="black" d="m30.038248,367.839185l31.951253,0" fill="none" strokeWidth="0.5" id="svg_539"/>
-                        <path stroke="black" d="m30.038248,107.408986l0,260.430198" fill="none" strokeWidth="0.5" id="svg_540"/>
-                        <path stroke="black" d="m129.535818,395.256341l-50.54499,0" fill="none" strokeWidth="0.5" id="svg_541"/>
-                        <path stroke="black" d="m61.989501,367.839185l0,10.163175" fill="none" strokeWidth="0.5" id="svg_542"/>
-                        <path stroke="black" d="m146.537145,340.909112l0,37.093248" fill="none" strokeWidth="0.5" id="svg_543"/>
-                        <path stroke="black" d="m61.989501,378.00236l17.001326,17.253981" fill="none" strokeWidth="0.5" id="svg_544"/>
-                        <path stroke="black" d="m129.535818,395.256341l17.001326,-17.253981" fill="none" strokeWidth="0.5" id="svg_545"/>
-                        <path stroke="black" d="m253.462842,340.909112l-14.509672,0" fill="none" strokeWidth="0.5" id="svg_546"/>
-                        <path stroke="black" d="m216.10676,340.909112l-32.213533,0" fill="none" strokeWidth="0.5" id="svg_547"/>
-                        <path stroke="black" d="m161.046817,340.909112l-14.509672,0" fill="none" strokeWidth="0.5" id="svg_548"/>
-                        <path stroke="black" d="m369.961739,367.839185l-31.951253,0" fill="none" strokeWidth="0.5" id="svg_549"/>
-                        <path stroke="black" d="m253.462842,340.909112l0,37.093248" fill="none" strokeWidth="0.5" id="svg_550"/>
-                        <path stroke="black" d="m270.464169,395.256341l50.54499,0" fill="none" strokeWidth="0.5" id="svg_551"/>
-                        <path stroke="black" d="m338.010486,367.839185l0,10.163175" fill="none" strokeWidth="0.5" id="svg_552"/>
-                        <path stroke="black" d="m270.464169,395.256341l-17.001326,-17.253981" fill="none" strokeWidth="0.5" id="svg_553"/>
-                        <path stroke="black" d="m338.010486,378.00236l-17.001326,17.253981" fill="none" strokeWidth="0.5" id="svg_554"/>
-                        <path stroke="black" d="m369.961739,107.408986l0,260.430198" fill="none" strokeWidth="0.5" id="svg_555"/>
-                        <path stroke="black" d="m145.600432,75.458211l-57.514129,0" fill="none" strokeWidth="0.5" id="svg_556"/>
-                        <path stroke="black" d="m66.588758,97.283279l21.497545,-21.825068" fill="none" strokeWidth="0.5" id="svg_557"/>
-                        <path stroke="black" d="m167.107345,107.446454l0,-10.163175" fill="none" strokeWidth="0.5" id="svg_558"/>
-                        <path stroke="black" d="m66.588758,97.283279l0,10.125707" fill="none" strokeWidth="0.5" id="svg_559"/>
-                        <path stroke="black" d="m167.107345,97.283279l-4.318243,-4.374381" fill="none" strokeWidth="0.5" id="svg_560"/>
-                        <path stroke="black" d="m149.965511,79.888794l-4.365079,-4.430582" fill="none" strokeWidth="0.5" id="svg_561"/>
-                        <path stroke="black" d="m369.961739,107.408986l-36.541143,0" fill="none" strokeWidth="0.5" id="svg_562"/>
-                        <path stroke="black" d="m254.399555,75.458211l57.514129,0" fill="none" strokeWidth="0.5" id="svg_563"/>
-                        <path stroke="black" d="m333.420596,97.283279l-21.506912,-21.825068" fill="none" strokeWidth="0.5" id="svg_564"/>
-                        <path stroke="black" d="m232.90201,107.446454l0,-10.163175" fill="none" strokeWidth="0.5" id="svg_565"/>
-                        <path stroke="black" d="m333.420596,97.283279l0,10.125707" fill="none" strokeWidth="0.5" id="svg_566"/>
-                        <path stroke="black" d="m232.90201,97.283279l4.308876,-4.374381" fill="none" strokeWidth="0.5" id="svg_567"/>
-                        <path stroke="black" d="m250.034476,79.888794l4.365079,-4.430582" fill="none" strokeWidth="0.5" id="svg_568"/>
-                        <path stroke="black" d="m167.107345,107.446454l65.794665,0" fill="none" strokeWidth="0.5" id="svg_569"/>
-                        <path stroke="black" d="m64.415586,273.082796l2.969378,0" fill="none" strokeWidth="0.5" id="svg_570"/>
-                        <path stroke="black" d="m31.181037,108.589226l0,-27.417156" fill="none" strokeWidth="0.5" id="svg_571"/>
-                        <path stroke="black" d="m31.181037,81.17207l14.397267,0" fill="none" strokeWidth="0.5" id="svg_572"/>
-                        <path stroke="black" d="m38.028403,108.589226l0,-27.417156" fill="none" strokeWidth="0.5" id="svg_573"/>
-                        <path stroke="black" d="m302.658967,28.623301l51.762716,52.548769" fill="none" strokeWidth="0.5" id="svg_574"/>
-                        <path stroke="black" d="m333.420596,101.854366l21.001088,-20.682296" fill="none" strokeWidth="0.5" id="svg_575"/>
-                        <path stroke="black" d="m330.891473,94.726093l18.71551,-18.443587" fill="none" strokeWidth="0.5" id="svg_576"/>
-                        <path stroke="black" d="m326.076772,89.836528l18.724877,-18.43422" fill="none" strokeWidth="0.5" id="svg_577"/>
-                        <path stroke="black" d="m321.271439,84.956331l18.71551,-18.43422" fill="none" strokeWidth="0.5" id="svg_578"/>
-                        <path stroke="black" d="m316.466105,80.076133l18.71551,-18.443587" fill="none" strokeWidth="0.5" id="svg_579"/>
-                        <path stroke="black" d="m311.379758,75.458211l18.987156,-18.705863" fill="none" strokeWidth="0.5" id="svg_580"/>
-                        <path stroke="black" d="m368.81895,107.099876l0,-25.927806" fill="none" strokeWidth="0.5" id="svg_581"/>
-                        <path stroke="black" d="m368.81895,81.17207l-14.397267,0" fill="none" strokeWidth="0.5" id="svg_582"/>
-                        <path stroke="black" d="m361.971584,107.408986l0,-26.236916" fill="none" strokeWidth="0.5" id="svg_583"/>
-                        <path stroke="black" d="m129.058095,394.628753l0,23.398721" fill="none" strokeWidth="0.5" id="svg_584"/>
-                        <path stroke="black" d="m270.941892,394.628753l0,23.398721" fill="none" strokeWidth="0.5" id="svg_585"/>
-                        <path stroke="blue" d="m98.605581,264.40897l4.543054,0" fill="none" strokeWidth="0.5" id="svg_586"/>
-                        <path stroke="blue" d="m103.148635,264.40897l0,-4.112105" fill="none" strokeWidth="0.5" id="svg_587"/>
-                        <path stroke="black" d="m70.120163,267.144129l0,5.938667" fill="none" strokeWidth="0.5" id="svg_588"/>
-                        <path stroke="black" d="m38.028403,287.610985l0,-13.713262" fill="none" strokeWidth="0.5" id="svg_589"/>
-                        <path stroke="RGB(165,124,82)" d="m261.921354,217.04951l0,-7.980669" fill="none" strokeWidth="0.5" id="svg_590"/>
-                        <path stroke="black" d="m276.431026,308.227712l0,2.744526" fill="none" strokeWidth="0.5" id="svg_591"/>
-                        <path stroke="black" d="m301.394406,283.62065l2.7352,0" fill="none" strokeWidth="0.5" id="svg_592"/>
-                        <path stroke="black" d="m158.339718,97.31138l-13.291946,-5.479684" fill="none" strokeWidth="0.5" id="svg_593"/>
-                        <path stroke="black" d="m106.548901,205.340782l9.348388,0" fill="none" strokeWidth="0.5" id="svg_594"/>
-                        <path stroke="black" d="m133.966467,205.340782l-16.66411,4.720959" fill="none" strokeWidth="0.5" id="svg_595"/>
-                        <path stroke="black" d="m238.95317,339.803808l-17.516518,6.294612" fill="none" strokeWidth="0.5" id="svg_596"/>
-                        <path stroke="black" d="m240.611151,96.262278l13.282579,-5.489051" fill="none" strokeWidth="0.5" id="svg_597"/>
-                        <path stroke="black" d="m159.285798,96.262278l-13.282579,-5.489051" fill="none" strokeWidth="0.5" id="svg_598"/>
+                    <g className="firstFloorHF_WC_Right">
+                        <path id="svg_5536"
+                              d="m210.32169,211.15251c-22.43008,0.37021 29.67218,-0.36468 34.61939,-0.4171c4.94721,-0.05242 5.10709,5.27423 0.10428,5.21376c-5.00281,-0.06047 -30.28756,0.1254 -34.6194,0.20855c-4.33184,0.08315 -4.38764,5.54326 0,5.31804c4.38764,-0.22522 29.54318,-0.25499 34.51512,-0.20855c4.97194,0.04644 5.20612,5.14805 -0.20855,5.00521c-5.41467,-0.14284 -30.04945,0.50117 -34.41084,0.52138c-4.36139,0.02022 -4.201,5.19185 0.10427,5.21376c4.30527,0.02191 29.38668,-0.22203 34.51512,-0.20855c5.12844,0.01348 5.12899,5.04903 0.10428,5.21377c-4.85997,-0.08238 -34.6194,0.31282 -34.72367,0.20855c-4.35147,0.0299 -4.23956,5.89988 0.10427,5.63086c4.55239,0.02191 34.6194,-0.20855 34.51512,-0.31282c5.10378,-0.05242 5.33754,5.17519 0.20855,5.21376c-5.12899,0.03857 -29.72423,0.17858 -34.61939,0.20855c-4.89516,0.02997 -4.8433,4.25339 -0.20855,4.27529c4.63475,0.0219 59.72629,-0.37329 34.82794,-0.31283"
+                              opacity="0.5"
+                              strokeWidth="2"
+                              stroke={isOnfirstFloorHF_WC_Right ? "red" : "grey"}
+                              fill="none"
+                        />
                     </g>
+                    <g className="firstFloorHF_kitchen_Left">
+                        <path id="svg_5551"
+                              d="m133.16048,378.928798c0,0 -55.267646,0.172711 -55.440353,0.172709c-4.833346,0.000002 -4.904832,-5.354051 0.172711,-5.354053c5.077543,-0.000002 48.066962,-0.122101 53.367821,0c5.300859,0.122101 5.199642,-5.354055 0,-5.354053c-5.199642,0.000002 -48.218791,0.05061 -53.540532,0.172711c-5.321741,0.122101 -5.250246,-5.526765 0.172711,-5.526764c5.422957,0.000001 47.599441,-0.467524 53.022398,-0.345423c5.422957,0.122101 5.250254,-4.835921 0.172711,-4.835919c-5.077543,0.000002 -80.962469,0.396033 -86.528408,0.518134c-5.565939,0.122101 -5.300859,-4.835921 0,-4.835919c5.300859,0.000002 81.054838,-0.172712 86.355697,-0.172711c5.300859,0.000001 5.637424,-5.577378 -0.172712,-5.699476c-5.810136,-0.122098 -80.322235,-0.589623 -86.010273,-0.345423c-5.688038,0.2442 -5.422967,-4.663205 -0.000005,-4.835917c5.422962,-0.172712 79.559918,-0.000004 85.837567,-0.000002c6.277649,0.000002 6.054334,-5.354054 0,-5.354053c-6.054334,0.000001 -80.688533,-0.172714 -86.010274,-0.172712c-5.321741,0.000002 -5.422957,-5.354055 0,-5.354053c5.422957,0.000002 79.143003,-0.122101 85.664851,0c6.521848,0.122101 5.881623,-5.770963 -0.172711,-5.526764c-6.054334,0.244199 -80.760018,-0.000001 -85.837562,0c-5.077544,0.000001 -4.863076,-5.770965 -0.172712,-5.526765c4.690364,0.2442 79.905335,0.935043 86.182985,0.690846c6.27765,-0.244197 6.358001,-5.821574 0.345419,-5.699475c-6.012582,0.122099 -81.623572,-0.07149 -86.701115,0.17271c-5.077543,0.2442 -4.690364,-4.713822 0,-4.835919c4.690364,-0.122097 80.768884,-0.416907 86.873826,-0.345421c6.104942,0.071486 5.982844,-5.476152 -0.172711,-5.354053c-6.155555,0.122099 -82.45739,-0.172714 -87.046538,-0.172713c-4.589148,0.000001 -4.690364,-5.008633 0,-5.008631c4.690364,0.000002 81.287019,0.273939 87.391961,0.345425c6.104942,0.071486 6.125823,-5.231957 -0.172708,-5.354055c-6.298531,-0.122098 -83.514535,-0.172712 -87.737387,-0.172711c-4.222852,0.000001 -4.100744,-5.303442 0.345423,-5.181342c4.446167,0.1221 81.114314,-0.294813 87.391964,-0.172712c6.27765,0.122101 6.125821,-4.835921 -0.172711,-4.835919c-6.298532,0.000002 -39.631256,1.536672 -40.069043,-0.172711c-0.437787,-1.709383 0.345418,-16.753004 0.172711,-16.753005"
+                              opacity="0.5"
+                              strokeWidth="2"
+                              stroke={isOnfirstFloorHF_kitchen_Left ? "red" : "grey"}
+                              fill="none"
+                        />
+                    </g>
+                    <g className="firstFloorHF_kitchen_Right">
+                        <path id="svg_5622"
+                              d="m306.011076,267.721519l0.107058,17.29957c-1.273303,1.067039 38.459789,-0.54258 42.861,-0.439138c5.057527,-0.280719 5.618269,5.32721 -0.244968,5.36769l-65.998305,0.808433c-5.055662,-0.063842 -5.395463,4.588177 0.193246,4.254858l65.172148,-0.076232c5.864095,-0.33332 5.934419,4.722916 0.749926,4.659074c-5.682207,-0.134739 -60.661464,1.010542 -66.191552,1.077912c-5.370053,-0.038431 -5.215811,5.177954 0.058508,4.735306c5.389564,-0.26947 60.81973,-0.498165 65.805069,-0.556672c4.985339,-0.058507 5.641289,5.408983 -0.421951,5.274253c-6.06324,-0.13473 -59.513123,-0.07624 -64.767931,0.058508c-5.254808,0.134748 -5.196317,5.004774 -0.21097,5.004783c4.985347,0.000009 61.165439,-0.210961 65.611822,-0.210961c4.446383,0 5.120077,5.19803 -0.00001,5.063282c-4.042156,-0.269469 -72.687245,-0.345719 -78.48101,-0.210971c-5.793765,0.134748 -5.043838,5.139532 0.210978,5.274271c5.254816,0.134739 72.669497,-0.210989 78.059062,-0.21098c5.389565,0.000009 5.676766,5.40901 0.21098,5.274271c-5.465786,-0.134739 -73.841399,-0.076251 -78.691991,-0.21098c-4.850592,-0.134729 -5.331039,4.717592 -0.210962,4.64136c5.120077,-0.076232 73.437147,0.421921 78.691973,0.421931c5.254826,0.00001 5.869993,5.467498 0.21097,5.063291c-5.659023,-0.404207 -73.91762,0.134729 -78.902951,0c-4.985331,-0.134729 -5.178593,4.98705 0.21097,4.852321c5.389563,-0.134729 72.745736,0.21096 78.27004,0.21097c5.524304,0.00001 5.946246,5.19804 0.210981,5.063301c-5.735265,-0.134739 -73.419457,0.134719 -78.27005,-0.00001c-4.850593,-0.134729 -5.13781,4.98705 -0.421941,4.852321c4.715869,-0.134729 45.91704,0.269468 50.63291,0c4.71587,-0.269468 4.926822,5.139512 0.21097,5.274261c-4.715852,0.134749 -44.956161,0.076222 -50.210969,0.210971c-5.254808,0.134749 -4.985347,4.852309 0,4.85232c4.985347,0.000011 45.360378,0.058519 50.210978,0.000011c4.8506,-0.058508 3.907429,5.274261 -0.21097,5.274261c-4.118399,0 -45.917066,0.058486 -50.632919,-0.210981c-4.715853,-0.269467 -4.985347,5.06328 0,5.063291c4.985347,0.000011 50.42193,0.21096 50.421939,0.210971c4.446393,-0.134728 4.194639,4.295651 0.42195,4.43039c-7.275899,-0.134739 -50.421941,0.421941 -50.421948,0.42193"
+                              opacity="0.5"
+                              strokeWidth="2"
+                              stroke={isOnfirstFloorHF_kitchen_Right ? "red" : "grey"}
+                              fill="none"
+                        />
+                    </g>
+                    <g className="firstFloorHF_zal_Left">
+                        <path id="svg_5601"
+                              d="m49.578059,201.687764c0,0 131.223618,0.21096 136.075944,0.210965c4.852326,0.000005 4.852315,-5.274267 0,-5.485232c-4.852316,-0.210965 -136.497885,0.210976 -136.497887,0.21097c-5.6962,0.210976 -5.485231,-4.852315 0.210971,-4.85232c4.43038,-0.210966 131.22362,-0.210976 136.286916,-0.210971c5.063296,0.000005 5.063285,-5.063295 -0.210971,-4.85232c-5.274256,0.210975 -136.075944,0.000005 -136.075945,0c-6.118143,0.000005 -5.907172,-5.274257 -0.210971,-5.274262c6.329116,0.000005 130.801678,-0.000005 136.286916,0c5.485238,0.000005 5.274257,-4.852324 -0.21097,-4.85232c-5.485227,0.000004 -135.654003,0.000004 -135.654005,0c-6.118141,0.421945 -6.540085,-4.852326 -0.21097,-4.852321c6.329115,0.000005 136.286921,-0.210966 136.286921,-0.210966c5.907173,0.421941 5.696204,-5.063291 -0.21097,-5.063291c-5.907174,0 -129.95781,0.210961 -136.286922,0.210966c-6.329111,0.000005 -6.329114,-5.485237 0.210971,-5.485232c6.540086,0.000005 130.168767,-0.000005 136.497886,0c6.329119,0.000005 6.118139,-4.852325 -0.21097,-5.063291c-6.329109,-0.210966 -128.270039,0.210967 -135.864975,0.210971c-7.594936,0.000004 -6.962026,-5.274266 0,-5.274262c6.962026,0.000004 129.746827,0.421937 135.864975,0.421941c6.118148,0.000004 6.329108,-5.274265 0.21097,-5.274261c-6.118138,0.000004 -129.324891,-0.421945 -136.075945,0c-6.751054,0.421945 -6.962028,-5.063294 -0.210971,-5.063291c6.751057,0.000003 129.535857,0.210966 136.075946,0.21097c6.540089,0.000004 6.118138,-5.063294 0,-5.274261c-6.118138,-0.210967 -128.69198,0.210966 -135.864975,0.21097c-7.172995,0.000004 -7.594936,-4.852317 -0.42194,-5.063287c7.172996,-0.21097 129.957796,-0.210977 136.497885,-0.210974c6.540089,0.000003 6.329119,-5.274258 -0.210965,-4.852317c-6.329114,-0.421941 -129.113926,-0.632918 -135.86498,-0.210974c-6.751054,0.421944 -6.962026,-5.696205 0,-5.485232c6.962026,0.210973 90.50633,-0.421938 98.101267,-0.421938c7.594937,0 7.805899,-5.485238 -0.000004,-5.274265c-7.805903,0.210973 -59.07173,-0.210973 -65.822783,0c-6.751053,0.210973 -5.907175,-4.852324 0,-5.063291c5.907175,-0.210967 58.01687,0.210968 65.189871,0.210971c7.173001,0.000003 7.805912,-5.6962 0.210975,-5.274259c-7.594937,0.421941 -58.860765,-0.000006 -65.189876,-0.000003c-6.329111,0.000003 -5.696206,-5.063294 0,-5.063291c5.696206,0.000003 58.227843,0.210967 65.189872,0c6.962029,-0.210967 6.962021,-5.696205 0.21097,-5.485232c-6.751051,0.210973 -53.164557,0.421938 -59.282698,0.421941c-6.118141,0.000003 -4.641353,-5.063292 0.21097,-4.85232c4.852323,0.210972 54.008441,-0.210968 54.008437,-0.210971"
+                              opacity="0.5"
+                              strokeWidth="2"
+                              stroke={isOnfirstFloorHF_zal_Left ? "red" : "grey"}
+                              fill="none"
+                        />
+                    </g>
+                    <g className="firstFloorHF_hall_Left">
+                        <path id="svg_5509"
+                              d="m154.91452,274.63096c-25.70017,0.48599 29.5815,-0.48003 34.70176,-0.4171c5.12026,0.06293 5.14566,5.37852 -0.10427,5.31804c-5.24993,-0.06048 -30.1556,0.16216 -34.51512,0.20855c-4.35952,0.04639 -4.01434,5.44421 0,5.42232c3.41565,-0.03575 29.67218,-0.36468 34.61939,-0.4171c4.94721,-0.05242 5.10709,5.27423 0.10428,5.21376c-5.00281,-0.06047 -30.28756,0.1254 -34.6194,0.20855c-4.33184,0.08315 -4.38764,5.54326 0,5.31804c4.38764,-0.22522 29.54318,-0.25499 34.51512,-0.20855c4.97194,0.04644 5.20612,5.14805 -0.20855,5.00521c-5.41467,-0.14284 -30.04945,0.50117 -34.41084,0.52138c-4.36139,0.02022 -4.201,5.19185 0.10427,5.21376c4.30527,0.02191 29.38668,-0.22203 34.51512,-0.20855c5.12844,0.01348 5.12899,5.04903 0.10428,5.21377c-4.85997,-0.08238 -34.6194,0.31282 -34.72367,0.20855c-4.35147,0.0299 -4.23956,5.89988 0.10427,5.63086c4.55239,0.02191 34.6194,-0.20855 34.51512,-0.31282c5.10378,-0.05242 5.33754,5.17519 0.20855,5.21376c-5.12899,0.03857 -29.72423,0.17858 -34.61939,0.20855c-4.89516,0.02997 -4.8433,4.25339 -0.20855,4.27529c4.63475,0.0219 59.72629,-0.37329 34.82794,-0.31283"
+                              opacity="0.5"
+                              strokeWidth="2"
+                              stroke={isOnfirstFloorHF_hall_Left ? "red" : "grey"}
+                              fill="none"
+                        />
+                    </g>
+                    <g className="firstFloorHF_hall_Right">
+                        <path id="svg_5535"
+                              d="m211.064247,274.36358c-25.70017,0.48599 29.5815,-0.48003 34.70176,-0.4171c5.12026,0.06293 5.14566,5.37852 -0.10427,5.31804c-5.24993,-0.06048 -30.1556,0.16216 -34.51512,0.20855c-4.35952,0.04639 -4.01434,5.44421 0,5.42232c3.41565,-0.03575 29.67218,-0.36468 34.61939,-0.4171c4.94721,-0.05242 5.10709,5.27423 0.10428,5.21376c-5.00281,-0.06047 -30.28756,0.1254 -34.6194,0.20855c-4.33184,0.08315 -4.38764,5.54326 0,5.31804c4.38764,-0.22522 29.54318,-0.25499 34.51512,-0.20855c4.97194,0.04644 5.20612,5.14805 -0.20855,5.00521c-5.41467,-0.14284 -30.04945,0.50117 -34.41084,0.52138c-4.36139,0.02022 -4.201,5.19185 0.10427,5.21376c4.30527,0.02191 29.38668,-0.22203 34.51512,-0.20855c5.12844,0.01348 5.12899,5.04903 0.10428,5.21377c-4.85997,-0.08238 -34.6194,0.31282 -34.72367,0.20855c-4.35147,0.0299 -4.23956,5.89988 0.10427,5.63086c4.55239,0.02191 34.6194,-0.20855 34.51512,-0.31282c5.10378,-0.05242 5.33754,5.17519 0.20855,5.21376c-5.12899,0.03857 -29.72423,0.17858 -34.61939,0.20855c-4.89516,0.02997 -4.8433,4.25339 -0.20855,4.27529c4.63475,0.0219 59.72629,-0.37329 34.82794,-0.31283"
+                              opacity="0.5"
+                              strokeWidth="2"
+                              stroke={isOnfirstFloorHF_hall_Right ? "red" : "grey"}
+                              fill="none"
+                        />
+                    </g>
+                <g transform="translate(175, 50)">>
+                    <TemperatureTile temperature={temperatureOutdoor} />
+                </g>
+                <g transform="translate(95, 140)">>
+                    <TemperatureTile temperature={temperatureZalLeft} />
+                </g>
+                <g transform="translate(260, 140)">
+                    <TemperatureTile temperature={temperatureZalRight} />
+                </g>
+                <g transform="translate(65, 310)">
+                    <TemperatureTile temperature={temperatureKitchenLeft} />
+                </g>
+                <g transform="translate(290, 310)">
+                    <TemperatureTile temperature={temperatureKitchenRight} />
+                </g>
+                <g transform="translate(320, 280)">
+                    <HFTemperatureTile temperature={temperatureHFKitchenRight} />
+                </g>
+                <g transform="translate(95, 350)">
+                    <HFTemperatureTile temperature={temperatureHFKitchenLeft} />
+                </g>
+                <g transform="translate(153, 287)">
+                    <HFTemperatureTile temperature={temperatureHFHallLeft} />
+                </g>
+                <g transform="translate(151, 227)">
+                    <HFTemperatureTile temperature={temperatureHFWC1Left} />
+                </g>
+                <g transform="translate(50, 120)">
+                    <HFTemperatureTile temperature={temperatureHFZal_L_Left} />
+                </g>
+                <g transform="translate(151, 170)">
+                    <HFTemperatureTile temperature={temperatureHFZal_R_Left} />
+                </g>
+                    <FirstFloorPlan/>
             </svg>
         </div>
     )

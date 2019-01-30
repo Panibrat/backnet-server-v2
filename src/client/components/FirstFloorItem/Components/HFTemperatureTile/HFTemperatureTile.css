@@ -1,0 +1,17 @@
+.temperatureText {
+    text-anchor: middle;
+    fill: black;
+    opacity: 0.85;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.temperaturePlate {
+    width: 40px;
+    height: 15px;
+    fill: white;
+    opacity: 0.8;
+    stroke: black;
+    stroke-width: 1px;
+    stroke-opacity: 0.5;
+}
