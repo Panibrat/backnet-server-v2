@@ -1,537 +1,131 @@
 import React from 'react';
+import { convertDiffTemperaturesToColor } from '../../common/helpers';
+import SecondFloorPlan from './SecondFloorPlan';
+import TemperatureTile from '../../common/Components/TemperatureTile/TemperatureTile';
+import HFTemperatureTile from '../../common/Components/HFTemperatureTile/HFTemperatureTile';
 import styles from './SecondFloorItem.css';
 
 const SecondFloorItem = (props) => {
+    const {
+        temperatureOutdoor,
+        temperatureD1,
+        spTemperatureD1,
+        temperatureD2,
+        spTemperatureD2,
+        temperatureCabinetLeft,
+        spTemperatureCabinetLeft,
+        temperatureBedroomLeft,
+        spTemperatureBedroomLeft,
+        temperatureCabinetRight,
+        spTemperatureCabinetRight,
+        temperatureBedroomRight,
+        spTemperatureBedroomRight,
+        temperatureHFWC2Left,
+        isOnSecondFloorHF_WC_Left,
+        isOnSecondFloorHF_WC_Right,
+    } = props;
+
+    const colorSecondFloorBedroomRight = convertDiffTemperaturesToColor(temperatureBedroomRight.value, spTemperatureBedroomRight.value);
+    const colorSecondCabinetRight = convertDiffTemperaturesToColor(temperatureCabinetRight.value, spTemperatureCabinetRight.value);
+    const colorSecondFloorD1 = convertDiffTemperaturesToColor(temperatureD1.value, spTemperatureD1.value);
+    const colorSecondFloorD2 = convertDiffTemperaturesToColor(temperatureD2.value, spTemperatureD2.value);
+    const colorSecondFloorBedroomLeft = convertDiffTemperaturesToColor(temperatureBedroomLeft.value, spTemperatureBedroomLeft.value);
+    const colorSecondCabinetLeft= convertDiffTemperaturesToColor(temperatureCabinetLeft.value, spTemperatureCabinetLeft.value);
+
     return (
         <div className={styles.container}>
-            <svg viewBox="0 0 400 450" width="360" height="auto" xmlns="http://www.w3.org/2000/svg">
-                    <g id="svg_525">
-                            <path d="m204.324998,115.550009l0,91.17" fill="none" stroke="black" stroke-width="0.5" id="svg_1"/>
-                            <path d="m204.324998,212.190009l0,2.74" fill="none" stroke="black" stroke-width="0.5" id="svg_2"/>
-                            <path d="m204.324998,209.460009l0,57.74" fill="none" stroke="black" stroke-width="0.5" id="svg_3"/>
-                            <path d="m195.664998,115.550009l0,91.17" fill="none" stroke="black" stroke-width="0.5" id="svg_4"/>
-                            <path d="m195.664998,209.460009l0,5.47" fill="none" stroke="black" stroke-width="0.5" id="svg_5"/>
-                            <path d="m195.664998,221.770009l0,2.73" fill="none" stroke="black" stroke-width="0.5" id="svg_6"/>
-                            <path d="m195.664998,209.460009l0,57.74" fill="none" stroke="black" stroke-width="0.5" id="svg_7"/>
-                            <path d="m38.414998,115.550009l0,18.23" fill="none" stroke="black" stroke-width="0.5" id="svg_8"/>
-                            <path d="m38.414998,165.690009l0,38.07" fill="none" stroke="black" stroke-width="0.5" id="svg_9"/>
-                            <path d="m38.414998,203.760009l0,19.33" fill="none" stroke="black" stroke-width="0.5" id="svg_10"/>
-                            <path d="m38.414998,255.000009l0,20.25" fill="none" stroke="black" stroke-width="0.5" id="svg_11"/>
-                            <path d="m38.414998,266.900009l0,42.81" fill="none" stroke="black" stroke-width="0.5" id="svg_12"/>
-                            <path d="m38.414998,341.630009l0,18.23" fill="none" stroke="black" stroke-width="0.5" id="svg_13"/>
-                            <path d="m31.574998,108.710009l0,25.07" fill="none" stroke="black" stroke-width="0.5" id="svg_14"/>
-                            <path d="m31.574998,165.690009l0,57.4" fill="none" stroke="black" stroke-width="0.5" id="svg_15"/>
-                            <path d="m31.574998,255.000009l0,54.71" fill="none" stroke="black" stroke-width="0.5" id="svg_16"/>
-                            <path d="m31.574998,341.630009l0,25.07" fill="none" stroke="black" stroke-width="0.5" id="svg_17"/>
-                            <path d="m31.574998,307.160009l0,2.55" fill="none" stroke="black" stroke-width="0.5" id="svg_18"/>
-                            <path d="m31.574998,341.630009l0,25.07" fill="none" stroke="black" stroke-width="0.5" id="svg_19"/>
-                            <path d="m147.344998,209.460009l0,19.33" fill="none" stroke="black" stroke-width="0.5" id="svg_20"/>
-                            <path d="m147.344998,247.030009l0,20.17" fill="none" stroke="black" stroke-width="0.5" id="svg_21"/>
-                            <path d="m147.344998,269.930009l0,14.87" fill="none" stroke="black" stroke-width="0.5" id="svg_22"/>
-                            <path d="m138.684998,311.520009l0,31.61" fill="none" stroke="black" stroke-width="0.5" id="svg_23"/>
-                            <path d="m138.684998,202.570009l0,26.22" fill="none" stroke="black" stroke-width="0.5" id="svg_24"/>
-                            <path d="m138.684998,247.030009l0,37.77" fill="none" stroke="black" stroke-width="0.5" id="svg_25"/>
-                            <path d="m96.534998,209.460009l-58.83,0" fill="none" stroke="yellow" stroke-width="0.5" id="svg_26"/>
-                            <path d="m199.774998,332.550009l-6.61,0" fill="none" stroke="yellow" stroke-width="0.5" id="svg_27"/>
-                            <path d="m38.414998,209.460009l58.12,0" fill="none" stroke="black" stroke-width="0.5" id="svg_28"/>
-                            <path d="m147.344998,209.460009l48.32,0" fill="none" stroke="black" stroke-width="0.5" id="svg_29"/>
-                            <path d="m141.414998,206.720009l54.25,0" fill="none" stroke="black" stroke-width="0.5" id="svg_30"/>
-                            <path d="m38.414998,264.160009l58.12,0" fill="none" stroke="black" stroke-width="0.5" id="svg_31"/>
-                            <path d="m38.414998,233.390009l64.96,0" fill="none" stroke="blue" stroke-width="0.5" id="svg_32"/>
-                            <path d="m69.184998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_33"/>
-                            <path d="m76.024998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_34"/>
-                            <path d="m62.344998,209.490009l0,54.71" fill="none" stroke="blue" stroke-width="0.5" id="svg_35"/>
-                            <path d="m69.184998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_36"/>
-                            <path d="m76.024998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_37"/>
-                            <path d="m82.864998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_38"/>
-                            <path d="m89.694998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_39"/>
-                            <path d="m96.534998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_40"/>
-                            <path d="m96.534998,240.260009l-58.12,0" fill="none" stroke="blue" stroke-width="0.5" id="svg_41"/>
-                            <path d="m76.024998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_42"/>
-                            <path d="m82.864998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_43"/>
-                            <path d="m89.694998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_44"/>
-                            <path d="m96.534998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_45"/>
-                            <path d="m38.414998,219.320009l23.93,14.07" fill="none" stroke="blue" stroke-width="0.5" id="svg_46"/>
-                            <path d="m96.534998,264.160009l0,2.74" fill="none" stroke="black" stroke-width="0.5" id="svg_47"/>
-                            <path d="m147.344998,267.200009l48.32,0" fill="none" stroke="black" stroke-width="0.5" id="svg_48"/>
-                            <path d="m147.344998,269.930009l56.98,0" fill="none" stroke="black" stroke-width="0.5" id="svg_49"/>
-                            <path d="m147.344998,262.340009l0,4.86" fill="none" stroke="black" stroke-width="0.5" id="svg_50"/>
-                            <path d="m138.684998,332.550009l29.29,0" fill="none" stroke="black" stroke-width="0.5" id="svg_51"/>
-                            <path d="m193.164998,332.550009l4.55,0" fill="none" stroke="black" stroke-width="0.5" id="svg_52"/>
-                            <path d="m145.524998,339.390009l22.45,0" fill="none" stroke="black" stroke-width="0.5" id="svg_53"/>
-                            <path d="m193.164998,339.390009l13.67,0" fill="none" stroke="black" stroke-width="0.5" id="svg_54"/>
-                            <path d="m138.684998,305.320009l0,37.81" fill="none" stroke="black" stroke-width="0.5" id="svg_55"/>
-                            <path d="m138.684998,363.640009l0,11.06" fill="none" stroke="black" stroke-width="0.5" id="svg_56"/>
-                            <path d="m145.524998,366.250009l0,-2.61" fill="none" stroke="black" stroke-width="0.5" id="svg_57"/>
-                            <path d="m145.524998,343.130009l0,-3.74" fill="none" stroke="black" stroke-width="0.5" id="svg_58"/>
-                            <path d="m147.344998,305.320009l0,27.23" fill="none" stroke="black" stroke-width="0.5" id="svg_59"/>
-                            <path d="m147.344998,209.460009l0,19.33" fill="none" stroke="black" stroke-width="0.5" id="svg_60"/>
-                            <path d="m147.344998,228.790009l-8.66,0" fill="none" stroke="black" stroke-width="0.5" id="svg_61"/>
-                            <path d="m147.344998,247.030009l-8.66,0" fill="none" stroke="black" stroke-width="0.5" id="svg_62"/>
-                            <path d="m138.684998,363.640009l0,11.06" fill="none" stroke="black" stroke-width="0.5" id="svg_63"/>
-                            <path d="m145.524998,366.250009l0,11.25" fill="none" stroke="black" stroke-width="0.5" id="svg_64"/>
-                            <path d="m147.344998,332.550009l20.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_65"/>
-                            <path d="m147.344998,332.550009l20.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_66"/>
-                            <path d="m167.974998,332.550009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_67"/>
-                            <path d="m197.714998,332.550009l-4.55,0" fill="none" stroke="black" stroke-width="0.5" id="svg_68"/>
-                            <path d="m193.164998,332.550009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_69"/>
-                            <path d="m183.924998,332.550009l9.24,0" fill="none" stroke="black" stroke-width="0.5" id="svg_70"/>
-                            <path d="m186.204998,332.550009l6.96,0" fill="none" stroke="black" stroke-width="0.5" id="svg_71"/>
-                            <path d="m193.164998,339.390009l-6.96,0" fill="none" stroke="black" stroke-width="0.5" id="svg_72"/>
-                            <path d="m193.164998,339.390009l-9.24,0" fill="none" stroke="black" stroke-width="0.5" id="svg_73"/>
-                            <path d="m193.164998,335.970009l-6.96,0" fill="none" stroke="black" stroke-width="0.5" id="svg_74"/>
-                            <path d="m193.164998,335.970009l-9.24,0" fill="none" stroke="black" stroke-width="0.5" id="svg_75"/>
-                            <path d="m193.164998,337.210009l-6.96,0" fill="none" stroke="black" stroke-width="0.5" id="svg_76"/>
-                            <path d="m193.164998,337.210009l-9.24,0" fill="none" stroke="black" stroke-width="0.5" id="svg_77"/>
-                            <path d="m145.524998,373.580009l54.47,0" fill="none" stroke="black" stroke-width="0.5" id="svg_78"/>
-                            <path d="m96.534998,209.460009l1.14,0" fill="none" stroke="black" stroke-width="0.5" id="svg_79"/>
-                            <path d="m96.534998,266.900009l0,13.31" fill="none" stroke="black" stroke-width="0.5" id="svg_80"/>
-                            <path d="m96.534998,300.720009l0,6.26" fill="none" stroke="black" stroke-width="0.5" id="svg_81"/>
-                            <path d="m93.804998,266.860009l0,13.35" fill="none" stroke="black" stroke-width="0.5" id="svg_82"/>
-                            <path d="m93.804998,300.720009l0,6.26" fill="none" stroke="black" stroke-width="0.5" id="svg_83"/>
-                            <path d="m138.684998,179.780009l0,-2.85" fill="none" stroke="black" stroke-width="0.5" id="svg_84"/>
-                            <path d="m141.414998,206.720009l0,-4.15" fill="none" stroke="black" stroke-width="0.5" id="svg_85"/>
-                            <path d="m97.674998,209.460009l0,-6.89" fill="none" stroke="black" stroke-width="0.5" id="svg_86"/>
-                            <path d="m94.934998,203.760009l0,-1.19" fill="none" stroke="black" stroke-width="0.5" id="svg_87"/>
-                            <path d="m94.934998,202.570009l2.74,0" fill="none" stroke="black" stroke-width="0.5" id="svg_88"/>
-                            <path d="m138.684998,202.570009l2.73,0" fill="none" stroke="black" stroke-width="0.5" id="svg_89"/>
-                            <path d="m138.684998,284.800009l8.66,0" fill="none" stroke="black" stroke-width="0.5" id="svg_90"/>
-                            <path d="m138.684998,305.320009l8.66,0" fill="none" stroke="black" stroke-width="0.5" id="svg_91"/>
-                            <path d="m128.594998,306.980009l0,2.73" fill="none" stroke="black" stroke-width="0.5" id="svg_92"/>
-                            <path d="m108.084998,306.980009l0,2.73" fill="none" stroke="black" stroke-width="0.5" id="svg_93"/>
-                            <path d="m93.804998,280.210009l2.73,0m-2.73,20.51l2.73,0" fill="none" stroke="black" stroke-width="0.5" id="svg_94"/>
-                            <path d="m361.584998,115.550009l0,18.23" fill="none" stroke="black" stroke-width="0.5" id="svg_95"/>
-                            <path d="m361.584998,165.690009l0,38.07" fill="none" stroke="black" stroke-width="0.5" id="svg_96"/>
-                            <path d="m361.584998,203.760009l0,19.33" fill="none" stroke="black" stroke-width="0.5" id="svg_97"/>
-                            <path d="m361.584998,255.000009l0,54.71" fill="none" stroke="black" stroke-width="0.5" id="svg_98"/>
-                            <path d="m361.584998,341.630009l0,18.23" fill="none" stroke="black" stroke-width="0.5" id="svg_99"/>
-                            <path d="m368.424998,108.710009l0,25.07" fill="none" stroke="black" stroke-width="0.5" id="svg_100"/>
-                            <path d="m368.424998,165.690009l0,57.4" fill="none" stroke="black" stroke-width="0.5" id="svg_101"/>
-                            <path d="m368.424998,255.000009l0,54.71" fill="none" stroke="black" stroke-width="0.5" id="svg_102"/>
-                            <path d="m368.424998,341.630009l0,24.62" fill="none" stroke="black" stroke-width="0.5" id="svg_103"/>
-                            <path d="m368.424998,341.630009l0,25.07" fill="none" stroke="black" stroke-width="0.5" id="svg_104"/>
-                            <path d="m252.654998,209.460009l0,19.33" fill="none" stroke="black" stroke-width="0.5" id="svg_105"/>
-                            <path d="m252.654998,247.030009l0,20.17" fill="none" stroke="black" stroke-width="0.5" id="svg_106"/>
-                            <path d="m252.654998,269.930009l0,23.62" fill="none" stroke="black" stroke-width="0.5" id="svg_107"/>
-                            <path d="m261.314998,308.730009l0,34.4" fill="none" stroke="black" stroke-width="0.5" id="svg_108"/>
-                            <path d="m261.314998,206.720009l0,22.07" fill="none" stroke="black" stroke-width="0.5" id="svg_109"/>
-                            <path d="m261.314998,247.030009l0,46.52" fill="none" stroke="black" stroke-width="0.5" id="svg_110"/>
-                            <path d="m303.464998,209.460009l58.83,0" fill="none" stroke="yellow" stroke-width="0.5" id="svg_111"/>
-                            <path d="m361.584998,209.460009l-58.12,0" fill="none" stroke="black" stroke-width="0.5" id="svg_112"/>
-                            <path d="m252.654998,209.460009l-48.33,0" fill="none" stroke="black" stroke-width="0.5" id="svg_113"/>
-                            <path d="m258.574998,206.720009l-54.25,0" fill="none" stroke="black" stroke-width="0.5" id="svg_114"/>
-                            <path d="m361.584998,264.160009l-58.12,0" fill="none" stroke="black" stroke-width="0.5" id="svg_115"/>
-                            <path d="m329.564998,266.900009l-23.37,0" fill="none" stroke="black" stroke-width="0.5" id="svg_116"/>
-                            <path d="m303.464998,264.160009l0,2.74" fill="none" stroke="black" stroke-width="0.5" id="svg_117"/>
-                            <path d="m252.654998,267.200009l-48.33,0" fill="none" stroke="black" stroke-width="0.5" id="svg_118"/>
-                            <path d="m252.654998,269.930009l-48.33,0" fill="none" stroke="black" stroke-width="0.5" id="svg_119"/>
-                            <path d="m252.654998,262.340009l0,4.86" fill="none" stroke="black" stroke-width="0.5" id="svg_120"/>
-                            <path d="m252.654998,269.930009l0,23.62" fill="none" stroke="black" stroke-width="0.5" id="svg_121"/>
-                            <path d="m261.314998,332.550009l-29.29,0" fill="none" stroke="black" stroke-width="0.5" id="svg_122"/>
-                            <path d="m254.474998,339.390009l-22.45,0" fill="none" stroke="black" stroke-width="0.5" id="svg_123"/>
-                            <path d="m261.314998,293.550009l0,49.58" fill="none" stroke="black" stroke-width="0.5" id="svg_124"/>
-                            <path d="m261.314998,363.640009l0,8.93" fill="none" stroke="black" stroke-width="0.5" id="svg_125"/>
-                            <path d="m254.474998,377.500009l0,-34.37" fill="none" stroke="black" stroke-width="0.5" id="svg_126"/>
-                            <path d="m254.474998,343.130009l0,-3.74" fill="none" stroke="black" stroke-width="0.5" id="svg_127"/>
-                            <path d="m252.654998,293.550009l0,39" fill="none" stroke="black" stroke-width="0.5" id="svg_128"/>
-                            <path d="m252.654998,209.460009l0,19.33" fill="none" stroke="black" stroke-width="0.5" id="svg_129"/>
-                            <path d="m252.654998,228.790009l8.66,0" fill="none" stroke="black" stroke-width="0.5" id="svg_130"/>
-                            <path d="m252.654998,247.030009l8.66,0" fill="none" stroke="black" stroke-width="0.5" id="svg_131"/>
-                            <path d="m261.314998,343.130009l0,31.57" fill="none" stroke="black" stroke-width="0.5" id="svg_132"/>
-                            <path d="m252.654998,332.550009l-20.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_133"/>
-                            <path d="m252.654998,332.550009l-20.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_134"/>
-                            <path d="m232.024998,332.550009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_135"/>
-                            <path d="m232.024998,332.550009l-25.19,0" fill="none" stroke="black" stroke-width="0.5" id="svg_136"/>
-                            <path d="m206.834998,339.390009l25.19,0" fill="none" stroke="black" stroke-width="0.5" id="svg_137"/>
-                            <path d="m206.834998,335.970009l25.19,0" fill="none" stroke="black" stroke-width="0.5" id="svg_138"/>
-                            <path d="m206.834998,337.210009l25.19,0" fill="none" stroke="black" stroke-width="0.5" id="svg_139"/>
-                            <path d="m303.464998,209.460009l-1.14,0" fill="none" stroke="black" stroke-width="0.5" id="svg_140"/>
-                            <path d="m303.464998,266.900009l0,8.5" fill="none" stroke="black" stroke-width="0.5" id="svg_141"/>
-                            <path d="m303.464998,295.910009l0,11.07" fill="none" stroke="black" stroke-width="0.5" id="svg_142"/>
-                            <path d="m306.194998,266.900009l0,8.5" fill="none" stroke="black" stroke-width="0.5" id="svg_143"/>
-                            <path d="m306.194998,295.910009l0,11.07" fill="none" stroke="black" stroke-width="0.5" id="svg_144"/>
-                            <path d="m261.314998,206.720009l0,-4.15" fill="none" stroke="black" stroke-width="0.5" id="svg_145"/>
-                            <path d="m258.574998,206.720009l0,-4.15" fill="none" stroke="black" stroke-width="0.5" id="svg_146"/>
-                            <path d="m302.324998,209.460009l0,-6.89" fill="none" stroke="black" stroke-width="0.5" id="svg_147"/>
-                            <path d="m305.064998,203.760009l0,-1.19" fill="none" stroke="black" stroke-width="0.5" id="svg_148"/>
-                            <path d="m305.064998,202.570009l-2.74,0" fill="none" stroke="black" stroke-width="0.5" id="svg_149"/>
-                            <path d="m261.314998,202.570009l-2.74,0" fill="none" stroke="black" stroke-width="0.5" id="svg_150"/>
-                            <path d="m261.314998,306.980009l10.08,0" fill="none" stroke="black" stroke-width="0.5" id="svg_151"/>
-                            <path d="m291.914998,306.980009l11.55,0" fill="none" stroke="black" stroke-width="0.5" id="svg_152"/>
-                            <path d="m306.194998,306.980009l55.39,0" fill="none" stroke="black" stroke-width="0.5" id="svg_153"/>
-                            <path d="m261.314998,309.710009l10.08,0" fill="none" stroke="black" stroke-width="0.5" id="svg_154"/>
-                            <path d="m291.914998,309.710009l37.79,0" fill="none" stroke="black" stroke-width="0.5" id="svg_155"/>
-                            <path d="m291.914998,309.710009l69.67,0" fill="none" stroke="black" stroke-width="0.5" id="svg_156"/>
-                            <path d="m271.394998,306.980009l0,2.73" fill="none" stroke="black" stroke-width="0.5" id="svg_157"/>
-                            <path d="m291.914998,306.980009l0,2.73" fill="none" stroke="black" stroke-width="0.5" id="svg_158"/>
-                            <path d="m306.194998,275.400009l-2.73,0m2.73,20.51l-2.73,0" fill="none" stroke="black" stroke-width="0.5" id="svg_159"/>
-                            <path d="m197.714998,332.550009l9.12,0" fill="none" stroke="black" stroke-width="0.5" id="svg_160"/>
-                            <path d="m206.834998,332.550009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_161"/>
-                            <path d="m38.414998,255.000009l-6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_162"/>
-                            <path d="m38.414998,223.090009l-6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_163"/>
-                            <path d="m31.574998,223.090009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_164"/>
-                            <path d="m34.994998,223.090009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_165"/>
-                            <path d="m34.184998,223.090009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_166"/>
-                            <path d="m38.414998,223.090009l0,10.3" fill="none" stroke="black" stroke-width="0.5" id="svg_167"/>
-                            <path d="m38.414998,233.390009l0,21.61" fill="none" stroke="black" stroke-width="0.5" id="svg_168"/>
-                            <path d="m361.584998,255.000009l6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_169"/>
-                            <path d="m361.584998,223.090009l6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_170"/>
-                            <path d="m368.424998,223.090009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_171"/>
-                            <path d="m365.004998,223.090009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_172"/>
-                            <path d="m365.814998,223.090009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_173"/>
-                            <path d="m361.584998,223.090009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_174"/>
-                            <path d="m167.974998,332.550009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_175"/>
-                            <path d="m232.024998,332.550009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_176"/>
-                            <path d="m183.924998,332.550009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_177"/>
-                            <path d="m183.924998,332.550009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_178"/>
-                            <path d="m183.924998,339.390009l-14.3,4.33" fill="none" stroke="black" stroke-width="0.5" id="svg_179"/>
-                            <path d="m145.524998,366.250009l0,-2.61" fill="none" stroke="black" stroke-width="0.5" id="svg_180"/>
-                            <path d="m145.524998,343.130009l-6.84,0m6.84,20.51l-6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_181"/>
-                            <path d="m145.524998,343.130009l5.96,15.98" fill="none" stroke="black" stroke-width="0.5" id="svg_182"/>
-                            <path d="m38.414998,272.790009l32.01,0" fill="none" stroke="black" stroke-width="0.5" id="svg_183"/>
-                            <path d="m70.424998,266.860009l0,5.93" fill="none" stroke="black" stroke-width="0.5" id="svg_184"/>
-                            <path d="m70.424998,266.860009l23.38,0" fill="none" stroke="black" stroke-width="0.5" id="svg_185"/>
-                            <path d="m361.584998,272.790009l-32.02,0" fill="none" stroke="black" stroke-width="0.5" id="svg_186"/>
-                            <path d="m329.564998,266.900009l0,5.89" fill="none" stroke="black" stroke-width="0.5" id="svg_187"/>
-                            <path d="m97.674998,209.460009l-59.97,0" fill="none" stroke="yellow" stroke-width="0.5" id="svg_188"/>
-                            <path d="m38.414998,209.460009l59.26,0" fill="none" stroke="black" stroke-width="0.5" id="svg_189"/>
-                            <path d="m38.414998,203.760009l56.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_190"/>
-                            <path d="m233.954998,108.710009l-6.83,0" fill="none" stroke="black" stroke-width="0.5" id="svg_191"/>
-                            <path d="m206.604998,108.710009l-13.21,0" fill="none" stroke="black" stroke-width="0.5" id="svg_192"/>
-                            <path d="m172.874998,108.710009l-6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_193"/>
-                            <path d="m68.034998,108.710009l-36.46,0" fill="none" stroke="black" stroke-width="0.5" id="svg_194"/>
-                            <path d="m38.414998,359.860009l31.88,0" fill="none" stroke="black" stroke-width="0.5" id="svg_195"/>
-                            <path d="m31.574998,366.700009l31.88,0" fill="none" stroke="black" stroke-width="0.5" id="svg_196"/>
-                            <path d="m129.224998,394.050009l-9.92,0" fill="none" stroke="black" stroke-width="0.5" id="svg_197"/>
-                            <path d="m89.674998,394.050009l-9.93,0" fill="none" stroke="black" stroke-width="0.5" id="svg_198"/>
-                            <path d="m63.454998,377.500009l3.33,3.38" fill="none" stroke="black" stroke-width="0.5" id="svg_199"/>
-                            <path d="m76.374998,390.630009l3.37,3.42" fill="none" stroke="black" stroke-width="0.5" id="svg_200"/>
-                            <path d="m82.614998,387.210009l-1.37,-1.38" fill="none" stroke="black" stroke-width="0.5" id="svg_201"/>
-                            <path d="m71.654998,376.080009l-1.36,-1.38" fill="none" stroke="black" stroke-width="0.5" id="svg_202"/>
-                            <path d="m70.294998,365.580009l0,-5.72" fill="none" stroke="black" stroke-width="0.5" id="svg_203"/>
-                            <path d="m126.364998,387.210009l-7.06,0" fill="none" stroke="black" stroke-width="0.5" id="svg_204"/>
-                            <path d="m89.674998,387.210009l-7.06,0" fill="none" stroke="black" stroke-width="0.5" id="svg_205"/>
-                            <path d="m70.294998,359.860009l0,14.84" fill="none" stroke="black" stroke-width="0.5" id="svg_206"/>
-                            <path d="m63.454998,377.500009l0,-10.8" fill="none" stroke="black" stroke-width="0.5" id="svg_207"/>
-                            <path d="m89.674998,387.210009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_208"/>
-                            <path d="m119.304998,387.210009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_209"/>
-                            <path d="m81.244998,385.830009l-4.87,4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_210"/>
-                            <path d="m71.654998,376.080009l-4.87,4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_211"/>
-                            <path d="m89.674998,387.210009l29.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_212"/>
-                            <path d="m119.304998,394.050009l-29.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_213"/>
-                            <path d="m89.674998,390.630009l29.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_214"/>
-                            <path d="m119.304998,391.960009l-29.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_215"/>
-                            <path d="m71.654998,376.080009l9.59,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_216"/>
-                            <path d="m66.784998,380.880009l9.59,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_217"/>
-                            <path d="m69.214998,378.480009l9.6,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_218"/>
-                            <path d="m68.154998,379.530009l9.6,9.74" fill="none" stroke="black" stroke-width="0.5" id="svg_219"/>
-                            <path d="m145.524998,377.500009l-3.33,3.38" fill="none" stroke="black" stroke-width="0.5" id="svg_220"/>
-                            <path d="m126.364998,387.210009l1.36,-1.38" fill="none" stroke="black" stroke-width="0.5" id="svg_221"/>
-                            <path d="m137.324998,376.080009l1.36,-1.38" fill="none" stroke="black" stroke-width="0.5" id="svg_222"/>
-                            <path d="m127.724998,385.830009l4.87,4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_223"/>
-                            <path d="m137.324998,376.080009l4.87,4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_224"/>
-                            <path d="m142.194998,380.880009l-9.6,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_225"/>
-                            <path d="m139.754998,378.480009l-9.6,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_226"/>
-                            <path d="m140.814998,379.530009l-9.6,9.74" fill="none" stroke="black" stroke-width="0.5" id="svg_227"/>
-                            <path d="m132.594998,390.630009l-3.37,3.42" fill="none" stroke="black" stroke-width="0.5" id="svg_228"/>
-                            <path d="m361.584998,359.860009l-31.88,0" fill="none" stroke="black" stroke-width="0.5" id="svg_229"/>
-                            <path d="m368.424998,366.700009l-31.88,0" fill="none" stroke="black" stroke-width="0.5" id="svg_230"/>
-                            <path d="m270.774998,394.050009l9.92,0" fill="none" stroke="black" stroke-width="0.5" id="svg_231"/>
-                            <path d="m310.324998,394.050009l9.92,0" fill="none" stroke="black" stroke-width="0.5" id="svg_232"/>
-                            <path d="m336.544998,377.500009l-3.33,3.38" fill="none" stroke="black" stroke-width="0.5" id="svg_233"/>
-                            <path d="m323.624998,390.630009l-3.38,3.42" fill="none" stroke="black" stroke-width="0.5" id="svg_234"/>
-                            <path d="m317.384998,387.210009l1.36,-1.38" fill="none" stroke="black" stroke-width="0.5" id="svg_235"/>
-                            <path d="m328.344998,376.080009l1.36,-1.38" fill="none" stroke="black" stroke-width="0.5" id="svg_236"/>
-                            <path d="m329.704998,365.580009l0,-4.03" fill="none" stroke="black" stroke-width="0.5" id="svg_237"/>
-                            <path d="m273.634998,387.210009l7.06,0" fill="none" stroke="black" stroke-width="0.5" id="svg_238"/>
-                            <path d="m310.324998,387.210009l7.06,0" fill="none" stroke="black" stroke-width="0.5" id="svg_239"/>
-                            <path d="m329.704998,359.860009l0,14.84" fill="none" stroke="black" stroke-width="0.5" id="svg_240"/>
-                            <path d="m336.544998,377.500009l0,-10.8" fill="none" stroke="black" stroke-width="0.5" id="svg_241"/>
-                            <path d="m310.324998,387.210009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_242"/>
-                            <path d="m280.694998,387.210009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_243"/>
-                            <path d="m318.744998,385.830009l4.88,4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_244"/>
-                            <path d="m328.344998,376.080009l4.87,4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_245"/>
-                            <path d="m310.324998,387.210009l-29.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_246"/>
-                            <path d="m280.694998,394.050009l29.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_247"/>
-                            <path d="m310.324998,390.630009l-29.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_248"/>
-                            <path d="m280.694998,391.960009l29.63,0" fill="none" stroke="black" stroke-width="0.5" id="svg_249"/>
-                            <path d="m328.344998,376.080009l-9.6,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_250"/>
-                            <path d="m333.214998,380.880009l-9.59,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_251"/>
-                            <path d="m330.784998,378.480009l-9.6,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_252"/>
-                            <path d="m331.844998,379.530009l-9.6,9.74" fill="none" stroke="black" stroke-width="0.5" id="svg_253"/>
-                            <path d="m254.474998,377.500009l3.33,3.38" fill="none" stroke="black" stroke-width="0.5" id="svg_254"/>
-                            <path d="m273.634998,387.210009l-1.36,-1.38" fill="none" stroke="black" stroke-width="0.5" id="svg_255"/>
-                            <path d="m262.674998,376.080009l-1.36,-1.38" fill="none" stroke="black" stroke-width="0.5" id="svg_256"/>
-                            <path d="m272.274998,385.830009l-4.87,4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_257"/>
-                            <path d="m262.674998,376.080009l-4.87,4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_258"/>
-                            <path d="m262.674998,376.080009l9.6,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_259"/>
-                            <path d="m257.804998,380.880009l9.6,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_260"/>
-                            <path d="m260.244998,378.480009l9.59,9.75" fill="none" stroke="black" stroke-width="0.5" id="svg_261"/>
-                            <path d="m259.184998,379.530009l9.59,9.74" fill="none" stroke="black" stroke-width="0.5" id="svg_262"/>
-                            <path d="m267.404998,390.630009l3.37,3.42" fill="none" stroke="black" stroke-width="0.5" id="svg_263"/>
-                            <path d="m38.414998,309.710009l-6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_264"/>
-                            <path d="m38.414998,341.630009l-6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_265"/>
-                            <path d="m31.574998,341.630009l0,-31.92" fill="none" stroke="black" stroke-width="0.5" id="svg_266"/>
-                            <path d="m38.414998,341.630009l0,-31.92" fill="none" stroke="black" stroke-width="0.5" id="svg_267"/>
-                            <path d="m34.994998,341.630009l0,-31.92" fill="none" stroke="black" stroke-width="0.5" id="svg_268"/>
-                            <path d="m34.184998,341.630009l0,-31.92" fill="none" stroke="black" stroke-width="0.5" id="svg_269"/>
-                            <path d="m38.414998,309.710009l69.67,0" fill="none" stroke="black" stroke-width="0.5" id="svg_270"/>
-                            <path d="m128.594998,309.710009l10.09,0" fill="none" stroke="black" stroke-width="0.5" id="svg_271"/>
-                            <path d="m38.414998,306.980009l55.39,0" fill="none" stroke="black" stroke-width="0.5" id="svg_272"/>
-                            <path d="m96.534998,306.980009l11.55,0" fill="none" stroke="black" stroke-width="0.5" id="svg_273"/>
-                            <path d="m128.594998,306.980009l10.09,0" fill="none" stroke="black" stroke-width="0.5" id="svg_274"/>
-                            <path d="m38.414998,165.690009l-6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_275"/>
-                            <path d="m38.414998,133.780009l-6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_276"/>
-                            <path d="m31.574998,133.780009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_277"/>
-                            <path d="m38.414998,133.780009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_278"/>
-                            <path d="m34.994998,133.780009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_279"/>
-                            <path d="m34.184998,133.780009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_280"/>
-                            <path d="m361.584998,341.630009l6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_281"/>
-                            <path d="m368.424998,341.630009l0,-31.92" fill="none" stroke="black" stroke-width="0.5" id="svg_282"/>
-                            <path d="m361.584998,341.630009l0,-31.92" fill="none" stroke="black" stroke-width="0.5" id="svg_283"/>
-                            <path d="m365.004998,341.630009l0,-31.92" fill="none" stroke="black" stroke-width="0.5" id="svg_284"/>
-                            <path d="m365.814998,341.630009l0,-31.92" fill="none" stroke="black" stroke-width="0.5" id="svg_285"/>
-                            <path d="m361.584998,165.690009l6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_286"/>
-                            <path d="m361.584998,133.780009l6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_287"/>
-                            <path d="m368.424998,133.780009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_288"/>
-                            <path d="m361.584998,133.780009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_289"/>
-                            <path d="m365.004998,133.780009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_290"/>
-                            <path d="m365.814998,133.780009l0,31.91" fill="none" stroke="black" stroke-width="0.5" id="svg_291"/>
-                            <path d="m145.254998,76.800009l-12.26,0" fill="none" stroke="black" stroke-width="0.5" id="svg_292"/>
-                            <path d="m101.084998,76.800009l-12.26,0" fill="none" stroke="black" stroke-width="0.5" id="svg_293"/>
-                            <path d="m68.034998,97.900009l3.97,-4.03" fill="none" stroke="black" stroke-width="0.5" id="svg_294"/>
-                            <path d="m84.804998,80.880009l4.02,-4.08" fill="none" stroke="black" stroke-width="0.5" id="svg_295"/>
-                            <path d="m91.684998,83.640009l-2.01,2.04" fill="none" stroke="black" stroke-width="0.5" id="svg_296"/>
-                            <path d="m76.884998,98.670009l-2.01,2.04" fill="none" stroke="black" stroke-width="0.5" id="svg_297"/>
-                            <path d="m142.384998,83.640009l-9.39,0" fill="none" stroke="black" stroke-width="0.5" id="svg_298"/>
-                            <path d="m101.084998,83.640009l-9.4,0" fill="none" stroke="black" stroke-width="0.5" id="svg_299"/>
-                            <path d="m74.874998,115.550009l0,-14.84" fill="none" stroke="black" stroke-width="0.5" id="svg_300"/>
-                            <path d="m159.204998,115.550009l0,-14.84" fill="none" stroke="black" stroke-width="0.5" id="svg_301"/>
-                            <path d="m166.034998,108.710009l0,-10.81" fill="none" stroke="black" stroke-width="0.5" id="svg_302"/>
-                            <path d="m68.034998,97.900009l0,10.81" fill="none" stroke="black" stroke-width="0.5" id="svg_303"/>
-                            <path d="m101.084998,83.640009l0,-6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_304"/>
-                            <path d="m132.994998,83.640009l0,-6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_305"/>
-                            <path d="m89.674998,85.680009l-4.87,-4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_306"/>
-                            <path d="m76.884998,98.670009l-4.88,-4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_307"/>
-                            <path d="m101.084998,76.800009l31.91,0" fill="none" stroke="black" stroke-width="0.5" id="svg_308"/>
-                            <path d="m101.084998,83.640009l31.91,0" fill="none" stroke="black" stroke-width="0.5" id="svg_309"/>
-                            <path d="m101.084998,80.220009l31.91,0" fill="none" stroke="black" stroke-width="0.5" id="svg_310"/>
-                            <path d="m101.084998,81.420009l31.91,0" fill="none" stroke="black" stroke-width="0.5" id="svg_311"/>
-                            <path d="m132.994998,76.800009l12.26,0" fill="none" stroke="black" stroke-width="0.5" id="svg_312"/>
-                            <path d="m166.034998,97.900009l-3.97,-4.03" fill="none" stroke="black" stroke-width="0.5" id="svg_313"/>
-                            <path d="m149.264998,80.880009l-4.01,-4.08" fill="none" stroke="black" stroke-width="0.5" id="svg_314"/>
-                            <path d="m142.384998,83.640009l2.01,2.04" fill="none" stroke="black" stroke-width="0.5" id="svg_315"/>
-                            <path d="m157.194998,98.670009l2.01,2.04" fill="none" stroke="black" stroke-width="0.5" id="svg_316"/>
-                            <path d="m144.394998,85.680009l4.87,-4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_317"/>
-                            <path d="m157.194998,98.670009l4.87,-4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_318"/>
-                            <path d="m84.804998,80.880009l-12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_319"/>
-                            <path d="m89.674998,85.680009l-12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_320"/>
-                            <path d="m84.804998,80.880009l-12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_321"/>
-                            <path d="m89.674998,85.680009l-12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_322"/>
-                            <path d="m87.244998,83.280009l-12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_323"/>
-                            <path d="m88.024998,84.050009l-12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_324"/>
-                            <path d="m149.264998,80.880009l12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_325"/>
-                            <path d="m144.394998,85.680009l12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_326"/>
-                            <path d="m149.264998,80.880009l12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_327"/>
-                            <path d="m144.394998,85.680009l12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_328"/>
-                            <path d="m146.834998,83.280009l12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_329"/>
-                            <path d="m146.044998,84.050009l12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_330"/>
-                            <path d="m325.124998,108.710009l43.3,0" fill="none" stroke="black" stroke-width="0.5" id="svg_331"/>
-                            <path d="m254.744998,76.800009l12.26,0" fill="none" stroke="black" stroke-width="0.5" id="svg_332"/>
-                            <path d="m298.914998,76.800009l12.26,0" fill="none" stroke="black" stroke-width="0.5" id="svg_333"/>
-                            <path d="m331.964998,97.900009l-3.98,-4.03" fill="none" stroke="black" stroke-width="0.5" id="svg_334"/>
-                            <path d="m315.194998,80.880009l-4.02,-4.08" fill="none" stroke="black" stroke-width="0.5" id="svg_335"/>
-                            <path d="m308.314998,83.640009l2,2.04" fill="none" stroke="black" stroke-width="0.5" id="svg_336"/>
-                            <path d="m323.114998,98.670009l2.01,2.04" fill="none" stroke="black" stroke-width="0.5" id="svg_337"/>
-                            <path d="m257.604998,83.640009l9.4,0" fill="none" stroke="black" stroke-width="0.5" id="svg_338"/>
-                            <path d="m298.914998,83.640009l9.4,0" fill="none" stroke="black" stroke-width="0.5" id="svg_339"/>
-                            <path d="m325.124998,115.550009l0,-14.84" fill="none" stroke="black" stroke-width="0.5" id="svg_340"/>
-                            <path d="m240.794998,115.550009l0,-14.84" fill="none" stroke="black" stroke-width="0.5" id="svg_341"/>
-                            <path d="m233.954998,108.710009l0,-10.81" fill="none" stroke="black" stroke-width="0.5" id="svg_342"/>
-                            <path d="m331.964998,97.900009l0,10.81" fill="none" stroke="black" stroke-width="0.5" id="svg_343"/>
-                            <path d="m298.914998,83.640009l0,-6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_344"/>
-                            <path d="m267.004998,83.640009l0,-6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_345"/>
-                            <path d="m310.314998,85.680009l4.88,-4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_346"/>
-                            <path d="m323.114998,98.670009l4.87,-4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_347"/>
-                            <path d="m298.914998,76.800009l-31.91,0" fill="none" stroke="black" stroke-width="0.5" id="svg_348"/>
-                            <path d="m298.914998,83.640009l-31.91,0" fill="none" stroke="black" stroke-width="0.5" id="svg_349"/>
-                            <path d="m298.914998,80.220009l-31.91,0" fill="none" stroke="black" stroke-width="0.5" id="svg_350"/>
-                            <path d="m298.914998,81.420009l-31.91,0" fill="none" stroke="black" stroke-width="0.5" id="svg_351"/>
-                            <path d="m267.004998,76.800009l-12.26,0" fill="none" stroke="black" stroke-width="0.5" id="svg_352"/>
-                            <path d="m233.954998,97.900009l3.98,-4.03" fill="none" stroke="black" stroke-width="0.5" id="svg_353"/>
-                            <path d="m250.724998,80.880009l4.02,-4.08" fill="none" stroke="black" stroke-width="0.5" id="svg_354"/>
-                            <path d="m257.604998,83.640009l-2,2.04" fill="none" stroke="black" stroke-width="0.5" id="svg_355"/>
-                            <path d="m242.804998,98.670009l-2.01,2.04" fill="none" stroke="black" stroke-width="0.5" id="svg_356"/>
-                            <path d="m255.604998,85.680009l-4.88,-4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_357"/>
-                            <path d="m242.804998,98.670009l-4.87,-4.8" fill="none" stroke="black" stroke-width="0.5" id="svg_358"/>
-                            <path d="m315.194998,80.880009l12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_359"/>
-                            <path d="m310.314998,85.680009l12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_360"/>
-                            <path d="m315.194998,80.880009l12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_361"/>
-                            <path d="m310.314998,85.680009l12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_362"/>
-                            <path d="m312.754998,83.280009l12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_363"/>
-                            <path d="m311.974998,84.050009l12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_364"/>
-                            <path d="m250.724998,80.880009l-12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_365"/>
-                            <path d="m255.604998,85.680009l-12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_366"/>
-                            <path d="m250.724998,80.880009l-12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_367"/>
-                            <path d="m255.604998,85.680009l-12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_368"/>
-                            <path d="m253.164998,83.280009l-12.8,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_369"/>
-                            <path d="m253.944998,84.050009l-12.79,12.99" fill="none" stroke="black" stroke-width="0.5" id="svg_370"/>
-                            <path d="m193.394998,115.550009l10.93,0" fill="none" stroke="black" stroke-width="0.5" id="svg_371"/>
-                            <path d="m240.794998,115.550009l-13.67,0" fill="none" stroke="black" stroke-width="0.5" id="svg_372"/>
-                            <path d="m206.604998,115.550009l-2.28,0" fill="none" stroke="black" stroke-width="0.5" id="svg_373"/>
-                            <path d="m325.124998,115.550009l36.46,0" fill="none" stroke="black" stroke-width="0.5" id="svg_374"/>
-                            <path d="m361.584998,203.760009l-56.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_375"/>
-                            <path d="m361.584998,254.370009l0,55.34" fill="none" stroke="black" stroke-width="0.5" id="svg_376"/>
-                            <path d="m48.274998,209.460009l14.07,23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_377"/>
-                            <path d="m38.414998,254.370009l23.93,-14.11" fill="none" stroke="blue" stroke-width="0.5" id="svg_378"/>
-                            <path d="m48.274998,264.230009l14.07,-23.97" fill="none" stroke="blue" stroke-width="0.5" id="svg_379"/>
-                            <path d="m103.374998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_380"/>
-                            <path d="m97.674998,209.460009l5.7,0" fill="none" stroke="blue" stroke-width="0.5" id="svg_381"/>
-                            <path d="m38.414998,203.760009l0,-13.68" fill="none" stroke="blue" stroke-width="0.5" id="svg_382"/>
-                            <path d="m52.084998,203.760009l-13.67,0" fill="none" stroke="blue" stroke-width="0.5" id="svg_383"/>
-                            <path d="m143.014998,305.320009l-8.69,-13.36" fill="none" stroke="black" stroke-width="0.5" id="svg_384"/>
-                            <path d="m143.014998,228.790009l-6.38,15.21" fill="none" stroke="black" stroke-width="0.5" id="svg_385"/>
-                            <path d="m95.164998,300.720009l7.17,-16.68" fill="none" stroke="black" stroke-width="0.5" id="svg_386"/>
-                            <path d="m128.594998,308.350009l-18.67,7.46" fill="none" stroke="black" stroke-width="0.5" id="svg_387"/>
-                            <path d="m256.984998,228.790009l6.46,14.46" fill="none" stroke="black" stroke-width="0.5" id="svg_388"/>
-                            <path d="m183.924998,337.870009l-14.3,4.33" fill="none" stroke="black" stroke-width="0.5" id="svg_389"/>
-                            <path d="m143.494998,343.130009l5.96,15.98" fill="none" stroke="black" stroke-width="0.5" id="svg_390"/>
-                            <path d="m271.394998,308.350009l17.72,6.95" fill="none" stroke="black" stroke-width="0.5" id="svg_391"/>
-                            <path d="m304.824998,275.400009l-5.58,16.23" fill="none" stroke="black" stroke-width="0.5" id="svg_392"/>
-                            <path d="m323.974998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_393"/>
-                            <path d="m167.084998,55.290009l65.82,0" fill="none" stroke="black" stroke-width="0.5" id="svg_394"/>
-                            <path d="m145.254998,76.800009l21.83,-21.51" fill="none" stroke="black" stroke-width="0.5" id="svg_395"/>
-                            <path d="m254.744998,76.800009l-21.84,-21.51" fill="none" stroke="black" stroke-width="0.5" id="svg_396"/>
-                            <path d="m97.554998,234.990009l0,30.76" fill="none" stroke="black" stroke-width="0.5" id="svg_397"/>
-                            <path d="m97.554998,265.750009l1.14,0" fill="none" stroke="black" stroke-width="0.5" id="svg_398"/>
-                            <path d="m98.694998,265.750009l0,-30.76" fill="none" stroke="black" stroke-width="0.5" id="svg_399"/>
-                            <path d="m98.694998,234.990009l-1.14,0" fill="none" stroke="black" stroke-width="0.5" id="svg_400"/>
-                            <path d="m103.374998,233.390009l0,0.46" fill="none" stroke="black" stroke-width="0.5" id="svg_401"/>
-                            <path d="m103.374998,233.850009l-40.57,0" fill="none" stroke="black" stroke-width="0.5" id="svg_402"/>
-                            <path d="m103.374998,234.990009l-39.43,0" fill="none" stroke="black" stroke-width="0.5" id="svg_403"/>
-                            <path d="m62.344998,233.850009l0.46,0" fill="none" stroke="black" stroke-width="0.5" id="svg_404"/>
-                            <path d="m62.804998,233.850009l0,5.96" fill="none" stroke="black" stroke-width="0.5" id="svg_405"/>
-                            <path d="m63.944998,234.990009l0,3.68" fill="none" stroke="black" stroke-width="0.5" id="svg_406"/>
-                            <path d="m62.804998,240.260009l0,-0.45" fill="none" stroke="black" stroke-width="0.5" id="svg_407"/>
-                            <path d="m62.804998,239.810009l33.73,0" fill="none" stroke="black" stroke-width="0.5" id="svg_408"/>
-                            <path d="m63.944998,238.670009l32.59,0" fill="none" stroke="black" stroke-width="0.5" id="svg_409"/>
-                            <path d="m103.374998,233.850009l0,1.14" fill="none" stroke="black" stroke-width="0.5" id="svg_410"/>
-                            <path d="m361.584998,233.390009l-64.96,0" fill="none" stroke="blue" stroke-width="0.5" id="svg_411"/>
-                            <path d="m330.814998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_412"/>
-                            <path d="m323.974998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_413"/>
-                            <path d="m337.654998,209.490009l0,54.71" fill="none" stroke="blue" stroke-width="0.5" id="svg_414"/>
-                            <path d="m330.814998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_415"/>
-                            <path d="m323.974998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_416"/>
-                            <path d="m317.134998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_417"/>
-                            <path d="m310.294998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_418"/>
-                            <path d="m303.464998,240.260009l0,23.94" fill="none" stroke="blue" stroke-width="0.5" id="svg_419"/>
-                            <path d="m303.464998,240.260009l58.12,0" fill="none" stroke="blue" stroke-width="0.5" id="svg_420"/>
-                            <path d="m361.584998,219.320009l-23.93,14.07" fill="none" stroke="blue" stroke-width="0.5" id="svg_421"/>
-                            <path d="m317.134998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_422"/>
-                            <path d="m310.294998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_423"/>
-                            <path d="m303.464998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_424"/>
-                            <path d="m351.724998,209.460009l-14.07,23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_425"/>
-                            <path d="m361.584998,254.370009l-23.93,-14.07" fill="none" stroke="blue" stroke-width="0.5" id="svg_426"/>
-                            <path d="m351.724998,264.230009l-14.07,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_427"/>
-                            <path d="m296.624998,233.390009l0,-23.93" fill="none" stroke="blue" stroke-width="0.5" id="svg_428"/>
-                            <path d="m302.324998,209.460009l-5.7,0" fill="none" stroke="black" stroke-width="0.5" id="svg_429"/>
-                            <path d="m302.444998,265.750009l-1.14,0" fill="none" stroke="black" stroke-width="0.5" id="svg_430"/>
-                            <path d="m302.444998,234.990009l0,30.76" fill="none" stroke="black" stroke-width="0.5" id="svg_431"/>
-                            <path d="m301.304998,265.750009l0,-30.76" fill="none" stroke="black" stroke-width="0.5" id="svg_432"/>
-                            <path d="m301.304998,234.990009l1.14,0" fill="none" stroke="black" stroke-width="0.5" id="svg_433"/>
-                            <path d="m296.624998,233.390009l0,0.46" fill="none" stroke="black" stroke-width="0.5" id="svg_434"/>
-                            <path d="m296.624998,233.850009l40.57,0" fill="none" stroke="black" stroke-width="0.5" id="svg_435"/>
-                            <path d="m296.624998,234.990009l39.43,0" fill="none" stroke="black" stroke-width="0.5" id="svg_436"/>
-                            <path d="m337.654998,233.850009l-0.46,0" fill="none" stroke="black" stroke-width="0.5" id="svg_437"/>
-                            <path d="m337.194998,240.260009l0,-0.45" fill="none" stroke="black" stroke-width="0.5" id="svg_438"/>
-                            <path d="m337.194998,233.850009l0,5.96" fill="none" stroke="black" stroke-width="0.5" id="svg_439"/>
-                            <path d="m336.054998,234.990009l0,3.68" fill="none" stroke="black" stroke-width="0.5" id="svg_440"/>
-                            <path d="m336.054998,238.670009l-32.59,0" fill="none" stroke="black" stroke-width="0.5" id="svg_441"/>
-                            <path d="m337.194998,239.810009l-33.73,0" fill="none" stroke="black" stroke-width="0.5" id="svg_442"/>
-                            <path d="m296.624998,233.850009l0,1.14" fill="none" stroke="black" stroke-width="0.5" id="svg_443"/>
-                            <path d="m195.664998,221.770009l0,2.73" fill="none" stroke="black" stroke-width="0.5" id="svg_444"/>
-                            <path d="m195.664998,221.770009l0,2.73" fill="none" stroke="black" stroke-width="0.5" id="svg_445"/>
-                            <path d="m195.664998,221.770009l0,2.73" fill="none" stroke="black" stroke-width="0.5" id="svg_446"/>
-                            <path d="m204.324998,212.190009l0,2.74" fill="none" stroke="black" stroke-width="0.5" id="svg_447"/>
-                            <path d="m195.664998,209.460009l0,5.47" fill="none" stroke="black" stroke-width="0.5" id="svg_448"/>
-                            <path d="m145.524998,370.840009l108.95,0" fill="none" stroke="black" stroke-width="0.5" id="svg_449"/>
-                            <path d="m193.164998,373.580009l61.31,0" fill="none" stroke="black" stroke-width="0.5" id="svg_450"/>
-                            <path d="m166.034998,108.710009l6.84,0" fill="none" stroke="black" stroke-width="0.5" id="svg_451"/>
-                            <path d="m195.664998,115.550009l-2.27,0" fill="none" stroke="black" stroke-width="0.5" id="svg_452"/>
-                            <path d="m172.874998,108.710009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_453"/>
-                            <path d="m193.394998,108.710009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_454"/>
-                            <path d="m206.604998,108.710009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_455"/>
-                            <path d="m227.124998,108.710009l0,6.84" fill="none" stroke="black" stroke-width="0.5" id="svg_456"/>
-                            <path d="m172.874998,108.710009l20.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_457"/>
-                            <path d="m172.874998,115.550009l20.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_458"/>
-                            <path d="m172.874998,112.130009l20.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_459"/>
-                            <path d="m172.874998,113.330009l20.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_460"/>
-                            <path d="m206.604998,108.710009l20.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_461"/>
-                            <path d="m206.604998,115.550009l20.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_462"/>
-                            <path d="m206.604998,112.130009l20.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_463"/>
-                            <path d="m206.604998,113.330009l20.52,0" fill="none" stroke="black" stroke-width="0.5" id="svg_464"/>
-                            <path d="m30.434998,107.540009l36.46,0" fill="none" stroke="black" stroke-width="0.5" id="svg_465"/>
-                            <path d="m30.434998,367.360009l31.88,0" fill="none" stroke="black" stroke-width="0.5" id="svg_466"/>
-                            <path d="m30.434998,107.540009l0,259.82" fill="none" stroke="black" stroke-width="0.5" id="svg_467"/>
-                            <path d="m129.704998,394.710009l-50.43,0" fill="none" stroke="black" stroke-width="0.5" id="svg_468"/>
-                            <path d="m62.314998,367.360009l0,10.13" fill="none" stroke="black" stroke-width="0.5" id="svg_469"/>
-                            <path d="m146.664998,340.490009l0,37" fill="none" stroke="black" stroke-width="0.5" id="svg_470"/>
-                            <path d="m62.314998,377.490009l16.96,17.22" fill="none" stroke="black" stroke-width="0.5" id="svg_471"/>
-                            <path d="m129.704998,394.710009l16.96,-17.22" fill="none" stroke="black" stroke-width="0.5" id="svg_472"/>
-                            <path d="m253.334998,340.490009l-106.67,0" fill="none" stroke="black" stroke-width="0.5" id="svg_473"/>
-                            <path d="m369.564998,367.360009l-31.88,0" fill="none" stroke="black" stroke-width="0.5" id="svg_474"/>
-                            <path d="m253.334998,340.490009l0,37" fill="none" stroke="black" stroke-width="0.5" id="svg_475"/>
-                            <path d="m270.294998,394.710009l50.43,0" fill="none" stroke="black" stroke-width="0.5" id="svg_476"/>
-                            <path d="m337.684998,367.360009l0,10.13" fill="none" stroke="black" stroke-width="0.5" id="svg_477"/>
-                            <path d="m270.294998,394.710009l-16.96,-17.22" fill="none" stroke="black" stroke-width="0.5" id="svg_478"/>
-                            <path d="m337.684998,377.490009l-16.96,17.22" fill="none" stroke="black" stroke-width="0.5" id="svg_479"/>
-                            <path d="m369.564998,107.540009l0,259.82" fill="none" stroke="black" stroke-width="0.5" id="svg_480"/>
-                            <path d="m145.724998,75.660009l-57.38,0" fill="none" stroke="black" stroke-width="0.5" id="svg_481"/>
-                            <path d="m66.894998,97.440009l21.45,-21.78" fill="none" stroke="black" stroke-width="0.5" id="svg_482"/>
-                            <path d="m167.174998,107.570009l0,-10.13" fill="none" stroke="black" stroke-width="0.5" id="svg_483"/>
-                            <path d="m66.894998,97.440009l0,10.1" fill="none" stroke="black" stroke-width="0.5" id="svg_484"/>
-                            <path d="m167.174998,97.440009l-21.45,-21.78" fill="none" stroke="black" stroke-width="0.5" id="svg_485"/>
-                            <path d="m369.564998,107.540009l-36.46,0" fill="none" stroke="black" stroke-width="0.5" id="svg_486"/>
-                            <path d="m254.264998,75.660009l57.39,0" fill="none" stroke="black" stroke-width="0.5" id="svg_487"/>
-                            <path d="m333.104998,97.440009l-21.45,-21.78" fill="none" stroke="black" stroke-width="0.5" id="svg_488"/>
-                            <path d="m232.814998,107.570009l0,-10.13" fill="none" stroke="black" stroke-width="0.5" id="svg_489"/>
-                            <path d="m333.104998,97.440009l0,10.1" fill="none" stroke="black" stroke-width="0.5" id="svg_490"/>
-                            <path d="m232.814998,97.440009l21.45,-21.78" fill="none" stroke="black" stroke-width="0.5" id="svg_491"/>
-                            <path d="m167.174998,107.570009l65.64,0" fill="none" stroke="black" stroke-width="0.5" id="svg_492"/>
-                            <path d="m43.304998,272.790009l2.73,0" fill="none" stroke="black" stroke-width="0.5" id="svg_493"/>
-                            <path d="m70.424998,266.860009l0,-2.7" fill="none" stroke="black" stroke-width="0.5" id="svg_494"/>
-                            <path d="m172.754998,115.550009l-13.55,0" fill="none" stroke="black" stroke-width="0.5" id="svg_495"/>
-                            <path d="m38.414998,115.550009l36.46,0" fill="none" stroke="black" stroke-width="0.5" id="svg_496"/>
-                            <path d="m172.754998,115.550009l-13.55,0" fill="none" stroke="black" stroke-width="0.5" id="svg_497"/>
-                            <path d="m124.484998,115.550009l-8.81,0" fill="none" stroke="black" stroke-width="0.5" id="svg_498"/>
-                            <path d="m109.594998,115.550009l6.08,0" fill="none" stroke="black" stroke-width="0.5" id="svg_499"/>
-                            <path d="m124.484998,115.550009l0,-2.74" fill="none" stroke="black" stroke-width="0.5" id="svg_500"/>
-                            <path d="m90.384998,120.810009l-12.52,-5.26" fill="none" stroke="black" stroke-width="0.5" id="svg_501"/>
-                            <path d="m115.674998,176.930009l0,-61.38" fill="none" stroke="black" stroke-width="0.5" id="svg_502"/>
-                            <path d="m118.404998,176.930009l0,-61.38" fill="none" stroke="black" stroke-width="0.5" id="svg_503"/>
-                            <path d="m109.594998,112.810009l14.89,0" fill="none" stroke="black" stroke-width="0.5" id="svg_504"/>
-                            <path d="m97.914998,179.780009l8.39,12" fill="none" stroke="black" stroke-width="0.5" id="svg_505"/>
-                            <path d="m74.874998,115.550009l2.81,0" fill="none" stroke="black" stroke-width="0.5" id="svg_506"/>
-                            <path d="m77.864998,115.550009l-16.48,0" fill="none" stroke="black" stroke-width="0.5" id="svg_507"/>
-                            <path d="m77.864998,115.550009l0,-2.74" fill="none" stroke="black" stroke-width="0.5" id="svg_508"/>
-                            <path d="m77.864998,112.810009l-2.99,0" fill="none" stroke="black" stroke-width="0.5" id="svg_509"/>
-                            <path d="m109.594998,115.150009l-13.68,0" fill="none" stroke="black" stroke-width="0.5" id="svg_510"/>
-                            <path d="m109.594998,112.810009l-13.68,0" fill="none" stroke="black" stroke-width="0.5" id="svg_511"/>
-                            <path d="m109.594998,114.010009l-13.68,0" fill="none" stroke="black" stroke-width="0.5" id="svg_512"/>
-                            <path d="m95.914998,115.180009l0,-2.34" fill="none" stroke="black" stroke-width="0.5" id="svg_513"/>
-                            <path d="m124.484998,113.200009l13.67,0" fill="none" stroke="black" stroke-width="0.5" id="svg_514"/>
-                            <path d="m124.484998,115.550009l13.67,0" fill="none" stroke="black" stroke-width="0.5" id="svg_515"/>
-                            <path d="m124.484998,114.350009l13.67,0" fill="none" stroke="black" stroke-width="0.5" id="svg_516"/>
-                            <path d="m138.154998,113.180009l0,2.34" fill="none" stroke="black" stroke-width="0.5" id="svg_517"/>
-                            <path d="m150.674998,120.810009l-12.52,-5.26" fill="none" stroke="black" stroke-width="0.5" id="svg_518"/>
-                            <path d="m30.434998,107.540009l0,259.82" fill="none" stroke="black" stroke-width="0.5" id="svg_519"/>
-                            <path d="m94.934998,179.780009l43.75,0" fill="none" stroke="black" stroke-width="0.5" id="svg_520"/>
-                            <path d="m94.934998,176.930009l20.74,0" fill="none" stroke="black" stroke-width="0.5" id="svg_521"/>
-                            <path d="m118.404998,176.930009l20.28,0" fill="none" stroke="black" stroke-width="0.5" id="svg_522"/>
-                            <path d="m94.934998,179.780009l0,-2.8" fill="none" stroke="black" stroke-width="0.5" id="svg_523"/>
-                            <path d="m135.704998,179.780009l-8.39,12" fill="none" stroke="black" stroke-width="0.5" id="svg_524"/>
-                    </g>
-
+            <svg viewBox="20 0 360 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <g className="secondFloorBedroomRight">
+                    <path
+                        d="m204.66665,115.99978l36.66622,0l0,-14.93331l16.26664,-16.79996l50.3999,0l16.5333,16.5333l0,15.19997l36.53327,0.26666l-0.26667,86.93317l-102.93314,0l0,3.2l-53.06656,0l-0.13296,-90.39983z"
+                        fill={colorSecondFloorBedroomRight}
+                        opacity="0.5"
+                        onClick={() => console.log('secondFloorBedroomRight')}
+                    />
+                </g>
+                <g className="SecFloorCabinetRight">
+                    <path
+                        d="m261.88679,310l99.24528,0.18867l0.18868,49.24529l-31.88679,0c0,0 -0.18868,14.5283 -0.18868,14.71698c0,0.18868 -11.88679,12.64151 -11.88679,12.64151c0,0 -43.20755,-0.18868 -43.20755,-0.18868c0,0 -12.26415,-12.07547 -12.26415,-12.07547c0,0 0,-64.5283 0,-64.5283z"
+                        fill={colorSecondCabinetRight}
+                        opacity="0.5"
+                        onClick={() => console.log('SecFloorCabinetRight')}
+                    />
+                </g>
+                <g className="SecFloorD1">
+                    <path
+                        d="m38.723404,116.028369l76.453901,-0.283688l0,60.851064l-20.70922,0l0,26.666666l-55.886525,0l0.141844,-87.234042z"
+                        fill={colorSecondFloorD1}
+                        opacity="0.5"
+                        onClick={() => console.log('SecFloorD1')}
+                    />
+                </g>
+                <g className="SecFloorD2">
+                    <path
+                        d="m118.799902,115.999908c0.133333,0 76.533272,0 76.39994,-0.000002c0.133332,0.000002 0.133332,90.39993 0,90.399927c0.133332,0.000003 -53.466625,-0.13333 -53.599957,-0.133334c0.133332,0.000004 -0.133335,-3.733327 -0.133335,-3.86666c0,-0.133333 -2.399998,-22.399982 -2.533329,-22.399985c0.133331,0.000003 -0.000002,-3.466661 -0.133334,-3.466664c0.133332,0.000003 -19.999985,0.000003 -20.133317,0c0.133332,0.000003 -0.000001,-60.533282 0.133332,-60.533282z"
+                        fill={colorSecondFloorD2}
+                        opacity="0.5"
+                        onClick={() => console.log('SecFloorD2')}
+                    />
+                </g>
+                <g className="SecFloorCabinetLeft">
+                    <path
+                        d="m38.723385,310.070827l99.432598,-0.141851c0.141839,0.000007 0.425527,64.538994 0.425527,64.538994c0,0 -12.482266,12.482265 -12.624105,12.482257c0.141839,0.000008 -43.120559,0.000008 -43.262397,0c0.141838,0.000008 -12.198583,-12.340413 -12.340421,-12.340421c0.141838,0.000008 0.141838,-14.893605 0,-14.893612c0.141838,0.000007 -31.631202,-0.141837 -31.773039,-0.141844c0.141837,0.000007 -0.000007,-50.070899 0.141837,-49.503523z"
+                        fill={colorSecondCabinetLeft}
+                        opacity="0.5"
+                        onClick={() => console.log('SecFloorCabinetLeft')}
+                    />
+                </g>
+                <g className="SecFloorBedroomLeft">
+                    <path
+                        d="m147.834819,270.51504l104.329739,-0.412365l-0.206185,61.855574l-104.535921,0l0.412367,-61.443209z"
+                        fill={colorSecondFloorBedroomLeft}
+                        opacity="0.5"
+                        onClick={() => console.log('SecFloorBedroomLeft')}
+                    />
+                </g>
+                <g className="secFloorHF_WC_Left" transform="translate(0, 5)">
+                    <path id="svg_5537"
+                          d="m153.953099,211.423513c-22.43008,0.37021 29.67218,-0.36468 34.61939,-0.4171c4.94721,-0.05242 5.10709,5.27423 0.10428,5.21376c-5.00281,-0.06047 -30.28756,0.1254 -34.6194,0.20855c-4.33184,0.08315 -4.38764,5.54326 0,5.31804c4.38764,-0.22522 29.54318,-0.25499 34.51512,-0.20855c4.97194,0.04644 5.20612,5.14805 -0.20855,5.00521c-5.41467,-0.14284 -30.04945,0.50117 -34.41084,0.52138c-4.36139,0.02022 -4.201,5.19185 0.10427,5.21376c4.30527,0.02191 29.38668,-0.22203 34.51512,-0.20855c5.12844,0.01348 5.12899,5.04903 0.10428,5.21377c-4.85997,-0.08238 -34.6194,0.31282 -34.72367,0.20855c-4.35147,0.0299 -4.23956,5.89988 0.10427,5.63086c4.55239,0.02191 34.6194,-0.20855 34.51512,-0.31282c5.10378,-0.05242 5.33754,5.17519 0.20855,5.21376c-5.12899,0.03857 -29.72423,0.17858 -34.61939,0.20855c-4.89516,0.02997 -4.8433,4.25339 -0.20855,4.27529c4.63475,0.0219 59.72629,-0.37329 34.82794,-0.31283"
+                          opacity="0.5"
+                          strokeWidth="2"
+                          stroke={isOnSecondFloorHF_WC_Left ? "red" : "grey"}
+                          fill="none"
+                    />
+                </g>
+                <g className="secondFloorHF_WC_Right" transform="translate(0, 5)">
+                    <path id="svg_5536"
+                          d="m210.32169,211.15251c-22.43008,0.37021 29.67218,-0.36468 34.61939,-0.4171c4.94721,-0.05242 5.10709,5.27423 0.10428,5.21376c-5.00281,-0.06047 -30.28756,0.1254 -34.6194,0.20855c-4.33184,0.08315 -4.38764,5.54326 0,5.31804c4.38764,-0.22522 29.54318,-0.25499 34.51512,-0.20855c4.97194,0.04644 5.20612,5.14805 -0.20855,5.00521c-5.41467,-0.14284 -30.04945,0.50117 -34.41084,0.52138c-4.36139,0.02022 -4.201,5.19185 0.10427,5.21376c4.30527,0.02191 29.38668,-0.22203 34.51512,-0.20855c5.12844,0.01348 5.12899,5.04903 0.10428,5.21377c-4.85997,-0.08238 -34.6194,0.31282 -34.72367,0.20855c-4.35147,0.0299 -4.23956,5.89988 0.10427,5.63086c4.55239,0.02191 34.6194,-0.20855 34.51512,-0.31282c5.10378,-0.05242 5.33754,5.17519 0.20855,5.21376c-5.12899,0.03857 -29.72423,0.17858 -34.61939,0.20855c-4.89516,0.02997 -4.8433,4.25339 -0.20855,4.27529c4.63475,0.0219 59.72629,-0.37329 34.82794,-0.31283"
+                          opacity="0.5"
+                          strokeWidth="2"
+                          stroke={isOnSecondFloorHF_WC_Right ? "red" : "grey"}
+                          fill="none"
+                    />
+                </g>
+                <g transform="translate(175, 60)">>
+                    <TemperatureTile temperature={temperatureOutdoor.value} />
+                </g>
+                <g transform="translate(50, 140)">>
+                    <TemperatureTile temperature={temperatureD1.value} />
+                </g>
+                <g transform="translate(130, 140)">>
+                    <TemperatureTile temperature={temperatureD2.value} />
+                </g>
+                <g transform="translate(260, 140)">
+                    <TemperatureTile temperature={temperatureBedroomRight.value} />
+                </g>
+                <g transform="translate(65, 325)">
+                    <TemperatureTile temperature={temperatureCabinetLeft.value} />
+                </g>
+                <g transform="translate(175, 290)">
+                    <TemperatureTile temperature={temperatureBedroomLeft.value} />
+                </g>
+                <g transform="translate(290, 325)">
+                    <TemperatureTile temperature={temperatureCabinetRight.value} />
+                </g>
+                <g transform="translate(152, 230)">
+                    <HFTemperatureTile temperature={temperatureHFWC2Left.value} />
+                </g>
+                <SecondFloorPlan />
             </svg>
         </div>
     )

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import FirstFloorItem  from '../../FirstFloorItem';
+import SecondFloorItem  from '../../SecondFloorItem';
 import { setTitle } from '../../../actions/menuActions';
 import styles from './PlansPage.css';
 
@@ -13,6 +14,7 @@ class PlansPage extends React.Component {
         return (
             <div className={styles.container}>
                 <FirstFloorItem />
+                <SecondFloorItem />
             </div>
         );
     }

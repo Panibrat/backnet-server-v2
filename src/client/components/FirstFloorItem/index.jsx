@@ -1,13 +1,6 @@
 import { connect } from 'react-redux';
 import FirstFloorItem from './FirstFloorItem';
-
-const findPoint = (point, pointsList) => {
-    const index = pointsList.findIndex(item => item.title === point);
-    if (index === -1) {
-        return 99;
-    }
-    return pointsList[index];
-};
+import { findPoint } from '../../common/helpers';
 
 const mapStateToProps = (store) => {
     return {

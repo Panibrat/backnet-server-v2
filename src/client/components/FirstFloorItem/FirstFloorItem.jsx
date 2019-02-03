@@ -1,10 +1,9 @@
 import React from 'react';
-import * as d3 from 'd3';
-
-import styles from './FirstFloorItem.css';
+import { convertDiffTemperaturesToColor } from '../../common/helpers';
 import FirstFloorPlan from './FirstFloorPlan';
-import TemperatureTile from './Components/TemperatureTile/TemperatureTile';
-import HFTemperatureTile from './Components/HFTemperatureTile/HFTemperatureTile';
+import TemperatureTile from '../../common/Components/TemperatureTile/TemperatureTile';
+import HFTemperatureTile from '../../common/Components/HFTemperatureTile/HFTemperatureTile';
+import styles from './FirstFloorItem.css';
 
 const FirstFloorItem = (props) => {
     const {
@@ -32,10 +31,6 @@ const FirstFloorItem = (props) => {
         isOnFirstFloorHF_hall_Right,
     } = props;
 
-        const convertDiffTemperaturesToColor = (temperature, setPoint) => {
-            const t = (temperature - setPoint + 5 ) / 10;
-            return d3.interpolateRgbBasis(['blue', 'lightblue', 'green', 'yellow', 'red'])(t);
-        };
         const colorZalLeft = convertDiffTemperaturesToColor(temperatureZalLeft.value, spTemperatureZalLeft.value);
         const colorZalRight = convertDiffTemperaturesToColor(temperatureZalRight.value, spTemperatureZalRight.value);
         const colorKitchenLeft = convertDiffTemperaturesToColor(temperatureKitchenLeft.value, spTemperatureKitchenLeft.value);
@@ -139,7 +134,7 @@ const FirstFloorItem = (props) => {
                               fill="none"
                         />
                     </g>
-                <g transform="translate(175, 50)">>
+                <g transform="translate(175, 60)">>
                     <TemperatureTile temperature={temperatureOutdoor.value} />
                 </g>
                 <g transform="translate(95, 140)">>

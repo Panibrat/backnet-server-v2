@@ -362,6 +362,76 @@
     "trend": false
   },
   {
+    "title": "AI3000767",
+    "name": "iT_D1",
+    "description": "Температура воздуха в детской 1",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 24,
+    "trend": false
+  },
+  {
+    "title": "AI3000773",
+    "name": "iT_Bedroom_L",
+    "description": "Температура воздуха в спальне",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 16,
+    "trend": false
+  },
+  {
+    "title": "AI3000792",
+    "name": "oSP_D1",
+    "description": "Уставка температуры воздуха в детской 1",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 22,
+    "trend": false
+  },
+  {
+    "title": "AI3000790",
+    "name": "oSP_Bedroom_L",
+    "description": "Уставка температуры воздуха в спальне (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 28,
+    "trend": false
+  },
+  {
+    "title": "AI3000791",
+    "name": "oSP_D2",
+    "description": "Уставка температуры воздуха в детской 2",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 22,
+    "trend": false
+  },
+  {
+    "title": "AI3000769",
+    "name": "iT_D2",
+    "description": "Температура воздуха в детской 2",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 26,
+    "trend": false
+  },
+  {
+    "title": "AI3000772",
+    "name": "iT_Cabinet_L",
+    "description": "Температура воздуха кабинете (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 18,
+    "trend": false
+  },
+  {
     "title": "AI3000793",
     "name": "oSP_Kitchen",
     "description": "Уставка температуры воздуха в кухне (лево)",
@@ -369,6 +439,36 @@
     "units": "℃",
     "readOnly": true,
     "value": 16,
+    "trend": false
+  },
+  {
+    "title": "AI3000789",
+    "name": "oSP_Cabinet_L",
+    "description": "Уставка температуры воздуха в кабинете (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 32,
+    "trend": false
+  },
+  {
+    "title": "AI3000880",
+    "name": "oSP_Cabinet_R",
+    "description": "Уставка температуры воздуха в кабинете (право)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 15,
+    "trend": false
+  },
+  {
+    "title": "AI3000881",
+    "name": "oSP_Bedroom_R",
+    "description": "Уставка температуры воздуха в спальне (право)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 17,
     "trend": false
   },
   {
@@ -389,6 +489,16 @@
     "units": "℃",
     "readOnly": true,
     "value": 33.3,
+    "trend": false
+  },
+  {
+    "title": "AI3001167",
+    "name": "iTP_WC2",
+    "description": "Температура пола в с/у 2 этаж (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 22.3,
     "trend": false
   },
   {
@@ -423,7 +533,7 @@
   },
   {
     "title": "AI3000183",
-    "name": "oHF_WC1",
+    "name": "oHF_WC1_R",
     "description": "Клапан теплого пола с/у 1 эт (право)",
     "status": "norm",
     "units": "%",
@@ -433,12 +543,22 @@
   },
   {
     "title": "AI3001178",
-    "name": "oHF_WC1",
+    "name": "oHF_WC1_L",
     "description": "Клапан теплого пола с/у 1 эт (лево)",
     "status": "norm",
     "units": "%",
     "readOnly": true,
     "value": 10,
+    "trend": false
+  },
+  {
+    "title": "AI3001179",
+    "name": "oHF_WC2_L",
+    "description": "Клапан теплого пола с/у 2 эт (лево)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 55,
     "trend": false
   },
   {
