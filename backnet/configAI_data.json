@@ -424,6 +424,16 @@
   {
     "title": "AI3000183",
     "name": "oHF_WC1",
+    "description": "Клапан теплого пола с/у 1 эт (право)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 10,
+    "trend": false
+  },
+  {
+    "title": "AI3001178",
+    "name": "oHF_WC1",
     "description": "Клапан теплого пола с/у 1 эт (лево)",
     "status": "norm",
     "units": "%",
@@ -433,6 +443,16 @@
   },
   {
     "title": "AI3000185",
+    "name": "oHF_Kitchen_R",
+    "description": "Клапан теплого кухни (право)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "AI3001176",
     "name": "oHF_Kitchen_L",
     "description": "Клапан теплого кухни (лево)",
     "status": "norm",
@@ -443,6 +463,16 @@
   },
   {
     "title": "AI3000186",
+    "name": "oHF_HALL_R",
+    "description": "Клапан теплого тамбура (право)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 50,
+    "trend": false
+  },
+  {
+    "title": "AI3001177",
     "name": "oHF_HALL",
     "description": "Клапан теплого тамбура (лево)",
     "status": "norm",

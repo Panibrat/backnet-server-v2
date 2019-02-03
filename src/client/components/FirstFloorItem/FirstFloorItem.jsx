@@ -43,7 +43,7 @@ const FirstFloorItem = (props) => {
 
     return (
         <div className={styles.container}>
-            <svg viewBox="20 0 360 450" width="360" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="20 0 360 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <g className="firstFloor_zalLeft">
                             <path
                                 d="m38.431352,115.882316l36.470581,-0.000006l-0.196078,-14.901955l16.470582,-17.058817l49.999981,-0.196079l17.450974,17.058817l0.392157,14.901956l36.274496,0.196078l-0.196078,87.450948l-156.862687,0l0.196072,-87.450942z"
