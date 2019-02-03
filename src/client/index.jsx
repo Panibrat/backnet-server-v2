@@ -29,6 +29,7 @@ import ConsumptionPage from './components/Pages/ConsumptionPage/ConsumptionPage'
 
 import ChartPage from './components/Chart/ChartPage/ChartPage';
 import ConsumptionChart from './components/Chart/ConsumptionChart/ConsumptionChart';
+import PlansPage from './components/Pages/PlansPage/PlansPage';
 import FirstFloorItem from './components/FirstFloorItem';
 import SecondFloorItem from './components/SecondFloorItem';
 
@@ -67,9 +68,10 @@ const App = () => (
                         <Route path="/consumption" component={ConsumptionPage} />
                         <Route path="/chart" component={ChartPage} />
                         <Route path="/consumption-chart" component={ConsumptionChart} />
+                        <Route path="/plans" component={PlansPage} />
                         <Route path="/1-floor" component={FirstFloorItem} />
                         <Route path="/2-floor" component={SecondFloorItem} />
-                        <Route path="*" component={AhuPage} />
+                        <Route path="*" component={PlansPage} />
                     </Switch>
                 </Layout>
             </React.Fragment>

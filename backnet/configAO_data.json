@@ -160,5 +160,14 @@
     "units": "℃",
     "readOnly": false,
     "value": 55
+  },
+  {
+    "title": "AO3000879",
+    "name": "sT_Kitchen_R",
+    "description": "Уставка температуры воздуха в кухне (право)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 21
   }
 ]

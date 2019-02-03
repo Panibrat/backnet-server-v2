@@ -16,6 +16,11 @@ export const TemporaryDrawer = (props) => {
         <List className={styles.container}>
             <NavLink
                 className={styles.item}
+                to="/plans">
+                Планы
+            </NavLink>
+            <NavLink
+                className={styles.item}
                 to="/air-unit">
                 Приточка
             </NavLink>

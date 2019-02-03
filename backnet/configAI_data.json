@@ -151,15 +151,6 @@
     "trend": true
   },
   {
-    "title": "AI3000183",
-    "name": "oHF_WC1",
-    "description": "Клапан теплого пола c/у 1",
-    "status": "norm",
-    "units": "%",
-    "readOnly": true,
-    "value": 59
-  },
-  {
     "title": "AI3000184",
     "name": "oHF_WC2",
     "description": "Клапан теплого пола c/у 2",
@@ -167,24 +158,6 @@
     "units": "%",
     "readOnly": true,
     "value": 41
-  },
-  {
-    "title": "AI3000185",
-    "name": "oHF_KITCH",
-    "description": "Клапан теплого пола кухни",
-    "status": "norm",
-    "units": "%",
-    "readOnly": true,
-    "value": 69
-  },
-  {
-    "title": "AI3000186",
-    "name": "oHF_HALL",
-    "description": "Клапан теплого пола тамбура",
-    "status": "norm",
-    "units": "%",
-    "readOnly": true,
-    "value": 100
   },
   {
     "title": "AI3000159",
@@ -217,12 +190,22 @@
   {
     "title": "AI3000172",
     "name": "iT_ZAL",
-    "description": "Температура в зале",
+    "description": "Температура в зале (право)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
     "value": 24.0,
     "trend": true
+  },
+  {
+    "title": "AI3000173",
+    "name": "sT_ZAL",
+    "description": "Уставка температура в зале (право)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 20.0,
+    "trend": false
   },
   {
     "title": "AI3000187",
@@ -347,5 +330,135 @@
   "readOnly": true,
   "value": 120,
     "trend": true
+  },
+  {
+    "title": "AI3000870",
+    "name": "iT_Zal_Left",
+    "description": "Температура воздуха в зале (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 22.2,
+    "trend": false
+  },
+  {
+    "title": "AI3000794",
+    "name": "oSP_Zal_Left",
+    "description": "Уставка температуры воздуха в зале (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 20,
+    "trend": false
+  },
+  {
+    "title": "AI3000778",
+    "name": "iT_Kitch",
+    "description": "Температура воздуха в кухне (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 21,
+    "trend": false
+  },
+  {
+    "title": "AI3000793",
+    "name": "oSP_Kitchen",
+    "description": "Уставка температуры воздуха в кухне (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 16,
+    "trend": false
+  },
+  {
+    "title": "AI3001164",
+    "name": "iTP_Kitchen",
+    "description": "Температура пола в кухне (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 36,
+    "trend": false
+  },
+  {
+    "title": "AI3001166",
+    "name": "iTP_WC1",
+    "description": "Температура пола в с/у 1 этаж (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 33.3,
+    "trend": false
+  },
+  {
+    "title": "AI3001165",
+    "name": "iTP_Hall",
+    "description": "Температура пола в тамбуре (лево)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 21.3,
+    "trend": false
+  },
+  {
+    "title": "AI3001168",
+    "name": "iTP_ZalR",
+    "description": "Температура пола в зале прав сторона",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 25.7,
+    "trend": false
+  },
+  {
+    "title": "AI3001169",
+    "name": "iTP_ZalL",
+    "description": "Температура пола в зале лев сторона",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 23.6,
+    "trend": false
+  },
+  {
+    "title": "AI3000183",
+    "name": "oHF_WC1",
+    "description": "Клапан теплого пола с/у 1 эт (лево)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 10,
+    "trend": false
+  },
+  {
+    "title": "AI3000185",
+    "name": "oHF_Kitchen_L",
+    "description": "Клапан теплого кухни (лево)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 0,
+    "trend": false
+  },
+  {
+    "title": "AI3000186",
+    "name": "oHF_HALL",
+    "description": "Клапан теплого тамбура (лево)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 50,
+    "trend": false
+  },
+  {
+    "title": "AI3001180",
+    "name": "oHF_ZalL",
+    "description": "Клапан теплого в зале лев сторона",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 30,
+    "trend": false
   }
 ]
