@@ -452,26 +452,6 @@
     "trend": false
   },
   {
-    "title": "AI3000880",
-    "name": "oSP_Cabinet_R",
-    "description": "Уставка температуры воздуха в кабинете (право)",
-    "status": "norm",
-    "units": "℃",
-    "readOnly": true,
-    "value": 15,
-    "trend": false
-  },
-  {
-    "title": "AI3000881",
-    "name": "oSP_Bedroom_R",
-    "description": "Уставка температуры воздуха в спальне (право)",
-    "status": "norm",
-    "units": "℃",
-    "readOnly": true,
-    "value": 17,
-    "trend": false
-  },
-  {
     "title": "AI3001164",
     "name": "iTP_Kitchen",
     "description": "Температура пола в кухне (лево)",

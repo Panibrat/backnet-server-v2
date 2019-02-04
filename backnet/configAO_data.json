@@ -169,5 +169,26 @@
     "units": "℃",
     "readOnly": false,
     "value": 21
-  }
+  },
+  {
+    "title": "AO3000881",
+    "name": "sSP_Bedroom_R",
+    "description": "Уставка температуры воздуха в спальне (право)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 17,
+    "trend": false
+  },
+  {
+    "title": "AO3000880",
+    "name": "sSP_Cabinet_R",
+    "description": "Уставка температуры воздуха в кабинете (право)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 15,
+    "trend": false
+  },
+
 ]
