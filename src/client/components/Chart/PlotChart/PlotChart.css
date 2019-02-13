@@ -1,0 +1,66 @@
+.label {
+    opacity: .8;
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    stroke-width: 0;
+    fill: #d8d8d8;
+    stroke: black;
+}
+
+.priceTile {
+    width: 100px;
+    height: 70px;
+    stroke-width: 0;
+    fill: #d8d8d8;
+    stroke: black;
+}
+
+.text {
+    fill: red;
+}
+
+.labelName {
+    font-size: 11px;
+    font-weight: normal;
+    fill: #525252;
+}
+
+.labelPrice {
+    font-size: 14px;
+    font-weight: bold;
+    fill: #525252;
+}
+
+.labelDate {
+    font-size: 10px;
+    font-weight: normal;
+    fill: #525252;
+}
+
+.labelType {
+    font-size: 11px;
+    font-weight: normal;
+    fill: #525252;
+}
+
+.labelCount {
+    font-size: 14px;
+    font-weight: bold;
+    fill: #525252;
+}
+.labelDiff {
+    font-size: 14px;
+    font-weight: normal;
+    fill: #525252;
+}
+.plotLine {
+    stroke-width: 3px;
+    fill: none;
+}
+
+.xAxis line{
+    opacity: 0.3;
+}

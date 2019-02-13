@@ -44,7 +44,7 @@ class SQLite {
 
     findByTitleInTable(title, startTime, endTime, table, callback) {
         let sql =
-            `SELECT DISTINCT timeStamp, title, value 
+            `SELECT DISTINCT timeStamp, value 
             FROM ${table}
             WHERE title = ?
             AND timeStamp >= ${startTime}
@@ -76,10 +76,11 @@ class SQLite {
     }
     getTrendData(title, startTime, endTime, action) {
         const callback = (data) => {
-            const convertedData = data.map((savedPoint) => {
-                return { x: savedPoint.timeStamp, y: savedPoint.value };
-            });
-            action(convertedData);
+        const chartItem = {
+            title: title,
+            chart: data,
+        };
+            action(chartItem);
         };
         this.findByTitleInTable(title, startTime, endTime, TABLE_TREND_DATA, callback);
     }

@@ -1,0 +1,72 @@
+[
+  {
+    "title": "AI3001122",
+    "name": "iT_FOR",
+    "description": "T Supply temperature",
+    "chart": [
+      {
+        "timeStamp": 1549231362414,
+        "value": 7
+      },
+      {
+        "timeStamp": 1549231380418,
+        "value": 6.2
+      },
+      {
+        "timeStamp": 1549231614429,
+        "value": 7.2
+      },
+      {
+        "timeStamp": 1549231632422,
+        "value": 6.2
+      },
+      {
+        "timeStamp": 1549233936712,
+        "value": 6
+      },
+      {
+        "timeStamp": 1549233954711,
+        "value": 6.2
+      },
+      {
+        "timeStamp": 1549244089789,
+        "value": 5.9
+      }
+    ]
+  },
+  {
+    "title": "AI3001121",
+    "name": "Т OUT",
+    "description": "Температура наружного воздуха а еще это длинный дискрипшн",
+    "chart": [
+      {
+        "timeStamp": 1549231356401,
+        "value": 4.5
+      },
+      {
+        "timeStamp": 1549231380418,
+        "value": 4.2
+      },
+      {
+        "timeStamp": 1549231614429,
+        "value": 5.2
+      },
+      {
+        "timeStamp": 1549231632422,
+        "value": 1.2
+      },
+      {
+        "timeStamp": 1549233936712,
+        "value": 4
+      },
+      {
+        "timeStamp": 1549233954711,
+        "value": 4.2
+      },
+      {
+        "timeStamp": 1549244089789,
+        "value": 4.9
+      }
+    ]
+  }
+]

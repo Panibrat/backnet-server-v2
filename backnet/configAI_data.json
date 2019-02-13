@@ -27,7 +27,7 @@
     "units": "℃",
     "readOnly": true,
     "value": -12.9,
-    "trend": true
+    "trend": false
   },
   {
     "title": "AI3001123",
@@ -37,7 +37,7 @@
     "units": "℃",
     "readOnly": true,
     "value": 23.4,
-    "trend": true
+    "trend": false
   },
   {
     "title": "AI3001154",
@@ -74,7 +74,7 @@
     "units": "℃",
     "readOnly": true,
     "value": 22,
-    "trend": true
+    "trend": false
   },
   {
     "title": "AI3001157",
@@ -215,7 +215,7 @@
     "units": "℃",
     "readOnly": true,
     "value": 22.1,
-    "trend": true
+    "trend": false
   },
   {
     "title": "AI3000179",
@@ -225,7 +225,7 @@
     "units": "℃",
     "readOnly": true,
     "value": 18.9,
-    "trend": true
+    "trend": false
   },
   {
     "title": "AI3000164",

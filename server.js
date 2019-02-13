@@ -77,7 +77,6 @@ app.get('/modbus', (req, res) => { //TODO: delete in prod
 
 app.post('/consumption', authenticate, (req, res) => {
     const query = req.body;
-    console.log('query', query);
     const callback = (data) => {
        return res.json(data);
     };
@@ -87,6 +86,11 @@ app.post('/consumption', authenticate, (req, res) => {
 app.post('/trend', authenticate, (req, res) => {
     const query = req.body;
     const callback = (data) => {
+        const index = configAIs.findIndex(item => item.title === data.title);
+        if (index !== -1) {
+            data.name = configAIs[index].name;
+            data.description = configAIs[index].description;
+        }
         return res.json(data);
     };
     sqlite3.getTrendData(query.title, query.startTime, query.endTime, callback);
