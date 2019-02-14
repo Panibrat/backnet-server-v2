@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
 import axios from 'axios';
+
+import { setTitle } from '../../../actions/menuActions';
 import { PlotChart } from '../PlotChart/PlotChart';
 import './ChartPage.css';
 
@@ -49,6 +52,7 @@ class ChartPage extends Component {
     }
 
     componentDidMount() {
+        this.props.setTitle('Тренды');
         this.promiseAll();
     }
 
@@ -108,4 +112,10 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(ChartPage);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        setTitle: setTitle
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChartPage);
