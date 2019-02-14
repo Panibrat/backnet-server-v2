@@ -14,14 +14,12 @@ export class PlotChart extends Component {
     chartWidth = this.width - (this.margin.left + this.margin.right);
     baseAnimationDuration = 1000;
     baseAnimationDelay = 250;
-    minValue;
-    maxValue;
 
     renderSegment(svg, chart) {
-        const { startTime, endTime } = this.props;
+        const { startTime, endTime, minValue, maxValue } = this.props;
 
         const yCalc = d3.scaleLinear()
-            .domain([this.minValue - 2, this.maxValue + 2])
+            .domain([minValue - 2, maxValue + 2])
             .range([this.height, 0])
             .nice();
 
@@ -106,8 +104,9 @@ export class PlotChart extends Component {
     }
 
     renderYaxis(svg) {
+        const { minValue, maxValue} = this.props;
         const yCalc = d3.scaleLinear()
-            .domain([this.minValue - 2, this.maxValue + 2])
+            .domain([minValue - 2, maxValue + 2])
             .range([this.chartHeight, 0])
             .nice();
 
@@ -131,8 +130,9 @@ export class PlotChart extends Component {
     }
 
     renderYLines(svg) {
+        const { minValue, maxValue } = this.props;
         const yCalc = d3.scaleLinear()
-            .domain([this.minValue - 2, this.maxValue + 2])
+            .domain([minValue - 2, maxValue + 2])
             .range([this.chartHeight, 0])
             .nice();
 
@@ -154,26 +154,6 @@ export class PlotChart extends Component {
             .attr('opacity', 0.5);
     }
 
-    getMaxValueFromArray(arr) {
-        return Math.max.apply(null, arr);
-    }
-
-    getMinValueFromArray(arr) {
-        return Math.min.apply(null, arr);
-    }
-
-    calcMinAndMaxValue(allData) {
-        if (allData.length === 0) {
-            return;
-        }
-        const arrayOfValues = allData.reduce((sum, item) => {
-            return [...sum, ...item.chart.map(chart => chart.value)];
-        }, []);
-
-        this.minValue = this.getMinValueFromArray(arrayOfValues);
-        this.maxValue = this.getMaxValueFromArray(arrayOfValues);
-    }
-
     renderAllData(svg, allData) {
         allData.forEach((chart) => {
             this.renderSegment(svg, chart);
@@ -181,7 +161,7 @@ export class PlotChart extends Component {
     }
 
     componentDidMount() {
-        const {chartData} = this.props;
+        const { chartData, minValue, maxValue } = this.props;
         const element = ReactDOM.findDOMNode(this);
         this.svg = d3.select(element)
             .append('svg')
@@ -193,27 +173,28 @@ export class PlotChart extends Component {
             .append('g')
             .attr('transform', `translate(${this.margin.left}, ${this.margin.top})`);
 
-        this.renderXaxis(this.svg);
-        this.renderXLines(this.svg);
-        this.renderYLines(this.svg);
-        this.renderYaxis(this.svg);
-        this.calcMinAndMaxValue(chartData);
-        this.renderAllData(this.svg, chartData);
+        if (chartData.length && chartData.length > 0 && minValue && maxValue) {
+            this.renderXaxis(this.svg);
+            this.renderXLines(this.svg);
+            this.renderYLines(this.svg);
+            this.renderYaxis(this.svg);
+            this.renderAllData(this.svg, chartData);
+        }
     }
 
     componentDidUpdate() {
-        const {chartData} = this.props;
-
+        const { chartData } = this.props;
         this.renderXaxis(this.svg);
         this.renderXLines(this.svg);
         this.renderYaxis(this.svg);
         this.renderYLines(this.svg);
-        this.calcMinAndMaxValue(chartData);
         this.renderAllData(this.svg, chartData);
     }
 
     shouldComponentUpdate(nextProps) {
-        const isNeedUpdate = this.props.chartData.length !== nextProps.chartData.length;
+        const isNeedUpdate = (this.props.chartData.length !== nextProps.chartData.length)
+            || (this.props.minValue !== nextProps.minValue)
+            || (this.props.maxValue !== nextProps.maxValue);
         return isNeedUpdate;
     }
 

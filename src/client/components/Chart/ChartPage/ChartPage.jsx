@@ -17,6 +17,8 @@ class ChartPage extends Component {
             chartData: [],
             startTime: now - day,
             endTime: now,
+            minValue: null,
+            maxValue: null,
         };
     }
 
@@ -30,8 +32,24 @@ class ChartPage extends Component {
                 });
         })
     }
+
+    promiseAll() {
+        const { startTime, endTime, initPoints} = this.state;
+        Promise.all(initPoints.map(item => this.getTrendData(item, startTime, endTime)))
+            .then((results) => {
+            const arrayData = results.map(resp => resp.data);
+            this.calcMinAndMaxValue(arrayData);
+            return arrayData
+            })
+            .then(arrayData => {
+                this.setState((state) => {
+                    return {chartData: [...state.chartData, ...arrayData]}
+                })
+        })
+    }
+
     componentDidMount() {
-        this.getAllData();
+        this.promiseAll();
     }
 
     getTrendData(title, startTime, endTime) {
@@ -49,14 +67,35 @@ class ChartPage extends Component {
         )
     }
 
+    calcMinAndMaxValue(allData) {
+        if (allData.length === 0) {
+            return;
+        }
+        const arrayOfValues = allData.reduce((sum, item) => {
+            return [...sum, ...item.chart.map(chart => chart.value)];
+        }, []);
+
+        const minValue = Math.min.apply(null, arrayOfValues);
+        const maxValue = Math.max.apply(null, arrayOfValues);
+
+        this.setState(() => {
+            return {
+                minValue,
+                maxValue,
+            }
+        })
+    }
+
     render() {
-        const { chartData, startTime, endTime } = this.state;
+        const { chartData, startTime, endTime, minValue, maxValue } = this.state;
         return (
             <div>
                 <PlotChart
                     chartData={chartData}
                     startTime={startTime}
                     endTime={endTime}
+                    minValue={minValue}
+                    maxValue={maxValue}
                 />
             </div>
         );
