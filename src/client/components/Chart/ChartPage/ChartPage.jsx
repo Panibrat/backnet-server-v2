@@ -16,24 +16,15 @@ class ChartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            initPoints: ['AI3001121', 'AI3001122'],
+            initPoints: ['AI3000156', 'AI3001122', 'AI3000177', 'AI3000160', 'AI3000172', 'AI3000157', 'AI3000158'],
             chartData: [],
             startTime: now - day,
             endTime: now,
             minValue: null,
             maxValue: null,
         };
-    }
-
-    getAllData() {
-        this.state.initPoints.forEach((point) => {
-            this.getTrendData(point, now - day, now)
-                .then((response) => {
-                    this.setState((state) => {
-                        return {chartData: [...state.chartData, response.data]}
-                    })
-                });
-        })
+        this.handleUpdateStartTime = this.handleUpdateStartTime.bind(this);
+        this.handleTogglePointVisibility = this.handleTogglePointVisibility.bind(this);
     }
 
     promiseAll() {
@@ -90,6 +81,27 @@ class ChartPage extends Component {
         })
     }
 
+    handleUpdateStartTime(hoursOffset) {
+        const startTime = now - (hoursOffset * hour);
+        const chartData = [];
+        this.setState({ startTime, chartData }, this.promiseAll);
+    }
+
+    handleTogglePointVisibility(title) {
+        const { initPoints } = this.state;
+        if (initPoints.indexOf(title) === -1) {
+            const newPoints = [...initPoints, title];
+            this.setState({ initPoints: newPoints, chartData: [] }, this.promiseAll);
+        } else {
+            const newPoints = initPoints.filter((items) => items !== title);
+            this.setState({ initPoints: newPoints, chartData: [] }, this.promiseAll);
+        }
+    }
+
+    handleRefresh() {
+        this.setState({ chartData: [] }, this.promiseAll);
+    }
+
     render() {
         const { chartData, startTime, endTime, minValue, maxValue } = this.state;
         return (
@@ -101,6 +113,20 @@ class ChartPage extends Component {
                     minValue={minValue}
                     maxValue={maxValue}
                 />
+                <button onClick={() => this.handleUpdateStartTime(1) }> - 1h</button>
+                <button onClick={() => this.handleUpdateStartTime(4) }> - 4h</button>
+                <button onClick={() => this.handleUpdateStartTime(12) }> - 12h</button>
+                <button onClick={() => this.handleUpdateStartTime(24) }> - 24h</button>
+                <hr/>
+                <button onClick={() => this.handleTogglePointVisibility('AI3000156') }>Т OUT</button>
+                <button onClick={() => this.handleTogglePointVisibility('AI3001122') }>iT_FOR </button>
+                <button onClick={() => this.handleTogglePointVisibility('AI3000177') }>iT_HF_KITCH</button>
+                <button onClick={() => this.handleTogglePointVisibility('AI3000160') }>iT_KITCHEN</button>
+                <button onClick={() => this.handleTogglePointVisibility('AI3000172') }>iT_ZAL</button>
+                <button onClick={() => this.handleTogglePointVisibility('AI3000157') }>iT_SUP</button>
+                <button onClick={() => this.handleTogglePointVisibility('AI3000158') }>iT_RET</button>
+                <hr/>
+                <button onClick={() => this.handleRefresh() }>REFRESH</button>
             </div>
         );
     }

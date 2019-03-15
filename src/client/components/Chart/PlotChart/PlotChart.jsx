@@ -12,20 +12,29 @@ export class PlotChart extends Component {
     margin = { top: 30, right: 10, bottom: 40, left: 40 };
     chartHeight = this.height - (this.margin.top + this.margin.bottom);
     chartWidth = this.width - (this.margin.left + this.margin.right);
-    baseAnimationDuration = 1000;
-    baseAnimationDelay = 250;
+    baseAnimationDuration = 500;
+    baseAnimationDelay = 200;
 
     renderSegment(svg, chart) {
         const { startTime, endTime, minValue, maxValue } = this.props;
+        const oneHourAgo = new Date().getTime() - 3600000;
 
         const yCalc = d3.scaleLinear()
             .domain([minValue - 2, maxValue + 2])
-            .range([this.height, 0])
+            .range([this.chartHeight, 0])
             .nice();
+
+        const yCalcInverse = d3.scaleLinear()
+            .domain([this.chartHeight, 0])
+            .range([minValue - 2, maxValue + 2]);
 
         const xCalc = d3.scaleTime()
             .domain([startTime, endTime])
             .range([0, this.chartWidth]);
+
+        const xCalcInverse = d3.scaleTime()
+            .domain([0, this.chartWidth])
+            .range([startTime, endTime]);
 
         const line = d3.line()
             .x(d => xCalc(d.timeStamp))
@@ -36,17 +45,33 @@ export class PlotChart extends Component {
         svg.selectAll('.' + chart.title)
             .remove();
 
-        svg.append('g')
-            .attr('class', `${styles.plotLine} ${chart.title}`)
+        const trendLine = svg.append('g');
+
+        trendLine.attr('class', `${styles.plotLine} ${chart.title}`)
             .append('path')
             .attr('opacity', 0)
-            .style('stroke', colorWheel[chart.title])
+            .style('stroke', colorWheel[chart.title] || 'grey')
             .attr('d', line(chart.chart))
+            .on('click', function (d) {
+                const mouse = d3.mouse(this);
+                console.log('mouse', mouse);
+                console.log('description', chart.description);
+                console.log('value', yCalcInverse(mouse[1]));
+                const time = new Date(xCalcInverse(mouse[0]));
+                console.log('time', time);
+            })
             .transition()
             .duration(this.baseAnimationDuration * 2)
             .delay(this.baseAnimationDelay)
             .attr('opacity', 1);
 
+/*        svg.append('g').append('circle')
+                .attr('cx', () => xCalc(oneHourAgo))
+                .attr('cy', () => yCalc(10))
+                .attr('r', 5)
+                .attr('stroke', 'black')
+                .attr('stroke-width', 1)
+                .attr('fill', 'red')*/
     }
 
     renderXaxis(svg) {
@@ -155,6 +180,8 @@ export class PlotChart extends Component {
     }
 
     renderAllData(svg, allData) {
+        svg.selectAll(`.${styles.plotLine}`)
+            .remove();
         allData.forEach((chart) => {
             this.renderSegment(svg, chart);
         })
@@ -179,7 +206,7 @@ export class PlotChart extends Component {
             this.renderYLines(this.svg);
             this.renderYaxis(this.svg);
             this.renderAllData(this.svg, chartData);
-        }
+        } //TODO: else render spinner
     }
 
     componentDidUpdate() {
@@ -192,8 +219,14 @@ export class PlotChart extends Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        const isNeedUpdate = (this.props.chartData.length !== nextProps.chartData.length)
+        const { chartData } = this.props;
+        if ( nextProps.chartData.length === 0 ) {
+            return false;
+        }
+        const isNeedUpdate = (chartData.length !== nextProps.chartData.length)
             || (this.props.minValue !== nextProps.minValue)
+      /*      || (this.props.startTime !== nextProps.startTime)
+            || (this.props.endTime !== nextProps.endTime)*/
             || (this.props.maxValue !== nextProps.maxValue);
         return isNeedUpdate;
     }
