@@ -36,7 +36,7 @@ mongoose.connect(dataBaseLink, {
                 }
                 //console.log('\nSAVE Trend Point\n', item);
             });
-            trendModel.create(createElement('AI3001121', 'Т OUT'), (err, item) => {
+            trendModel.create(createElement('AI3000156', 'Т OUT'), (err, item) => {
                 if (err) {
                     //console.log('MongoError', err);
                     throw err;

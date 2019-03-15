@@ -4,7 +4,7 @@ import { findPoint } from '../../common/helpers';
 
 const mapStateToProps = (store) => {
     return {
-        temperatureOutdoor: findPoint('AI3001121', store.ai),
+        temperatureOutdoor: findPoint('AI3000156', store.ai),
         temperatureD1: findPoint('AI3000767', store.ai),
         spTemperatureD1: findPoint('AI3000792', store.ai),
         temperatureD2: findPoint('AI3000769', store.ai),
