@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import axios from 'axios';
-
+import Button from '@material-ui/core/Button';
 import { setTitle } from '../../../actions/menuActions';
 import { PlotChart } from '../PlotChart/PlotChart';
-import './ChartPage.css';
+import ChartItemButton from '../components/ChartItemButton';
+import styles from './ChartPage.css';
 
 const now = new Date().getTime();
 const minute = 1000 * 60;
@@ -16,20 +17,21 @@ class ChartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            initPoints: ['AI3000156', 'AI3001122', 'AI3000177', 'AI3000160', 'AI3000172', 'AI3000157', 'AI3000158'],
+            pointsToView: ['AI3000156', 'AI3000177', 'AI3000172', 'AI3000157'],
             chartData: [],
             startTime: now - day,
             endTime: now,
             minValue: null,
             maxValue: null,
+            startTimeShift: 24,
         };
         this.handleUpdateStartTime = this.handleUpdateStartTime.bind(this);
         this.handleTogglePointVisibility = this.handleTogglePointVisibility.bind(this);
     }
 
     promiseAll() {
-        const { startTime, endTime, initPoints} = this.state;
-        Promise.all(initPoints.map(item => this.getTrendData(item, startTime, endTime)))
+        const { startTime, endTime, pointsToView} = this.state;
+        Promise.all(pointsToView.map(item => this.getTrendData(item, startTime, endTime)))
             .then((results) => {
             const arrayData = results.map(resp => resp.data);
             this.calcMinAndMaxValue(arrayData);
@@ -84,17 +86,17 @@ class ChartPage extends Component {
     handleUpdateStartTime(hoursOffset) {
         const startTime = now - (hoursOffset * hour);
         const chartData = [];
-        this.setState({ startTime, chartData }, this.promiseAll);
+        this.setState({ startTime, chartData, startTimeShift: hoursOffset}, this.promiseAll);
     }
 
     handleTogglePointVisibility(title) {
-        const { initPoints } = this.state;
-        if (initPoints.indexOf(title) === -1) {
-            const newPoints = [...initPoints, title];
-            this.setState({ initPoints: newPoints, chartData: [] }, this.promiseAll);
+        const { pointsToView } = this.state;
+        if (pointsToView.indexOf(title) === -1) {
+            const newPoints = [...pointsToView, title];
+            this.setState({ pointsToView: newPoints });
         } else {
-            const newPoints = initPoints.filter((items) => items !== title);
-            this.setState({ initPoints: newPoints, chartData: [] }, this.promiseAll);
+            const newPoints = pointsToView.filter((items) => items !== title);
+            this.setState({ pointsToView: newPoints });
         }
     }
 
@@ -103,7 +105,7 @@ class ChartPage extends Component {
     }
 
     render() {
-        const { chartData, startTime, endTime, minValue, maxValue } = this.state;
+        const { chartData, startTime, endTime, minValue, maxValue, pointsToView, startTimeShift } = this.state;
         return (
             <div>
                 <PlotChart
@@ -113,20 +115,93 @@ class ChartPage extends Component {
                     minValue={minValue}
                     maxValue={maxValue}
                 />
-                <button onClick={() => this.handleUpdateStartTime(1) }> - 1h</button>
-                <button onClick={() => this.handleUpdateStartTime(4) }> - 4h</button>
-                <button onClick={() => this.handleUpdateStartTime(12) }> - 12h</button>
-                <button onClick={() => this.handleUpdateStartTime(24) }> - 24h</button>
-                <hr/>
-                <button onClick={() => this.handleTogglePointVisibility('AI3000156') }>Т OUT</button>
-                <button onClick={() => this.handleTogglePointVisibility('AI3001122') }>iT_FOR </button>
-                <button onClick={() => this.handleTogglePointVisibility('AI3000177') }>iT_HF_KITCH</button>
-                <button onClick={() => this.handleTogglePointVisibility('AI3000160') }>iT_KITCHEN</button>
-                <button onClick={() => this.handleTogglePointVisibility('AI3000172') }>iT_ZAL</button>
-                <button onClick={() => this.handleTogglePointVisibility('AI3000157') }>iT_SUP</button>
-                <button onClick={() => this.handleTogglePointVisibility('AI3000158') }>iT_RET</button>
-                <hr/>
-                <button onClick={() => this.handleRefresh() }>REFRESH</button>
+                <div className={styles.timeSetButtonsGroup}>
+                    <Button
+                        className={styles.timeSetButton}
+                        variant={startTimeShift === 1 ? "contained" : "outlined"}
+                        color="primary"
+                        onClick={() => this.handleUpdateStartTime(1) }>
+                        - 1h
+                    </Button>
+                    <Button
+                        className={styles.timeSetButton}
+                        variant={startTimeShift === 4 ? "contained" : "outlined"}
+                        color="primary"
+                        onClick={() => this.handleUpdateStartTime(4) }>
+                        - 4h
+                    </Button>
+                    <Button
+                        className={styles.timeSetButton}
+                        variant={startTimeShift === 12 ? "contained" : "outlined"}
+                        color="primary"
+                        onClick={() => this.handleUpdateStartTime(12) }>
+                        - 12h
+                    </Button>
+                    <Button
+                        className={styles.timeSetButton}
+                        variant={startTimeShift === 24 ? "contained" : "outlined"}
+                        color="primary"
+                        onClick={() => this.handleUpdateStartTime(24) }>
+                        - 24h
+                    </Button>
+                </div>
+                <ChartItemButton
+                    color="blue"
+                    title="AI3000156"
+                    name="Т OUT"
+                    description="Температура наружного воздуха"
+                    callBack={(title) => this.handleTogglePointVisibility(title)}
+                    points={pointsToView}
+                />
+                <ChartItemButton
+                    color="green"
+                    title="AI3001122"
+                    name="iT_FOR"
+                    description="T Supply temperature"
+                    callBack={(title) => this.handleTogglePointVisibility(title)}
+                    points={pointsToView}
+                />
+                <ChartItemButton
+                    color="red"
+                    title="AI3000157"
+                    name="iT_SUP"
+                    description="Температура подачи котлов"
+                    callBack={(title) => this.handleTogglePointVisibility(title)}
+                    points={pointsToView}
+                />
+                <ChartItemButton
+                    color="orange"
+                    title="AI3000158"
+                    name="iT_RET"
+                    description="Температура обратки котлов"
+                    callBack={(title) => this.handleTogglePointVisibility(title)}
+                    points={pointsToView}
+                />
+                <ChartItemButton
+                    color="#f76537"
+                    title="AI3000177"
+                    name="iT_HF_KITCH"
+                    description="Температура теплого пола в кухне"
+                    callBack={(title) => this.handleTogglePointVisibility(title)}
+                    points={pointsToView}
+                />
+                <ChartItemButton
+                    color="#a5e0ac"
+                    title="AI3000160"
+                    name="iT_KITCHEN"
+                    description="Температура в кухне"
+                    callBack={(title) => this.handleTogglePointVisibility(title)}
+                    points={pointsToView}
+                />
+                <ChartItemButton
+                    color="#819043"
+                    title="AI3000172"
+                    name="iT_ZAL"
+                    description="Температура в зале (право)"
+                    callBack={(title) => this.handleTogglePointVisibility(title)}
+                    points={pointsToView}
+                />
+                <Button className={styles.refreshButton} variant="contained" color="primary" onClick={() => this.handleRefresh() }>REFRESH</Button>
             </div>
         );
     }
