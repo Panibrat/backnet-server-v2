@@ -64,3 +64,17 @@
 .xAxis line{
     opacity: 0.3;
 }
+
+.tileValue {
+    fill: white;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tileName {
+    fill: white;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}

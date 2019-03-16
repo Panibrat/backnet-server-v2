@@ -7,6 +7,7 @@ import { setTitle } from '../../../actions/menuActions';
 import { PlotChart } from '../PlotChart/PlotChart';
 import ChartItemButton from '../components/ChartItemButton';
 import styles from './ChartPage.css';
+import configAI from '../../../../../backnet/configAI_data.json';
 
 const now = new Date().getTime();
 const minute = 1000 * 60;
@@ -106,6 +107,8 @@ class ChartPage extends Component {
 
     render() {
         const { chartData, startTime, endTime, minValue, maxValue, pointsToView, startTimeShift } = this.state;
+        const filteredData = configAI.filter((item) => item.trend);
+
         return (
             <div>
                 <PlotChart
@@ -145,63 +148,28 @@ class ChartPage extends Component {
                         - 24h
                     </Button>
                 </div>
-                <ChartItemButton
-                    color="blue"
-                    title="AI3000156"
-                    name="Т OUT"
-                    description="Температура наружного воздуха"
-                    callBack={(title) => this.handleTogglePointVisibility(title)}
-                    points={pointsToView}
-                />
-                <ChartItemButton
-                    color="green"
-                    title="AI3001122"
-                    name="iT_FOR"
-                    description="T Supply temperature"
-                    callBack={(title) => this.handleTogglePointVisibility(title)}
-                    points={pointsToView}
-                />
-                <ChartItemButton
-                    color="red"
-                    title="AI3000157"
-                    name="iT_SUP"
-                    description="Температура подачи котлов"
-                    callBack={(title) => this.handleTogglePointVisibility(title)}
-                    points={pointsToView}
-                />
-                <ChartItemButton
-                    color="orange"
-                    title="AI3000158"
-                    name="iT_RET"
-                    description="Температура обратки котлов"
-                    callBack={(title) => this.handleTogglePointVisibility(title)}
-                    points={pointsToView}
-                />
-                <ChartItemButton
-                    color="#f76537"
-                    title="AI3000177"
-                    name="iT_HF_KITCH"
-                    description="Температура теплого пола в кухне"
-                    callBack={(title) => this.handleTogglePointVisibility(title)}
-                    points={pointsToView}
-                />
-                <ChartItemButton
-                    color="#a5e0ac"
-                    title="AI3000160"
-                    name="iT_KITCHEN"
-                    description="Температура в кухне"
-                    callBack={(title) => this.handleTogglePointVisibility(title)}
-                    points={pointsToView}
-                />
-                <ChartItemButton
-                    color="#819043"
-                    title="AI3000172"
-                    name="iT_ZAL"
-                    description="Температура в зале (право)"
-                    callBack={(title) => this.handleTogglePointVisibility(title)}
-                    points={pointsToView}
-                />
-                <Button className={styles.refreshButton} variant="contained" color="primary" onClick={() => this.handleRefresh() }>REFRESH</Button>
+                {
+                    filteredData.map(({ title, name, description, colorTrend }) => {
+                        return (
+                            <ChartItemButton
+                                key={title}
+                                color={colorTrend || 'grey'}
+                                title={title}
+                                name={name}
+                                description={description}
+                                callBack={(title) => this.handleTogglePointVisibility(title)}
+                                points={pointsToView}
+                            />
+                        )
+                    })
+                }
+                <Button
+                    className={styles.refreshButton}
+                    variant="contained"
+                    color="primary"
+                    onClick={() => this.handleRefresh() }>
+                    REFRESH
+                </Button>
             </div>
         );
     }

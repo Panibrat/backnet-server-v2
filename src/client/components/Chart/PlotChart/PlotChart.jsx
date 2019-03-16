@@ -2,23 +2,24 @@ import React, { Component } from 'react';
 import * as ReactDOM from 'react-dom';
 import * as d3 from 'd3';
 
-import { colorWheel } from './colorWheel';
 import styles from './PlotChart.css';
 
 export class PlotChart extends Component {
     svg;
     width = 450;
     height = 600;
-    margin = { top: 30, right: 10, bottom: 40, left: 40 };
+    margin = { top: 50, right: 10, bottom: 40, left: 40 };
     chartHeight = this.height - (this.margin.top + this.margin.bottom);
     chartWidth = this.width - (this.margin.left + this.margin.right);
     baseAnimationDuration = 500;
     baseAnimationDelay = 200;
+    oneHourAgo = new Date().getTime() - 3600000;
+    timeOut = { timerId: null };
 
     renderSegment(svg, chart) {
         const { startTime, endTime, minValue, maxValue } = this.props;
-        const oneHourAgo = new Date().getTime() - 3600000;
-
+        const formatToDecimal = d3.format('.1f');
+        const formatDateToTime = d3.timeFormat(' %H:%M');
         const yCalc = d3.scaleLinear()
             .domain([minValue - 2, maxValue + 2])
             .range([this.chartHeight, 0])
@@ -47,18 +48,25 @@ export class PlotChart extends Component {
 
         const trendLine = svg.append('g');
 
+        const renderTile = this.renderTile;
+        const clearTile = this.clearTile;
+        const timeOut = this.timeOut;
+
         trendLine.attr('class', `${styles.plotLine} ${chart.title}`)
             .append('path')
             .attr('opacity', 0)
-            .style('stroke', colorWheel[chart.title] || 'grey')
+            .style('stroke', chart.colorTrend || 'grey')
             .attr('d', line(chart.chart))
-            .on('click', function (d) {
+            .on('click', function () {
                 const mouse = d3.mouse(this);
-                console.log('mouse', mouse);
-                console.log('description', chart.description);
-                console.log('value', yCalcInverse(mouse[1]));
-                const time = new Date(xCalcInverse(mouse[0]));
-                console.log('time', time);
+                const x = mouse[0];
+                const y = mouse[1];
+                const value = formatToDecimal(yCalcInverse(mouse[1]));
+                const name = chart.name;
+                const date = new Date(xCalcInverse(mouse[0]));
+                const time = formatDateToTime(date);
+                renderTile(svg, x, y, value, name, time, timeOut.timerId);
+                timeOut.timerId = setTimeout(() => clearTile(svg), 2000);
             })
             .transition()
             .duration(this.baseAnimationDuration * 2)
@@ -66,12 +74,65 @@ export class PlotChart extends Component {
             .attr('opacity', 1);
 
 /*        svg.append('g').append('circle')
-                .attr('cx', () => xCalc(oneHourAgo))
+                .attr('cx', () => xCalc(this.oneHourAgo))
                 .attr('cy', () => yCalc(10))
                 .attr('r', 5)
                 .attr('stroke', 'black')
                 .attr('stroke-width', 1)
-                .attr('fill', 'red')*/
+                .attr('fill', 'red')
+                */
+    }
+
+    clearTile(svg) {
+        svg.selectAll('.infoTile')
+            .remove();
+    }
+
+    renderTile(svg, calcX, calcY, value, name, time, timerId) {
+        if (timerId) {
+            clearTimeout(timerId);
+        }
+
+        const x = calcX - 52;
+        const y = calcY - 58;
+
+        svg.selectAll('.infoTile')
+            .remove();
+
+        const tile = svg.append('g')
+            .attr('class', 'infoTile');
+            // .attr('filter', 'url(#dropshadow)');
+
+        tile.append('path')
+            .attr('opacity', '1')
+            .attr('fill', '#1769aa')
+            .style('stroke', 'white')
+            .attr('d', 'M13.768 0h79a8 8 0 0 1 8 8v36a8 8 0 0 1-8 8H57.224l-4.57 5.937L48.151 52H13.768a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8z')
+            .attr('transform', `translate(${x}, ${y})`);
+
+        tile.append('text')
+            .text(`${ value }℃`)
+            .attr('class', styles.tileValue)
+            .attr('text-anchor', 'middle')
+            .attr('opacity', 1)
+            .attr('x', `${ x + 53 }`)
+            .attr('y', `${ y + 16 }`);
+
+        tile.append('text')
+            .text(name)
+            .attr('class', styles.tileName)
+            .attr('text-anchor', 'middle')
+            .attr('opacity', 1)
+            .attr('x', `${ x + 53 }`)
+            .attr('y', `${ y + 32 }`);
+
+        tile.append('text')
+            .text(time)
+            .attr('class', styles.tileName)
+            .attr('text-anchor', 'middle')
+            .attr('opacity', 1)
+            .attr('x', `${ x + 53 }`)
+            .attr('y', `${ y + 48 }`);
     }
 
     renderXaxis(svg) {

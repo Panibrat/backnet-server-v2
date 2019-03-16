@@ -90,6 +90,7 @@ app.post('/trend', authenticate, (req, res) => {
         if (index !== -1) {
             data.name = configAIs[index].name;
             data.description = configAIs[index].description;
+            data.colorTrend = configAIs[index].colorTrend;
         }
         return res.json(data);
     };

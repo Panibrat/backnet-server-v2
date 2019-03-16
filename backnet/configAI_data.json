@@ -7,7 +7,8 @@
     "units": "℃",
     "readOnly": true,
     "value": 18.5,
-    "trend": true
+    "trend": true,
+    "colorTrend": "green"
   },
   {
     "title": "AI3000156",
@@ -17,7 +18,8 @@
     "units": "℃",
     "readOnly": true,
     "value": 5.6,
-    "trend": true
+    "trend": true,
+    "colorTrend": "blue"
   },
   {
     "title": "AI3001124",
@@ -138,7 +140,8 @@
     "units": "℃",
     "readOnly": true,
     "value": 24.6,
-    "trend": true
+    "trend": true,
+    "colorTrend": "#f76537"
   },
   {
     "title": "AI3000160",
@@ -148,7 +151,8 @@
     "units": "℃",
     "readOnly": true,
     "value": 23.1,
-    "trend": true
+    "trend": true,
+    "colorTrend": "#a5e0ac"
   },
   {
     "title": "AI3000184",
@@ -167,7 +171,8 @@
     "units": "℃",
     "readOnly": true,
     "value": 68.9,
-    "trend": true
+    "trend": true,
+    "colorTrend": "#9C27B0"
   },
   {
     "title": "AI3000169",
@@ -195,7 +200,8 @@
     "units": "℃",
     "readOnly": true,
     "value": 24.0,
-    "trend": true
+    "trend": true,
+    "colorTrend": "#819043"
   },
   {
     "title": "AI3000173",
@@ -280,7 +286,8 @@
     "units": "℃",
     "readOnly": true,
     "value": 42.8,
-    "trend": true
+    "trend": true,
+    "colorTrend": "#ff9670"
   },
   {
     "title": "AI3000157",
@@ -290,7 +297,8 @@
     "units": "℃",
     "readOnly": true,
     "value": 76.4,
-    "trend": true
+    "trend": true,
+    "colorTrend": "red"
   },
   {
     "title": "AI3000158",
@@ -300,7 +308,8 @@
     "units": "℃",
     "readOnly": true,
     "value": 59.4,
-    "trend": true
+    "trend": true,
+    "colorTrend": "orange"
   },
   {
     "title": "AI3000171",
@@ -319,7 +328,7 @@
   "units": "m3",
   "readOnly": true,
   "value": 89180,
-    "trend": true
+  "trend": false
   },
   {
   "title": "AI3000371",
@@ -329,7 +338,7 @@
   "units": "m3",
   "readOnly": true,
   "value": 120,
-    "trend": true
+  "trend": false
   },
   {
     "title": "AI3000870",
