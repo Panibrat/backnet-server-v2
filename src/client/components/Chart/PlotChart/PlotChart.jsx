@@ -66,7 +66,7 @@ export class PlotChart extends Component {
                 const date = new Date(xCalcInverse(mouse[0]));
                 const time = formatDateToTime(date);
                 renderTile(svg, x, y, value, name, time, timeOut.timerId);
-                timeOut.timerId = setTimeout(() => clearTile(svg), 2000);
+                timeOut.timerId = setTimeout(() => clearTile(svg), 5000);
             })
             .transition()
             .duration(this.baseAnimationDuration * 2)

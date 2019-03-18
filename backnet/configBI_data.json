@@ -124,5 +124,14 @@
     "readOnly": true,
     "value": true,
     "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3001240",
+    "name": "oPUMP_HF_L",
+    "description": "Насос теплого пола (Л)",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
   }
 ]
