@@ -86,3 +86,8 @@
     font-size: 12px;
     font-weight: normal;
 }
+
+.bar {
+    cursor: pointer;
+    border-radius: 3px;
+}

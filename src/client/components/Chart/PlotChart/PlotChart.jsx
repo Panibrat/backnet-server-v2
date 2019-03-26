@@ -146,40 +146,13 @@ export class PlotChart extends Component {
             .ticks(7)
             .tickFormat(d3.timeFormat(' %H %M'))
             .tickPadding(10)
-            .tickSize(10);
+            .tickSize(-this.chartHeight);
 
         svg.selectAll('.xAxis')
             .remove();
 
         svg.append('g')
             .attr('class', `${styles.xAxis} xAxis`)
-            .attr('transform', `translate(0, ${this.chartHeight})`)
-            .attr('opacity', 0.2)
-            .call(xAxis)
-            .transition()
-            .duration(this.baseAnimationDuration)
-            .delay(this.baseAnimationDelay)
-            .attr('opacity', 1);
-    }
-
-    renderXLines(svg) {
-        const { startTime, endTime } = this.props;
-
-        const xCalc = d3.scaleTime()
-            .domain([startTime, endTime])
-            .range([0, this.chartWidth]);
-
-        const xAxis = d3.axisTop(xCalc)
-            .ticks(7)
-            .tickPadding(0)
-            .tickFormat(d => (''))
-            .tickSize(this.chartHeight);
-
-        svg.selectAll('.xAxisLines')
-            .remove();
-
-        svg.append('g')
-            .attr('class', `${styles.xAxis} xAxisLines`)
             .attr('transform', `translate(0, ${this.chartHeight})`)
             .attr('opacity', 0.2)
             .call(xAxis)
@@ -263,7 +236,6 @@ export class PlotChart extends Component {
 
         if (chartData.length && chartData.length > 0 && minValue && maxValue) {
             this.renderXaxis(this.svg);
-            this.renderXLines(this.svg);
             this.renderYLines(this.svg);
             this.renderYaxis(this.svg);
             this.renderAllData(this.svg, chartData);
@@ -273,7 +245,6 @@ export class PlotChart extends Component {
     componentDidUpdate() {
         const { chartData } = this.props;
         this.renderXaxis(this.svg);
-        this.renderXLines(this.svg);
         this.renderYaxis(this.svg);
         this.renderYLines(this.svg);
         this.renderAllData(this.svg, chartData);
