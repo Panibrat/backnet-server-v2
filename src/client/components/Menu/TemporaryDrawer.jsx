@@ -72,6 +72,11 @@ export const TemporaryDrawer = (props) => {
                 to="/consumption-chart">
                 График
             </NavLink>
+            <NavLink
+                className={styles.item}
+                to="/gates">
+                Ворота/Калитка
+            </NavLink>
             <Divider inset />
         </List>
     );

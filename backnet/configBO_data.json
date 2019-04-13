@@ -142,5 +142,41 @@
     "readOnly": false,
     "value": true,
     "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3000873",
+    "name": "sLightOut",
+    "description": "Включение Наружного освещения",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3000874",
+    "name": "sDoorOpn",
+    "description": "Питание на калитку",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3000875",
+    "name": "sGateOpn",
+    "description": "Сигнал на открытие ворот",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3000876",
+    "name": "oGateCls",
+    "description": "Сигнал на закрытие ворот",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
   }
 ]

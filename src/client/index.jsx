@@ -32,6 +32,7 @@ import ConsumptionChart from './components/Chart/ConsumptionChart/ConsumptionCha
 import PlansPage from './components/Pages/PlansPage/PlansPage';
 import FirstFloorItem from './components/FirstFloorItem';
 import SecondFloorItem from './components/SecondFloorItem';
+import Gates from './components/Pages/Gates/Gates';
 
 import styles from './Styles.css';
 
@@ -71,6 +72,7 @@ const App = () => (
                         <Route path="/plans" component={PlansPage} />
                         <Route path="/1-floor" component={FirstFloorItem} />
                         <Route path="/2-floor" component={SecondFloorItem} />
+                        <Route path="/gates" component={Gates} />
                         <Route path="*" component={PlansPage} />
                     </Switch>
                 </Layout>
