@@ -52,7 +52,7 @@ const dataBaseLink = `mongodb://${DATABASE_USER_NAME}:${DATABASE_USER_PASSWORD}@
 
 mongoose.connect(dataBaseLink, {
     useCreateIndex: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
 })
     .then(() => {
         console.log('connected to MongoDB');
@@ -67,18 +67,18 @@ const port = process.env.PORT || '3000';
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-app.get('/buffer', (req, res) => { //TODO: delete in prod
+app.get('/buffer', (req, res) => { // TODO: delete in prod
     res.send(JSON.stringify(buffer.getData()));
 });
 
-app.get('/modbus', (req, res) => { //TODO: delete in prod
+app.get('/modbus', (req, res) => { // TODO: delete in prod
     res.send(JSON.stringify(modbusLoop.getBuffer()));
 });
 
 app.post('/consumption', authenticate, (req, res) => {
     const query = req.body;
     const callback = (data) => {
-       return res.json(data);
+        return res.json(data);
     };
     sqlite3.getConsumptionTrendData(query.title, query.startTime, query.endTime, callback);
 });
@@ -105,7 +105,7 @@ app.post('/users/login', (req, res) => {
         if (user) {
             bcrypt.compare(req.body.password, user.password, (error, result) => {
                 if (result) {
-                    res.status(200).send(jwt.sign({ email: user.email, role: user.role }, 'abc123').toString());
+                    res.status(200).send(jwt.sign({ email: user.email, role: user.role }, 'abc123').toString()); // TODO: change key on prod to key from ENV
                 } else {
                     res.status(401).send(error);
                 }
@@ -125,6 +125,6 @@ server.listen(port, (req, res) => {
 
 backnetLoop.run();
 trendLoop.run();
-modbusLoop.setDataListeners(mongoDB);
+// modbusLoop.setDataListeners(mongoDB);
 modbusLoop.setDataListeners(socketIO);
 modbusLoop.connect();

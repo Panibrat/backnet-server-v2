@@ -44,6 +44,8 @@ const FirstFloorItem = (props) => {
                                 d="m38.431352,115.882316l36.470581,-0.000006l-0.196078,-14.901955l16.470582,-17.058817l49.999981,-0.196079l17.450974,17.058817l0.392157,14.901956l36.274496,0.196078l-0.196078,87.450948l-156.862687,0l0.196072,-87.450942z"
                                 fill={colorZalLeft}
                                 opacity="0.5"
+                                stroke="black"
+                                stroke-width ="5px"
                                 onClick={() => console.log('firstFloor_zal_Left')}
                             />
                     </g>
@@ -78,6 +80,7 @@ const FirstFloorItem = (props) => {
                               strokeWidth="2"
                               stroke={isOnFirstFloorHF_WC_Left ? "red" : "grey"}
                               fill="none"
+                              onClick={() => console.log('firstFloorHF_WC_Left')}
                         />
                     </g>
                     <g className="firstFloorHF_WC_Right">
@@ -87,6 +90,7 @@ const FirstFloorItem = (props) => {
                               strokeWidth="2"
                               stroke={isOnFirstFloorHF_WC_Right ? "red" : "grey"}
                               fill="none"
+                              onClick={() => console.log('firstFloorHF_WC_Right')}
                         />
                     </g>
                     <g className="firstFloorHF_kitchen_Left">
@@ -134,10 +138,10 @@ const FirstFloorItem = (props) => {
                               fill="none"
                         />
                     </g>
-                <g transform="translate(175, 60)">>
+                <g transform="translate(175, 60)">
                     <TemperatureTile temperature={temperatureOutdoor.value} />
                 </g>
-                <g transform="translate(95, 140)">>
+                <g transform="translate(95, 140)">
                     <TemperatureTile temperature={temperatureZalLeft.value} />
                 </g>
                 <g transform="translate(260, 140)">
@@ -167,7 +171,7 @@ const FirstFloorItem = (props) => {
                 <g transform="translate(151, 170)">
                     <HFTemperatureTile temperature={temperatureHFZal_R_Left.value} />
                 </g>
-                    <FirstFloorPlan/>
+                <FirstFloorPlan />
             </svg>
         </div>
     )
