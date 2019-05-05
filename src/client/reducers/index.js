@@ -9,6 +9,7 @@ import { menuReducer } from './menuReducer';
 import { userReducer } from './userReducer';
 import { errorsReducer } from './errorsReducer';
 import { modbusReducer } from './modbusReducer';
+import { plansViewReducer } from './plansViewReducer';
 
 export default combineReducers({
     av: avReducer,
@@ -21,4 +22,5 @@ export default combineReducers({
     user: userReducer,
     errors: errorsReducer,
     modbus: modbusReducer,
+    plans: plansViewReducer,
 });

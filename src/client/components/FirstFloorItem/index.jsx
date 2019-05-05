@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
 import FirstFloorItem from './FirstFloorItem';
 import { findPoint } from '../../common/helpers';
+import { setActiveArea } from '../../actions/plansViewActions';
+import { setTitle } from '../../actions/menuActions';
 
 const mapStateToProps = (store) => {
     return {
@@ -26,8 +29,16 @@ const mapStateToProps = (store) => {
         isOnFirstFloorHF_kitchen_Right: (findPoint('AI3000182', store.ai).value > 5),
         isOnFirstFloorHF_WC_Right: (findPoint('AI3000182', store.ai).value > 5),
         isOnFirstFloorHF_hall_Right: (findPoint('AI3000182', store.ai).value > 5),
+        activeArea: store.plans.activeArea,
     };
 
 };
 
-export default connect(mapStateToProps)(FirstFloorItem);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        setActiveArea: setActiveArea,
+        setHeaderTitle: setTitle,
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FirstFloorItem);

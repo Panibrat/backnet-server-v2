@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
 import SecondFloorItem from './SecondFloorItem';
 import { findPoint } from '../../common/helpers';
+import { setActiveArea } from '../../actions/plansViewActions';
+import { setTitle } from '../../actions/menuActions';
 
 const mapStateToProps = (store) => {
     return {
@@ -20,8 +23,16 @@ const mapStateToProps = (store) => {
         temperatureHFWC2Left:  findPoint('AI3001167', store.ai),
         isOnSecondFloorHF_WC_Left: (findPoint('AI3001179', store.ai).value > 5) && (findPoint('BI3001240', store.bi).value > 0),
         isOnSecondFloorHF_WC_Right: (findPoint('AI3000182', store.ai).value > 5),
+        activeArea: store.plans.activeArea,
     };
 
 };
 
-export default connect(mapStateToProps)(SecondFloorItem);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        setActiveArea: setActiveArea,
+        setHeaderTitle: setTitle,
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SecondFloorItem);

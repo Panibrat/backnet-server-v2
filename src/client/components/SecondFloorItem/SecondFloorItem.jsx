@@ -5,6 +5,8 @@ import TemperatureTile from '../../common/Components/TemperatureTile/Temperature
 import HFTemperatureTile from '../../common/Components/HFTemperatureTile/HFTemperatureTile';
 import styles from './SecondFloorItem.css';
 
+const selectedAreaOpacity = '0.2';
+
 const SecondFloorItem = (props) => {
     const {
         temperatureOutdoor,
@@ -23,6 +25,9 @@ const SecondFloorItem = (props) => {
         temperatureHFWC2Left,
         isOnSecondFloorHF_WC_Left,
         isOnSecondFloorHF_WC_Right,
+        activeArea,
+        setActiveArea,
+        setHeaderTitle,
     } = props;
 
     const colorSecondFloorBedroomRight = convertDiffTemperaturesToColor(temperatureBedroomRight.value, spTemperatureBedroomRight.value);
@@ -32,6 +37,16 @@ const SecondFloorItem = (props) => {
     const colorSecondFloorBedroomLeft = convertDiffTemperaturesToColor(temperatureBedroomLeft.value, spTemperatureBedroomLeft.value);
     const colorSecondCabinetLeft= convertDiffTemperaturesToColor(temperatureCabinetLeft.value, spTemperatureCabinetLeft.value);
 
+    const handleAreaClick = (areaId, areaTitle) => {
+        if (areaId === activeArea) {
+            setActiveArea('');
+            setHeaderTitle('Второй этаж');
+        } else {
+            setActiveArea(areaId);
+            setHeaderTitle(areaTitle);
+        }
+    };
+
     return (
         <div className={styles.container}>
             <svg viewBox="20 0 360 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +55,6 @@ const SecondFloorItem = (props) => {
                         d="m204.66665,115.99978l36.66622,0l0,-14.93331l16.26664,-16.79996l50.3999,0l16.5333,16.5333l0,15.19997l36.53327,0.26666l-0.26667,86.93317l-102.93314,0l0,3.2l-53.06656,0l-0.13296,-90.39983z"
                         fill={colorSecondFloorBedroomRight}
                         opacity="0.5"
-                        onClick={() => console.log('secondFloorBedroomRight')}
                     />
                 </g>
                 <g className="SecFloorCabinetRight">
@@ -48,7 +62,6 @@ const SecondFloorItem = (props) => {
                         d="m261.88679,310l99.24528,0.18867l0.18868,49.24529l-31.88679,0c0,0 -0.18868,14.5283 -0.18868,14.71698c0,0.18868 -11.88679,12.64151 -11.88679,12.64151c0,0 -43.20755,-0.18868 -43.20755,-0.18868c0,0 -12.26415,-12.07547 -12.26415,-12.07547c0,0 0,-64.5283 0,-64.5283z"
                         fill={colorSecondCabinetRight}
                         opacity="0.5"
-                        onClick={() => console.log('SecFloorCabinetRight')}
                     />
                 </g>
                 <g className="SecFloorD1">
@@ -56,7 +69,6 @@ const SecondFloorItem = (props) => {
                         d="m38.723404,116.028369l76.453901,-0.283688l0,60.851064l-20.70922,0l0,26.666666l-55.886525,0l0.141844,-87.234042z"
                         fill={colorSecondFloorD1}
                         opacity="0.5"
-                        onClick={() => console.log('SecFloorD1')}
                     />
                 </g>
                 <g className="SecFloorD2">
@@ -64,7 +76,6 @@ const SecondFloorItem = (props) => {
                         d="m118.799902,115.999908c0.133333,0 76.533272,0 76.39994,-0.000002c0.133332,0.000002 0.133332,90.39993 0,90.399927c0.133332,0.000003 -53.466625,-0.13333 -53.599957,-0.133334c0.133332,0.000004 -0.133335,-3.733327 -0.133335,-3.86666c0,-0.133333 -2.399998,-22.399982 -2.533329,-22.399985c0.133331,0.000003 -0.000002,-3.466661 -0.133334,-3.466664c0.133332,0.000003 -19.999985,0.000003 -20.133317,0c0.133332,0.000003 -0.000001,-60.533282 0.133332,-60.533282z"
                         fill={colorSecondFloorD2}
                         opacity="0.5"
-                        onClick={() => console.log('SecFloorD2')}
                     />
                 </g>
                 <g className="SecFloorCabinetLeft">
@@ -72,7 +83,6 @@ const SecondFloorItem = (props) => {
                         d="m38.723385,310.070827l99.432598,-0.141851c0.141839,0.000007 0.425527,64.538994 0.425527,64.538994c0,0 -12.482266,12.482265 -12.624105,12.482257c0.141839,0.000008 -43.120559,0.000008 -43.262397,0c0.141838,0.000008 -12.198583,-12.340413 -12.340421,-12.340421c0.141838,0.000008 0.141838,-14.893605 0,-14.893612c0.141838,0.000007 -31.631202,-0.141837 -31.773039,-0.141844c0.141837,0.000007 -0.000007,-50.070899 0.141837,-49.503523z"
                         fill={colorSecondCabinetLeft}
                         opacity="0.5"
-                        onClick={() => console.log('SecFloorCabinetLeft')}
                     />
                 </g>
                 <g className="SecFloorBedroomLeft">
@@ -80,7 +90,6 @@ const SecondFloorItem = (props) => {
                         d="m147.834819,270.51504l104.329739,-0.412365l-0.206185,61.855574l-104.535921,0l0.412367,-61.443209z"
                         fill={colorSecondFloorBedroomLeft}
                         opacity="0.5"
-                        onClick={() => console.log('SecFloorBedroomLeft')}
                     />
                 </g>
                 <g className="secFloorHF_WC_Left" transform="translate(0, 5)">
@@ -124,6 +133,64 @@ const SecondFloorItem = (props) => {
                 </g>
                 <g transform="translate(152, 230)">
                     <HFTemperatureTile temperature={temperatureHFWC2Left.value} />
+                </g>
+                <g className="secondFloorBedroomRight">
+                    <path
+                        d="m204.66665,115.99978l36.66622,0l0,-14.93331l16.26664,-16.79996l50.3999,0l16.5333,16.5333l0,15.19997l36.53327,0.26666l-0.26667,86.93317l-102.93314,0l0,3.2l-53.06656,0l-0.13296,-90.39983z"
+                        fill="black"
+                        opacity= { activeArea === 'secondFloorBedroomRight' ? selectedAreaOpacity : 0}
+                        onClick={() => handleAreaClick('secondFloorBedroomRight', 'Спальня(Родители)')}
+                    />
+                </g>
+                <g className="SecFloorCabinetRight">
+                    <path
+                        d="m261.88679,310l99.24528,0.18867l0.18868,49.24529l-31.88679,0c0,0 -0.18868,14.5283 -0.18868,14.71698c0,0.18868 -11.88679,12.64151 -11.88679,12.64151c0,0 -43.20755,-0.18868 -43.20755,-0.18868c0,0 -12.26415,-12.07547 -12.26415,-12.07547c0,0 0,-64.5283 0,-64.5283z"
+                        fill="black"
+                        opacity= { activeArea === 'SecFloorCabinetRight' ? selectedAreaOpacity : 0}
+                        onClick={() => handleAreaClick('SecFloorCabinetRight', 'Кабинет(Родители)')}
+                    />
+                </g>
+                <g className="SecFloorD1">
+                    <path
+                        d="m38.723404,116.028369l76.453901,-0.283688l0,60.851064l-20.70922,0l0,26.666666l-55.886525,0l0.141844,-87.234042z"
+                        fill="black"
+                        opacity= { activeArea === 'SecFloorD1' ? selectedAreaOpacity : 0}
+                        onClick={() => handleAreaClick('SecFloorD1', 'Комната Юли')}
+                    />
+                </g>
+                <g className="SecFloorD2">
+                    <path
+                        d="m118.799902,115.999908c0.133333,0 76.533272,0 76.39994,-0.000002c0.133332,0.000002 0.133332,90.39993 0,90.399927c0.133332,0.000003 -53.466625,-0.13333 -53.599957,-0.133334c0.133332,0.000004 -0.133335,-3.733327 -0.133335,-3.86666c0,-0.133333 -2.399998,-22.399982 -2.533329,-22.399985c0.133331,0.000003 -0.000002,-3.466661 -0.133334,-3.466664c0.133332,0.000003 -19.999985,0.000003 -20.133317,0c0.133332,0.000003 -0.000001,-60.533282 0.133332,-60.533282z"
+                        fill="black"
+                        opacity= { activeArea === 'SecFloorD2' ? selectedAreaOpacity : 0}
+                        onClick={() => handleAreaClick('SecFloorD2', 'Комната Егора')}
+                    />
+                </g>
+                <g className="SecFloorCabinetLeft">
+                    <path
+                        d="m38.723385,310.070827l99.432598,-0.141851c0.141839,0.000007 0.425527,64.538994 0.425527,64.538994c0,0 -12.482266,12.482265 -12.624105,12.482257c0.141839,0.000008 -43.120559,0.000008 -43.262397,0c0.141838,0.000008 -12.198583,-12.340413 -12.340421,-12.340421c0.141838,0.000008 0.141838,-14.893605 0,-14.893612c0.141838,0.000007 -31.631202,-0.141837 -31.773039,-0.141844c0.141837,0.000007 -0.000007,-50.070899 0.141837,-49.503523z"
+                        fill="black"
+                        opacity= { activeArea === 'SecFloorCabinetLeft' ? selectedAreaOpacity : 0}
+                        onClick={() => handleAreaClick('SecFloorCabinetLeft', 'Кабинет')}
+                    />
+                </g>
+                <g className="SecFloorBedroomLeft">
+                    <path
+                        d="m147.834819,270.51504l104.329739,-0.412365l-0.206185,61.855574l-104.535921,0l0.412367,-61.443209z"
+                        fill="black"
+                        opacity= { activeArea === 'SecFloorBedroomLeft' ? selectedAreaOpacity : 0}
+                        onClick={() => handleAreaClick('SecFloorBedroomLeft', 'Спальня')}
+                    />
+                </g>
+                <g transform="translate(147, 210)">
+                    <rect
+                        width="49"
+                        height="58"
+                        fill="black"
+                        opacity= { activeArea === 'secondFloorHF_WC_Left' ? selectedAreaOpacity : 0}
+                        onClick={() => handleAreaClick('secondFloorHF_WC_Left', 'c/у 2')}
+
+                    />
                 </g>
                 <SecondFloorPlan />
             </svg>

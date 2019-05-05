@@ -15,3 +15,4 @@ export const CLOSE_MENU = 'CLOSE_MENU';
 export const SET_TITLE = 'SET_TITLE';
 export const UPDATE_MODBUS_VALUE = 'UPDATE_MODBUS_VALUE';
 export const GET_MODBUS_POINTS = 'GET_MODBUS_POINTS';
+export const SET_ACTIVE_AREA = 'SET_ACTIVE_AREA';

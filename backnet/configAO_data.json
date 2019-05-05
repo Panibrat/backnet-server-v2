@@ -4,6 +4,8 @@
     "name": "sDMPR_ZAL_R",
     "description": "Зал (Родители). Положение воздушной заслонки",
     "status": "norm",
+    "minValue": 0,
+    "maxValue": 100,
     "units": "%",
     "readOnly": false,
     "value": 100
@@ -13,6 +15,8 @@
     "name": "sDMPR_K+B_R",
     "description": "Кабинет + Спальня (Родители). Положение воздушной заслонки",
     "status": "norm",
+    "minValue": 0,
+    "maxValue": 100,
     "units": "%",
     "readOnly": false,
     "value": 10
@@ -22,6 +26,8 @@
     "name": "sDMPR_ZAL_L",
     "description": "Зал. Положение воздушной заслонки",
     "status": "norm",
+    "minValue": 0,
+    "maxValue": 100,
     "units": "%",
     "readOnly": false,
     "value": 0
@@ -49,6 +55,8 @@
     "name": "sHEAT_DAY",
     "description": "Уставка День на Обогрев",
     "status": "norm",
+    "minValue": 12,
+    "maxValue": 35,
     "units": "℃",
     "readOnly": false,
     "value": 21

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import FirstFloorItem  from '../../FirstFloorItem';
 import SecondFloorItem  from '../../SecondFloorItem';
+import ControlContainer  from '../../ControlContainer';
 import { setTitle } from '../../../actions/menuActions';
 import styles from './PlansPage.css';
 
@@ -36,6 +37,7 @@ class PlansPage extends React.Component {
                 <Button variant="contained" color="primary" onClick={this.toggleFloor}>
                     {this.state.isFirstFloorShown ? 'Второй этаж' : 'Первый этаж'}
                 </Button>
+                <ControlContainer />
             </div>
         );
     }
