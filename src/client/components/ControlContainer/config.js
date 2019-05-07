@@ -1,185 +1,129 @@
 export const controlConfig = {
     firstFloor_zal_Left: {
         bo: [
+            'BO3001247'
         ],
         ao: [
             'AO3001150',
+            'AO3000799',
+            'AO3001191',
+            'AO3001192',
         ],
         ai: [
-            'AI3000156',
-            'AI3001122',
-            'AI3001124',
+            'AI3000794'
         ],
         bi: [
-            'BI3001240'
         ],
     },
     firstFloor_zal_Right: {
         bo: [
-            'BO3000267',
-            'BO3001233',
         ],
         ao: [
-            'AO3001149',
-            'AO3001148',
-            'AO3001137',
         ],
         ai: [
-            'AI3001122',
         ],
         bi: [
-            'BI3001199',
-            'BI3000249',
         ],
     },
     firstFloor_Kitchen_Left: {
         bo: [
-            'BO3000267',
+            'BO3001243'
         ],
         ao: [
-            'AO3001148',
+            "AO3000800",
+            "AO3001185",
         ],
         ai: [
-            'AI3001122',
+            "AI3000793",
         ],
         bi: [
-            'BI3001199',
-            'BI3000261',
         ],
     },
     firstFloorHF_WC_Left: {
-        bo: [
-            'BO3000267',
-        ],
         ao: [
-            'AO3001148',
+            'AO3001189',
         ],
-        ai: [
-            'AI3001122',
-        ],
-        bi: [
-            'BI3001199',
-            'BI3000261',
+        bo: [
+            'BO3001245',
         ],
     },
     firstFloorHF_hall_Left: {
-        bo: [
-            'BO3000267',
-        ],
         ao: [
-            'AO3001148',
+            'AO3001188',
         ],
-        ai: [
-            'AI3001122',
-        ],
-        bi: [
-            'BI3001199',
-            'BI3000261',
+        bo: [
+            'BO3001244',
         ],
     },
     firstFloor_Kitchen_Right: {
         bo: [
-            'BO3000267',
         ],
         ao: [
-            'AO3001148',
         ],
         ai: [
-            'AI3001122',
         ],
         bi: [
-            'BI3001199',
-            'BI3000261',
+
         ],
     },
     SecFloorD1: {
         bo: [
-            'BO3000267',
         ],
         ao: [
-            'AO3001148',
         ],
         ai: [
-            'AI3001122',
         ],
         bi: [
-            'BI3001199',
-            'BI3000261',
         ],
     },
     SecFloorD2: {
         bo: [
-            'BO3000267',
         ],
         ao: [
-            'AO3001148',
         ],
         ai: [
-            'AI3001122',
         ],
         bi: [
-            'BI3001199',
-            'BI3000261',
         ],
     },
     SecFloorCabinetLeft: {
         bo: [
-            'BO3000267',
         ],
         ao: [
-            'AO3001148',
         ],
         ai: [
-            'AI3001122',
         ],
         bi: [
-            'BI3001199',
-            'BI3000261',
         ],
     },
     SecFloorBedroomLeft: {
         bo: [
-            'BO3000267',
         ],
         ao: [
-            'AO3001148',
         ],
         ai: [
-            'AI3001122',
         ],
         bi: [
-            'BI3001199',
-            'BI3000261',
         ],
     },
     secondFloorBedroomRight: {
         bo: [
-            'BO3000267',
         ],
         ao: [
-            'AO3001148',
         ],
         ai: [
-            'AI3001122',
         ],
         bi: [
-            'BI3001199',
-            'BI3000261',
         ],
     },
     SecFloorCabinetRight: {
         bo: [
-            'BO3000267',
         ],
         ao: [
-            'AO3001148',
         ],
         ai: [
-            'AI3001122',
         ],
         bi: [
-            'BI3001199',
-            'BI3000261',
         ],
     },
 };

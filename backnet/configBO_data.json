@@ -178,5 +178,41 @@
     "readOnly": false,
     "value": true,
     "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001247",
+    "name": "sStartHF_Zal",
+    "description": "Теплый пол Зал",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001244",
+    "name": "sStartHFHall",
+    "description": "Теплый пол. Тамбур",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001245",
+    "name": "sStartHF_Wc1",
+    "description": "Теплый пол. с/у 1эт",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001243",
+    "name": "sStartHFKitc",
+    "description": "Теплый пол. Кухня(Л)",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
   }
 ]

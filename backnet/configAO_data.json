@@ -197,5 +197,82 @@
     "readOnly": true,
     "value": 15,
     "trend": false
+  },
+  {
+    "title": "AO3001191",
+    "name": "sTHFZalL",
+    "description": "Уставка Т-ры теплого пола. Зал-Л",
+    "status": "norm",
+    "minValue": 5,
+    "maxValue": 40,
+    "units": "℃",
+    "readOnly": false,
+    "value": 22
+  },
+  {
+    "title": "AO3001192",
+    "name": "sTHFZalR",
+    "description": "Уставка Т-ры теплого пола. Зал-П",
+    "status": "norm",
+    "minValue": 5,
+    "maxValue": 40,
+    "units": "℃",
+    "readOnly": false,
+    "value": 22
+  },
+  {
+    "title": "AO3001188",
+    "name": "sTHFHall",
+    "description": "Уставка Т-ры теплого пола. Тамбур",
+    "status": "norm",
+    "minValue": 5,
+    "maxValue": 40,
+    "units": "℃",
+    "readOnly": false,
+    "value": 22
+  },
+  {
+    "title": "AO3001189",
+    "name": "sTHF_Wc1",
+    "description": "Уставка Т-ры теплого пола. с/у 1эт",
+    "status": "norm",
+    "minValue": 5,
+    "maxValue": 40,
+    "units": "℃",
+    "readOnly": false,
+    "value": 22
+  },
+  {
+    "title": "AO3001185",
+    "name": "sTHF_Kit",
+    "description": "Уставка Т-ры теплого пола. Кухня(Л)",
+    "status": "norm",
+    "minValue": 5,
+    "maxValue": 40,
+    "units": "℃",
+    "readOnly": false,
+    "value": 22
+  },
+  {
+    "title": "AO3000799",
+    "name": "sSh_Zal",
+    "description": "Сдвиг уставки т-ры. Зал(Л)",
+    "status": "norm",
+    "minValue": -10,
+    "maxValue": 10,
+    "units": "℃",
+    "readOnly": false,
+    "value": 3
+  },
+  {
+    "title": "AO3000800",
+    "name": "sSh_Kitc",
+    "description": "Сдвиг уставки т-ры. Кухня(Л)",
+    "status": "norm",
+    "minValue": -10,
+    "maxValue": 10,
+    "units": "℃",
+    "readOnly": false,
+    "value": 0
   }
 ]

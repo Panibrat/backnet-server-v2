@@ -599,5 +599,25 @@
     "readOnly": true,
     "value": 30,
     "trend": false
+  },
+  {
+    "title": "AI3000794",
+    "name": "oSP_Zal",
+    "description": "Рабочая уставка т-ры в зале(Л)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 25,
+    "trend": false
+  },
+  {
+    "title": "AI3000793",
+    "name": "oSP_Kit",
+    "description": "Рабочая уставка т-ры в кухне(Л)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 25,
+    "trend": false
   }
 ]

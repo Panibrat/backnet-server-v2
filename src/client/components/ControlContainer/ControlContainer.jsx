@@ -22,7 +22,9 @@ const ControlContainer = (props) => {
         <div className={styles.container}>
             <List className={styles.list_type}>
                 {
-                    controlConfig[activeArea] && controlConfig[activeArea].ao.map(item => {
+                    controlConfig[activeArea] &&
+                    controlConfig[activeArea].ao &&
+                    controlConfig[activeArea].ao.map(item => {
                             const aoPoint = findAo(item);
                             return (
                                 <AnalogOutputItemSlider
@@ -34,21 +36,27 @@ const ControlContainer = (props) => {
                     )
                 }
                 {
-                    controlConfig[activeArea] && controlConfig[activeArea].bo.map(item => {
+                    controlConfig[activeArea] &&
+                    controlConfig[activeArea].bo &&
+                    controlConfig[activeArea].bo.map(item => {
                             const boPoint = findBo(item);
                             return ( <BinaryOutputItem key={item} {...boPoint} />);
                         }
                     )
                 }
                 {
-                    controlConfig[activeArea] && controlConfig[activeArea].ai.map(item => {
+                    controlConfig[activeArea] &&
+                    controlConfig[activeArea].ai &&
+                    controlConfig[activeArea].ai.map(item => {
                             const aiPoint = findAi(item);
                             return ( <AnalogInputItem key={item} {...aiPoint} />);
                         }
                     )
                 }
                 {
-                    controlConfig[activeArea] && controlConfig[activeArea].bi.map(item => {
+                    controlConfig[activeArea] &&
+                    controlConfig[activeArea].bi &&
+                    controlConfig[activeArea].bi.map(item => {
                             const biPoint = findBi(item);
                             return ( <BinaryInputItem key={item} {...biPoint} />);
                         }
