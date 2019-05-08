@@ -57,8 +57,12 @@ export const controlConfig = {
     },
     firstFloor_Kitchen_Right: {
         bo: [
+            'BO3000882',
         ],
         ao: [
+            "AO3000879",
+            "AO3000234",
+            "AO3000235",
         ],
         ai: [
         ],

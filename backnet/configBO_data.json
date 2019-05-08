@@ -214,5 +214,14 @@
     "readOnly": false,
     "value": true,
     "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3000882",
+    "name": "sStart_HF_KI_Right",
+    "description": "Теплый пол(П)",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
   }
 ]
