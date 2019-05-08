@@ -393,7 +393,7 @@
   {
     "title": "AI3000792",
     "name": "oSP_D1",
-    "description": "Уставка температуры воздуха в детской 1",
+    "description": "Уставка температуры воздуха у Юли",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -403,7 +403,7 @@
   {
     "title": "AI3000790",
     "name": "oSP_Bedroom_L",
-    "description": "Уставка температуры воздуха в спальне (лево)",
+    "description": "Уставка температуры воздуха в спальне",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -413,7 +413,7 @@
   {
     "title": "AI3000791",
     "name": "oSP_D2",
-    "description": "Уставка температуры воздуха в детской 2",
+    "description": "Уставка температуры воздуха у Егора",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -423,7 +423,7 @@
   {
     "title": "AI3000769",
     "name": "iT_D2",
-    "description": "Температура воздуха в детской 2",
+    "description": "Температура воздуха у Егора",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -433,7 +433,7 @@
   {
     "title": "AI3000772",
     "name": "iT_Cabinet_L",
-    "description": "Температура воздуха кабинете (лево)",
+    "description": "Температура воздуха кабинете",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -443,7 +443,7 @@
   {
     "title": "AI3000793",
     "name": "oSP_Kitchen",
-    "description": "Уставка температуры воздуха в кухне (лево)",
+    "description": "Уставка температуры воздуха в кухне",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -453,7 +453,7 @@
   {
     "title": "AI3000789",
     "name": "oSP_Cabinet_L",
-    "description": "Уставка температуры воздуха в кабинете (лево)",
+    "description": "Уставка температуры воздуха в кабинете",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -463,7 +463,7 @@
   {
     "title": "AI3001164",
     "name": "iTP_Kitchen",
-    "description": "Температура пола в кухне (лево)",
+    "description": "Температура пола в кухне",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -473,7 +473,7 @@
   {
     "title": "AI3001166",
     "name": "iTP_WC1",
-    "description": "Температура пола в с/у 1 этаж (лево)",
+    "description": "Температура пола в с/у 1 этаж",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -483,7 +483,7 @@
   {
     "title": "AI3001167",
     "name": "iTP_WC2",
-    "description": "Температура пола в с/у 2 этаж (лево)",
+    "description": "Температура пола в с/у 2 этаж",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -493,7 +493,7 @@
   {
     "title": "AI3001165",
     "name": "iTP_Hall",
-    "description": "Температура пола в тамбуре (лево)",
+    "description": "Температура пола в тамбуре",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -503,7 +503,7 @@
   {
     "title": "AI3001168",
     "name": "iTP_ZalR",
-    "description": "Температура пола в зале прав сторона",
+    "description": "Температура пола в зале (Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -513,7 +513,7 @@
   {
     "title": "AI3001169",
     "name": "iTP_ZalL",
-    "description": "Температура пола в зале лев сторона",
+    "description": "Температура пола в зале",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -523,7 +523,7 @@
   {
     "title": "AI3000183",
     "name": "oHF_WC1_R",
-    "description": "Клапан теплого пола с/у 1 эт (право)",
+    "description": "Клапан теплого пола с/у 1 эт (Родители)",
     "status": "norm",
     "units": "%",
     "readOnly": true,
@@ -533,7 +533,7 @@
   {
     "title": "AI3001178",
     "name": "oHF_WC1_L",
-    "description": "Клапан теплого пола с/у 1 эт (лево)",
+    "description": "Клапан теплого пола с/у 1 эт",
     "status": "norm",
     "units": "%",
     "readOnly": true,
@@ -543,7 +543,7 @@
   {
     "title": "AI3001179",
     "name": "oHF_WC2_L",
-    "description": "Клапан теплого пола с/у 2 эт (лево)",
+    "description": "Клапан теплого пола с/у 2 эт",
     "status": "norm",
     "units": "%",
     "readOnly": true,
@@ -553,7 +553,7 @@
   {
     "title": "AI3000185",
     "name": "oHF_Kitchen_R",
-    "description": "Клапан теплого кухни (право)",
+    "description": "Клапан теплого кухни (Родители)",
     "status": "norm",
     "units": "%",
     "readOnly": true,
@@ -563,7 +563,7 @@
   {
     "title": "AI3001176",
     "name": "oHF_Kitchen_L",
-    "description": "Клапан теплого кухни (лево)",
+    "description": "Клапан теплого кухни",
     "status": "norm",
     "units": "%",
     "readOnly": true,
@@ -573,7 +573,7 @@
   {
     "title": "AI3000186",
     "name": "oHF_HALL_R",
-    "description": "Клапан теплого тамбура (право)",
+    "description": "Клапан теплого тамбура (Родители)",
     "status": "norm",
     "units": "%",
     "readOnly": true,
@@ -583,7 +583,7 @@
   {
     "title": "AI3001177",
     "name": "oHF_HALL",
-    "description": "Клапан теплого тамбура (лево)",
+    "description": "Клапан теплого тамбура",
     "status": "norm",
     "units": "%",
     "readOnly": true,
@@ -603,7 +603,7 @@
   {
     "title": "AI3000794",
     "name": "oSP_Zal",
-    "description": "Рабочая уставка т-ры в зале(Л)",
+    "description": "Рабочая уставка т-ры в зале",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -613,7 +613,7 @@
   {
     "title": "AI3000793",
     "name": "oSP_Kit",
-    "description": "Рабочая уставка т-ры в кухне(Л)",
+    "description": "Рабочая уставка т-ры в кухне",
     "status": "norm",
     "units": "℃",
     "readOnly": true,

@@ -15,16 +15,6 @@ export const controlConfig = {
         bi: [
         ],
     },
-    firstFloor_zal_Right: {
-        bo: [
-        ],
-        ao: [
-        ],
-        ai: [
-        ],
-        bi: [
-        ],
-    },
     firstFloor_Kitchen_Left: {
         bo: [
             'BO3001243'
@@ -55,6 +45,17 @@ export const controlConfig = {
             'BO3001244',
         ],
     },
+    firstFloor_zal_Right: {
+        bo: [
+        ],
+        ao: [
+            'AO3001149',
+        ],
+        ai: [
+        ],
+        bi: [
+        ],
+    },
     firstFloor_Kitchen_Right: {
         bo: [
             'BO3000882',
@@ -74,8 +75,11 @@ export const controlConfig = {
         bo: [
         ],
         ao: [
+            'AO3000803',
+            'AO3001147',
         ],
         ai: [
+            "AI3000792",
         ],
         bi: [
         ],
@@ -84,8 +88,11 @@ export const controlConfig = {
         bo: [
         ],
         ao: [
+            'AO3000802',
+            'AO3001147',
         ],
         ai: [
+            "AI3000791",
         ],
         bi: [
         ],
@@ -94,8 +101,11 @@ export const controlConfig = {
         bo: [
         ],
         ao: [
+            'AO3000798',
+            'AO3001146',
         ],
         ai: [
+            "AI3000789",
         ],
         bi: [
         ],
@@ -104,8 +114,11 @@ export const controlConfig = {
         bo: [
         ],
         ao: [
+            'AO3000801',
+            'AO3001146',
         ],
         ai: [
+            "AI3000790",
         ],
         bi: [
         ],
@@ -114,6 +127,8 @@ export const controlConfig = {
         bo: [
         ],
         ao: [
+            'AO3000881',
+            'AO3001148',
         ],
         ai: [
         ],
@@ -124,6 +139,8 @@ export const controlConfig = {
         bo: [
         ],
         ao: [
+            'AO3000880',
+            'AO3001148',
         ],
         ai: [
         ],

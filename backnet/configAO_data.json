@@ -172,7 +172,7 @@
   {
     "title": "AO3000879",
     "name": "sT_Kitchen_R",
-    "description": "Уставка температуры воздуха в кухне (право)",
+    "description": "Уставка температуры воздуха в кухне (Родители)",
     "status": "norm",
     "minValue": 10,
     "maxValue": 30,
@@ -183,7 +183,7 @@
   {
     "title": "AO3000881",
     "name": "sSP_Bedroom_R",
-    "description": "Уставка температуры воздуха в спальне (право)",
+    "description": "Уставка температуры воздуха в спальне (Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -193,7 +193,7 @@
   {
     "title": "AO3000880",
     "name": "sSP_Cabinet_R",
-    "description": "Уставка температуры воздуха в кабинете (право)",
+    "description": "Уставка температуры воздуха в кабинете (Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -247,7 +247,7 @@
   {
     "title": "AO3001185",
     "name": "sTHF_Kit",
-    "description": "Уставка Т-ры теплого пола. Кухня(Л)",
+    "description": "Уставка Т-ры теплого пола. Кухня",
     "status": "norm",
     "minValue": 5,
     "maxValue": 40,
@@ -258,7 +258,7 @@
   {
     "title": "AO3000799",
     "name": "sSh_Zal",
-    "description": "Сдвиг уставки т-ры. Зал(Л)",
+    "description": "Сдвиг уставки т-ры. Зал",
     "status": "norm",
     "minValue": -10,
     "maxValue": 10,
@@ -269,7 +269,7 @@
   {
     "title": "AO3000800",
     "name": "sSh_Kitc",
-    "description": "Сдвиг уставки т-ры. Кухня(Л)",
+    "description": "Сдвиг уставки т-ры. Кухня",
     "status": "norm",
     "minValue": -10,
     "maxValue": 10,
@@ -280,7 +280,7 @@
   {
     "title": "AO3000234",
     "name": "sT_K_MIN",
-    "description": "Уставка MIN температуры пола в кухне (право)",
+    "description": "Уставка MIN температуры пола в кухне (Родители)",
     "status": "norm",
     "minValue": 10,
     "maxValue": 40,
@@ -291,12 +291,56 @@
   {
     "title": "AO3000235",
     "name": "sT_K_MAX",
-    "description": "Уставка MAX температуры пола в кухне (право)",
+    "description": "Уставка MAX температуры пола в кухне (Родители)",
     "status": "norm",
     "minValue": 10,
     "maxValue": 40,
     "units": "℃",
     "readOnly": false,
     "value": 28
+  },
+  {
+    "title": "AO3000798",
+    "name": "sT_Cab",
+    "description": "Уставка т-ры в кабинете (Л)",
+    "status": "norm",
+    "minValue": 16,
+    "maxValue": 28,
+    "units": "℃",
+    "readOnly": false,
+    "value": 22
+  },
+  {
+    "title": "AO3000801",
+    "name": "sT_Bed",
+    "description": "Уставка т-ры в спальне (Л)",
+    "status": "norm",
+    "minValue": 16,
+    "maxValue": 28,
+    "units": "℃",
+    "readOnly": false,
+    "value": 22
+  },
+  {
+    "title": "AO3000802",
+    "name": "sT_D2",
+    "description": "Уставка т-ры у Егора",
+    "status": "norm",
+    "minValue": 16,
+    "maxValue": 28,
+    "units": "℃",
+    "readOnly": false,
+    "value": 22
+  },
+  {
+    "title": "AO3000803",
+    "name": "sT_D1",
+    "description": "Уставка т-ры у Юли",
+    "status": "norm",
+    "minValue": 16,
+    "maxValue": 28,
+    "units": "℃",
+    "readOnly": false,
+    "value": 22
   }
 ]
