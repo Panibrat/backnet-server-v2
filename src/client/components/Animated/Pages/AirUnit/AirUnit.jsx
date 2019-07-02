@@ -16,7 +16,7 @@ export const AirUnit = (props) => (
             src={airUnitImage}
         />
         <div className={styles.kkb_box}>
-            <Kkb isOn={props.oKKB} />
+            <Kkb isOn={props.oFAN_SPEED1 || props.oFAN_SPEED2 || props.oFAN_SPEED3} />
         </div>
         <div className={styles.supply_fan_box}>
             <SupplyFan isOn={props.oFan} />
@@ -94,6 +94,9 @@ const mapStateToProps = (store) => {
         oFan: findPoint('BI3001199', store.bi),
         oHeat: findPoint('BI3001202', store.bi),
         oDamperTop: findPoint('BI3001208', store.bi),
+        oFAN_SPEED1: findPoint('BI3001203', store.bi),
+        oFAN_SPEED2: findPoint('BI3001204', store.bi),
+        oFAN_SPEED3: findPoint('BI3001205', store.bi),
         oDamperButtom: findPoint('BI3001209', store.bi)
     };
 };

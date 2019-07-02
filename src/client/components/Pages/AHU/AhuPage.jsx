@@ -105,7 +105,7 @@ const findPoint = (point, pointsList) => {
 const mapStateToProps = (store) => {
     return {
         tFor: findPoint('AI3001122', store.ai),
-        tOut: findPoint('AI3001121', store.ai),
+        tOut: findPoint('AI3000156', store.ai),
         tRet: findPoint('AI3001123', store.ai),
         tIsp: findPoint('AI3001124', store.ai),
         tComp: findPoint('AI3001154', store.ai),

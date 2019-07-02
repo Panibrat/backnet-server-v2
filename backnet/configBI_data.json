@@ -18,6 +18,33 @@
     "units": ["Off", "On"]
   },
   {
+    "title": "BI3001203",
+    "name": "oFAN_SPEED1",
+    "description": "Вентилятор ККБ/1я скорость",
+    "status": "alarm",
+    "readOnly": true,
+    "value": false,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3001204",
+    "name": "oFAN_SPEED2",
+    "description": "Вентилятор ККБ/2я скорость",
+    "status": "alarm",
+    "readOnly": true,
+    "value": false,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3001205",
+    "name": "oFAN_SPEED3",
+    "description": "Вентилятор ККБ/3я скорость",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
     "title": "BI3001202",
     "name": "o4X VLV",
     "description": "Клапан Теплового Насоса",
