@@ -249,6 +249,17 @@
     "value": 22
   },
   {
+    "title": "AO3001190",
+    "name": "sTHF_Wc2",
+    "description": "Уставка Т-ры теплого пола. с/у 2эт",
+    "status": "norm",
+    "minValue": 5,
+    "maxValue": 40,
+    "units": "℃",
+    "readOnly": false,
+    "value": 31
+  },
+  {
     "title": "AO3001185",
     "name": "sTHF_Kit",
     "description": "Уставка Т-ры теплого пола. Кухня",

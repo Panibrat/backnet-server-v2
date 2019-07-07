@@ -25,8 +25,8 @@ export class AhuPage extends React.Component {
                 <div className={styles.values_container}>
                     <List className={styles.list_type}>
                         <BinaryOutputItem {...this.props.sSTART} />
-                        <BinaryOutputItem {...this.props.sSEASON} />
-                        <BinaryOutputItem {...this.props.sLOCAL} />
+                        <BinaryOutputItem icons={'coolHeat'} {...this.props.sSEASON} />
+                        <BinaryOutputItem icons={'control'} {...this.props.sLOCAL} />
                         <BinaryOutputItem {...this.props.sALWAYS} />
                     </List>
                     <List className={styles.list_type}>

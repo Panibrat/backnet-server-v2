@@ -4,12 +4,23 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
-
-import buttonImg from './power.svg';
+// import buttonImg from './power.svg';
+import buttonOffImg from './Red_Power_Button_clip_art.svg';
+import buttonOnImg from './Green_Power_Button_clip_art.svg';
+import coolingImg from './snowflake.svg';
+import heatingImg from './sun.svg';
+import pc from './pc.svg';
+import thermostat from './thermostat.svg';
 
 import styles from './BinaryOutputItem.css';
 
 import SocketIO from '../../services/SocketService';
+
+const config = {
+    offOn: [buttonOffImg, buttonOnImg],
+    coolHeat: [coolingImg, heatingImg],
+    control: [thermostat, pc],
+};
 
 export default class BinaryOutputItem extends React.Component {
     constructor(props) {
@@ -46,6 +57,8 @@ export default class BinaryOutputItem extends React.Component {
     }
 
     render() {
+        const { icons } = this.props;
+        const iconsImages = icons ? config[icons] : config['offOn'];
         const units = this.props.units ?
             this.props.units
             :
@@ -56,7 +69,7 @@ export default class BinaryOutputItem extends React.Component {
                     <Avatar
                         className={styles.avatar}
                         alt="button"
-                        src={buttonImg}
+                        src={this.props.value ? iconsImages[1] : iconsImages[0]}
                     />
                     <ListItemText
                         className={styles.item}

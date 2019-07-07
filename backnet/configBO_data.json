@@ -5,7 +5,7 @@
     "description": "Старт Приточки",
     "status": "norm",
     "readOnly": false,
-    "value": true,
+    "value": false,
     "units": ["Выкл", "Вкл"]
   },
     {
@@ -23,7 +23,7 @@
     "description": "Режим работы",
     "status": "normal",
     "readOnly": false,
-    "value": true,
+    "value": false,
     "units": ["Охлаж", "Нагрев"]
   },
     {
@@ -204,6 +204,15 @@
     "status": "normal",
     "readOnly": false,
     "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001246",
+    "name": "sStartHF_Wc2",
+    "description": "Теплый пол. с/у 2эт",
+    "status": "normal",
+    "readOnly": false,
+    "value": false,
     "units": ["Выкл", "Вкл"]
   },
   {

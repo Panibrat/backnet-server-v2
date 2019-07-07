@@ -16,7 +16,7 @@ export const AirUnit = (props) => (
             src={airUnitImage}
         />
         <div className={styles.kkb_box}>
-            <Kkb isOn={props.oFAN_SPEED1 || props.oFAN_SPEED2 || props.oFAN_SPEED3} />
+            <Kkb isOn={props.oKKB} />
         </div>
         <div className={styles.supply_fan_box}>
             <SupplyFan isOn={props.oFan} />
@@ -58,7 +58,7 @@ export const AirUnit = (props) => (
             {props.speedFan}%
         </div>
         <div className={styles.freon_pressue_box}>
-            {(props.pFreon/100).toFixed(2)}bar
+            {(props.pFreon/100).toFixed(1)}bar
         </div>
         <div className={styles.t_evaparator_box}>
             {props.tIsp.toFixed(1)}℃

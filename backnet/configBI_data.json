@@ -14,7 +14,7 @@
     "description": "Наружный Блок ККБ",
     "status": "alarm",
     "readOnly": true,
-    "value": true,
+    "value": 1,
     "units": ["Off", "On"]
   },
   {

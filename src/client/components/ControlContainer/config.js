@@ -147,4 +147,12 @@ export const controlConfig = {
         bi: [
         ],
     },
+    secondFloorHF_WC_Left: {
+        ao: [
+            'AO3001190',
+        ],
+        bo: [
+            'BO3001246',
+        ],
+    },
 };
