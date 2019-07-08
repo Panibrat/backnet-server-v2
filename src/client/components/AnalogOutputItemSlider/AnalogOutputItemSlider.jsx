@@ -14,10 +14,15 @@ import Divider from '@material-ui/core/Divider';
 
 import voltageImg from './voltage.svg';
 import settingsImg from './settings.svg';
+import setTemp from './set_temp.svg';
 
 import styles from './AnalogOutputItemSlider.css';
-
 import SocketIO from '../../services/SocketService';
+
+const config = {
+    defaultImg: voltageImg,
+    setTemperature: setTemp,
+};
 
 export class AnalogOutputItemSlider extends React.Component {
     constructor(props) {
@@ -60,13 +65,16 @@ export class AnalogOutputItemSlider extends React.Component {
     };
 
     render() {
+        const { icons } = this.props;
+        const iconsImages = icons && config[icons] ? config[icons] : config['defaultImg'];
+
         return (
             <React.Fragment>
                 <ListItem className={styles.container}>
                     <Avatar
                         className={styles.avatar}
                         alt="term"
-                        src={voltageImg}
+                        src={iconsImages}
                     />
                     <ListItemText
                         className={styles.item}

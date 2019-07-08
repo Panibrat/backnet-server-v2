@@ -143,6 +143,15 @@
     "value": 35
   },
   {
+    "title": "AO3001136",
+    "name": "sVSD",
+    "description": "Скорость Приточного Вентилятора",
+    "status": "norm",
+    "units": "%",
+    "readOnly": false,
+    "value": 62
+  },
+  {
     "title": "AO3000225",
     "name": "sHF_HALL",
     "description": "Клапан теплого пола тамбура",

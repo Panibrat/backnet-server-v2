@@ -36,6 +36,7 @@ export class AhuPage extends React.Component {
                             maxValue={28}
                             stepValue={0.5}
                             units={'℃'}
+                            icons={'setTemperature'}
                         />
                         <AnalogOutputItemSlider
                             {...this.props.setTemperatureNightHeat}
@@ -43,6 +44,7 @@ export class AhuPage extends React.Component {
                             maxValue={28}
                             stepValue={0.5}
                             units={'℃'}
+                            icons={'setTemperature'}
                         />
                         <AnalogOutputItemSlider
                             {...this.props.setTemperatureDayCool}
@@ -50,6 +52,7 @@ export class AhuPage extends React.Component {
                             maxValue={28}
                             stepValue={0.5}
                             units={'℃'}
+                            icons={'setTemperature'}
                         />
                         <AnalogOutputItemSlider
                             {...this.props.setTemperatureNightCool}
@@ -57,10 +60,18 @@ export class AhuPage extends React.Component {
                             maxValue={28}
                             stepValue={0.5}
                             units={'℃'}
+                            icons={'setTemperature'}
                         />
                         <AnalogOutputItemSlider
                             {...this.props.setDamperMinWinter}
                             minValue={0}
+                            maxValue={100}
+                            stepValue={5}
+                            units={'%'}
+                        />
+                        <AnalogOutputItemSlider
+                            {...this.props.sVSD}
+                            minValue={50}
                             maxValue={100}
                             stepValue={5}
                             units={'%'}
@@ -87,6 +98,11 @@ export class AhuPage extends React.Component {
                         <BinaryInputItem {...this.props.oHeat} />
                         <BinaryInputItem {...this.props.oDamperTop} />
                         <BinaryInputItem {...this.props.oDamperButtom} />
+                    </List>
+                    <List>
+                        <BinaryInputItem icons={'normalAlarm'} {...this.props.aKKB} />
+                        <BinaryInputItem icons={'normalAlarm'} {...this.props.aFaza} />
+                        <BinaryInputItem icons={'normalAlarm'} {...this.props.aPV} />
                     </List>
                 </div>
             </div>
@@ -116,6 +132,7 @@ const mapStateToProps = (store) => {
         setTemperatureNightCool: findPoint('AO3001140', store.ao),
         setDamperMinWinter: findPoint('AO3001142', store.ao),
         setDamperMinSummer: findPoint('AO3001143', store.ao),
+        sVSD: findPoint('AO3001136', store.ao),
         sSTART: findPoint('BO3001224', store.bo),
         sSEASON: findPoint('BO3001226', store.bo),
         sLOCAL: findPoint('BO3001233', store.bo),
@@ -124,7 +141,10 @@ const mapStateToProps = (store) => {
         oFan: findPoint('BI3001199', store.bi),
         oHeat: findPoint('BI3001202', store.bi),
         oDamperTop: findPoint('BI3001208', store.bi),
-        oDamperButtom: findPoint('BI3001209', store.bi)
+        oDamperButtom: findPoint('BI3001209', store.bi),
+        aFaza: findPoint('BI3001232', store.bi),
+        aPV: findPoint('BI3001213', store.bi),
+        aKKB: findPoint('BI3001218', store.bi)
     };
 };
 

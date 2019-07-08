@@ -178,3 +178,24 @@
     text-align: center;
     z-index: 20;
 }
+
+.alarmSign {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 30px;
+}
+
+.heatSign {
+    position: absolute;
+    left: 240px;
+    top: 1px;
+    width: 30px;
+}
+
+.coolSign {
+    position: absolute;
+    left: 240px;
+    top: 1px;
+    width: 30px;
+}

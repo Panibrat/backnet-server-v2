@@ -8,7 +8,7 @@ import Divider from '@material-ui/core/Divider';
 import buttonOffImg from './Red_Power_Button_clip_art.svg';
 import buttonOnImg from './Green_Power_Button_clip_art.svg';
 import coolingImg from './snowflake.svg';
-import heatingImg from './sun.svg';
+import heatingImg from './sun2.svg';
 import pc from './pc.svg';
 import thermostat from './thermostat.svg';
 
@@ -58,7 +58,7 @@ export default class BinaryOutputItem extends React.Component {
 
     render() {
         const { icons } = this.props;
-        const iconsImages = icons ? config[icons] : config['offOn'];
+        const iconsImages = icons && config[icons] ? config[icons] : config['offOn'];
         const units = this.props.units ?
             this.props.units
             :

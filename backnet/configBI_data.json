@@ -18,33 +18,6 @@
     "units": ["Off", "On"]
   },
   {
-    "title": "BI3001203",
-    "name": "oFAN_SPEED1",
-    "description": "Вентилятор ККБ/1я скорость",
-    "status": "alarm",
-    "readOnly": true,
-    "value": false,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BI3001204",
-    "name": "oFAN_SPEED2",
-    "description": "Вентилятор ККБ/2я скорость",
-    "status": "alarm",
-    "readOnly": true,
-    "value": false,
-    "units": ["Off", "On"]
-  },
-  {
-    "title": "BI3001205",
-    "name": "oFAN_SPEED3",
-    "description": "Вентилятор ККБ/3я скорость",
-    "status": "alarm",
-    "readOnly": true,
-    "value": true,
-    "units": ["Off", "On"]
-  },
-  {
     "title": "BI3001202",
     "name": "o4X VLV",
     "description": "Клапан Теплового Насоса",
@@ -159,6 +132,60 @@
     "status": "alarm",
     "readOnly": true,
     "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3001206",
+    "name": "oAHU_ALARM",
+    "description": "Общая авария ПВУ",
+    "status": "alarm",
+    "readOnly": true,
+    "value": 1,
+    "units": ["Normal", "Alarm"]
+  },
+  {
+    "title": "BI3001218",
+    "name": "aKKB",
+    "description": "Общая авария ККБ",
+    "status": "alarm",
+    "readOnly": true,
+    "value": 0,
+    "units": ["Normal", "Alarm"]
+  },
+  {
+    "title": "BI3001232",
+    "name": "aFaza",
+    "description": "Реле контроля фаз",
+    "status": "alarm",
+    "readOnly": true,
+    "value": 0,
+    "units": ["Normal", "Alarm"]
+  },
+  {
+    "title": "BI3001213",
+    "name": "aPV",
+    "description": "Авария Приточного Вентилятора",
+    "status": "alarm",
+    "readOnly": true,
+    "value": 1,
+    "units": ["Normal", "Alarm"]
+  },
+  {
+    "title": "BI3001228",
+    "name": "oRQ_HEAT",
+    "description": "Запрос на Нагрев",
+    "status": "alarm",
+    "readOnly": true,
+    "value": 1,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3001229",
+    "name": "oRQ_COOL",
+    "description": "Запрос на Охлаждение",
+    "status": "alarm",
+    "readOnly": true,
+    "value": 0,
     "units": ["Off", "On"]
   }
 ]

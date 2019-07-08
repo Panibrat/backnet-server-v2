@@ -8,10 +8,27 @@ import { SupplyFan} from "../../Components/SupplyFan/SupplyFan";
 import { Coil } from "../../Components/Coil/Coil";
 import { DamperVer} from "../../Components/Dampers/DamperVer/DamperVer";
 import { DamperHor} from "../../Components/Dampers/DamperHor/DamperHor";
-import {AhuPage} from "../../../Pages/AHU/AhuPage";
+import warning from './warning2.svg';
+import coolingImg from './snowflake.svg';
+import heatingImg from './sun2.svg';
 
 export const AirUnit = (props) => (
     <div className={styles.container}>
+        {
+            props.oAlarms ? (<img className={styles.alarmSign} src={warning} />)
+                :
+                null
+        }
+        {
+            props.oRQ_HEAT ? (<img className={styles.heatSign} src={heatingImg} />)
+                :
+                null
+        }
+        {
+            props.oRQ_COOL ? (<img className={styles.coolSign} src={coolingImg} />)
+                :
+                null
+        }
         <img className={styles.air_unit}
             src={airUnitImage}
         />
@@ -94,10 +111,10 @@ const mapStateToProps = (store) => {
         oFan: findPoint('BI3001199', store.bi),
         oHeat: findPoint('BI3001202', store.bi),
         oDamperTop: findPoint('BI3001208', store.bi),
-        oFAN_SPEED1: findPoint('BI3001203', store.bi),
-        oFAN_SPEED2: findPoint('BI3001204', store.bi),
-        oFAN_SPEED3: findPoint('BI3001205', store.bi),
-        oDamperButtom: findPoint('BI3001209', store.bi)
+        oDamperButtom: findPoint('BI3001209', store.bi),
+        oAlarms: findPoint('BI3001206', store.bi),
+        oRQ_HEAT: findPoint('BI3001228', store.bi),
+        oRQ_COOL: findPoint('BI3001229', store.bi),
     };
 };
 

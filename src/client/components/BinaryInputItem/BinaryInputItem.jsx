@@ -6,8 +6,15 @@ import Divider from '@material-ui/core/Divider';
 
 import switchOffImg from './switch.svg';
 import switchOnImg from './switchOn.svg';
+import warning from './warning2.svg';
+import ok2 from './ok2.svg';
 
 import styles from './BinaryInputItem.css';
+
+const config = {
+    offOn: [switchOffImg, switchOnImg],
+    normalAlarm: [ok2, warning],
+};
 
 export class BinaryInputItem extends React.Component {
 
@@ -16,13 +23,15 @@ export class BinaryInputItem extends React.Component {
     }
 
     render() {
+        const { icons } = this.props;
+        const iconsImages = icons && config[icons] ? config[icons] : config['offOn'];
         return (
             <React.Fragment>
                 <ListItem className={styles.container}>
                     <Avatar
                         className={styles.avatar}
                         alt="switch"
-                        src={this.props.value ? switchOnImg : switchOffImg}
+                        src={this.props.value ? iconsImages[1] : iconsImages[0]}
                     />
                     <ListItemText
                         className={styles.item}
