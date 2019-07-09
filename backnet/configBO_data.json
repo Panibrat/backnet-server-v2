@@ -32,7 +32,7 @@
     "description": "Управлять с пульта или с телефона",
     "status": "normal",
     "readOnly": false,
-    "value": 0,
+    "value": false,
     "units": ["NRM", "BMS"]
   },
     {

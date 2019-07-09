@@ -10,6 +10,7 @@ import { userReducer } from './userReducer';
 import { errorsReducer } from './errorsReducer';
 import { modbusReducer } from './modbusReducer';
 import { plansViewReducer } from './plansViewReducer';
+import { trendsSetReducer } from './trendsSetReducer';
 
 export default combineReducers({
     av: avReducer,
@@ -23,4 +24,5 @@ export default combineReducers({
     errors: errorsReducer,
     modbus: modbusReducer,
     plans: plansViewReducer,
+    trends: trendsSetReducer,
 });

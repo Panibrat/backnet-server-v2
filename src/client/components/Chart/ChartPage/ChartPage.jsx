@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import { setTitle } from '../../../actions/menuActions';
+import { toggleTrendPointVisibilityAction } from '../../../actions/trendsSetActions';
 import { PlotChart } from '../PlotChart/PlotChart';
 import ChartItemButton from '../components/ChartItemButton';
 import styles from './ChartPage.css';
@@ -18,7 +19,6 @@ class ChartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pointsToView: ['AI3000156', 'AI3000177', 'AI3000172', 'AI3000157'],
             chartData: [],
             startTime: now - day,
             endTime: now,
@@ -27,22 +27,6 @@ class ChartPage extends Component {
             startTimeShift: 24,
         };
         this.handleUpdateStartTime = this.handleUpdateStartTime.bind(this);
-        this.handleTogglePointVisibility = this.handleTogglePointVisibility.bind(this);
-    }
-
-    promiseAll() {
-        const { startTime, endTime, pointsToView} = this.state;
-        Promise.all(pointsToView.map(item => this.getTrendData(item, startTime, endTime)))
-            .then((results) => {
-            const arrayData = results.map(resp => resp.data);
-            this.calcMinAndMaxValue(arrayData);
-            return arrayData
-            })
-            .then(arrayData => {
-                this.setState((state) => {
-                    return {chartData: [...state.chartData, ...arrayData]}
-                })
-        })
     }
 
     componentDidMount() {
@@ -52,17 +36,33 @@ class ChartPage extends Component {
 
     getTrendData(title, startTime, endTime) {
         const token = this.props.user ? this.props.user.token : 'fakeToken';
-        return axios.post('/trend', {
-                title: title,
-                startTime: startTime,
-                endTime: endTime
+        return axios.post('/trend',
+            {
+                title,
+                startTime,
+                endTime,
             }, {
                 headers: {
                     'Content-Type': 'application/json',
-                    "x-auth": token,
-                }
-            }
-        )
+                    'x-auth': token,
+                },
+            });
+    }
+
+    promiseAll() {
+        const { startTime, endTime } = this.state;
+        const { pointsToView } = this.props;
+        Promise.all(pointsToView.map(item => this.getTrendData(item, startTime, endTime)))
+            .then((results) => {
+                const arrayData = results.map(resp => resp.data);
+                this.calcMinAndMaxValue(arrayData);
+                return arrayData;
+            })
+            .then(arrayData => {
+                this.setState((state) => {
+                    return { chartData: [...state.chartData, ...arrayData] };
+                });
+            });
     }
 
     calcMinAndMaxValue(allData) {
@@ -80,8 +80,8 @@ class ChartPage extends Component {
             return {
                 minValue,
                 maxValue,
-            }
-        })
+            };
+        });
     }
 
     handleUpdateStartTime(hoursOffset) {
@@ -90,61 +90,53 @@ class ChartPage extends Component {
         this.setState({ startTime, chartData, startTimeShift: hoursOffset}, this.promiseAll);
     }
 
-    handleTogglePointVisibility(title) {
-        const { pointsToView } = this.state;
-        if (pointsToView.indexOf(title) === -1) {
-            const newPoints = [...pointsToView, title];
-            this.setState({ pointsToView: newPoints });
-        } else {
-            const newPoints = pointsToView.filter((items) => items !== title);
-            this.setState({ pointsToView: newPoints });
-        }
-    }
-
     handleRefresh() {
         this.setState({ chartData: [] }, this.promiseAll);
     }
 
     render() {
-        const { chartData, startTime, endTime, minValue, maxValue, pointsToView, startTimeShift } = this.state;
+        const {
+            chartData, startTime, endTime, minValue, maxValue, startTimeShift,
+        } = this.state;
+        const { pointsToView, toggleTrendPointVisibility } = this.props;
         const filteredData = configAI.filter((item) => item.trend);
 
         return (
             <div>
                 <PlotChart
-                    chartData={chartData}
-                    startTime={startTime}
-                    endTime={endTime}
-                    minValue={minValue}
-                    maxValue={maxValue}
+                    chartData={ chartData }
+                    startTime={ startTime }
+                    endTime={ endTime }
+                    minValue={ minValue }
+                    maxValue={ maxValue }
                 />
-                <div className={styles.timeSetButtonsGroup}>
+                <div className={ styles.timeSetButtonsGroup }>
                     <Button
-                        className={styles.timeSetButton}
-                        variant={startTimeShift === 1 ? "contained" : "outlined"}
+                        className={ styles.timeSetButton }
+                        variant={ startTimeShift === 1 ? 'contained' : 'outlined' }
                         color="primary"
-                        onClick={() => this.handleUpdateStartTime(1) }>
+                        onClick={ () => this.handleUpdateStartTime(1) }>
                         - 1h
                     </Button>
                     <Button
-                        className={styles.timeSetButton}
-                        variant={startTimeShift === 4 ? "contained" : "outlined"}
+                        className={ styles.timeSetButton }
+                        variant={ startTimeShift === 4 ? 'contained' : 'outlined' }
                         color="primary"
-                        onClick={() => this.handleUpdateStartTime(4) }>
+                        onClick={ () => this.handleUpdateStartTime(4) }>
                         - 4h
                     </Button>
                     <Button
-                        className={styles.timeSetButton}
-                        variant={startTimeShift === 12 ? "contained" : "outlined"}
+                        className={ styles.timeSetButton }
+                        variant={ startTimeShift === 12 ? 'contained' : 'outlined' }
                         color="primary"
-                        onClick={() => this.handleUpdateStartTime(12) }>
+                        onClick={ () => this.handleUpdateStartTime(12) }>
                         - 12h
                     </Button>
                     <Button
-                        className={styles.timeSetButton}
-                        variant={startTimeShift === 24 ? "contained" : "outlined"}
+                        className={ styles.timeSetButton }
+                        variant={ startTimeShift === 24 ? 'contained' : 'outlined' }
                         color="primary"
-                        onClick={() => this.handleUpdateStartTime(24) }>
+                        onClick={ () => this.handleUpdateStartTime(24) }>
                         - 24h
                     </Button>
                 </div>
@@ -157,7 +149,7 @@ class ChartPage extends Component {
                                 title={title}
                                 name={name}
                                 description={description}
-                                callBack={(title) => this.handleTogglePointVisibility(title)}
+                                callBack={(title) => toggleTrendPointVisibility(title)}
                                 points={pointsToView}
                             />
                         )
@@ -167,7 +159,8 @@ class ChartPage extends Component {
                     className={styles.refreshButton}
                     variant="contained"
                     color="primary"
-                    onClick={() => this.handleRefresh() }>
+                    onClick={() => this.handleRefresh() }
+                >
                     REFRESH
                 </Button>
             </div>
@@ -177,14 +170,19 @@ class ChartPage extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        user: state.user,
+        pointsToView: state.trends,
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        setTitle: setTitle
-    }, dispatch)
+    return bindActionCreators(
+        {
+            setTitle,
+            toggleTrendPointVisibility: toggleTrendPointVisibilityAction,
+        },
+        dispatch,
+    );
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChartPage);
