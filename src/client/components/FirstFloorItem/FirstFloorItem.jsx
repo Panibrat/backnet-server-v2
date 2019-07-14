@@ -3,6 +3,7 @@ import { convertDiffTemperaturesToColor } from '../../common/helpers';
 import FirstFloorPlan from './FirstFloorPlan';
 import TemperatureTile from '../../common/Components/TemperatureTile/TemperatureTile';
 import HFTemperatureTile from '../../common/Components/HFTemperatureTile/HFTemperatureTile';
+import Radiator from '../../common/Components/Radiator/Radiator';
 import styles from './FirstFloorItem.css';
 
 const selectedAreaOpacity = '0.2';
@@ -177,6 +178,24 @@ const FirstFloorItem = (props) => {
                 </g>
                 <g transform="translate(151, 170)">
                     <HFTemperatureTile temperature={temperatureHFZal_R_Left.value} />
+                </g>
+                <g className="firstFloor_zalLeftRadiator" transform="translate(101, 85)">
+                    <Radiator isOn />
+                </g>
+                <g className="firstFloor_zalLeftRadiator" transform="translate(49, 135) rotate(90)">
+                    <Radiator isOn={false}/>
+                </g>
+                <g className="firstFloor_zalRightRadiator" transform="translate(268, 85)">
+                    <Radiator isOn />
+                </g>
+                <g className="firstFloor_zalRightRadiator" transform="translate(360, 135) rotate(90)">
+                    <Radiator isOn={false}/>
+                </g>
+                <g className="firstFloor_kitchenLeftRadiator" transform="translate(89, 377)">
+                    <Radiator isOn />
+                </g>
+                <g className="firstFloor_kitchenRightRadiator" transform="translate(281, 377)">
+                    <Radiator isOn />
                 </g>
                 <g>
                     <path
