@@ -70,10 +70,10 @@ const mapStateToProps = (store) => {
         oHEAT_HF: findPoint('AI3000182', store.ai),
         iT_HF_KITCH: findPoint('AI3000177', store.ai),
         iT_KITCHEN: findPoint('AI3000160', store.ai),
-        oHF_WC1: findPoint('AI3000183', store.ai),
-        oHF_WC2: findPoint('AI3000184', store.ai),
+        oHF_WC1: 0,
+        oHF_WC2: 0,
         oHF_KITCH: findPoint('AI3000185', store.ai),
-        oHF_HALL: findPoint('AI3000186', store.ai),
+        oHF_HALL: 0,
         oPUMP_HF: findPoint('BI3000261', store.bi),
     };
 };

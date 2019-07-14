@@ -155,15 +155,6 @@
     "colorTrend": "#a5e0ac"
   },
   {
-    "title": "AI3000184",
-    "name": "oHF_WC2",
-    "description": "Клапан теплого пола c/у 2",
-    "status": "norm",
-    "units": "%",
-    "readOnly": true,
-    "value": 41
-  },
-  {
     "title": "AI3000159",
     "name": "iT_SO_FO",
     "description": "Температура на гребенке радиаторного отопления",
@@ -521,16 +512,6 @@
     "trend": false
   },
   {
-    "title": "AI3000183",
-    "name": "oHF_WC1_R",
-    "description": "Клапан теплого пола с/у 1 эт (Родители)",
-    "status": "norm",
-    "units": "%",
-    "readOnly": true,
-    "value": 10,
-    "trend": false
-  },
-  {
     "title": "AI3001178",
     "name": "oHF_WC1_L",
     "description": "Клапан теплого пола с/у 1 эт",
@@ -568,16 +549,6 @@
     "units": "%",
     "readOnly": true,
     "value": 0,
-    "trend": false
-  },
-  {
-    "title": "AI3000186",
-    "name": "oHF_HALL_R",
-    "description": "Клапан теплого тамбура (Родители)",
-    "status": "norm",
-    "units": "%",
-    "readOnly": true,
-    "value": 50,
     "trend": false
   },
   {
