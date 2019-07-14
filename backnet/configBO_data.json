@@ -54,42 +54,6 @@
     "units": ["Ручное", "Авто"]
   },
     {
-    "title": "BO3000268",
-    "name": "sSTR_KITCHEN",
-    "description": "Теплый пол в кухне",
-    "status": "normal",
-    "readOnly": false,
-    "value": true,
-    "units": ["Выкл", "Вкл"]
-  },
-    {
-    "title": "BO3000269",
-    "name": "sSTR_WC1",
-    "description": "Теплый пол в с/у1",
-    "status": "normal",
-    "readOnly": false,
-    "value": true,
-    "units": ["Выкл", "Вкл"]
-  },
-    {
-    "title": "BO3000270",
-    "name": "sSTR_WC2",
-    "description": "Теплый пол в с/у2",
-    "status": "normal",
-    "readOnly": false,
-    "value": true,
-    "units": ["Выкл", "Вкл"]
-  },
-    {
-    "title": "BO3000271",
-    "name": "sSTR_HALL",
-    "description": "Теплый пол в тамбуре",
-    "status": "normal",
-    "readOnly": false,
-    "value": true,
-    "units": ["Выкл", "Вкл"]
-  },
-    {
     "title": "BO3000262",
     "name": "sSTR_SO",
     "description": "Радиаторное отопление",
@@ -225,9 +189,18 @@
     "units": ["Выкл", "Вкл"]
   },
   {
+    "title": "BO3000283",
+    "name": "sHF_TCNT",
+    "description": "Авто отключение телого пола",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Пост", "Авто"]
+  },
+  {
     "title": "BO3000882",
     "name": "sStart_HF_KI_Right",
-    "description": "Теплый пол(П)",
+    "description": "Теплый пол(Родители)",
     "status": "normal",
     "readOnly": false,
     "value": true,

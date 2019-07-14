@@ -13,7 +13,7 @@ import styles from './HeatFloorRightPage.css';
 
 export class HeatFloorRightPage extends React.Component {
     componentDidMount() {
-        this.props.setTitle('Теплый пол');
+        this.props.setTitle('Теплый пол (Право)');
     }
     render() {
         return (
@@ -23,9 +23,7 @@ export class HeatFloorRightPage extends React.Component {
                     <List className={styles.list_type}>
                         <BinaryOutputItem {...this.props.sHF_AUTO} />
                         <BinaryOutputItem {...this.props.sSTR_KITCHEN} />
-                        <BinaryOutputItem {...this.props.sSTR_WC1} />
-                        <BinaryOutputItem {...this.props.sSTR_WC2} />
-                        <BinaryOutputItem {...this.props.sSTR_HALL} />
+                        <BinaryOutputItem {...this.props.sHF_TCNT} />
                     </List>
                     <List className={styles.list_type}>
                         <AnalogOutputItemSlider
@@ -36,32 +34,18 @@ export class HeatFloorRightPage extends React.Component {
                             units={'℃'}
                         />
                         <AnalogOutputItemSlider
-                            {...this.props.sHF_WC1}
-                            minValue={0}
-                            maxValue={100}
-                            stepValue={5}
-                            units={'%'}
+                            {...this.props.sT_K_MIN}
+                            minValue={15}
+                            maxValue={40}
+                            stepValue={0.5}
+                            units={'℃'}
                         />
                         <AnalogOutputItemSlider
-                            {...this.props.sHF_WC2}
-                            minValue={0}
-                            maxValue={100}
-                            stepValue={5}
-                            units={'%'}
-                        />
-                        <AnalogOutputItemSlider
-                            {...this.props.sHF_KITCHEN}
-                            minValue={0}
-                            maxValue={100}
-                            stepValue={5}
-                            units={'%'}
-                        />
-                        <AnalogOutputItemSlider
-                            {...this.props.sHF_HALL}
-                            minValue={0}
-                            maxValue={100}
-                            stepValue={5}
-                            units={'%'}
+                            {...this.props.sT_K_MAX}
+                            minValue={15}
+                            maxValue={40}
+                            stepValue={0.5}
+                            units={'℃'}
                         />
                     </List>
                     <List className={styles.list_type}>
@@ -95,24 +79,20 @@ const mapStateToProps = (store) => {
         oHEAT_HF: findPoint('AI3000182', store.ai),
         iT_HF_KITCH: findPoint('AI3000177', store.ai),
         iT_KITCHEN: findPoint('AI3000160', store.ai),
-        oHF_WC1: findPoint('AI3000183', store.ai),
-        oHF_WC2: findPoint('AI3000184', store.ai),
+        oHF_WC1: 0,
+        oHF_WC2: 0,
         oHF_KITCH: findPoint('AI3000185', store.ai),
-        oHF_HALL: findPoint('AI3000186', store.ai),
+        oHF_HALL: 0,
 
         sT_HF_FOR: findPoint('AO3000219', store.ao),
-        sHF_WC1: findPoint('AO3000222', store.ao),
-        sHF_WC2: findPoint('AO3000223', store.ao),
-        sHF_KITCHEN: findPoint('AO3000224', store.ao),
-        sHF_HALL: findPoint('AO3000225', store.ao),
+        sT_K_MIN: findPoint('AO3000234', store.ao),
+        sT_K_MAX: findPoint('AO3000235', store.ao),
 
         oPUMP_HF: findPoint('BI3000261', store.bi),
 
         sHF_AUTO: findPoint('BO3000267', store.bo),
-        sSTR_KITCHEN: findPoint('BO3000268', store.bo),
-        sSTR_WC1: findPoint('BO3000269', store.bo),
-        sSTR_WC2: findPoint('BO3000270', store.bo),
-        sSTR_HALL: findPoint('BO3000271', store.bo),
+        sSTR_KITCHEN: findPoint('BO3000882', store.bo),
+        sHF_TCNT: findPoint('BO3000283', store.bo),
     };
 };
 

@@ -71,7 +71,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsBV', err);
                     });
             });
-        }, pollingTime * 3);
+        }, pollingTime *1000);
     }
     runAI() {
         const stop = setInterval(() => {

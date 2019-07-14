@@ -116,33 +116,6 @@
     "value": 35
   },
   {
-    "title": "AO3000222",
-    "name": "sHF_WC1",
-    "description": "Клапан теплого пола с/у1",
-    "status": "norm",
-    "units": "%",
-    "readOnly": false,
-    "value": 100
-  },
-  {
-    "title": "AO3000223",
-    "name": "sHF_WC2",
-    "description": "Клапан теплого пола с/у2",
-    "status": "norm",
-    "units": "%",
-    "readOnly": false,
-    "value": 0
-  },
-  {
-    "title": "AO3000224",
-    "name": "sHF_KITCHEN",
-    "description": "Клапан теплого пола кухни",
-    "status": "norm",
-    "units": "%",
-    "readOnly": false,
-    "value": 35
-  },
-  {
     "title": "AO3001136",
     "name": "sVSD",
     "description": "Скорость Приточного Вентилятора",
@@ -150,15 +123,6 @@
     "units": "%",
     "readOnly": false,
     "value": 62
-  },
-  {
-    "title": "AO3000225",
-    "name": "sHF_HALL",
-    "description": "Клапан теплого пола тамбура",
-    "status": "norm",
-    "units": "%",
-    "readOnly": false,
-    "value": 80
   },
   {
     "title": "AO3000206",
@@ -304,7 +268,7 @@
   {
     "title": "AO3000234",
     "name": "sT_K_MIN",
-    "description": "Уставка MIN температуры пола в кухне (Родители)",
+    "description": "Уставка MIN температуры пола в кухне (День)",
     "status": "norm",
     "minValue": 10,
     "maxValue": 40,
@@ -315,7 +279,7 @@
   {
     "title": "AO3000235",
     "name": "sT_K_MAX",
-    "description": "Уставка MAX температуры пола в кухне (Родители)",
+    "description": "Уставка MAX температуры пола в кухне (Ночь)",
     "status": "norm",
     "minValue": 10,
     "maxValue": 40,
