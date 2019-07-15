@@ -56,7 +56,7 @@
   {
     "title": "BI3000247",
     "name": "oPUMP_SO",
-    "description": "Насос радиаторного отопления",
+    "description": "Насос радиаторного отопления(П)",
     "status": "alarm",
     "readOnly": true,
     "value": true,
@@ -66,6 +66,15 @@
     "title": "BI3000254",
     "name": "oPUMP_BOY",
     "description": "Насос бойлера",
+    "status": "alarm",
+    "readOnly": true,
+    "value": true,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000818",
+    "name": "oPumpSO",
+    "description": "Насос радиаторного отопления(Л)",
     "status": "alarm",
     "readOnly": true,
     "value": true,

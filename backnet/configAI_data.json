@@ -243,6 +243,60 @@
     "value": 54
   },
   {
+    "title": "AI3000782",
+    "name": "oVlvCab",
+    "description": "Клапан радиатора кабинета(Л)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 3
+  },
+  {
+    "title": "AI3000783",
+    "name": "oVlvBed",
+    "description": "Клапан радиатора спальни(Л)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 65
+  },
+  {
+    "title": "AI3000784",
+    "name": "oVlvD2",
+    "description": "Клапан радиатора Егора",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 87
+  },
+  {
+    "title": "AI3000785",
+    "name": "oVlvD2",
+    "description": "Клапан радиатора Юли",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 98
+  },
+  {
+    "title": "AI3000786",
+    "name": "oVlvKit",
+    "description": "Клапан радиатора кухни(Л)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 2
+  },
+  {
+    "title": "AI3000788",
+    "name": "oVlvZal",
+    "description": "Клапан радиатора зала(Л)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 11
+  },
+  {
     "title": "AI3000165",
     "name": "oSO_BEDROOM",
     "description": "Клапан радиатора спальни",

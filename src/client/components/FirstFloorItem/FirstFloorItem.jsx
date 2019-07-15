@@ -35,6 +35,10 @@ const FirstFloorItem = (props) => {
         activeArea,
         setActiveArea,
         setHeaderTitle,
+        isOnFirstFloorSO_zal_Right,
+        isOnFirstFloorSO_kitchen_Right,
+        isOnFirstFloorSO_zal_Left,
+        isOnFirstFloorSO_kitchen_Left,
     } = props;
 
         const colorZalLeft = convertDiffTemperaturesToColor(temperatureZalLeft.value, spTemperatureZalLeft.value);
@@ -180,22 +184,22 @@ const FirstFloorItem = (props) => {
                     <HFTemperatureTile temperature={temperatureHFZal_R_Left.value} />
                 </g>
                 <g className="firstFloor_zalLeftRadiator" transform="translate(101, 85)">
-                    <Radiator isOn />
+                    <Radiator isOn={isOnFirstFloorSO_zal_Left} />
                 </g>
                 <g className="firstFloor_zalLeftRadiator" transform="translate(49, 135) rotate(90)">
-                    <Radiator isOn={false}/>
-                </g>
-                <g className="firstFloor_zalRightRadiator" transform="translate(268, 85)">
-                    <Radiator isOn />
-                </g>
-                <g className="firstFloor_zalRightRadiator" transform="translate(360, 135) rotate(90)">
-                    <Radiator isOn={false}/>
+                    <Radiator isOn={isOnFirstFloorSO_zal_Left}/>
                 </g>
                 <g className="firstFloor_kitchenLeftRadiator" transform="translate(89, 377)">
-                    <Radiator isOn />
+                    <Radiator isOn={isOnFirstFloorSO_kitchen_Left} />
+                </g>
+                <g className="firstFloor_zalRightRadiator" transform="translate(268, 85)">
+                    <Radiator isOn={isOnFirstFloorSO_zal_Right} />
+                </g>
+                <g className="firstFloor_zalRightRadiator" transform="translate(360, 135) rotate(90)">
+                    <Radiator isOn={isOnFirstFloorSO_zal_Right} />
                 </g>
                 <g className="firstFloor_kitchenRightRadiator" transform="translate(281, 377)">
-                    <Radiator isOn />
+                    <Radiator isOn={isOnFirstFloorSO_kitchen_Right} />
                 </g>
                 <g>
                     <path

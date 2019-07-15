@@ -30,6 +30,10 @@ const mapStateToProps = (store) => {
         isOnFirstFloorHF_WC_Right: (findPoint('AI3000182', store.ai).value > 5),
         isOnFirstFloorHF_hall_Right: (findPoint('AI3000182', store.ai).value > 5),
         activeArea: store.plans.activeArea,
+        isOnFirstFloorSO_zal_Right: (findPoint('AI3000164', store.ai).value > 5) && (findPoint('BI3000247', store.bi).value > 0),
+        isOnFirstFloorSO_kitchen_Right: (findPoint('AI3000163', store.ai).value > 5) && (findPoint('BI3000247', store.bi).value > 0),
+        isOnFirstFloorSO_zal_Left: (findPoint('AI3000788', store.ai).value > 5) && (findPoint('BI3000818', store.bi).value > 0),
+        isOnFirstFloorSO_kitchen_Left: (findPoint('AI3000786', store.ai).value > 5) && (findPoint('BI3000818', store.bi).value > 0),
     };
 
 };
