@@ -6,11 +6,14 @@ const readMultyAI = objectsToRead => new Promise((resolve, reject) => {
         objectsToRead, // requestArray
         (err, value) => {
             if (err) {
+                console.log('error1----->\n', error);
                 reject(err);
             }
             try {
-                resolve({ value });
+                console.log('value1----->\n', value);
+                resolve(value);
             } catch (error) {
+                console.log('error2----->\n', error);
                 reject(error);
             }
         },
