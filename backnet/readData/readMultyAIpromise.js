@@ -1,7 +1,7 @@
 const BACnetClient = require('../BACnetClient');
 const reqArr2 = [
     { objectIdentifier: { type: 0, instance: 3001122 }, propertyReferences: [ { propertyIdentifier: 85 } ] },
-    { objectIdentifier: { type: 0, instance: 3000156 }, propertyReferences: [ { propertyIdentifier: 85 } ] },
+    { objectIdentifier: { type: 0, instance: 3000156 }, propertyReferences: [ { propertyIdentifier: 8 } ] }, // need 85
 ];
 
 
