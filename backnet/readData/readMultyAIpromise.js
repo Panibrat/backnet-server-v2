@@ -1,13 +1,15 @@
 const BACnetClient = require('../BACnetClient');
+const reqArr2 = [
+    { objectIdentifier: { type: 0, instance: 3001122 }, propertyReferences: [ { propertyIdentifier: 85 } ] },
+    { objectIdentifier: { type: 0, instance: 3000156 }, propertyReferences: [ { propertyIdentifier: 85 } ] },
+];
+
 
 const readMultyAI = () => {
     console.log('IP', BACnetClient.ip);
     BACnetClient.client.readPropertyMultiple(
         BACnetClient.ip, // IP device
-        [
-            { objectId: { type: 0, instance: 3001122 }, properties: [{ id: 8 }] },
-            { objectId: { type: 0, instance: 3000156 }, properties: [{ id: 8 }] },
-        ],
+        reqArr2,
         (err, value) => {
             if (err) {
                 console.log('error1----->\n', err);
