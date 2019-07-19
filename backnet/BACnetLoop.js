@@ -50,7 +50,7 @@ class BACnetLoop {
     }
 
     run() {
-        this.runMultyAI();
+        this.runMultyAI(testArrayOfAI);
         this.runAI();
         this.runAO();
         this.runAV();
@@ -144,9 +144,9 @@ class BACnetLoop {
         }, pollingTime * 1);
     }
 
-    runMultyAI() {
+    runMultyAI(array) {
         const stop = setInterval(() => {
-            readMultyAI(testArrayOfAI)
+            readMultyAI(array)
                 .then((result) => {
                     console.log('result', result);
                 })
