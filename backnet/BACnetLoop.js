@@ -144,16 +144,8 @@ class BACnetLoop {
         }, pollingTime * 1);
     }
 
-    runMultyAI(array) {
-        const stop = setInterval(() => {
-            readMultyAI(array)
-                .then((result) => {
-                    console.log('result', result);
-                })
-                .catch((err) => {
-                    console.log('[ERROR] readMultyAI', err);
-                });
-        }, pollingTime * 10);
+    runMultyAI() {
+        setInterval(readMultyAI, pollingTime * 10);
     }
 }
 
