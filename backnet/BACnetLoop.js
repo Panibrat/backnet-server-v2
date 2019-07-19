@@ -6,6 +6,17 @@ const readAI = require('./readData/readAIpromise');
 const readAO = require('./readData/readAOpromise');
 const readBI = require('./readData/readBIpromise');
 const readBO = require('./readData/readBOpromise');
+const readMultyAI = require('./readData/readMultyAIpromise');
+
+const testArrayOfAI = [
+    { objectId: { type: 0, instance: 3001122 }, properties: [{ id: 85 }] },
+    { objectId: { type: 0, instance: 3000156 }, properties: [{ id: 85 }] },
+    { objectId: { type: 0, instance: 3001124 }, properties: [{ id: 85 }] },
+    { objectId: { type: 0, instance: 3001123 }, properties: [{ id: 85 }] },
+    { objectId: { type: 0, instance: 3001154 }, properties: [{ id: 85 }] },
+    { objectId: { type: 0, instance: 3001126 }, properties: [{ id: 85 }] },
+    { objectId: { type: 0, instance: 3001125 }, properties: [{ id: 85 }] },
+];
 
 const getPointsArrayFromJSON = require('../services/getPointsArrayFromJSON');
 
@@ -45,6 +56,7 @@ class BACnetLoop {
         this.runBI();
         this.runBO();
         this.runBV();
+        this.runMultyAI();
     }
 
     runAV() {
@@ -60,6 +72,7 @@ class BACnetLoop {
             });
         }, pollingTime * 60);
     }
+
     runBV() {
         const stop = setInterval(() => {
             this.pointsBV.forEach((pointNumber) => {
@@ -73,6 +86,7 @@ class BACnetLoop {
             });
         }, pollingTime *1000);
     }
+
     runAI() {
         const stop = setInterval(() => {
             this.pointsAI.forEach((pointNumber) => {
@@ -87,6 +101,7 @@ class BACnetLoop {
 
         }, pollingTime * 3);
     }
+
     runAO() {
         const stop = setInterval(() => {
             this.pointsAO.forEach((pointNumber) => {
@@ -100,6 +115,7 @@ class BACnetLoop {
             });
         }, pollingTime * 2);
     }
+
     runBI() {
         const stop = setInterval(() => {
             this.pointsBI.forEach((pointNumber) => {
@@ -113,6 +129,7 @@ class BACnetLoop {
             });
         }, pollingTime * 3);
     }
+
     runBO() {
         const stop = setInterval(() => {
             this.pointsBO.forEach((pointNumber) => {
@@ -125,6 +142,18 @@ class BACnetLoop {
                     });
             });
         }, pollingTime * 1);
+    }
+
+    runMultyAI() {
+        const stop = setInterval(() => {
+            readMultyAI(testArrayOfAI)
+                .then((result) => {
+                    console.log('result', result);
+                })
+                .catch((err) => {
+                    console.log('[ERROR] readMultyAI', err);
+                });
+        }, pollingTime * 10);
     }
 }
 
