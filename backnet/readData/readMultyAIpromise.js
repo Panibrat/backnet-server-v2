@@ -14,7 +14,12 @@ const readMultyAI = () => {
             if (err) {
                 console.log('error1----->\n', err);
             } else {
-                console.log('value1----->\n', value);
+                console.log('value----->\n', value);
+                console.log('value.values----->\n', value.values);
+                console.log('value.values[0]----->\n', value.values[0]);
+                console.log('value.values[0].objectIdentifier----->\n', value.values[0].objectIdentifier);
+                console.log('value.values[0].values----->\n', value.values[0].values);
+                console.log('value.values[0].values[0]----->\n', value.values[0].values[0]);
             }
         },
     );
