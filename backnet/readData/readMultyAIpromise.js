@@ -5,11 +5,11 @@ const reqArr2 = [
 ];
 
 
-const readMultyAI = () => {
+const readMultyAI = (arr) => {
     console.log('IP', BACnetClient.ip);
     BACnetClient.client.readPropertyMultiple(
         BACnetClient.ip, // IP device
-        reqArr2,
+        arr,
         (err, value) => {
             if (err) {
                 console.log('error1----->\n', err);
@@ -20,7 +20,12 @@ const readMultyAI = () => {
                 console.log('value.values[0].objectIdentifier----->\n', value.values[0].objectIdentifier);
                 console.log('value.values[0].values----->\n', value.values[0].values);*/
                 console.log('value.values[0].values[0]----->\n', value.values[0].values[0]);
-                console.log('value.values[1].values[0]----->\n', value.values[1].values[0]);
+                //console.log('value.values[1].values[0]----->\n', value.values[1].values[0]);
+                if (value) {
+                    value.forEach((item, i) => {
+                        console.log('i -----> \n', value.values[i].values[0]);
+                    })
+                }
             }
         },
     );

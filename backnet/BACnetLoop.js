@@ -27,6 +27,17 @@ const pointsAO = getPointsArrayFromJSON(require('./configAO_data'), 'AO');
 const pointsBI = getPointsArrayFromJSON(require('./configBI_data'), 'BI');
 const pointsBO = getPointsArrayFromJSON(require('./configBO_data'), 'BO');
 
+
+const getObjectsForMultyAIRead = (pointsArray) => {
+    return pointsArray.map(item => {
+        return  { objectIdentifier: { type: 0, instance: item }, propertyReferences: [ { propertyIdentifier: 85 } ] }
+    })
+};
+
+const objectsAiArray = getObjectsForMultyAIRead(pointsAI);
+
+// console.log('objectsAiArray', objectsAiArray);
+
 const { pollingTime } = config;
 
 const mongoDB = require('../mongoDB/MongoDB');
@@ -50,7 +61,7 @@ class BACnetLoop {
     }
 
     run() {
-        this.runMultyAI(testArrayOfAI);
+        this.runMultyAI();
         this.runAI();
         this.runAO();
         this.runAV();
@@ -145,7 +156,7 @@ class BACnetLoop {
     }
 
     runMultyAI() {
-        setInterval(readMultyAI, pollingTime * 10);
+        setInterval(() => readMultyAI(objectsAiArray), pollingTime * 10);
     }
 }
 
