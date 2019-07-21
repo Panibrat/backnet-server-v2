@@ -22,7 +22,7 @@ const readMultyAI = (arr) => {
                 console.log('value.values[0].values[0]----->\n', value.values[0].values[0]);
 */
                 //console.log('value.values[1].values[0]----->\n', value.values[1].values[0]);
-                if (value) {
+                if (value && value.values) {
                     value.values.forEach((item, i) => {
 /*
                         console.log( 'objectIdentifier', value.values[i].objectIdentifier.instance);
@@ -34,6 +34,8 @@ const readMultyAI = (arr) => {
                         };
                         console.log('resolveItem', resolveItem);
                     })
+                } else {
+                    console.log('[readMultyAI] no data ');
                 }
             }
         },
