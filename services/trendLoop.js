@@ -35,7 +35,8 @@ class TrendLoop {
                 writeAV({ title: 'AV3001394', value: EnergyNightTotal.value })
             }
         });
-        this.cron.schedule('0 0 0 1 * *', () => { //every 0:00:00 at month begining
+        // this.cron.schedule('0 0 0 1 * *', () => { //every 0:00:00 at month begining
+        this.cron.schedule('0 * * * * *', () => { //every 0:00:00 at month begining
             console.log(`\n Every month, run at midnight: ${new Date()}`);
             const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
             const EnergyNightTotal = modbusLoop.getBuffer().EnergyNightTotal;
