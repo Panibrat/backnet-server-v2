@@ -24,6 +24,7 @@ const writeAV = (av) => {
                     reject(err);
                 } else {
                     console.log('writeProperty: ', value);
+                    console.log('av: ', av);
                     resolve(av);
                 }
             },
