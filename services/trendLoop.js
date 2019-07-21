@@ -41,9 +41,11 @@ class TrendLoop {
             const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
             const EnergyNightTotal = modbusLoop.getBuffer().EnergyNightTotal;
             if (EnergyDayTotal && EnergyDayTotal.value > 0) {
+                console.log('EnergyDayTotal.value', EnergyDayTotal.value);
                 writeAV({ title: 'AV3001396', value: EnergyDayTotal.value })
             }
             if (EnergyNightTotal && EnergyNightTotal.value > 0) {
+                console.log('EnergyNightTotal.value', EnergyNightTotal.value);
                 writeAV({ title: 'AV3001395', value: EnergyNightTotal.value })
             }
         });
