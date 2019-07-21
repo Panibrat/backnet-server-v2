@@ -8,16 +8,6 @@ const readBI = require('./readData/readBIpromise');
 const readBO = require('./readData/readBOpromise');
 const readMultyAI = require('./readData/readMultyAIpromise');
 
-const testArrayOfAI = [
-    { objectId: { type: 0, instance: 3001122 }, properties: [{ id: 8 }] },
-    { objectId: { type: 0, instance: 3000156 }, properties: [{ id: 8 }] },
-    { objectId: { type: 0, instance: 3001124 }, properties: [{ id: 8 }] },
-    { objectId: { type: 0, instance: 3001123 }, properties: [{ id: 8 }] },
-    { objectId: { type: 0, instance: 3001154 }, properties: [{ id: 8 }] },
-    { objectId: { type: 0, instance: 3001126 }, properties: [{ id: 8 }] },
-    { objectId: { type: 0, instance: 3001125 }, properties: [{ id: 8 }] },
-];
-
 const getPointsArrayFromJSON = require('../services/getPointsArrayFromJSON');
 
 const pointsBV = getPointsArrayFromJSON(require('./configBV_data'), 'BV');
@@ -61,13 +51,13 @@ class BACnetLoop {
     }
 
     run() {
-        this.runMultyAI();
-/*        this.runAI();
+        // this.runMultyAI();
+        this.runAI();
         this.runAO();
         this.runAV();
         this.runBI();
         this.runBO();
-        this.runBV();*/
+        this.runBV();
     }
 
     runAV() {

@@ -6,7 +6,6 @@ const reqArr2 = [
 
 
 const readMultyAI = (arr) => {
-    console.log('IP', BACnetClient.ip);
     BACnetClient.client.readPropertyMultiple(
         BACnetClient.ip, // IP device
         arr,
@@ -44,6 +43,8 @@ const readMultyAI = (arr) => {
                                 value: value.values[i].values[0].value[0].value
                             };
                             console.log('resolveItem', resolveItem);
+                        } else {
+                            console.log('[readMultyAI] error data ');
                         }
                     })
                 } else {
