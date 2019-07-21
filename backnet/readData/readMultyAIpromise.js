@@ -1,7 +1,7 @@
 const BACnetClient = require('../BACnetClient');
 const reqArr2 = [
     { objectIdentifier: { type: 0, instance: 3001122 }, propertyReferences: [ { propertyIdentifier: 85 } ] },
-    { objectIdentifier: { type: 0, instance: 3000156 }, propertyReferences: [ { propertyIdentifier: 8 } ] }, // need 85
+    { objectIdentifier: { type: 0, instance: 3000156 }, propertyReferences: [ { propertyIdentifier: 85 } ] },
 ];
 
 
@@ -19,8 +19,8 @@ const readMultyAI = () => {
                 console.log('value.values[0]----->\n', value.values[0]);
                 console.log('value.values[0].objectIdentifier----->\n', value.values[0].objectIdentifier);
                 console.log('value.values[0].values----->\n', value.values[0].values);*/
-                // console.log('value.values[0].values[0]----->\n', value.values[0].values[0]);
-                // console.log('value.values[1].values[0]----->\n', value.values[1].values[0]);
+                console.log('value.values[0].values[0]----->\n', value.values[0].values[0]);
+                console.log('value.values[1].values[0]----->\n', value.values[1].values[0]);
             }
         },
     );
