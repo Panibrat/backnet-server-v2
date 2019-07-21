@@ -28,15 +28,23 @@ const readMultyAI = (arr) => {
                         console.log( 'objectIdentifier', value.values[i].objectIdentifier.instance);
                         console.log( i + ' -----> \n', value.values[i].values[0].value[0].value);
 */
-                        const resolveItem = {
-                            title: `AI${value.values[i].objectIdentifier.instance}`,
-                            value: value.values[i].values && value.values[i].values[0].value && value.values[i].values[0].value[0].value
-                                ?
-                                value.values[i].values[0].value[0].value
-                                :
-                                9999,
-                        };
-                        console.log('resolveItem', resolveItem);
+                        if (
+                            value &&
+                            value.values &&
+                            value.values &&
+                            value.values[i] &&
+                            value.values[i].values &&
+                            value.values[i].values[0] &&
+                            value.values[i].values[0].value &&
+                            value.values[i].values[0].value[0] &&
+                            value.values[i].values[0].value[0].value
+                        ) {
+                            const resolveItem = {
+                                title: `AI${value.values[i].objectIdentifier.instance}`,
+                                value: value.values[i].values[0].value[0].value
+                            };
+                            console.log('resolveItem', resolveItem);
+                        }
                     })
                 } else {
                     console.log('[readMultyAI] no data ');
