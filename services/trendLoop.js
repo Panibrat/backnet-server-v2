@@ -35,17 +35,14 @@ class TrendLoop {
                 writeAV({ title: 'AV3001394', value: EnergyNightTotal.value })
             }
         });
-        // this.cron.schedule('0 0 0 1 * *', () => { //every 0:00:00 at month begining
-        this.cron.schedule('0 * * * * *', () => { //every 0:00:00 at month begining
+        this.cron.schedule('0 0 0 1 * *', () => { //every 0:00:00 at month begining
             console.log(`\n Every month, run at midnight: ${new Date()}`);
             const EnergyDayTotal = modbusLoop.getBuffer().EnergyDayTotal;
             const EnergyNightTotal = modbusLoop.getBuffer().EnergyNightTotal;
             if (EnergyDayTotal && EnergyDayTotal.value > 0) {
-                console.log('EnergyDayTotal.value', EnergyDayTotal.value);
                 writeAV({ title: 'AV3001396', value: EnergyDayTotal.value })
             }
             if (EnergyNightTotal && EnergyNightTotal.value > 0) {
-                console.log('EnergyNightTotal.value', EnergyNightTotal.value);
                 writeAV({ title: 'AV3001395', value: EnergyNightTotal.value })
             }
         });
