@@ -30,7 +30,11 @@ const readMultyAI = (arr) => {
 */
                         const resolveItem = {
                             title: `AI${value.values[i].objectIdentifier.instance}`,
-                            value: value.values[i].values[0].value[0].value ? value.values[i].values[0].value[0].value : 9999,
+                            value: value.values[i].values && value.values[i].values[0].value && value.values[i].values[0].value[0].value
+                                ?
+                                value.values[i].values[0].value[0].value
+                                :
+                                9999,
                         };
                         console.log('resolveItem', resolveItem);
                     })
