@@ -57,7 +57,7 @@ class BACnetLoop {
         this.runAV();
         this.runBI();
         this.runBO();
-        this.runBV();
+        // this.runBV();
     }
 
     runAV() {
@@ -85,7 +85,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsBV', err);
                     });
             });
-        }, pollingTime *1000);
+        }, pollingTime * 1000);
     }
 
     runAI() {
@@ -128,7 +128,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsBI', err);
                     });
             });
-        }, pollingTime * 3);
+        }, pollingTime * 4);
     }
 
     runBO() {
@@ -142,7 +142,7 @@ class BACnetLoop {
                         //console.log('[ERROR] pointsBO', err);
                     });
             });
-        }, pollingTime * 1);
+        }, pollingTime * 2);
     }
 
     runMultyAI() {
