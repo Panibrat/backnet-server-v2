@@ -548,7 +548,7 @@
   {
     "title": "AI3001168",
     "name": "iTP_ZalR",
-    "description": "Температура пола в зале (Родители)",
+    "description": "Температура пола в зале (правый датчик)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -558,7 +558,7 @@
   {
     "title": "AI3001169",
     "name": "iTP_ZalL",
-    "description": "Температура пола в зале",
+    "description": "Температура пола в зале (левый датчик)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
