@@ -36,7 +36,7 @@ class Gates extends React.Component {
                 value: false,
             });
             clearTimeout(timeOutId);
-        }, 1000);
+        }, 3000);
     }
 
     render() {
