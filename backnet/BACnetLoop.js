@@ -51,8 +51,8 @@ class BACnetLoop {
     }
 
     run() {
-        // this.runMultyAI();
-        this.runAI();
+        this.runMultyAI();
+        // this.runAI();
         this.runAO();
         this.runAV();
         this.runBI();
@@ -146,7 +146,7 @@ class BACnetLoop {
     }
 
     runMultyAI() {
-        setInterval(() => readMultyAI(objectsAiArray), pollingTime * 1);
+        setInterval(() => readMultyAI(objectsAiArray, buffer.setData), pollingTime * 2);
     }
 }
 

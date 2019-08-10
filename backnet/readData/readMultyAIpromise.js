@@ -5,7 +5,7 @@ const reqArr2 = [
 ];
 
 
-const readMultyAI = (arr) => {
+const readMultyAI = (arr, pointSaveAction) => {
     BACnetClient.client.readPropertyMultiple(
         BACnetClient.ip, // IP device
         arr,
@@ -43,6 +43,7 @@ const readMultyAI = (arr) => {
                                 value: value.values[i].values[0].value[0].value
                             };
                             console.log('resolveItem', resolveItem);
+                            pointSaveAction(resolveItem);
                         } else {
                             console.log('[readMultyAI] error data ');
                         }
@@ -54,25 +55,5 @@ const readMultyAI = (arr) => {
         },
     );
 };
-
-/*const readMultyAI = objectsToRead => new Promise((resolve, reject) => {
-    BACnetClient.client.readPropertyMultiple(
-        BACnetClient.ip, // IP device
-        objectsToRead, // requestArray
-        (err, value) => {
-            if (err) {
-                console.log('error1----->\n', error);
-                reject(err);
-            }
-            try {
-                console.log('value1----->\n', value);
-                resolve(value);
-            } catch (error) {
-                console.log('error2----->\n', error);
-                reject(error);
-            }
-        },
-    );
-});*/
 
 module.exports = readMultyAI;
