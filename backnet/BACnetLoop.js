@@ -17,7 +17,6 @@ const pointsAO = getPointsArrayFromJSON(require('./configAO_data'), 'AO');
 const pointsBI = getPointsArrayFromJSON(require('./configBI_data'), 'BI');
 const pointsBO = getPointsArrayFromJSON(require('./configBO_data'), 'BO');
 
-
 const getObjectsForMultyAIRead = (pointsArray) => {
     return pointsArray.map(item => {
         return  { objectIdentifier: { type: 0, instance: item }, propertyReferences: [ { propertyIdentifier: 85 } ] }
@@ -52,11 +51,11 @@ class BACnetLoop {
 
     run() {
         this.runMultyAI();
-        /*this.runAI();
+        // this.runAI();
         this.runAO();
         this.runAV();
         this.runBI();
-        this.runBO();*/
+        this.runBO();
         // this.runBV();
     }
 
