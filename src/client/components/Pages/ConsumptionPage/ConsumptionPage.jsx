@@ -122,8 +122,8 @@ const mapStateToProps = (store) => {
         EnergyDayTotal: { ...store.modbus.EnergyDayTotal },
         EnergyNightTotal: { ...store.modbus.EnergyNightTotal },
 
-        oWATER_COUNT: findPoint('AI3000370', store.ai),
-        oWATER_DAY: findPoint('AI3000371', store.ai),
+        oWATER_COUNT: findPoint('AI3001160', store.ai),
+        oWATER_DAY: findPoint('AI3001161', store.ai),
         oPWR_DAY: countDayConsumption(store),
         oPWR_NIGHT: countNightConsumption(store),
         oPWR_MONTH_DAY: countMonthConsumptionDay(store),

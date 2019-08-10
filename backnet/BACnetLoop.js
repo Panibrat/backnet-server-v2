@@ -25,7 +25,6 @@ const getObjectsForMultyAIRead = (pointsArray) => {
 };
 
 const objectsAiArray = getObjectsForMultyAIRead(pointsAI);
-console.log('objectsAiArray', objectsAiArray.slice(0, 40));
 
 // console.log('objectsAiArray', objectsAiArray);
 
@@ -147,7 +146,7 @@ class BACnetLoop {
     }
 
     runMultyAI() {
-        setInterval(() => readMultyAI(objectsAiArray.slice(0, 40)), pollingTime * 5);
+        setInterval(() => readMultyAI(objectsAiArray.slice(40)), pollingTime * 5);
     }
 }
 
