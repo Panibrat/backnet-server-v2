@@ -72,7 +72,7 @@ const mapStateToProps = (store) => {
         iT_KITCHEN: findPoint('AI3000160', store.ai),
         oHF_WC1: 0,
         oHF_WC2: 0,
-        oHF_KITCH: findPoint('AI3000185', store.ai),
+        oHF_KITCH: findPoint('AI3001404', store.ai),
         oHF_HALL: 0,
         oPUMP_HF: findPoint('BI3000261', store.bi),
     };
