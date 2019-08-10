@@ -60,7 +60,7 @@ class DataBuffer {
     }
 
     setData(point) {
-        if (!this.data[point.title]) {
+        if (this.data && !this.data[point.title]) {
             this.data[point.title] = point;
             this.onDataChange(point);
         } else if (Math.abs(this.data[point.title].value - point.value) > 0.1) {
