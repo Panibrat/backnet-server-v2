@@ -25,8 +25,7 @@ const readMultyAI = (arr) => {
                             value.values[i].values &&
                             value.values[i].values[0] &&
                             value.values[i].values[0].value &&
-                            value.values[i].values[0].value[0] &&
-                            value.values[i].values[0].value[0].value
+                            value.values[i].values[0].value[0]
                         ) {
                             const resolveItem = {
                                 title: `AI${value.values[i].objectIdentifier.instance}`,
