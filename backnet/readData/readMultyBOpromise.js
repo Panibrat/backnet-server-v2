@@ -33,7 +33,6 @@ const readMultyBO = (arr) => {
                 } else {
                     console.log('[readMultyBO] no data ');
                 }
-                console.log('BO');
             }
         },
     );

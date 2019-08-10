@@ -33,7 +33,6 @@ const readMultyAO = (arr) => {
                 } else {
                     console.log('[readMultyAO] no data ');
                 }
-                console.log('AO');
             }
         },
     );

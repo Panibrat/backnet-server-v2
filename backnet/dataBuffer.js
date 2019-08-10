@@ -64,6 +64,8 @@ class DataBuffer {
             this.data[point.title] = point;
             this.onDataChange(point);
         } else if (Math.abs(this.data[point.title].value - point.value) > 0.1) {
+            console.log('[CHANGED]: ', point.title);
+            console.log('[VALUE]: ', point.value);
             this.data[point.title].value = point.value;
             this.onDataChange({ ...point, trend: this.data[point.title].trend });
         } else {
