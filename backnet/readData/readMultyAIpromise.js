@@ -41,7 +41,7 @@ const readMultyAI = (arr) => {
                         ) {
                             const resolveItem = {
                                 title: `AI${value.values[i].objectIdentifier.instance}`,
-                                value: value.values[i].values[0].value[0].value
+                                value: +value.values[i].values[0].value[0].value.toFixed(1)
                             };
                             console.log('resolveItem', resolveItem);
                             buffer.setData(resolveItem);

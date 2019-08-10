@@ -366,7 +366,7 @@
     "value": 72.1
   },
   {
-  "title": "AI3000370",
+  "title": "AI3001401",
   "name": "oWATER_COUNT",
   "description": "Счетчик воды",
   "status": "norm",
@@ -376,7 +376,7 @@
   "trend": false
   },
   {
-  "title": "AI3000371",
+  "title": "AI3001402",
   "name": "oWATER_DAY",
   "description": "Воды сегодня потребили",
   "status": "norm",
