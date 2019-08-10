@@ -19,6 +19,7 @@ const readAI = pointNumber => new Promise((resolve, reject) => {
                 });
             } catch (error) {
                 reject(error);
+                console.log('[Error AI read]', `AI${pointNumber}`);
             }
         },
     );
