@@ -43,7 +43,7 @@ const readMultyAI = (arr, pointSaveAction) => {
                                 value: value.values[i].values[0].value[0].value
                             };
                             console.log('resolveItem', resolveItem);
-                            pointSaveAction(resolveItem);
+                            // pointSaveAction(resolveItem);
                         } else {
                             console.log('[readMultyAI] error data ');
                         }
