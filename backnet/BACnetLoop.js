@@ -25,6 +25,7 @@ const getObjectsForMultyAIRead = (pointsArray) => {
 };
 
 const objectsAiArray = getObjectsForMultyAIRead(pointsAI);
+console.log('objectsAiArray', objectsAiArray.slice(0, 40));
 
 // console.log('objectsAiArray', objectsAiArray);
 
