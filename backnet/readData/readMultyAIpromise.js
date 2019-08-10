@@ -46,7 +46,7 @@ const readMultyAI = (arr) => {
                             console.log('resolveItem', resolveItem);
                             buffer.setData(resolveItem);
                         } else {
-                            console.log('[readMultyAI] error data ');
+                            console.log(`[readMultyAI] AI${value.values[i].objectIdentifier.instance}`);
                         }
                     })
                 } else {
