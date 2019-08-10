@@ -592,7 +592,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0,
+    "value": 1,
     "trend": false
   },
   {
