@@ -9,6 +9,7 @@ const readBO = require('./readData/readBOpromise');
 const readMultyAI = require('./readData/readMultyAIpromise');
 const readMultyAO = require('./readData/readMultyAOpromise');
 const readMultyBO = require('./readData/readMultyBOpromise');
+const readMultyBI = require('./readData/readMultyBIpromise');
 
 const getPointsArrayFromJSON = require('../services/getPointsArrayFromJSON');
 
@@ -37,9 +38,16 @@ const getObjectsForMultyBORead = (pointsArray) => {
     })
 };
 
+const getObjectsForMultyBIRead = (pointsArray) => {
+    return pointsArray.map(item => {
+        return  { objectIdentifier: { type: 3, instance: item }, propertyReferences: [ { propertyIdentifier: 85 } ] }
+    })
+};
+
 const objectsAiArray = getObjectsForMultyAIRead(pointsAI);
 const objectsAOArray = getObjectsForMultyAORead(pointsAO);
 const objectsBOArray = getObjectsForMultyBORead(pointsBO);
+const objectsBIArray = getObjectsForMultyBIRead(pointsBI);
 
 // console.log('objectsAiArray', objectsAiArray);
 
@@ -69,10 +77,11 @@ class BACnetLoop {
         this.runMultyAI();
         this.runMultyAO();
         this.runMultyBO();
+        this.runMultyBI();
         // this.runAI();
         // this.runAO();
         this.runAV();
-        this.runBI();
+        // this.runBI();
         // this.runBO();
         // this.runBV();
     }
@@ -172,6 +181,10 @@ class BACnetLoop {
 
     runMultyBO() {
         setInterval(() => readMultyBO(objectsBOArray), pollingTime * 0.5);
+    }
+
+    runMultyBI() {
+        setInterval(() => readMultyBI(objectsBIArray), pollingTime * 0.5);
     }
 }
 
