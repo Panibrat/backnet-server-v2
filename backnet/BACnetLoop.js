@@ -146,7 +146,7 @@ class BACnetLoop {
     }
 
     runMultyAI() {
-        setInterval(() => readMultyAI(objectsAiArray, buffer.setData), pollingTime * 2);
+        setInterval(() => readMultyAI(objectsAiArray, (point) => buffer.setData(point)), pollingTime * 2);
     }
 }
 
