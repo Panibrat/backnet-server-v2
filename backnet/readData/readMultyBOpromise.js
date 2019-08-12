@@ -6,6 +6,7 @@ const readMultyBO = (arr) => {
         BACnetClient.ip, // IP device
         arr,
         (err, value) => {
+            const startTime = new Date().getTime();
             if (err) {
                 console.log('error1----->\n', err);
             } else {
@@ -25,6 +26,10 @@ const readMultyBO = (arr) => {
                                 title: `BO${value.values[i].objectIdentifier.instance}`,
                                 value: value.values[i].values[0].value[0].value
                             };
+                            if (i === (arr.length - 1)) {
+                                const stopTime = new Date().getTime();
+                                console.log('TimeLoop BO:', stopTime - startTime);
+                            }
                             buffer.setData(resolveItem);
                         } else {
                             console.log(`[error readMultyBO] BO${value.values[i].objectIdentifier.instance}`);
