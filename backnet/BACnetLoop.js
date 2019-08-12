@@ -74,10 +74,10 @@ class BACnetLoop {
     }
 
     run() {
-        // this.runMultyAI();
-        // this.runMultyAO();
+        this.runMultyAI();
+        this.runMultyAO();
         this.runMultyBO();
-        //this.runMultyBI();
+        this.runMultyBI();
 
         // this.runAI();
         // this.runAO();
@@ -173,7 +173,7 @@ class BACnetLoop {
     }
 
     runMultyAI() {
-        setInterval(() => readMultyAI(objectsAiArray), pollingTime * 3);
+        setInterval(() => readMultyAI(objectsAiArray), pollingTime * 5);
     }
 
     runMultyAO() {
@@ -181,11 +181,11 @@ class BACnetLoop {
     }
 
     runMultyBO() {
-        setInterval(() => readMultyBO(objectsBOArray), pollingTime * 0.5);
+        setInterval(() => readMultyBO(objectsBOArray), pollingTime);
     }
 
     runMultyBI() {
-        setInterval(() => readMultyBI(objectsBIArray), pollingTime * 3);
+        setInterval(() => readMultyBI(objectsBIArray), pollingTime * 5);
     }
 }
 
