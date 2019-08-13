@@ -74,16 +74,16 @@ class BACnetLoop {
     }
 
     run() {
-        this.runMultyAI();
+        /*this.runMultyAI();
         this.runMultyAO();
         this.runMultyBO();
-        this.runMultyBI();
+        this.runMultyBI();*/
 
-        // this.runAI();
-        // this.runAO();
+        this.runAI();
+        this.runAO();
         this.runAV();
-        // this.runBI();
-        // this.runBO();
+        this.runBI();
+        this.runBO();
         // this.runBV();
     }
 
