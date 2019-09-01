@@ -21,7 +21,7 @@ import { AllPointsPage } from './components/AllPointsPage/AllPointsPage';
 
 import HeatFloorRightPage from './components/Pages/HeatFloorRight/HeatFloorRight';
 import HeatingRadiatorsRightPage from './components/Pages/HeatingRadiatorsRightPage/HeatingRadiatorsRightPage';
-import AhuPage from './components/Pages/AHU/AhuPage';
+import AhuPage from './components/Pages/AHU';
 import DampersPage from './components/Pages/Dampers/DampersPage';
 import BoilerPage from './components/Pages/BoilerPage/BoilerPage';
 import HeatStationPage from './components/Pages/HeatStationPage/HeatStationPage';

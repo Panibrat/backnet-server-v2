@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import SocketIO from '../../../services/SocketService';
 
 import List from '@material-ui/core/List';
 
@@ -11,12 +10,12 @@ import { BinaryInputItem } from '../../BinaryInputItem/BinaryInputItem';
 import  BinaryOutputItem  from '../../BinaryOutputItem/BinaryOutputItem';
 import { AnalogOutputItemSlider } from '../../AnalogOutputItemSlider/AnalogOutputItemSlider';
 
-import { setTitle } from '../../../actions/menuActions';
 import styles from './AhuPage.css';
 
 export class AhuPage extends React.Component {
     componentDidMount() {
         this.props.setTitle('Приточная установка');
+        SocketIO.setRequestedPointsToBuffer(this.props.pointsConfig);
     }
     render() {
         return (
@@ -110,48 +109,4 @@ export class AhuPage extends React.Component {
     }
 }
 
-const findPoint = (point, pointsList) => {
-    const index = pointsList.findIndex(item => item.title === point);
-    if (index === -1) {
-        return 99;
-    }
-    return pointsList[index];
-};
-
-const mapStateToProps = (store) => {
-    return {
-        tFor: findPoint('AI3001122', store.ai),
-        tOut: findPoint('AI3000156', store.ai),
-        tRet: findPoint('AI3001123', store.ai),
-        tIsp: findPoint('AI3001124', store.ai),
-        tComp: findPoint('AI3001154', store.ai),
-        pFreon: findPoint('AI3001126', store.ai),
-        setTemperatureDayHeat: findPoint('AO3001137', store.ao),
-        setTemperatureNightHeat: findPoint('AO3001138', store.ao),
-        setTemperatureDayCool: findPoint('AO3001139', store.ao),
-        setTemperatureNightCool: findPoint('AO3001140', store.ao),
-        setDamperMinWinter: findPoint('AO3001142', store.ao),
-        setDamperMinSummer: findPoint('AO3001143', store.ao),
-        sVSD: findPoint('AO3001136', store.ao),
-        sSTART: findPoint('BO3001224', store.bo),
-        sSEASON: findPoint('BO3001226', store.bo),
-        sLOCAL: findPoint('BO3001233', store.bo),
-        sALWAYS: findPoint('BO3001236', store.bo),
-        oKKB: findPoint('BI3001200', store.bi),
-        oFan: findPoint('BI3001199', store.bi),
-        oHeat: findPoint('BI3001202', store.bi),
-        oDamperTop: findPoint('BI3001208', store.bi),
-        oDamperButtom: findPoint('BI3001209', store.bi),
-        aFaza: findPoint('BI3001232', store.bi),
-        aPV: findPoint('BI3001213', store.bi),
-        aKKB: findPoint('BI3001218', store.bi)
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        setTitle: setTitle
-    }, dispatch)
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AhuPage);
+export default AhuPage;

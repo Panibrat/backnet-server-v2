@@ -14,4 +14,12 @@ const isTokenValid = (token) => {
     }
 };
 
-module.exports = { isTokenValid };
+const getUserFromToken = (token) => {
+    try {
+        return jwt.verify(token, 'abc123');
+    } catch (e) {
+        return null;
+    }
+};
+
+module.exports = { isTokenValid, getUserFromToken };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import SocketIO from '../../../services/SocketService';
 
 import List from '@material-ui/core/List';
 
@@ -12,6 +13,19 @@ import styles from './DampersPage.css';
 export class DampersPage extends React.Component {
     componentDidMount() {
         this.props.setTitle('Воздушные заслонки');
+        SocketIO.setRequestedPointsToBuffer({
+            ai: [],
+            ao: [
+                3001146,
+                3001147,
+                3001148,
+                3001149,
+                3001150,
+            ],
+            bo: [],
+            bi: [],
+            bv: [11,12,13,14],
+        });
     }
     render() {
         return (

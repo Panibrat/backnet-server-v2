@@ -1,8 +1,9 @@
 const { io } = require('../server');
 const buffer = require('../backnet/dataBuffer');
 const modbusLoop = require('../modbus/modbusLoop');
+const backnetLoop = require('../backnet/BACnetLoop');
 
-const { isTokenValid } = require('../middleware/checkToken');
+const { isTokenValid, getUserFromToken } = require('../middleware/checkToken');
 const writeAV = require('../backnet/writeData/writeAVpromise');
 const writeAO = require('../backnet/writeData/writeAOpromise');
 const writeBV = require('../backnet/writeData/writeBVpromise');
@@ -30,6 +31,7 @@ const {
     WRITE_BINARY_OUTPUT,
     UPDATE_MODBUS_VALUE,
     CREATE_MODBUS_VALUES,
+    SET_REQUESTED_POINTS,
 } = require('./EventsConstants');
 
 class SocketIO {
@@ -37,6 +39,10 @@ class SocketIO {
         this.io = io;
         this.io.on('connection', (socket) => {
             console.log('user connected', socket.id);
+            socket.on('disconnect', function () {
+                console.log('user disconnect ----------', socket.id);
+                backnetLoop.handleUserDisconnected(socket.id);
+            });
 
             socket.emit(CREATE_ANALOG_INPUTS, buffer.getAnalogInputsData());
             socket.emit(CREATE_ANALOG_OUTPUT, buffer.getAnalogOutputsData());
@@ -91,6 +97,14 @@ class SocketIO {
                         .catch((e) => {
                             console.log('[ERROR] to write BO');
                         });
+                }
+            });
+
+            socket.on(SET_REQUESTED_POINTS, ({ points, token }) => {
+                if (isTokenValid(token)) {
+                    const user = getUserFromToken(token);
+                    user.socketId = socket.id;
+                    backnetLoop.setUserWithPoints(points, user);
                 }
             });
         });
