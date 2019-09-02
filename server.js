@@ -123,6 +123,11 @@ server.listen(port, (req, res) => {
     console.log(`Server run on port ${port}!`);
 });
 
+buffer.setDataListeners(mongoDB);
+buffer.setDataListeners(fireBase);
+buffer.setDataListeners(socketIO);
+buffer.setDataListeners(sqlite3);
+
 backnetLoop.run();
 trendLoop.run();
 // modbusLoop.setDataListeners(mongoDB);

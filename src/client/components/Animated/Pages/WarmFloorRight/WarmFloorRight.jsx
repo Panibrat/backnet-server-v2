@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import styles from './WarmFloorRight.css';
 import heatFloorRight from './heatFloorRight.svg';
 
-import {Pump} from './../../Components/Pump/Pump'
+import {Pump} from './../../Components/Pump/Pump';
+import { valueToFixed } from '../../../../common/helpers';
 
 export const WarmFloorRight = (props) => (
     <div className={styles.container}>
@@ -11,34 +11,34 @@ export const WarmFloorRight = (props) => (
              src={heatFloorRight}
         />
         <div className={styles.pump_box}>
-            <Pump isOn={props.oPUMP_HF} />
+            <Pump isOn={props.oPUMP_HF.value} />
         </div>
         <div className={styles.valve_level_box}>
-            {props.oHEAT_HF}%
+            {props.oHEAT_HF.value}%
         </div>
         <div className={styles.t_for_box}>
-            {props.iT_HF_FO.toFixed(1)}℃
+            {valueToFixed(props.iT_HF_FO.value)}℃
         </div>
         <div className={styles.t_kitchen_box}>
-            {props.iT_KITCHEN.toFixed(1)}℃
+            { valueToFixed(props.iT_KITCHEN.value) }℃
         </div>
         <div className={styles.t_hf_kitchen_box}>
-            {props.iT_HF_KITCH.toFixed(1)}℃
+            {valueToFixed(props.iT_HF_KITCH.value)}℃
         </div>
         <div className={styles.sp_t_for_box}>
-            {props.oSP_HF.toFixed(1)}℃
+            {valueToFixed(props.oSP_HF.value)}℃
         </div>
         <div className={styles.hall_level_box}>
-            {props.oHF_HALL}%
+            {props.oHF_HALL.value}%
         </div>
         <div className={styles.kitchen_level_box}>
-            {props.oHF_KITCH}%
+            {props.oHF_KITCH.value}%
         </div>
         <div className={styles.wc1_level_box}>
-            {props.oHF_WC1}%
+            {props.oHF_WC1.value}%
         </div>
         <div className={styles.wc2_level_box}>
-            {props.oHF_WC2}%
+            {props.oHF_WC2.value}%
         </div>
         <div className={styles.hall_lable}>
             тамбур
@@ -55,27 +55,4 @@ export const WarmFloorRight = (props) => (
     </div>
 );
 
-const findPoint = (point, pointsList) => {
-    const index = pointsList.findIndex(item => item.title === point);
-    if (index === -1) {
-        return 99
-    }
-    return pointsList[index].value
-}
-
-const mapStateToProps = (store) => {
-    return {
-        iT_HF_FO: findPoint('AI3000178', store.ai),
-        oSP_HF: findPoint('AI3000181', store.ai),
-        oHEAT_HF: findPoint('AI3000182', store.ai),
-        iT_HF_KITCH: findPoint('AI3000177', store.ai),
-        iT_KITCHEN: findPoint('AI3000160', store.ai),
-        oHF_WC1: 0,
-        oHF_WC2: 0,
-        oHF_KITCH: findPoint('AI3001404', store.ai),
-        oHF_HALL: 0,
-        oPUMP_HF: findPoint('BI3000261', store.bi),
-    };
-};
-
-export default connect(mapStateToProps)(WarmFloorRight);
+export default WarmFloorRight;

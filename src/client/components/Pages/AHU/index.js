@@ -2,6 +2,7 @@ import AhuPage from './AhuPage';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setTitle } from '../../../actions/menuActions';
+import { findPoint } from'../../../common/helpers';
 
 const pointsConfig = {
     ai: [
@@ -11,6 +12,11 @@ const pointsConfig = {
         3001124,
         3001154,
         3001126,
+        3001125,
+        3001133,
+        3001157,
+        3001127,
+        3001128,
     ],
     ao: [
         3001137,
@@ -37,16 +43,11 @@ const pointsConfig = {
         3001213,
         3001232,
         3001218,
+        3001218,
+        3001206,
+        3001228,
+        3001229,
     ],
-    bv: [1,2,3,4],
-};
-
-const findPoint = (point, pointsList) => {
-    const index = pointsList.findIndex(item => item.title === point);
-    if (index === -1) {
-        return 98;
-    }
-    return pointsList[index];
 };
 
 const mapStateToProps = (store) => {
@@ -58,6 +59,12 @@ const mapStateToProps = (store) => {
         tIsp: findPoint('AI3001124', store.ai),
         tComp: findPoint('AI3001154', store.ai),
         pFreon: findPoint('AI3001126', store.ai),
+        dpFan: findPoint('AI3001125', store.ai),
+        spTFor: findPoint('AI3001133', store.ai),
+        spTRet: findPoint('AI3001157', store.ai),
+        speedFan: findPoint('AI3001127', store.ai),
+        damperFreshLevel: findPoint('AI3001128', store.ai),
+
         setTemperatureDayHeat: findPoint('AO3001137', store.ao),
         setTemperatureNightHeat: findPoint('AO3001138', store.ao),
         setTemperatureDayCool: findPoint('AO3001139', store.ao),
@@ -65,10 +72,12 @@ const mapStateToProps = (store) => {
         setDamperMinWinter: findPoint('AO3001142', store.ao),
         setDamperMinSummer: findPoint('AO3001143', store.ao),
         sVSD: findPoint('AO3001136', store.ao),
+
         sSTART: findPoint('BO3001224', store.bo),
         sSEASON: findPoint('BO3001226', store.bo),
         sLOCAL: findPoint('BO3001233', store.bo),
         sALWAYS: findPoint('BO3001236', store.bo),
+
         oKKB: findPoint('BI3001200', store.bi),
         oFan: findPoint('BI3001199', store.bi),
         oHeat: findPoint('BI3001202', store.bi),
@@ -76,7 +85,10 @@ const mapStateToProps = (store) => {
         oDamperButtom: findPoint('BI3001209', store.bi),
         aFaza: findPoint('BI3001232', store.bi),
         aPV: findPoint('BI3001213', store.bi),
-        aKKB: findPoint('BI3001218', store.bi)
+        aKKB: findPoint('BI3001218', store.bi),
+        oAlarms: findPoint('BI3001206', store.bi),
+        oRQ_HEAT: findPoint('BI3001228', store.bi),
+        oRQ_COOL: findPoint('BI3001229', store.bi),
     };
 };
 

@@ -6,7 +6,6 @@ import List from '@material-ui/core/List';
 import AirUnit  from '../../Animated/Pages/AirUnit/AirUnit';
 import { AnalogInputItem } from '../../AnalogInputItem/AnalogInputItem';
 import { BinaryInputItem } from '../../BinaryInputItem/BinaryInputItem';
-
 import  BinaryOutputItem  from '../../BinaryOutputItem/BinaryOutputItem';
 import { AnalogOutputItemSlider } from '../../AnalogOutputItemSlider/AnalogOutputItemSlider';
 
@@ -17,10 +16,11 @@ export class AhuPage extends React.Component {
         this.props.setTitle('Приточная установка');
         SocketIO.setRequestedPointsToBuffer(this.props.pointsConfig);
     }
+
     render() {
         return (
             <div className={styles.container}>
-                <AirUnit />
+                <AirUnit {...this.props} />
                 <div className={styles.values_container}>
                     <List className={styles.list_type}>
                         <BinaryOutputItem {...this.props.sSTART} />

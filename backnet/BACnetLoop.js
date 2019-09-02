@@ -18,12 +18,6 @@ const pointsBO = getPointsArrayFromJSON(require('./configBO_data'), 'BO');
 
 const { pollingTime } = config;
 
-const socketIO = require('../socketIO/SocketIO');
-const sqlite3 = require('../SQLite3/SQLite');
-
-buffer.setDataListeners(socketIO);
-buffer.setDataListeners(sqlite3);
-
 class BACnetLoop {
     constructor(avArray, bvArray, aiArray, aoArray, biArray, boArray) {
         this.pointsAV = avArray;
@@ -37,12 +31,13 @@ class BACnetLoop {
     }
 
     run() {
+        // SLOW LOOP
         this.runPointsByArray(this.pointsAI, readAI, 30);
         this.runPointsByArray(this.pointsAO, readAO, 30);
         this.runPointsByArray(this.pointsBO, readBO, 30);
         this.runPointsByArray(this.pointsBI, readBI, 30);
         this.runPointsByArray(this.pointsAV, readAV, 60);
-
+        // FAST LOOP`
         this.runPointsByType('ai', readAI, 2);
         this.runPointsByType('ao', readAO, 2);
         this.runPointsByType('bo', readBO, 2);

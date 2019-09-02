@@ -12,3 +12,15 @@ export const findPoint = (point, pointsList) => {
     }
     return pointsList[index];
 };
+
+export const findValueOfPoint = (point, pointsList) => {
+    const index = pointsList.findIndex(item => item.title === point);
+    if (index === -1) {
+        return 99;
+    }
+    return pointsList[index].value;
+};
+
+export const valueToFixed = (value) => {
+    return value ? value.toFixed(1) : value;
+};
