@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import styles from './AirDuct.css';
 import airDuctImage from './air-duct-base.svg';
 
@@ -13,46 +12,46 @@ export const AirDuct = (props) => (
             src={airDuctImage}
         />
         <div className={styles.damper_zal_left_box}>
-            <DamperVer isOpen={props.sD_L_ZAL > 5}/>
+            <DamperVer isOpen={props.sD_L_ZAL.value > 5}/>
         </div>
         <div className={styles.damper_zal_right_box}>
-            <DamperVer isOpen={props.sD_R_ZAL > 5}/>
+            <DamperVer isOpen={props.sD_R_ZAL.value > 5}/>
         </div>
         <div className={styles.damper_bedroom_right_box}>
-            <DamperVer isOpen={props.sD_R_K_B > 5}/>
+            <DamperVer isOpen={props.sD_R_K_B.value > 5}/>
         </div>
         <div className={styles.damper_bedroom_left_box}>
-            <DamperHor isOpen={props.sD_L_K_B > 5}/>
+            <DamperHor isOpen={props.sD_L_K_B.value > 5}/>
         </div>
         <div className={styles.damper_cabinet_left_box}>
-            <DamperHor isOpen={props.sD_L_K_B > 5}/>
+            <DamperHor isOpen={props.sD_L_K_B.value > 5}/>
         </div>
         <div className={styles.damper_cabinet_right_box}>
-            <DamperVer isOpen={props.sD_R_K_B > 5}/>
+            <DamperVer isOpen={props.sD_R_K_B.value > 5}/>
         </div>
         <div className={styles.damper_child_1_box}>
-            <DamperVer isOpen={props.sD_D1_D2 > 5}/>
+            <DamperVer isOpen={props.sD_D1_D2.value > 5}/>
         </div>
         <div className={styles.damper_child_2_box}>
-            <DamperVer isOpen={props.sD_D1_D2 > 5}/>
+            <DamperVer isOpen={props.sD_D1_D2.value > 5}/>
         </div>
         <div className={styles.fan_pressue_box}>
-            {props.dpFan}Pa
+            {props.dpFan.value}Pa
         </div>
         <div className={styles.sD_L_K_B_box}>
-            {props.sD_L_K_B}%
+            {props.sD_L_K_B.value}%
         </div>
         <div className={styles.sD_D1_D2_box}>
-            {props.sD_D1_D2}%
+            {props.sD_D1_D2.value}%
         </div>
         <div className={styles.sD_R_K_B_box}>
-            {props.sD_R_K_B}%
+            {props.sD_R_K_B.value}%
         </div>
         <div className={styles.sD_R_ZAL_box}>
-            {props.sD_R_ZAL}%
+            {props.sD_R_ZAL.value}%
         </div>
         <div className={styles.sD_L_ZAL_box}>
-            {props.sD_L_ZAL}%
+            {props.sD_L_ZAL.value}%
         </div>
         <div className={styles.bedroom_L_lable}>
             спальня
@@ -78,23 +77,4 @@ export const AirDuct = (props) => (
     </div>
 );
 
-const findPoint = (point, pointsList) => {
-    const index = pointsList.findIndex(item => item.title === point);
-    if (index === -1) {
-        return 99
-    }
-    return pointsList[index].value
-};
-
-const mapStateToProps = (store) => {
-    return {
-        sD_L_K_B: findPoint('AO3001146', store.ao),
-        sD_D1_D2: findPoint('AO3001147', store.ao),
-        sD_R_K_B: findPoint('AO3001148', store.ao),
-        sD_R_ZAL: findPoint('AO3001149', store.ao),
-        sD_L_ZAL: findPoint('AO3001150', store.ao),
-        dpFan: findPoint('AI3001125', store.ai)
-    };
-};
-
-export default connect(mapStateToProps)(AirDuct);
+export default AirDuct;

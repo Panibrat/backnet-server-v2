@@ -20,6 +20,7 @@ import {
     WRITE_BINARY_OUTPUT,
     UPDATE_MODBUS_VALUE,
     CREATE_MODBUS_VALUES,
+    SET_REQUESTED_POINTS,
 } from './EventsConstants';
 
 import { updateAI, getAIs } from '../actions/AnalogInputActions';
@@ -123,6 +124,14 @@ class SocketService{
             token: this.token
         };
         this.socket.emit(WRITE_BINARY_OUTPUT, data);
+    }
+
+    setRequestedPointsToBuffer(points) {
+        const data = {
+            points,
+            token: this.token
+        };
+        this.socket.emit(SET_REQUESTED_POINTS, data);
     }
 }
 

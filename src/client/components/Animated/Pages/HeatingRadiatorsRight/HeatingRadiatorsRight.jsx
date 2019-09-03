@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import styles from './HeatingRadiatorsRight.css';
 import heatFloorRight from './HeatingRadiatorsRight.svg';
 
-import {Pump} from './../../Components/Pump/Pump'
+import { Pump } from './../../Components/Pump/Pump'
+import { valueToFixed } from '../../../../common/helpers';
 
 export const HeatingRadiatorsRight = (props) => (
     <div className={styles.container}>
@@ -11,43 +11,43 @@ export const HeatingRadiatorsRight = (props) => (
              src={heatFloorRight}
         />
         <div className={styles.pump_box}>
-            <Pump isOn={props.oPUMP_SO} />
+            <Pump isOn={props.oPUMP_SO.value} />
         </div>
         <div className={styles.valve_level_box}>
-            {props.oHEAT_SO}%
+            {props.oHEAT_SO.value}%
         </div>
         <div className={styles.t_for_box}>
-            {props.iT_SO_FO.toFixed(1)}℃
+            { valueToFixed(props.iT_SO_FO.value) }℃
         </div>
         <div className={styles.t_kitchen_box}>
-            {props.iT_KITCHEN.toFixed(1)}℃
+            { valueToFixed(props.iT_KITCHEN.value) }℃
         </div>
         <div className={styles.t_zal_box}>
-            {props.iT_ZAL.toFixed(1)}℃
+            { valueToFixed(props.iT_ZAL.value) }℃
         </div>
         <div className={styles.t_cabinet_box}>
-            {props.iT_CABINET.toFixed(1)}℃
+            { valueToFixed(props.iT_CABINET.value) }℃
         </div>
         <div className={styles.t_bedroom_box}>
-            {props.iT_BEDROOM.toFixed(1)}℃
+            { valueToFixed(props.iT_BEDROOM.value) }℃
         </div>
         <div className={styles.sp_t_for_box}>
-            {props.oSP_SO.toFixed(1)}℃
+            { valueToFixed(props.oSP_SO.value) }℃
         </div>
         <div className={styles.zal_level_box}>
-            {props.oSO_ZAL}%
+            {props.oSO_ZAL.value}%
         </div>
         <div className={styles.kitchen_level_box}>
-            {props.oSO_KITCH}%
+            {props.oSO_KITCH.value}%
         </div>
         <div className={styles.bedroom_level_box}>
-            {props.oSO_BEDROOM}%
+            {props.oSO_BEDROOM.value}%
         </div>
         <div className={styles.cabinet_level_box}>
-            {props.oSO_CABINET}%
+            {props.oSO_CABINET.value}%
         </div>
         <div className={styles.basement_level_box}>
-            {props.oSO_BASE}%
+            {props.oSO_BASE.value}%
         </div>
         <div className={styles.zal_lable}>
             зал
@@ -67,30 +67,4 @@ export const HeatingRadiatorsRight = (props) => (
     </div>
 );
 
-const findPoint = (point, pointsList) => {
-    const index = pointsList.findIndex(item => item.title === point);
-    if (index === -1) {
-        return 99
-    }
-    return pointsList[index].value
-}
-
-const mapStateToProps = (store) => {
-    return {
-        iT_SO_FO: findPoint('AI3000159', store.ai),
-        oSP_SO: findPoint('AI3000169', store.ai),
-        oHEAT_SO: findPoint('AI3000161', store.ai),
-        iT_KITCHEN: findPoint('AI3000160', store.ai),
-        iT_ZAL: findPoint('AI3000172', store.ai),
-        iT_CABINET: findPoint('AI3000187', store.ai),
-        iT_BEDROOM: findPoint('AI3000179', store.ai),
-        oSO_ZAL: findPoint('AI3000164', store.ai),
-        oSO_KITCH: findPoint('AI3000163', store.ai),
-        oSO_BEDROOM: findPoint('AI3000165', store.ai),
-        oSO_CABINET: findPoint('AI3000166', store.ai),
-        oSO_BASE: findPoint('AI3000162', store.ai),
-        oPUMP_SO: findPoint('BI3000247', store.bi),
-    };
-};
-
-export default connect(mapStateToProps)(HeatingRadiatorsRight);
+export default HeatingRadiatorsRight;

@@ -1,23 +1,22 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import List from '@material-ui/core/List';
 
 import HeatStationUnit  from '../../Animated/Pages/HeatStationUnit/HeatStationUnit';
 import { AnalogInputItem } from '../../AnalogInputItem/AnalogInputItem';
 import { BinaryInputItem } from '../../BinaryInputItem/BinaryInputItem';
 import BinaryOutputItem  from '../../BinaryOutputItem/BinaryOutputItem';
-import { setTitle } from '../../../actions/menuActions';
+import SocketIO from '../../../services/SocketService';
 import styles from './HeatStationPage.css';
 
 export class HeatStationPage extends React.Component {
     componentDidMount() {
         this.props.setTitle('Котельная');
+        SocketIO.setRequestedPointsToBuffer(this.props.pointsConfig);
     }
     render() {
         return (
             <div className={styles.container}>
-                <HeatStationUnit />
+                <HeatStationUnit {...this.props } />
                 <div className={styles.values_container}>
                     <List className={styles.list_type}>
                         <BinaryOutputItem {...this.props.sEL_KOTEL} />
@@ -39,33 +38,4 @@ export class HeatStationPage extends React.Component {
     }
 }
 
-const findPoint = (point, pointsList) => {
-    const index = pointsList.findIndex(item => item.title === point);
-    if (index === -1) {
-        return 99;
-    }
-    return pointsList[index];
-};
-
-const mapStateToProps = (store) => {
-    return {
-        iT_SUP: findPoint('AI3000157', store.ai),
-        iT_RET: findPoint('AI3000158', store.ai),
-        oSP_KOT: findPoint('AI3000171', store.ai),
-
-        oPUMP_EL: findPoint('BI3000279', store.bi),
-        oKOTEL: findPoint('BI3000249', store.bi),
-        oEL_1X: findPoint('BI3000278', store.bi),
-        oEL_2X: findPoint('BI3000277', store.bi),
-
-        sEL_KOTEL: findPoint('BO3000248', store.bo),
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        setTitle: setTitle
-    }, dispatch)
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HeatStationPage);
+export default HeatStationPage;

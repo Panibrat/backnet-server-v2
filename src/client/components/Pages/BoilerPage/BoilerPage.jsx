@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import SocketIO from '../../../services/SocketService';
 
 import List from '@material-ui/core/List';
 
@@ -10,17 +9,17 @@ import { BinaryInputItem } from '../../BinaryInputItem/BinaryInputItem';
 import  BinaryOutputItem  from '../../BinaryOutputItem/BinaryOutputItem';
 import { AnalogOutputItemSlider } from '../../AnalogOutputItemSlider/AnalogOutputItemSlider';
 
-import { setTitle } from '../../../actions/menuActions';
 import styles from './BoilerPage.css';
 
 export class BoilerPage extends React.Component {
     componentDidMount() {
         this.props.setTitle('Бойлер ГВС');
+        SocketIO.setRequestedPointsToBuffer(this.props.pointsConfig);
 }
     render() {
         return (
             <div className={styles.container}>
-                <BoilerUnit />
+                <BoilerUnit {...this.props} />
                 <div className={styles.values_container}>
                     <List className={styles.list_type}>
                         <BinaryOutputItem {...this.props.sSTR_GVS} />
@@ -50,34 +49,4 @@ export class BoilerPage extends React.Component {
     }
 }
 
-const findPoint = (point, pointsList) => {
-    const index = pointsList.findIndex(item => item.title === point);
-    if (index === -1) {
-        return 99;
-    }
-    return pointsList[index];
-};
-
-const mapStateToProps = (store) => {
-    return {
-        iT_GVS_R: findPoint('AI3000174', store.ai),
-
-        sT_GVS: findPoint('AO3000209', store.ao),
-
-        oPUMP_BOY: findPoint('BI3000254', store.bi),
-        oPUMP_REC: findPoint('BI3000255', store.bi),
-        oBOYLER: findPoint('BI3000253', store.bi),
-
-        sSTR_GVS: findPoint('BO3000266', store.bo),
-        sS_GVS_R: findPoint('BO3000265', store.bo),
-        sTMR_GVS: findPoint('BO3000264', store.bo),
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        setTitle: setTitle
-    }, dispatch)
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(BoilerPage);
+export default BoilerPage;

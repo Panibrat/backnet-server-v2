@@ -19,13 +19,13 @@ import BinaryOutputPage from './components/BinaryOutputPage/BinaryOutputPage';
 import BinaryValuePage from "./components/BinaryValuePage/BinaryValuePage";
 import { AllPointsPage } from './components/AllPointsPage/AllPointsPage';
 
-import HeatFloorRightPage from './components/Pages/HeatFloorRight/HeatFloorRight';
-import HeatingRadiatorsRightPage from './components/Pages/HeatingRadiatorsRightPage/HeatingRadiatorsRightPage';
-import AhuPage from './components/Pages/AHU/AhuPage';
-import DampersPage from './components/Pages/Dampers/DampersPage';
-import BoilerPage from './components/Pages/BoilerPage/BoilerPage';
-import HeatStationPage from './components/Pages/HeatStationPage/HeatStationPage';
-import ConsumptionPage from './components/Pages/ConsumptionPage/ConsumptionPage';
+import HeatFloorRightPage from './components/Pages/HeatFloorRight';
+import HeatingRadiatorsRightPage from './components/Pages/HeatingRadiatorsRightPage';
+import AhuPage from './components/Pages/AHU';
+import DampersPage from './components/Pages/Dampers';
+import BoilerPage from './components/Pages/BoilerPage';
+import HeatStationPage from './components/Pages/HeatStationPage';
+import ConsumptionPage from './components/Pages/ConsumptionPage';
 
 import ChartPage from './components/Chart/ChartPage/ChartPage';
 import ConsumptionChart from './components/Chart/ConsumptionChart/ConsumptionChart';
