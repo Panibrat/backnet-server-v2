@@ -1,91 +1,97 @@
 import React from 'react';
+import SocketIO from '../../services/SocketService';
 import { convertDiffTemperaturesToColor } from '../../common/helpers';
 import FirstFloorPlan from './FirstFloorPlan';
 import TemperatureTile from '../../common/Components/TemperatureTile/TemperatureTile';
 import HFTemperatureTile from '../../common/Components/HFTemperatureTile/HFTemperatureTile';
 import Radiator from '../../common/Components/Radiator/Radiator';
+import { valueToFixed } from '../../common/helpers';
 import styles from './FirstFloorItem.css';
 
 const selectedAreaOpacity = '0.2';
 
-const FirstFloorItem = (props) => {
-    const {
-        temperatureOutdoor,
-        temperatureZalLeft,
-        spTemperatureZalLeft,
-        temperatureKitchenLeft,
-        spTemperatureKitchenLeft,
-        temperatureHFKitchenLeft,
-        temperatureHFWC1Left,
-        temperatureHFHallLeft,
-        temperatureHFZal_L_Left,
-        temperatureHFZal_R_Left,
-        temperatureZalRight,
-        spTemperatureZalRight,
-        spTemperatureKitchenRight,
-        temperatureKitchenRight,
-        temperatureHFKitchenRight,
-        isOnFirstFloorHF_WC_Left,
-        isOnFirstFloorHF_kitchen_Left,
-        isOnFirstFloorHF_zal_Left,
-        isOnFirstFloorHF_hall_Left,
-        isOnFirstFloorHF_kitchen_Right,
-        isOnFirstFloorHF_WC_Right,
-        isOnFirstFloorHF_hall_Right,
-        activeArea,
-        setActiveArea,
-        setHeaderTitle,
-        isOnFirstFloorSO_zal_Right,
-        isOnFirstFloorSO_kitchen_Right,
-        isOnFirstFloorSO_zal_Left,
-        isOnFirstFloorSO_kitchen_Left,
-    } = props;
+export class FirstFloorItem extends React.Component {
+    componentDidMount() {
+        this.props.setTitle('Первый этаж');
+        SocketIO.setRequestedPointsToBuffer(this.props.pointsConfig);
+    }
+
+    handleAreaClick(areaId, areaTitle) {
+        if (areaId === this.props.activeArea) {
+            this.props.setActiveArea('');
+            this.props.setTitle('Первый этаж');
+        } else {
+            this.props.setActiveArea(areaId);
+            this.props.setTitle(areaTitle);
+        }
+    };
+
+    render() {
+        const {
+            temperatureOutdoor,
+            temperatureZalLeft,
+            spTemperatureZalLeft,
+            temperatureKitchenLeft,
+            spTemperatureKitchenLeft,
+            temperatureHFKitchenLeft,
+            temperatureHFWC1Left,
+            temperatureHFHallLeft,
+            temperatureHFZal_L_Left,
+            temperatureHFZal_R_Left,
+            temperatureZalRight,
+            spTemperatureZalRight,
+            spTemperatureKitchenRight,
+            temperatureKitchenRight,
+            temperatureHFKitchenRight,
+            isOnFirstFloorHF_WC_Left,
+            isOnFirstFloorHF_kitchen_Left,
+            isOnFirstFloorHF_zal_Left,
+            isOnFirstFloorHF_hall_Left,
+            isOnFirstFloorHF_kitchen_Right,
+            isOnFirstFloorHF_WC_Right,
+            isOnFirstFloorHF_hall_Right,
+            activeArea,
+            isOnFirstFloorSO_zal_Right,
+            isOnFirstFloorSO_kitchen_Right,
+            isOnFirstFloorSO_zal_Left,
+            isOnFirstFloorSO_kitchen_Left,
+        } = this.props;
 
         const colorZalLeft = convertDiffTemperaturesToColor(temperatureZalLeft.value, spTemperatureZalLeft.value);
         const colorZalRight = convertDiffTemperaturesToColor(temperatureZalRight.value, spTemperatureZalRight.value);
         const colorKitchenLeft = convertDiffTemperaturesToColor(temperatureKitchenLeft.value, spTemperatureKitchenLeft.value);
         const colorKitchenRight = convertDiffTemperaturesToColor(temperatureKitchenRight.value, spTemperatureKitchenRight.value);
 
-        const handleAreaClick = (areaId, areaTitle) => {
-            if (areaId === activeArea) {
-                setActiveArea('');
-                setHeaderTitle('Первый этаж');
-            } else {
-                setActiveArea(areaId);
-                setHeaderTitle(areaTitle);
-            }
-    };
-
-    return (
-        <div className={styles.container}>
-            <svg viewBox="20 0 360 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        return (
+            <div className={styles.container}>
+                <svg viewBox="20 0 360 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <g className="firstFloor_zalLeft">
-                            <path
-                                d="m38.431352,115.882316l36.470581,-0.000006l-0.196078,-14.901955l16.470582,-17.058817l49.999981,-0.196079l17.450974,17.058817l0.392157,14.901956l36.274496,0.196078l-0.196078,87.450948l-156.862687,0l0.196072,-87.450942z"
-                                fill={colorZalLeft}
-                                opacity="0.5"
-                            />
+                        <path
+                            d="m38.431352,115.882316l36.470581,-0.000006l-0.196078,-14.901955l16.470582,-17.058817l49.999981,-0.196079l17.450974,17.058817l0.392157,14.901956l36.274496,0.196078l-0.196078,87.450948l-156.862687,0l0.196072,-87.450942z"
+                            fill={colorZalLeft}
+                            opacity="0.5"
+                        />
                     </g>
                     <g className="firstFloor_zalRight">
-                            <path
-                                d="m204.846022,115.859149l36.563908,-0.000004l0,-15.198253l16.079311,-16.740104l50.881108,0l16.51984,16.740104l0.220265,15.198253l36.343648,0l0,87.445021l-156.608085,0l0.000005,-87.445017z"
-                                fill={colorZalRight}
-                                opacity="0.5"
-                            />
+                        <path
+                            d="m204.846022,115.859149l36.563908,-0.000004l0,-15.198253l16.079311,-16.740104l50.881108,0l16.51984,16.740104l0.220265,15.198253l36.343648,0l0,87.445021l-156.608085,0l0.000005,-87.445017z"
+                            fill={colorZalRight}
+                            opacity="0.5"
+                        />
                     </g>
                     <g className="firstFloor_kitchenLeft">
-                            <path
-                                d="m38.546293,273.56856l32.158623,-0.000008l-0.220265,-5.947142l24.889893,-0.220265l0,17.841428l3.744497,0.220264l0,-20.264337l38.986822,0.220265l0,109.471473l-11.894285,12.334814l-43.392113,-0.220264l-12.334814,-12.11455l-0.220264,-14.977988l-31.938358,0l0.220264,-86.34369z"
-                                fill={colorKitchenLeft}
-                                opacity="0.5"
-                            />
+                        <path
+                            d="m38.546293,273.56856l32.158623,-0.000008l-0.220265,-5.947142l24.889893,-0.220265l0,17.841428l3.744497,0.220264l0,-20.264337l38.986822,0.220265l0,109.471473l-11.894285,12.334814l-43.392113,-0.220264l-12.334814,-12.11455l-0.220264,-14.977988l-31.938358,0l0.220264,-86.34369z"
+                            fill={colorKitchenLeft}
+                            opacity="0.5"
+                        />
                     </g>
                     <g className="firstFloor_kitchenRight">
-                            <path
-                                d="m276.872526,311.233796l-0.000006,-3.524241l24.008835,-23.568305l3.744497,0l-0.220265,-16.51984l25.110157,0l0,5.947142l31.938358,0l0.220264,86.343698l-32.158622,0l0.220265,14.977988l-12.11455,12.11455l-43.392113,0l-12.334814,-12.11455l0.220265,-63.436186l14.757729,-0.220256z"
-                                fill={colorKitchenRight}
-                                opacity="0.5"
-                            />
+                        <path
+                            d="m276.872526,311.233796l-0.000006,-3.524241l24.008835,-23.568305l3.744497,0l-0.220265,-16.51984l25.110157,0l0,5.947142l31.938358,0l0.220264,86.343698l-32.158622,0l0.220265,14.977988l-12.11455,12.11455l-43.392113,0l-12.334814,-12.11455l0.220265,-63.436186l14.757729,-0.220256z"
+                            fill={colorKitchenRight}
+                            opacity="0.5"
+                        />
                     </g>
                     <g className="firstFloorHF_WC_Left">
                         <path id="svg_5537"
@@ -150,112 +156,113 @@ const FirstFloorItem = (props) => {
                               fill="none"
                         />
                     </g>
-                <g transform="translate(175, 60)">
-                    <TemperatureTile temperature={temperatureOutdoor.value} />
-                </g>
-                <g transform="translate(95, 140)">
-                    <TemperatureTile temperature={temperatureZalLeft.value} />
-                </g>
-                <g transform="translate(260, 140)">
-                    <TemperatureTile temperature={temperatureZalRight.value} />
-                </g>
-                <g transform="translate(65, 310)">
-                    <TemperatureTile temperature={temperatureKitchenLeft.value} />
-                </g>
-                <g transform="translate(290, 310)">
-                    <TemperatureTile temperature={temperatureKitchenRight.value} />
-                </g>
-                <g transform="translate(320, 280)">
-                    <HFTemperatureTile temperature={temperatureHFKitchenRight.value} />
-                </g>
-                <g transform="translate(95, 350)">
-                    <HFTemperatureTile temperature={temperatureHFKitchenLeft.value} />
-                </g>
-                <g transform="translate(153, 287)">
-                    <HFTemperatureTile temperature={temperatureHFHallLeft.value} />
-                </g>
-                <g transform="translate(151, 227)">
-                    <HFTemperatureTile temperature={temperatureHFWC1Left.value} />
-                </g>
-                <g transform="translate(50, 120)">
-                    <HFTemperatureTile temperature={temperatureHFZal_L_Left.value} />
-                </g>
-                <g transform="translate(151, 170)">
-                    <HFTemperatureTile temperature={temperatureHFZal_R_Left.value} />
-                </g>
-                <g className="firstFloor_zalLeftRadiator" transform="translate(101, 85)">
-                    <Radiator isOn={isOnFirstFloorSO_zal_Left} />
-                </g>
-                <g className="firstFloor_zalLeftRadiator" transform="translate(49, 135) rotate(90)">
-                    <Radiator isOn={isOnFirstFloorSO_zal_Left}/>
-                </g>
-                <g className="firstFloor_kitchenLeftRadiator" transform="translate(89, 377)">
-                    <Radiator isOn={isOnFirstFloorSO_kitchen_Left} />
-                </g>
-                <g className="firstFloor_zalRightRadiator" transform="translate(268, 85)">
-                    <Radiator isOn={isOnFirstFloorSO_zal_Right} />
-                </g>
-                <g className="firstFloor_zalRightRadiator" transform="translate(360, 135) rotate(90)">
-                    <Radiator isOn={isOnFirstFloorSO_zal_Right} />
-                </g>
-                <g className="firstFloor_kitchenRightRadiator" transform="translate(281, 377)">
-                    <Radiator isOn={isOnFirstFloorSO_kitchen_Right} />
-                </g>
-                <g>
-                    <path
-                        d="m38.431352,115.882316l36.470581,-0.000006l-0.196078,-14.901955l16.470582,-17.058817l49.999981,-0.196079l17.450974,17.058817l0.392157,14.901956l36.274496,0.196078l-0.196078,87.450948l-156.862687,0l0.196072,-87.450942z"
-                        fill="black"
-                        opacity= { activeArea === 'firstFloor_zal_Left' ? selectedAreaOpacity : 0}
-                        onClick={() => handleAreaClick('firstFloor_zal_Left', 'Зал')} //areaId, areaTitle, activeArea
-                    />
-                </g>
-                <g className="firstFloor_zalRight">
-                    <path
-                        d="m204.846022,115.859149l36.563908,-0.000004l0,-15.198253l16.079311,-16.740104l50.881108,0l16.51984,16.740104l0.220265,15.198253l36.343648,0l0,87.445021l-156.608085,0l0.000005,-87.445017z"
-                        fill="black"
-                        opacity= { activeArea === 'firstFloor_zal_Right' ? selectedAreaOpacity : 0}
-                        onClick={() => handleAreaClick('firstFloor_zal_Right', 'Зал(Родители)')}
-                    />
-                </g>
-                <g className="firstFloor_kitchenLeft">
-                    <path
-                        d="m38.546293,273.56856l32.158623,-0.000008l-0.220265,-5.947142l24.889893,-0.220265l0,17.841428l3.744497,0.220264l0,-20.264337l38.986822,0.220265l0,109.471473l-11.894285,12.334814l-43.392113,-0.220264l-12.334814,-12.11455l-0.220264,-14.977988l-31.938358,0l0.220264,-86.34369z"
-                        fill="black"
-                        opacity= { activeArea === 'firstFloor_Kitchen_Left' ? selectedAreaOpacity : 0}
-                        onClick={() => handleAreaClick('firstFloor_Kitchen_Left', 'Кухня(Л)')}
-                    />
-                </g>
-                <g className="firstFloor_kitchenRight">
-                    <path
-                        d="m276.872526,311.233796l-0.000006,-3.524241l24.008835,-23.568305l3.744497,0l-0.220265,-16.51984l25.110157,0l0,5.947142l31.938358,0l0.220264,86.343698l-32.158622,0l0.220265,14.977988l-12.11455,12.11455l-43.392113,0l-12.334814,-12.11455l0.220265,-63.436186l14.757729,-0.220256z"
-                        fill="black"
-                        opacity= { activeArea === 'firstFloor_Kitchen_Right' ? selectedAreaOpacity : 0}
-                        onClick={() => handleAreaClick('firstFloor_Kitchen_Right', 'Кухня(Родители)')}
-                    />
-                </g>
-                <g transform="translate(147, 207)">
-                    <rect
-                        width="49"
-                        height="50"
-                        fill="black"
-                        opacity= { activeArea === 'firstFloorHF_WC_Left' ? selectedAreaOpacity : 0}
-                        onClick={() => handleAreaClick('firstFloorHF_WC_Left', 'c/у 1')}
+                    <g transform="translate(175, 60)">
+                        <TemperatureTile temperature={ valueToFixed(temperatureOutdoor.value) } />
+                    </g>
+                    <g transform="translate(95, 140)">
+                        <TemperatureTile temperature={ valueToFixed(temperatureZalLeft.value) } />
+                    </g>
+                    <g transform="translate(260, 140)">
+                        <TemperatureTile temperature={ valueToFixed(temperatureZalRight.value) } />
+                    </g>
+                    <g transform="translate(65, 310)">
+                        <TemperatureTile temperature={ valueToFixed(temperatureKitchenLeft.value) } />
+                    </g>
+                    <g transform="translate(290, 310)">
+                        <TemperatureTile temperature={ valueToFixed(temperatureKitchenRight.value) } />
+                    </g>
+                    <g transform="translate(320, 280)">
+                        <HFTemperatureTile temperature={  valueToFixed(temperatureHFKitchenRight.value) } />
+                    </g>
+                    <g transform="translate(95, 350)">
+                        <HFTemperatureTile temperature={ valueToFixed(temperatureHFKitchenLeft.value) } />
+                    </g>
+                    <g transform="translate(153, 287)">
+                        <HFTemperatureTile temperature={ valueToFixed(temperatureHFHallLeft.value) } />
+                    </g>
+                    <g transform="translate(151, 227)">
+                        <HFTemperatureTile temperature={ valueToFixed(temperatureHFWC1Left.value) } />
+                    </g>
+                    <g transform="translate(50, 120)">
+                        <HFTemperatureTile temperature={ valueToFixed(temperatureHFZal_L_Left.value) } />
+                    </g>
+                    <g transform="translate(151, 170)">
+                        <HFTemperatureTile temperature={ valueToFixed(temperatureHFZal_R_Left.value) } />
+                    </g>
+                    <g className="firstFloor_zalLeftRadiator" transform="translate(101, 85)">
+                        <Radiator isOn={isOnFirstFloorSO_zal_Left} />
+                    </g>
+                    <g className="firstFloor_zalLeftRadiator" transform="translate(49, 135) rotate(90)">
+                        <Radiator isOn={isOnFirstFloorSO_zal_Left}/>
+                    </g>
+                    <g className="firstFloor_kitchenLeftRadiator" transform="translate(89, 377)">
+                        <Radiator isOn={isOnFirstFloorSO_kitchen_Left} />
+                    </g>
+                    <g className="firstFloor_zalRightRadiator" transform="translate(268, 85)">
+                        <Radiator isOn={isOnFirstFloorSO_zal_Right} />
+                    </g>
+                    <g className="firstFloor_zalRightRadiator" transform="translate(360, 135) rotate(90)">
+                        <Radiator isOn={isOnFirstFloorSO_zal_Right} />
+                    </g>
+                    <g className="firstFloor_kitchenRightRadiator" transform="translate(281, 377)">
+                        <Radiator isOn={isOnFirstFloorSO_kitchen_Right} />
+                    </g>
+                    <g>
+                        <path
+                            d="m38.431352,115.882316l36.470581,-0.000006l-0.196078,-14.901955l16.470582,-17.058817l49.999981,-0.196079l17.450974,17.058817l0.392157,14.901956l36.274496,0.196078l-0.196078,87.450948l-156.862687,0l0.196072,-87.450942z"
+                            fill="black"
+                            opacity= { activeArea === 'firstFloor_zal_Left' ? selectedAreaOpacity : 0}
+                            onClick={() => this.handleAreaClick('firstFloor_zal_Left', 'Зал')} //areaId, areaTitle, activeArea
+                        />
+                    </g>
+                    <g className="firstFloor_zalRight">
+                        <path
+                            d="m204.846022,115.859149l36.563908,-0.000004l0,-15.198253l16.079311,-16.740104l50.881108,0l16.51984,16.740104l0.220265,15.198253l36.343648,0l0,87.445021l-156.608085,0l0.000005,-87.445017z"
+                            fill="black"
+                            opacity= { activeArea === 'firstFloor_zal_Right' ? selectedAreaOpacity : 0}
+                            onClick={() => this.handleAreaClick('firstFloor_zal_Right', 'Зал(Родители)')}
+                        />
+                    </g>
+                    <g className="firstFloor_kitchenLeft">
+                        <path
+                            d="m38.546293,273.56856l32.158623,-0.000008l-0.220265,-5.947142l24.889893,-0.220265l0,17.841428l3.744497,0.220264l0,-20.264337l38.986822,0.220265l0,109.471473l-11.894285,12.334814l-43.392113,-0.220264l-12.334814,-12.11455l-0.220264,-14.977988l-31.938358,0l0.220264,-86.34369z"
+                            fill="black"
+                            opacity= { activeArea === 'firstFloor_Kitchen_Left' ? selectedAreaOpacity : 0}
+                            onClick={() => this.handleAreaClick('firstFloor_Kitchen_Left', 'Кухня(Л)')}
+                        />
+                    </g>
+                    <g className="firstFloor_kitchenRight">
+                        <path
+                            d="m276.872526,311.233796l-0.000006,-3.524241l24.008835,-23.568305l3.744497,0l-0.220265,-16.51984l25.110157,0l0,5.947142l31.938358,0l0.220264,86.343698l-32.158622,0l0.220265,14.977988l-12.11455,12.11455l-43.392113,0l-12.334814,-12.11455l0.220265,-63.436186l14.757729,-0.220256z"
+                            fill="black"
+                            opacity= { activeArea === 'firstFloor_Kitchen_Right' ? selectedAreaOpacity : 0}
+                            onClick={() => this.handleAreaClick('firstFloor_Kitchen_Right', 'Кухня(Родители)')}
+                        />
+                    </g>
+                    <g transform="translate(147, 207)">
+                        <rect
+                            width="49"
+                            height="50"
+                            fill="black"
+                            opacity= { activeArea === 'firstFloorHF_WC_Left' ? selectedAreaOpacity : 0}
+                            onClick={() => this.handleAreaClick('firstFloorHF_WC_Left', 'c/у 1')}
 
-                    />
-                </g>
-                <g transform="translate(147, 260)">
-                    <rect
-                        width="49"
-                        height="72"
-                        fill="black"
-                        opacity= { activeArea === 'firstFloorHF_hall_Left' ? selectedAreaOpacity : 0}
-                        onClick={() => handleAreaClick('firstFloorHF_hall_Left', 'тамбур')}
-                    />
-                </g>
-                <FirstFloorPlan />
-            </svg>
-        </div>
-    )
-};
+                        />
+                    </g>
+                    <g transform="translate(147, 260)">
+                        <rect
+                            width="49"
+                            height="72"
+                            fill="black"
+                            opacity= { activeArea === 'firstFloorHF_hall_Left' ? selectedAreaOpacity : 0}
+                            onClick={() => this.handleAreaClick('firstFloorHF_hall_Left', 'тамбур')}
+                        />
+                    </g>
+                    <FirstFloorPlan />
+                </svg>
+            </div>
+        )
+    }
+}
 
 export default FirstFloorItem;

@@ -38,7 +38,7 @@ class BACnetLoop {
         this.runPointsByArray(this.pointsBI, readBI, 30);
         this.runPointsByArray(this.pointsAV, readAV, 60);
         // FAST LOOP`
-        this.runPointsByType('ai', readAI, 2);
+        this.runPointsByType('ai', readAI, 3);
         this.runPointsByType('ao', readAO, 2);
         this.runPointsByType('bo', readBO, 2);
         this.runPointsByType('bi', readBI, 2);

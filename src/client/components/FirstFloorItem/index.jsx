@@ -5,8 +5,64 @@ import { findPoint } from '../../common/helpers';
 import { setActiveArea } from '../../actions/plansViewActions';
 import { setTitle } from '../../actions/menuActions';
 
+const pointsConfig = {
+    ai: [
+        3000156,
+        3000870,
+        3000794,
+        3000778,
+        3000793,
+        3001164,
+        3001166,
+        3001165,
+        3001169,
+        3001168,
+        3000172,
+        3000173,
+        3000879,
+        3000160,
+        3000177,
+        3001178,
+        3001176,
+        3001180,
+        3001177,
+        3000182,
+        3000164,
+        3000163,
+        3000788,
+        3000786,
+    ],
+    ao: [
+        3001150,
+        3000799,
+        3001191,
+        3001192,
+        3000800,
+        3001185,
+        3001189,
+        3001188,
+        3001149,
+        3000879,
+        3000234,
+        3000235,
+    ],
+    bo: [
+        3001247,
+        3001243,
+        3001245,
+        3001244,
+        3000882,
+    ],
+    bi: [
+        3001240,
+        3000247,
+        3000818,
+    ],
+};
+
 const mapStateToProps = (store) => {
     return {
+        pointsConfig,
         temperatureOutdoor: findPoint('AI3000156', store.ai),
         temperatureZalLeft: findPoint('AI3000870', store.ai),
         spTemperatureZalLeft: findPoint('AI3000794', store.ai),
@@ -40,8 +96,8 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
+        setTitle,
         setActiveArea: setActiveArea,
-        setHeaderTitle: setTitle,
     }, dispatch)
 };
 
