@@ -21,6 +21,12 @@ const pointsConfig = {
         3001167,
         3001179,
         3000182,
+        3000785,
+        3000784,
+        3000782,
+        3000783,
+        3000166,
+        3000165,
 
     ],
     ao: [
@@ -36,7 +42,11 @@ const pointsConfig = {
         3001190,
     ],
     bo: [ 3001246 ],
-    bi: [],
+    bi: [
+        3001240,
+        3000818,
+        3000247,
+    ],
 };
 
 const mapStateToProps = (store) => {
@@ -59,6 +69,13 @@ const mapStateToProps = (store) => {
         spTemperatureBedroomRight: findPoint('AO3000881', store.ao),
         spTemperatureCabinetRight: findPoint('AO3000880', store.ao),
         activeArea: store.plans.activeArea,
+        isOnSecondFloorSO_D1: (findPoint('AI3000785', store.ai).value > 5) && (findPoint('BI3000818', store.bi).value > 0),
+        isOnSecondFloorSO_D2: (findPoint('AI3000784', store.ai).value > 5) && (findPoint('BI3000818', store.bi).value > 0),
+        isOnSecondFloorSO_CabinetLeft: (findPoint('AI3000782', store.ai).value > 5) && (findPoint('BI3000818', store.bi).value > 0),
+        isOnSecondFloorSO_BedroomLeft: (findPoint('AI3000783', store.ai).value > 5) && (findPoint('BI3000818', store.bi).value > 0),
+        isOnSecondFloorSO_CabinetRight: (findPoint('AI3000166', store.ai).value > 5) && (findPoint('BI3000247', store.bi).value > 0),
+        isOnSecondFloorSO_BedroomRight: (findPoint('AI3000165', store.ai).value > 5) && (findPoint('BI3000247', store.bi).value > 0),
+
     };
 };
 

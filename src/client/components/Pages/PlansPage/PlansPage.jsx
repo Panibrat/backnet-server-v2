@@ -35,7 +35,7 @@ class PlansPage extends React.Component {
             <div className={styles.container}>
                 {this.state.isFirstFloorShown ? <FirstFloorItem /> : <SecondFloorItem />}
                 <Button variant="contained" color="primary" onClick={this.toggleFloor}>
-                    {this.state.isFirstFloorShown ? 'Второй этаж' : 'Первый этаж'}
+                    {this.state.isFirstFloorShown ? 'На Второй этаж' : 'На Первый этаж'}
                 </Button>
                 <ControlContainer />
             </div>

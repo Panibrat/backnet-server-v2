@@ -4,6 +4,7 @@ import { convertDiffTemperaturesToColor } from '../../common/helpers';
 import SecondFloorPlan from './SecondFloorPlan';
 import TemperatureTile from '../../common/Components/TemperatureTile/TemperatureTile';
 import HFTemperatureTile from '../../common/Components/HFTemperatureTile/HFTemperatureTile';
+import Radiator from '../../common/Components/Radiator/Radiator';
 import { valueToFixed } from '../../common/helpers';
 import styles from './SecondFloorItem.css';
 
@@ -44,6 +45,12 @@ export class SecondFloorItem extends React.Component {
             isOnSecondFloorHF_WC_Left,
             isOnSecondFloorHF_WC_Right,
             activeArea,
+            isOnSecondFloorSO_D1,
+            isOnSecondFloorSO_D2,
+            isOnSecondFloorSO_CabinetLeft,
+            isOnSecondFloorSO_BedroomLeft,
+            isOnSecondFloorSO_CabinetRight,
+            isOnSecondFloorSO_BedroomRight,
         } = this.props;
 
         const colorSecondFloorBedroomRight = convertDiffTemperaturesToColor(temperatureBedroomRight.value, spTemperatureBedroomRight.value);
@@ -139,6 +146,27 @@ export class SecondFloorItem extends React.Component {
                     </g>
                     <g transform="translate(152, 230)">
                         <HFTemperatureTile temperature={ valueToFixed(temperatureHFWC2Left.value) } />
+                    </g>
+                    <g className="secondFloor_BedroomRightRadiator" transform="translate(360, 135) rotate(90)">
+                        <Radiator isOn={isOnSecondFloorSO_BedroomRight} />
+                    </g>
+                    <g className="secondFloor_BedroomRightRadiator" transform="translate(268, 85)">
+                        <Radiator isOn={isOnSecondFloorSO_BedroomRight} />
+                    </g>
+                    <g className="secondFloor_D2Radiator" transform="translate(165, 117)">
+                        <Radiator isOn={isOnSecondFloorSO_D2} />
+                    </g>
+                    <g className="secondFloor_CabinetRightRadiator" transform="translate(281, 377)">
+                        <Radiator isOn={isOnSecondFloorSO_CabinetRight} />
+                    </g>
+                    <g className="secondFloor_D1Radiator" transform="translate(49, 135) rotate(90)">
+                        <Radiator isOn={isOnSecondFloorSO_D1}/>
+                    </g>
+                    <g className="secondFloor_CabinetLeftRadiator" transform="translate(89, 376)">
+                        <Radiator isOn={isOnSecondFloorSO_CabinetLeft} />
+                    </g>
+                    <g className="secondFloor_BedroomLeftRadiator" transform="translate(187, 322)">
+                        <Radiator isOn={isOnSecondFloorSO_BedroomLeft} />
                     </g>
                     <g className="secondFloorBedroomRight">
                         <path

@@ -17,7 +17,6 @@ const pointsConfig = {
         3000163,
         3000165,
         3000166,
-        3000162,
     ],
     ao: [
         3000206,
@@ -43,7 +42,7 @@ const mapStateToProps = (store) => {
         oSO_KITCH: findPoint('AI3000163', store.ai),
         oSO_BEDROOM: findPoint('AI3000165', store.ai),
         oSO_CABINET: findPoint('AI3000166', store.ai),
-        oSO_BASE: findPoint('AI3000162', store.ai),
+        oSO_BASE: { value: 0 },
 
         sT_SO_FOR: findPoint('AO3000206', store.ao),
 
