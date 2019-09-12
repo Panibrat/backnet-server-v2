@@ -72,6 +72,15 @@
     "units": ["Off", "On"]
   },
   {
+    "title": "BI3000819",
+    "name": "oPUMP_BOY_L",
+    "description": "Насос бойлера (Л)",
+    "status": "alarm",
+    "readOnly": true,
+    "value": false,
+    "units": ["Off", "On"]
+  },
+  {
     "title": "BI3000818",
     "name": "oPumpSO",
     "description": "Насос радиаторного отопления(Л)",
@@ -93,6 +102,15 @@
     "title": "BI3000253",
     "name": "oBOYLER",
     "description": "Электрический нагрев бойлера",
+    "status": "alarm",
+    "readOnly": true,
+    "value": false,
+    "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000807",
+    "name": "oBOYLER_L",
+    "description": "Электрический нагрев бойлера (Л)",
     "status": "alarm",
     "readOnly": true,
     "value": true,

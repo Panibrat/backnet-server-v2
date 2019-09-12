@@ -326,6 +326,24 @@
     "colorTrend": "#ff9670"
   },
   {
+    "title": "AI3000777",
+    "name": "iT_GVS_L",
+    "description": "Температура в горячей воды в бойлере (Л)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 22.8,
+    "trend": false,
+    "colorTrend": "#ff9670"
+  },
+  {
+    "title": "AI3000781",
+    "name": "oPUMP_REC_L",
+    "description": "Насос рециркуляции ГВС (Л)",
+    "units": "%",
+    "value": 0
+  },
+  {
     "title": "AI3000157",
     "name": "iT_SUP",
     "description": "Температура подачи котлов",

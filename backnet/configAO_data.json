@@ -138,9 +138,24 @@
     "name": "sT_GVS",
     "description": "Уставка ГВС",
     "status": "norm",
+    "minValue": 20,
+    "maxValue": 70,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
     "value": 55
+  },
+  {
+    "title": "AO3000805",
+    "name": "sT_GVS_L",
+    "description": "Уставка ГВС (Л)",
+    "status": "norm",
+    "minValue": 15,
+    "maxValue": 70,
+    "stepValue": 1,
+    "units": "℃",
+    "readOnly": false,
+    "value": 44
   },
   {
     "title": "AO3000879",

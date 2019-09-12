@@ -81,6 +81,15 @@
     "units": ["Выкл", "Вкл"]
   },
   {
+    "title": "BO3000826",
+    "name": "sSTR_GVS_L",
+    "description": "Включение Бойлера (Л)",
+    "status": "normal",
+    "readOnly": false,
+    "value": false,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
     "title": "BO3000265",
     "name": "sS_GVS_R",
     "description": "Режим рециркуляции",
@@ -90,9 +99,27 @@
     "units": ["Выкл", "Авто"]
   },
   {
+    "title": "BO3000825",
+    "name": "sS_GVS_L",
+    "description": "Режим рециркуляции (Л)",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Авто"]
+  },
+  {
     "title": "BO3000264",
     "name": "sTMR_GVS",
     "description": "Таймер рециркуляции",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Вкл", "Выкл"]
+  },
+  {
+    "title": "BO3000824",
+    "name": "sTMR_GVS_L",
+    "description": "Таймер рециркуляции (Л)",
     "status": "normal",
     "readOnly": false,
     "value": true,
