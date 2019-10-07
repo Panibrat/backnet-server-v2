@@ -8,7 +8,7 @@ export const convertDiffTemperaturesToColor = (temperature, setPoint) => {
 export const findPoint = (point, pointsList) => {
     const index = pointsList.findIndex(item => item.title === point);
     if (index === -1) {
-        return 99;
+        return { value: 99 };
     }
     return pointsList[index];
 };
@@ -22,5 +22,11 @@ export const findValueOfPoint = (point, pointsList) => {
 };
 
 export const valueToFixed = (value) => {
+    if (value === 100) {
+        return value;
+    }
+    if (value === 0) {
+        return '0.0';
+    }
     return value ? value.toFixed(1) : value;
 };

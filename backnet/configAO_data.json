@@ -108,12 +108,21 @@
   },
   {
     "title": "AO3000219",
-    "name": "sT_HF_FOR",
-    "description": "Ручная уставка подачи теплого пола",
+    "name": "sT_HF_FOR_R",
+    "description": "Ручная уставка подачи теплого пола(П)",
     "status": "norm",
     "units": "℃",
     "readOnly": false,
     "value": 35
+  },
+  {
+    "title": "AO3001184",
+    "name": "sT_HF_FOR_L",
+    "description": "Ручная уставка подачи теплого пола(Л)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 37
   },
   {
     "title": "AO3001136",
@@ -213,6 +222,17 @@
     "units": "℃",
     "readOnly": false,
     "value": 22
+  },
+  {
+    "title": "AO3001193",
+    "name": "sHF_PLUS",
+    "description": "Плюс к Т-ре теплого пола Ночью.",
+    "status": "norm",
+    "minValue": 0,
+    "maxValue": 40,
+    "units": "℃",
+    "readOnly": false,
+    "value": 1
   },
   {
     "title": "AO3001188",

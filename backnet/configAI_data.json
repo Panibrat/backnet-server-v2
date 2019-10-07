@@ -107,30 +107,57 @@
   },
   {
     "title": "AI3000178",
-    "name": "iT_HF_FO",
-    "description": "Температура на гребенке теплого пола",
+    "name": "iT_HF_FO_R",
+    "description": "Температура на гребенке теплого пола (Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
     "value": 35.6
   },
   {
+    "title": "AI3001170",
+    "name": "iT_HF_FO_L",
+    "description": "Температура на гребенке теплого пола (Л)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 45.6
+  },
+  {
     "title": "AI3000181",
     "name": "oSP_HF",
-    "description": "Уставка подачи теплого пола",
+    "description": "Уставка подачи теплого пола(Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
     "value": 40.2
   },
   {
+    "title": "AI3001175",
+    "name": "oSP_HF",
+    "description": "Уставка подачи теплого пола (Л)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 30.2
+  },
+  {
     "title": "AI3000182",
-    "name": "oHEAT_HF",
-    "description": "Клапан теплого пола",
+    "name": "oHEAT_HF_R",
+    "description": "Клапан теплого пола (Родители)",
     "status": "norm",
     "units": "%",
     "readOnly": true,
     "value": 58
+  },
+  {
+    "title": "AI3001182",
+    "name": "oHEAT_HF_L",
+    "description": "Клапан теплого пола",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 59
   },
   {
     "title": "AI3000177",
@@ -517,7 +544,7 @@
   {
     "title": "AI3001164",
     "name": "iTP_Kitchen",
-    "description": "Температура пола в кухне",
+    "description": "Температура пола в кухне(Л)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -595,16 +622,6 @@
     "trend": false
   },
   {
-    "title": "AI3001404",
-    "name": "oHF_Kitchen_R",
-    "description": "Клапан теплого кухни (Родители)",
-    "status": "norm",
-    "units": "%",
-    "readOnly": true,
-    "value": 1,
-    "trend": false
-  },
-  {
     "title": "AI3001176",
     "name": "oHF_Kitchen_L",
     "description": "Клапан теплого кухни",
@@ -632,6 +649,16 @@
     "units": "%",
     "readOnly": true,
     "value": 30,
+    "trend": false
+  },
+  {
+    "title": "AI3001181",
+    "name": "oHF_ZalR",
+    "description": "Клапан теплого в зале прав сторона",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 31,
     "trend": false
   },
   {

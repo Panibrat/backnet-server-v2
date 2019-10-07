@@ -2,13 +2,13 @@
     text-anchor: middle;
     fill: black;
     opacity: 0.85;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bold;
 }
 
 .temperaturePlate {
-    width: 40px;
-    height: 15px;
+    width: 42px;
+    height: 18px;
     fill: white;
     opacity: 0.8;
     stroke: black;

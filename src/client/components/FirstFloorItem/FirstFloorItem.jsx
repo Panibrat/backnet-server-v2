@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SocketIO from '../../services/SocketService';
 import { convertDiffTemperaturesToColor } from '../../common/helpers';
 import FirstFloorPlan from './FirstFloorPlan';
@@ -10,9 +10,10 @@ import styles from './FirstFloorItem.css';
 
 const selectedAreaOpacity = '0.2';
 
-export class FirstFloorItem extends React.Component {
+export class FirstFloorItem extends Component {
     componentDidMount() {
         this.props.setTitle('Первый этаж');
+        this.props.setActiveArea('');
         SocketIO.setRequestedPointsToBuffer(this.props.pointsConfig);
     }
 

@@ -45,7 +45,7 @@ export const TemporaryDrawer = (props) => {
             <Divider inset />
             <NavLink
                 className={styles.item}
-                to="/hf-right">
+                to="/hf">
                 Теплый пол
             </NavLink>
             <Divider inset />

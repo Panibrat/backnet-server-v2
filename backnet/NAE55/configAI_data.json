@@ -101,7 +101,7 @@
   {
     "title": "AI3000178",
     "name": "iT_HF_FO",
-    "description": "Температура на гребенке теплого пола",
+    "description": "Температура на гребенке теплого пола (Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -110,7 +110,7 @@
   {
     "title": "AI3000181",
     "name": "oSP_HF",
-    "description": "Уставка подачи теплого пола",
+    "description": "Уставка подачи теплого пола (Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -119,7 +119,7 @@
   {
     "title": "AI3000182",
     "name": "oHEAT_HF",
-    "description": "Клапан теплого пола",
+    "description": "Клапан теплого пола (Родители)",
     "status": "norm",
     "units": "%",
     "readOnly": true,
@@ -137,7 +137,7 @@
   {
     "title": "AI3000160",
     "name": "iT_KITCHEN",
-    "description": "Температура в кухне",
+    "description": "Температура в кухне (Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,

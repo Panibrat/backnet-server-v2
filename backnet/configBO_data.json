@@ -44,16 +44,25 @@
     "value": true,
     "units": ["Авто", "Пост"]
   },
-     {
+  {
     "title": "BO3000267",
     "name": "sHF_AUTO",
-    "description": "Уставка темпрературы подачи",
+    "description": "Уставка темпрературы подачи(Родители)",
     "status": "normal",
     "readOnly": false,
     "value": true,
     "units": ["Ручное", "Авто"]
   },
-    {
+  {
+    "title": "BO3001242",
+    "name": "sHF_AUTO",
+    "description": "Уставка темпрературы подачи(Л)",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Ручное", "Авто"]
+  },
+  {
     "title": "BO3000262",
     "name": "sSTR_SO",
     "description": "Радиаторное отопление",
@@ -227,7 +236,16 @@
   {
     "title": "BO3000882",
     "name": "sStart_HF_KI_Right",
-    "description": "Теплый пол(Родители)",
+    "description": "Старт Теплый пол(Родители)",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001241",
+    "name": "sStart_HF_Left",
+    "description": "Старт Теплый пол(Л)",
     "status": "normal",
     "readOnly": false,
     "value": true,

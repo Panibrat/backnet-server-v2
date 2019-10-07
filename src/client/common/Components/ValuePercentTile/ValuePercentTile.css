@@ -1,0 +1,10 @@
+.temperatureText {
+    text-anchor: middle;
+}
+
+.temperaturePlate {
+    width: 46px;
+    height: 20px;
+    stroke-width: 1px;
+    stroke-opacity: 0.5;
+}
