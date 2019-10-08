@@ -51,7 +51,7 @@ export const TemporaryDrawer = (props) => {
             <Divider inset />
             <NavLink
                 className={styles.item}
-                to="/so-right">
+                to="/so">
                 Радиаторы
             </NavLink>
             <Divider inset />

@@ -49,12 +49,6 @@ export const HeatFloorRight = (props) => (
             <g transform="translate(21, 3) scale(0.28)"> // T_ROOM_KITCHEN
                 <TemperatureTile
                     temperature={ valueToFixed(props.iT_KITCHEN.value) }
-                    plateColor="#2196f3"
-                    textColor="black"
-                    strokeColor="black"
-                    textOpacity="1"
-                    plateOpacity="0.9"
-                    fontWeight="bold"
                 />
             </g>
             <g transform="translate(73, 66) scale(0.28)"> // oVLV

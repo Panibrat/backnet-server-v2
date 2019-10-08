@@ -183,8 +183,8 @@
   },
   {
     "title": "AI3000159",
-    "name": "iT_SO_FO",
-    "description": "Температура на гребенке радиаторного отопления",
+    "name": "iT_SO_FO_R",
+    "description": "Температура на гребенке радиаторного отопления(Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
@@ -193,22 +193,51 @@
     "colorTrend": "#9C27B0"
   },
   {
+    "title": "AI3000776",
+    "name": "iT_SO_FO_L",
+    "description": "Температура на гребенке радиаторного отопления(Л)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 48.9,
+    "trend": true,
+    "colorTrend": "#9C27B0"
+  },
+  {
     "title": "AI3000169",
     "name": "oSP_SO",
-    "description": "Уставка подачи радиаторного отопления",
+    "description": "Уставка подачи радиаторного отопления(Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
     "value": 75.6
   },
   {
+    "title": "AI3000795",
+    "name": "oSP_SO",
+    "description": "Уставка подачи радиаторного отопления(Л)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": true,
+    "value": 65.69
+  },
+  {
     "title": "AI3000161",
     "name": "oHEAT_SO",
-    "description": "Клапан радиаторного отопления",
+    "description": "Клапан радиаторного отопления(Родители)",
     "status": "norm",
     "units": "%",
     "readOnly": true,
     "value": 95.4
+  },
+  {
+    "title": "AI3000780",
+    "name": "oHEAT_SO",
+    "description": "Клапан радиаторного отопления(Л)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 55.4
   },
   {
     "title": "AI3000172",
@@ -258,7 +287,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 0
+    "value": 1.8
   },
   {
     "title": "AI3000163",
@@ -298,12 +327,21 @@
   },
   {
     "title": "AI3000785",
-    "name": "oVlvD2",
+    "name": "oVlvD1",
     "description": "Клапан радиатора Юли",
     "status": "norm",
     "units": "%",
     "readOnly": true,
     "value": 98
+  },
+  {
+    "title": "AI3000787",
+    "name": "oVlvBase_L",
+    "description": "Клапан радиатора Подвала(Л)",
+    "status": "norm",
+    "units": "%",
+    "readOnly": true,
+    "value": 33
   },
   {
     "title": "AI3000786",
@@ -330,7 +368,7 @@
     "status": "norm",
     "units": "%",
     "readOnly": true,
-    "value": 100
+    "value": 10.9
   },
   {
     "title": "AI3000166",
@@ -454,11 +492,11 @@
   {
     "title": "AI3000767",
     "name": "iT_D1",
-    "description": "Температура воздуха в детской 1",
+    "description": "Температура воздуха у Юли",
     "status": "norm",
     "units": "℃",
     "readOnly": true,
-    "value": 24,
+    "value": 24.3,
     "trend": false
   },
   {

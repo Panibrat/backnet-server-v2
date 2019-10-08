@@ -112,6 +112,9 @@
     "description": "Ручная уставка подачи теплого пола(П)",
     "status": "norm",
     "units": "℃",
+    "minValue": 5,
+    "maxValue": 45,
+    "stepValue": 1,
     "readOnly": false,
     "value": 35
   },
@@ -121,6 +124,9 @@
     "description": "Ручная уставка подачи теплого пола(Л)",
     "status": "norm",
     "units": "℃",
+    "minValue": 5,
+    "maxValue": 45,
+    "stepValue": 1,
     "readOnly": false,
     "value": 37
   },
@@ -135,12 +141,21 @@
   },
   {
     "title": "AO3000206",
-    "name": "sT_SO_FOR",
-    "description": "Ручная уставка подачи радиаторного отопления",
+    "name": "sT_SO_FOR_R",
+    "description": "Ручная уставка подачи радиаторного отопления(Родители)",
     "status": "norm",
     "units": "℃",
     "readOnly": false,
     "value": 65
+  },
+  {
+    "title": "AO3000869",
+    "name": "sT_SO_FOR_L",
+    "description": "Ручная уставка подачи радиаторного отопления(Л)",
+    "status": "norm",
+    "units": "℃",
+    "readOnly": false,
+    "value": 45
   },
   {
     "title": "AO3000209",

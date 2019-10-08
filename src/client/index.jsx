@@ -19,7 +19,7 @@ import BinaryValuePage from "./components/BinaryValuePage/BinaryValuePage";
 import { AllPointsPage } from './components/AllPointsPage/AllPointsPage';
 
 import HeatFloorsPage from './components/Pages/HeatFloorsPage';
-import HeatingRadiatorsRightPage from './components/Pages/HeatingRadiatorsRightPage';
+import HeatingRadiatorsPage from './components/Pages/HeatingRadiatorsPage';
 import AhuPage from './components/Pages/AHU';
 import DampersPage from './components/Pages/Dampers';
 import BoilerPage from './components/Pages/BoilerPage';
@@ -57,7 +57,7 @@ const App = () => (
                         <Route path="/binaryOutputs" component={BinaryOutputPage} />
                         <Route path="/binaryValues" component={BinaryValuePage} />
                         <Route path="/hf" component={HeatFloorsPage} />
-                        <Route path="/so-right" component={HeatingRadiatorsRightPage} />
+                        <Route path="/so" component={HeatingRadiatorsPage} />
                         <Route path="/dampers" component={DampersPage} />
                         <Route path="/air-unit" component={AhuPage} />
                         <Route path="/allPoints" component={AllPointsPage} />

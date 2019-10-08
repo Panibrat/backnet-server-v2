@@ -64,8 +64,17 @@
   },
   {
     "title": "BO3000262",
-    "name": "sSTR_SO",
-    "description": "Радиаторное отопление",
+    "name": "sSTR_SO_R",
+    "description": "Радиаторное отопление(Родители)",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3000821",
+    "name": "sSTR_SO_L",
+    "description": "Радиаторное отопление(Л)",
     "status": "normal",
     "readOnly": false,
     "value": true,
@@ -73,8 +82,17 @@
   },
   {
     "title": "BO3000263",
-    "name": "sSO_AUTO",
-    "description": "Уставка темпрературы подачи",
+    "name": "sSO_AUTO_R",
+    "description": "Уставка темпрературы подачи(Родители)",
+    "status": "normal",
+    "readOnly": false,
+    "value": true,
+    "units": ["Ручное", "Авто"]
+  },
+  {
+    "title": "BO3000822",
+    "name": "sSO_AUTO_L",
+    "description": "Уставка темпрературы подачи(Л)",
     "status": "normal",
     "readOnly": false,
     "value": true,

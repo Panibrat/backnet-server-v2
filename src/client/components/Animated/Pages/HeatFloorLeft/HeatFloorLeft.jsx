@@ -64,23 +64,11 @@ export const HeatFloorLeft = (props) => (
             <g transform="translate(0, 3) scale(0.28)"> // T_ROOM_KITCHEN
                 <TemperatureTile
                     temperature={ valueToFixed(props.iT_KITCHEN.value) }
-                    plateColor="#2196f3"
-                    textColor="black"
-                    strokeColor="black"
-                    textOpacity="1"
-                    plateOpacity="0.9"
-                    fontWeight="bold"
                 />
             </g>
             <g transform="translate(58, 3) scale(0.28)"> // T_ROOM_ZAL
                 <TemperatureTile
                     temperature={ valueToFixed(props.iT_ZAL.value) }
-                    plateColor="#2196f3"
-                    textColor="black"
-                    strokeColor="black"
-                    textOpacity="1"
-                    plateOpacity="0.9"
-                    fontWeight="bold"
                 />
             </g>
             <g transform="translate(1, 40) scale(0.25)"> // Кухня
