@@ -73,11 +73,6 @@
     opacity: 0.3;
 }
 
-.xAxis text{
-    font-size: 12px;
-    opacity: 0.75;
-}
-
 .tileValue {
     fill: white;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -90,9 +85,4 @@
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 12px;
     font-weight: normal;
-}
-
-.bar {
-    cursor: pointer;
-    border-radius: 3px;
 }

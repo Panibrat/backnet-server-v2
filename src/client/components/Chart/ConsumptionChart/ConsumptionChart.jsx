@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setTitle } from '../../../actions/menuActions';
+
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import { BarChart } from '../BarConsumptionChart/BarChart';
+import { PlotConsumptionChart } from '../PlotConsumptionChart/PlotConsumptionChart';
+import {
+    addTwoTarifs,
+    convertDataForBarChart,
+    convertDataToRelative,
+    getDataForPlotChartConsumption,
+    getMinTimeStampFromArray } from './common/helpers';
 
 import styles from'./ConsumptionChart.css';
 
@@ -19,37 +29,20 @@ class ConsumptionChart extends Component {
         this.state = {
             EnergyDayTotal: [],
             EnergyNightTotal: [],
+            EnergyTotal: [],
+            PlotChartConsumptionData: [],
             startTime: 0,
-            startTimeShift: 24,
+            typeOfChart: 'oneDayConsumptionChart',
         };
-        this.handleUpdateStartTime = this.handleUpdateStartTime.bind(this);
     }
 
     componentDidMount() {
-        const now = new Date().getTime();
-        this.getTrendData(EnergyDayTotal, now - day - hour, now)
-            .then((response) => {
-                console.log('response.data', response.data);
-                this.setState({
-                    EnergyDayTotal: this.convertDataToRelative(response.data),
-                    startTime: Math.max(response.data[0].x, now - day - hour, this.state.startTime),
-                });
-            });
-
-        this.getTrendData(EnergyNightTotal, now - day - hour, now)
-            .then((response) => {
-                console.log('this.convertDataToRelative(response.data)', this.convertDataToRelative(response.data));
-                this.setState({
-                    EnergyNightTotal: this.convertDataToRelative(response.data),
-                    startTime: Math.max(response.data[0].x, now - day - hour, this.state.startTime),
-                });
-            });
+        this.handleGetOneDayConsumption();
     }
 
-
-    getTrendData(title, startTime, endTime) {
+    getOneDayConsumptionByTitle(title, startTime, endTime) {
         const token = this.props.user ? this.props.user.token : 'fakeToken';
-        return axios.post('/consumption', {
+        return axios.post('/day-consumption', {
                 title: title,
                 startTime: startTime,
                 endTime: endTime
@@ -62,76 +55,188 @@ class ConsumptionChart extends Component {
         )
     }
 
-    convertDataToRelative(dataArray) {
-        return dataArray.reduce((previousValue, currentItem, index, arr) => {
-            if (index > 0) {
-                const relativeValue = arr[index].y - arr[index - 1].y;
-                previousValue.push({ x: currentItem.x, y: relativeValue });
-                return previousValue;
-            }
-            return previousValue;
-        }, []);
+    handleGetOneDayConsumption() {
+        this.props.setTitle('Энергия: за сутки');
+        const now = new Date().getTime();
+        const startFrom = now - 24 * 3600 * 1000 - hour;
+        Promise.all([
+            this.getOneDayConsumptionByTitle('EnergyDayTotal', startFrom, now),
+            this.getOneDayConsumptionByTitle('EnergyNightTotal', startFrom, now),
+        ]).then(result => {
+            const EnergyDayTotal = result[0].data;
+            const EnergyNightTotal = result[1].data;
+            this.setState({
+                EnergyDayTotal: convertDataToRelative(EnergyDayTotal),
+                EnergyNightTotal: convertDataToRelative(EnergyNightTotal),
+                EnergyTotal: [],
+                typeOfChart: 'oneDayConsumptionChart',
+                startTime: startFrom,
+            })
+        }).catch(e => {
+            console.log('Error: ', e);
+        });
     }
 
-    handleUpdateStartTime(hours) {
+    handleGetYearConsumption() {
+        this.props.setTitle('Энергия: за год');
+        Promise.all([
+            this.getYearConsumptionByTitle('EnergyDayTotal'),
+            this.getYearConsumptionByTitle('EnergyNightTotal'),
+        ]).then(result => {
+            const EnergyDayTotal = result[0].data.slice(0, -1);
+            const EnergyNightTotal = result[1].data.slice(0, -1);
+            const EnergyTotal = addTwoTarifs(EnergyDayTotal, EnergyNightTotal);
+            const latestDate = getMinTimeStampFromArray([...EnergyDayTotal, ...EnergyNightTotal]) - 15 * day;
+            this.setState({
+                EnergyDayTotal: convertDataForBarChart(EnergyDayTotal),
+                EnergyNightTotal: convertDataForBarChart(EnergyNightTotal),
+                EnergyTotal,
+                typeOfChart: 'yearConsumptionChart',
+                startTime: latestDate,
+            })
+        }).catch(e => {
+            console.log('Error: ', e);
+        });
+    }
+
+    getYearConsumptionByTitle(title) {
+        const token = this.props.user ? this.props.user.token : 'fakeToken';
+        return axios.post('/year-consumption', {
+                title: title,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "x-auth": token,
+                }
+            }
+        )
+    }
+
+    getWeekConsumptionByTitle(title, startTime, endTime) {
+        const token = this.props.user ? this.props.user.token : 'fakeToken';
+        return axios.post('/week-consumption', {
+                title,
+                startTime,
+                endTime,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "x-auth": token,
+                }
+            }
+        )
+    }
+
+    handleGetWeekConsumption() {
+        this.props.setTitle('Энергия: за неделю');
         const now = new Date().getTime();
-        const startFrom = now - hours * 3600 * 1000 - hour;
-        this.getTrendData(EnergyDayTotal, startFrom, now)
-            .then((response) => {
-                this.setState({
-                    EnergyDayTotal: this.convertDataToRelative(response.data),
-                    startTime: startFrom,
-                    startTimeShift: hours,
-                });
-            });
-        this.getTrendData(EnergyNightTotal, startFrom, now)
-            .then((response) => {
-                this.setState({
-                    EnergyNightTotal: this.convertDataToRelative(response.data),
-                    startTime: startFrom,
-                });
-            });
+        const startFrom = now - 7.5 * day;
+        Promise.all([
+            this.getWeekConsumptionByTitle('EnergyDayTotal', startFrom, now),
+            this.getWeekConsumptionByTitle('EnergyNightTotal', startFrom, now),
+        ]).then(result => {
+            const EnergyDayTotal = result[0].data.slice(0, 7);
+            const EnergyNightTotal = result[1].data.slice(0, 7);
+            const EnergyTotal = addTwoTarifs(EnergyDayTotal, EnergyNightTotal);
+            this.setState({
+                EnergyDayTotal: convertDataForBarChart(EnergyDayTotal),
+                EnergyNightTotal: convertDataForBarChart(EnergyNightTotal),
+                EnergyTotal: EnergyTotal,
+                typeOfChart: 'oneWeekConsumptionChart',
+                startTime: startFrom,
+            })
+        }).catch(e => {
+            console.log('Error: ', e);
+        });
+    }
+
+    getMonthConsumptionByTitle(title, startTime, endTime) {
+        const token = this.props.user ? this.props.user.token : 'fakeToken';
+        return axios.post('/month-consumption', {
+                title,
+                startTime,
+                endTime,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "x-auth": token,
+                }
+            }
+        )
+    }
+
+    handleGetMonthConsumption() {
+        this.props.setTitle('Энергия: за месяц');
+        const now = new Date().getTime();
+        const startFrom = now - 32 * day;
+        Promise.all([
+            this.getMonthConsumptionByTitle('EnergyDayTotal', startFrom, now),
+            this.getMonthConsumptionByTitle('EnergyNightTotal', startFrom, now),
+        ]).then(result => {
+            const EnergyDayTotal = result[0].data.slice(0, -1);
+            const EnergyNightTotal = result[1].data.slice(0, -1);
+            const EnergyTotal = addTwoTarifs(EnergyDayTotal, EnergyNightTotal);
+            const plotChartData = getDataForPlotChartConsumption(EnergyDayTotal, EnergyNightTotal, EnergyTotal);
+            this.setState({
+                PlotChartConsumptionData: plotChartData,
+                typeOfChart: 'oneMonthConsumptionChart',
+                startTime: startFrom,
+            })
+        }).catch(e => {
+            console.log('Error: ', e);
+        });
     }
 
     render() {
-        const {EnergyDayTotal, EnergyNightTotal, startTime, startTimeShift} = this.state;
+        const {EnergyDayTotal, EnergyNightTotal, startTime, typeOfChart, EnergyTotal, PlotChartConsumptionData} = this.state;
         const now = new Date().getTime();
         return (
             <div>
-                <BarChart
-                    startTime={startTime}
-                    endTime={now}
-                    EnergyDayTotal={EnergyDayTotal}
-                    EnergyNightTotal={EnergyNightTotal}
-                />
+                {
+                    typeOfChart === 'oneMonthConsumptionChart' ?
+                        <PlotConsumptionChart
+                            chartData={ PlotChartConsumptionData }
+                            startTime={ startTime }
+                            endTime={ now }
+                        />
+                        :
+                        <BarChart
+                            typeOfChart = {typeOfChart}
+                            startTime={startTime}
+                            endTime={now}
+                            EnergyDayTotal={EnergyDayTotal}
+                            EnergyNightTotal={EnergyNightTotal}
+                            EnergyTotal={EnergyTotal}
+                        />
+                }
                 <div className={styles.timeSetButtonsGroup}>
                     <Button
                         className={styles.timeSetButton}
-                        variant={startTimeShift === 4 ? "contained" : "outlined"}
+                        variant={typeOfChart === 'oneDayConsumptionChart' ? "contained" : "outlined"}
                         color="primary"
-                        onClick={() => this.handleUpdateStartTime(4) }>
-                        - 4h
+                        onClick={() => this.handleGetOneDayConsumption() }>
+                        One Day
                     </Button>
                     <Button
                         className={styles.timeSetButton}
-                        variant={startTimeShift === 12 ? "contained" : "outlined"}
+                        variant={typeOfChart === 'oneWeekConsumptionChart' ? "contained" : "outlined"}
                         color="primary"
-                        onClick={() => this.handleUpdateStartTime(12) }>
-                        - 12h
+                        onClick={() => this.handleGetWeekConsumption() }>
+                        Week
                     </Button>
                     <Button
                         className={styles.timeSetButton}
-                        variant={startTimeShift === 24 ? "contained" : "outlined"}
+                        variant={typeOfChart === 'oneMonthConsumptionChart' ? "contained" : "outlined"}
                         color="primary"
-                        onClick={() => this.handleUpdateStartTime(24) }>
-                        - 24h
+                        onClick={() => this.handleGetMonthConsumption() }>
+                        Month
                     </Button>
                     <Button
                         className={styles.timeSetButton}
-                        variant={startTimeShift === 7*24 ? "contained" : "outlined"}
+                        variant={typeOfChart === 'yearConsumptionChart' ? "contained" : "outlined"}
                         color="primary"
-                        onClick={() => this.handleUpdateStartTime(7*24) }>
-                        - 7d
+                        onClick={() => this.handleGetYearConsumption() }>
+                        Year
                     </Button>
                 </div>
             </div>
@@ -139,10 +244,17 @@ class ConsumptionChart extends Component {
         );
     }
 }
+
 function mapStateToProps(state) {
     return {
         user: state.user
     };
 }
 
-export default connect(mapStateToProps)(ConsumptionChart);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        setTitle,
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConsumptionChart);

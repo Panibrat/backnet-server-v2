@@ -75,12 +75,37 @@ app.get('/modbus', (req, res) => { // TODO: delete in prod
     res.send(JSON.stringify(modbusLoop.getBuffer()));
 });
 
-app.post('/consumption', authenticate, (req, res) => {
+app.post('/day-consumption', authenticate, (req, res) => {
     const query = req.body;
     const callback = (data) => {
         return res.json(data);
     };
     sqlite3.getConsumptionTrendData(query.title, query.startTime, query.endTime, callback);
+});
+
+app.post('/year-consumption', authenticate, (req, res) => {
+    const query = req.body;
+    const callback = (data) => {
+        return res.json(data);
+    };
+    sqlite3.getConsumptionByYear(query.title, callback);
+});
+
+app.post('/week-consumption', authenticate, (req, res) => {
+    const query = req.body;
+    const callback = (data) => {
+        return res.json(data);
+    };
+    sqlite3.getConsumptionByDaysOfWeek(query.title, query.startTime, query.endTime, callback);
+});
+
+
+app.post('/month-consumption', authenticate, (req, res) => {
+    const query = req.body;
+    const callback = (data) => {
+        return res.json(data);
+    };
+    sqlite3.getConsumptionByMounth(query.title, query.startTime, query.endTime, callback);
 });
 
 app.post('/trend', authenticate, (req, res) => {

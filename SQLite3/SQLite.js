@@ -42,6 +42,56 @@ class SQLite {
         });
     }
 
+    getConsumptionByYear(title, callback) {
+        let sql =
+`SELECT strftime('%Y-%m', timeStamp/1000, 'unixepoch') as identity, MAX(value) as max, MIN(value) as min, MAX(value) - MIN(value) as diff, title, "timeStamp" FROM ${TABLE_DAY_CONSUMPTION}
+WHERE title=?
+GROUP BY identity
+ORDER BY "timeStamp" DESC
+LIMIT 13;`;
+
+        this.db.all(sql, [title], (err, rows) => {
+            if (err) {
+                console.log('[getConsumptionByYear]', err);
+            }
+            callback(rows);
+        });
+    }
+
+    getConsumptionByDaysOfWeek(title, startTime, endTime, callback) {
+        let sql =
+`SELECT strftime('%Y-%m-%d-%w', timeStamp/1000, 'unixepoch') as identity, MAX(value), MIN(value), MAX(value) - MIN(value) as diff, title, "timeStamp" FROM ${TABLE_DAY_CONSUMPTION}
+WHERE title=?
+AND timeStamp >= ${startTime}
+AND timeStamp <= ${endTime}
+GROUP BY identity
+ORDER BY "timeStamp" DESC;
+`;
+        this.db.all(sql, [title], (err, rows) => {
+            if (err) {
+                console.log('[getConsumptionByDaysOfWeek]', err);
+            }
+            callback(rows);
+        });
+    }
+
+    getConsumptionByMounth(title, startTime, endTime, callback) {
+        let sql =
+`SELECT strftime('%Y-%m-%d', timeStamp/1000, 'unixepoch') as identity, MAX(value), MIN(value), MAX(value) - MIN(value) as diff, title, "timeStamp" FROM ${TABLE_DAY_CONSUMPTION}
+WHERE title=?
+AND timeStamp >= ${startTime}
+AND timeStamp <= ${endTime}
+GROUP BY identity
+ORDER BY "timeStamp" DESC;
+`;
+        this.db.all(sql, [title], (err, rows) => {
+            if (err) {
+                console.log('[getConsumptionByMounth]', err);
+            }
+            callback(rows);
+        });
+    }
+
     findByTitleInTable(title, startTime, endTime, table, callback) {
         let sql =
             `SELECT DISTINCT timeStamp, value 
