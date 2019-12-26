@@ -56,6 +56,7 @@ mongoose.connect(dataBaseLink, {
 })
     .then(() => {
         console.log('connected to MongoDB');
+        console.log('test HP G2');
     })
     .catch((e) => {
         console.log('[ERROR] with connection to MongoDB: ', e);
