@@ -1,4 +1,5 @@
 import io from 'socket.io-client';
+
 import { store } from '../index';
 import {
     CONNECT,
@@ -23,13 +24,13 @@ import {
     SET_REQUESTED_POINTS,
 } from './EventsConstants';
 
-import { updateAI, getAIs } from '../actions/AnalogInputActions';
-import { updateAO, getAOs } from '../actions/AnalogOutpuActions';
-import { updateAV, getAVs } from '../actions/AnalogValueActions';
-import { updateBI, getBIs } from '../actions/BinaryInputActions';
-import { updateBO, getBOs } from '../actions/BinaryOutputActions';
-import { updateBV, getBVs } from '../actions/BinaryValueActions';
-import { getModbusPoints, updateModbusPoint } from '../actions/ModbusActions';
+import { updateAI, getAIs } from '../store/actions/AnalogInputActions';
+import { updateAO, getAOs } from '../store/actions/AnalogOutpuActions';
+import { updateAV, getAVs } from '../store/actions/AnalogValueActions';
+import { updateBI, getBIs } from '../store/actions/BinaryInputActions';
+import { updateBO, getBOs } from '../store/actions/BinaryOutputActions';
+import { updateBV, getBVs } from '../store/actions/BinaryValueActions';
+import { getModbusPoints, updateModbusPoint } from '../store/actions/ModbusActions';
 
 let user = JSON.parse(localStorage.getItem('user'));
 const token = user ? user.token : null;
@@ -45,18 +46,23 @@ class SocketService{
         this.socket.on(CREATE_ANALOG_INPUTS, (points) => {
             store.dispatch(getAIs(points));
         });
+
         this.socket.on(CREATE_ANALOG_OUTPUT, (points) => {
             store.dispatch(getAOs(points));
         });
+
         this.socket.on(CREATE_ANALOG_VALUE, (points) => {
             store.dispatch(getAVs(points));
         });
+
         this.socket.on(CREATE_BINARY_INPUT, (points) => {
             store.dispatch(getBIs(points));
         });
+
         this.socket.on(CREATE_BINARY_OUTPUT, (points) => {
             store.dispatch(getBOs(points));
         });
+
         this.socket.on(CREATE_BINARY_VALUE, (points) => {
             store.dispatch(getBVs(points));
         });

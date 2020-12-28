@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 import ErrorMessagesPage from '../../ErrorMessagesPage/ErrorMessagesPage';
 
-import { login, logout } from '../../../actions/userActions';
+import { login, logout } from '../../../store/actions/userActions';
 import styles from './LoginPage.css';
 
-import { setTitle } from '../../../actions/menuActions';
+import { setTitle } from '../../../store/actions/menuActions';
 
 class LoginPage extends React.Component {
     constructor(props) {

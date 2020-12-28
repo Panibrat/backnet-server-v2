@@ -6,8 +6,10 @@
     "status": "norm",
     "minValue": 0,
     "maxValue": 100,
+    "stepValue": 5,
     "units": "%",
     "readOnly": false,
+    "iconType": "damper",
     "value": 100
   },
   {
@@ -17,8 +19,10 @@
     "status": "norm",
     "minValue": 0,
     "maxValue": 100,
+    "stepValue": 5,
     "units": "%",
     "readOnly": false,
+    "iconType": "damper",
     "value": 10
   },
   {
@@ -28,8 +32,10 @@
     "status": "norm",
     "minValue": 0,
     "maxValue": 100,
+    "stepValue": 5,
     "units": "%",
     "readOnly": false,
+    "iconType": "damper",
     "value": 0
   },
   {
@@ -37,8 +43,12 @@
     "name": "sDMPR_K+B_L",
     "description": "Кабинет + Спальня. Положение воздушной заслонки",
     "status": "norm",
+    "minValue": 0,
+    "maxValue": 100,
+    "stepValue": 5,
     "units": "%",
     "readOnly": false,
+    "iconType": "damper",
     "value": 0
   },
   {
@@ -46,8 +56,12 @@
     "name": "sDMPR_D1+D2",
     "description": "Детские. Положение воздушной заслонки",
     "status": "norm",
+    "minValue": 0,
+    "maxValue": 100,
+    "stepValue": 5,
     "units": "%",
     "readOnly": false,
+    "iconType": "damper",
     "value": 0
   },
   {
@@ -57,8 +71,10 @@
     "status": "norm",
     "minValue": 12,
     "maxValue": 35,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 21
   },
   {
@@ -66,8 +82,12 @@
     "name": "sHEAT_NIGHT",
     "description": "Уставка Ночь на Обогрев",
     "status": "norm",
+    "minValue": 12,
+    "maxValue": 35,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 23
   },
   {
@@ -75,8 +95,12 @@
     "name": "sCOOL_DAY",
     "description": "Уставка День на Холод",
     "status": "norm",
+    "minValue": 12,
+    "maxValue": 35,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 25
   },
   {
@@ -84,8 +108,12 @@
     "name": "sCOOL_NIGHT",
     "description": "Уставка Ночь на Холод",
     "status": "norm",
+    "minValue": 12,
+    "maxValue": 35,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 27
   },
   {
@@ -93,8 +121,12 @@
     "name": "sDMPR_WIN",
     "description": "Свежий воздух Зимой",
     "status": "norm",
-    "units": "℃",
+    "minValue": 0,
+    "maxValue": 100,
+    "stepValue": 5,
+    "units": "%",
     "readOnly": false,
+    "iconType": "damper",
     "value": 10
   },
   {
@@ -102,8 +134,12 @@
     "name": "sDMPR_SUM",
     "description": "Свежий воздух Летом",
     "status": "norm",
-    "units": "℃",
+    "minValue": 0,
+    "maxValue": 100,
+    "stepValue": 5,
+    "units": "%",
     "readOnly": false,
+    "iconType": "damper",
     "value": 25
   },
   {
@@ -111,11 +147,12 @@
     "name": "sT_HF_FOR_R",
     "description": "Ручная уставка подачи теплого пола(П)",
     "status": "norm",
-    "units": "℃",
     "minValue": 5,
     "maxValue": 45,
     "stepValue": 1,
+    "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 35
   },
   {
@@ -128,6 +165,7 @@
     "maxValue": 45,
     "stepValue": 1,
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 37
   },
   {
@@ -135,8 +173,12 @@
     "name": "sVSD",
     "description": "Скорость Приточного Вентилятора",
     "status": "norm",
+    "minValue": 50,
+    "maxValue": 100,
+    "stepValue": 5,
     "units": "%",
     "readOnly": false,
+    "iconType": "setAny",
     "value": 62
   },
   {
@@ -144,8 +186,12 @@
     "name": "sT_SO_FOR_R",
     "description": "Ручная уставка подачи радиаторного отопления(Родители)",
     "status": "norm",
+    "minValue": 5,
+    "maxValue": 70,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 65
   },
   {
@@ -153,8 +199,12 @@
     "name": "sT_SO_FOR_L",
     "description": "Ручная уставка подачи радиаторного отопления(Л)",
     "status": "norm",
+    "minValue": 5,
+    "maxValue": 70,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 45
   },
   {
@@ -162,11 +212,12 @@
     "name": "sT_GVS",
     "description": "Уставка ГВС",
     "status": "norm",
-    "minValue": 20,
-    "maxValue": 70,
+    "minValue": 15,
+    "maxValue": 65,
     "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 55
   },
   {
@@ -175,10 +226,11 @@
     "description": "Уставка ГВС (Л)",
     "status": "norm",
     "minValue": 15,
-    "maxValue": 70,
+    "maxValue": 65,
     "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 44
   },
   {
@@ -186,10 +238,12 @@
     "name": "sT_Kitchen_R",
     "description": "Уставка температуры воздуха в кухне (Родители)",
     "status": "norm",
-    "minValue": 10,
-    "maxValue": 30,
+    "minValue": 16,
+    "maxValue": 28,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 21
   },
   {
@@ -199,8 +253,10 @@
     "status": "norm",
     "minValue": 16,
     "maxValue": 28,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": true,
+    "iconType": "setTemperature",
     "value": 17,
     "trend": false
   },
@@ -211,8 +267,10 @@
     "status": "norm",
     "minValue": 16,
     "maxValue": 28,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": true,
+    "iconType": "setTemperature",
     "value": 15,
     "trend": false
   },
@@ -223,8 +281,10 @@
     "status": "norm",
     "minValue": 5,
     "maxValue": 40,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 22
   },
   {
@@ -234,8 +294,10 @@
     "status": "norm",
     "minValue": 5,
     "maxValue": 40,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 22
   },
   {
@@ -243,10 +305,12 @@
     "name": "sHF_PLUS",
     "description": "Плюс к Т-ре теплого пола Ночью.",
     "status": "norm",
-    "minValue": 0,
+    "minValue": -10,
     "maxValue": 40,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 1
   },
   {
@@ -256,8 +320,10 @@
     "status": "norm",
     "minValue": 5,
     "maxValue": 40,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 22
   },
   {
@@ -267,8 +333,10 @@
     "status": "norm",
     "minValue": 5,
     "maxValue": 40,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 22
   },
   {
@@ -278,8 +346,10 @@
     "status": "norm",
     "minValue": 5,
     "maxValue": 40,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 31
   },
   {
@@ -289,8 +359,10 @@
     "status": "norm",
     "minValue": 5,
     "maxValue": 40,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 22
   },
   {
@@ -300,8 +372,10 @@
     "status": "norm",
     "minValue": -10,
     "maxValue": 10,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 3
   },
   {
@@ -311,8 +385,10 @@
     "status": "norm",
     "minValue": -10,
     "maxValue": 10,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 0
   },
   {
@@ -324,6 +400,7 @@
     "maxValue": 40,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 21
   },
   {
@@ -333,8 +410,10 @@
     "status": "norm",
     "minValue": 10,
     "maxValue": 40,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 28
   },
   {
@@ -344,8 +423,10 @@
     "status": "norm",
     "minValue": 16,
     "maxValue": 28,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 22
   },
   {
@@ -355,8 +436,10 @@
     "status": "norm",
     "minValue": 16,
     "maxValue": 28,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 22
   },
   {
@@ -366,8 +449,10 @@
     "status": "norm",
     "minValue": 16,
     "maxValue": 28,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 22
   },
   {
@@ -377,8 +462,10 @@
     "status": "norm",
     "minValue": 16,
     "maxValue": 28,
+    "stepValue": 1,
     "units": "℃",
     "readOnly": false,
+    "iconType": "setTemperature",
     "value": 22
   }
 ]

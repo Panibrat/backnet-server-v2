@@ -3,7 +3,7 @@
     "title": "EnergyTotal",
     "address": 3203,
     "type": "IntBE",
-    "description": "Energy Total Description",
+    "description": "Energy Total",
     "units": "W*h",
     "value": 0,
     "trend": false
@@ -12,7 +12,7 @@
     "title": "EnergyDayTotal",
     "address": 4195,
     "type": "IntBE",
-    "description": "Energy Day Total Description",
+    "description": "Energy Day Total",
     "units": "W*h",
     "value": 0,
     "trend": false
@@ -21,7 +21,7 @@
     "title": "EnergyNightTotal",
     "address": 4199,
     "type": "IntBE",
-    "description": "Energy Night Total Description",
+    "description": "Energy Night Total",
     "units": "W*h",
     "value": 0,
     "trend": false

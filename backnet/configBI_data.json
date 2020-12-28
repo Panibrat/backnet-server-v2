@@ -214,5 +214,12 @@
     "readOnly": true,
     "value": 0,
     "units": ["Off", "On"]
+  },
+  {
+    "title": "BI3000872",
+    "name": "oLightOut",
+    "description": "Наружное освещение",
+    "value": 0,
+    "units": ["Off", "On"]
   }
 ]

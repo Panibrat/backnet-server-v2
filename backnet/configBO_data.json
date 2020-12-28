@@ -167,8 +167,17 @@
     "description": "Включение Наружного освещения",
     "status": "normal",
     "readOnly": false,
-    "value": true,
+    "value": 0,
     "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001424",
+    "name": "sLightsOutAuto",
+    "description": "Наружное освещение: режим авто",
+    "status": "normal",
+    "readOnly": false,
+    "value": 1,
+    "units": ["Ручной", "Авто"]
   },
   {
     "title": "BO3000874",
@@ -268,5 +277,33 @@
     "readOnly": false,
     "value": true,
     "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001409",
+    "name": "sUpBlind",
+    "description": "",
+    "value": 0,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001410",
+    "name": "sDownBlind",
+    "description": "",
+    "value": 0,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001411",
+    "name": "sStopBlind",
+    "description": "",
+    "value": 0,
+    "units": ["Выкл", "Вкл"]
+  },
+  {
+    "title": "BO3001419",
+    "name": "sBlindsAuto",
+    "description": "Штора: режим авто",
+    "value": 1,
+    "units": ["Ручной", "Авто"]
   }
 ]

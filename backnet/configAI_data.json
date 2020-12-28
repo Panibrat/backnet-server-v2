@@ -718,5 +718,25 @@
     "readOnly": true,
     "value": 25,
     "trend": false
+  },
+  {
+    "title": "AI3001428",
+    "name": "oGasCountRight",
+    "description": "Газ счетчик: Правый",
+    "status": "norm",
+    "units": "m3",
+    "readOnly": true,
+    "value": 7.123,
+    "trend": true
+  },
+  {
+    "title": "AI3001429",
+    "name": "oGasCountLeft",
+    "description": "Газ счетчик: Левый",
+    "status": "norm",
+    "units": "m3",
+    "readOnly": true,
+    "value": 0.987,
+    "trend": true
   }
 ]

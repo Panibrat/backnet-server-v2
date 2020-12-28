@@ -8,7 +8,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { NavLink } from 'react-router-dom';
 
-import { openMenu, closeMenu } from '../../actions/menuActions';
+import { openMenu, closeMenu } from '../../store/actions/menuActions';
 
 import styles from './TemporaryDrawer.css';
 

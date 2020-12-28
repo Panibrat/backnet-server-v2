@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setTitle } from '../../../actions/menuActions';
+import { setTitle } from '../../../store/actions/menuActions';
 import { ActionIcon } from './components/ActionIcon/ActionIcon';
 import SocketIO from '../../../services/SocketService';
 import styles from './Gates.css';

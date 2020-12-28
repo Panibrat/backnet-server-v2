@@ -1,52 +1,37 @@
-import * as React from 'react';
+import React, { memo, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import FirstFloorItem  from '../../FirstFloorItem';
-import SecondFloorItem  from '../../SecondFloorItem';
-import ControlContainer  from '../../ControlContainer';
-import { setTitle } from '../../../actions/menuActions';
+
+import { FirstFloorItem } from './FirstFloorItem';
+import { SecondFloorItem } from './SecondFloorItem';
+import { ControlContainer } from '../../ControlContainer';
+import { setTitle } from '../../../store/actions/menuActions';
 import styles from './PlansPage.css';
 
-class PlansPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isFirstFloorShown: true
-        };
+export const PlansPage = () => {
+  const dispatch = useDispatch();
 
-        this.toggleFloor = this.toggleFloor.bind(this);
-    }
+  const [isFirstFloorShown, setShowFirstFloor] = useState(true);
 
-    componentDidMount() {
-        this.props.setTitle('Планы этажей');
-    }
+    useEffect(() => {
+      const title = isFirstFloorShown ? 'Первый этаж' : 'Второй этаж';
 
-    toggleFloor() {
-        const title = this.state.isFirstFloorShown ? 'Второй этаж' : 'Первый этаж';
-        this.props.setTitle(title);
-        this.setState({
-            isFirstFloorShown: !this.state.isFirstFloorShown
-        })
-    }
+        dispatch(setTitle(title));
+    }, [dispatch, isFirstFloorShown]);
 
-    render() {
-        return (
-            <div className={styles.container}>
-                {this.state.isFirstFloorShown ? <FirstFloorItem /> : <SecondFloorItem />}
-                <Button variant="contained" color="primary" onClick={this.toggleFloor}>
-                    {this.state.isFirstFloorShown ? 'На Второй этаж' : 'На Первый этаж'}
-                </Button>
-                <ControlContainer />
-            </div>
-        );
-    }
-}
+    const toggleFloor = () => {
+        setShowFirstFloor(!isFirstFloorShown);
+    };
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        setTitle: setTitle
-    }, dispatch)
+    return (
+      <div className={styles.container}>
+        {isFirstFloorShown ? <FirstFloorItem/> : <SecondFloorItem/>}
+        <Button variant="contained" color="primary" onClick={toggleFloor}>
+          {isFirstFloorShown ? 'На Второй этаж' : 'На Первый этаж'}
+        </Button>
+        <ControlContainer/>
+      </div>
+    );
 };
 
-export default connect(null, mapDispatchToProps)(PlansPage);
+export default memo(PlansPage);

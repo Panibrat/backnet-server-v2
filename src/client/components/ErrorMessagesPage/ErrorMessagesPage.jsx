@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 
-import { clearError } from '../../actions/errorsActions';
+import { clearError } from '../../store/actions/errorsActions';
 import styles from './ErrorMessagesPage.css';
 
 export const ErrorMessagesPage = (props) => (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setTitle } from '../../../actions/menuActions';
+import { setTitle } from '../../../store/actions/menuActions';
 
 import axios from 'axios';
 import Button from '@material-ui/core/Button';

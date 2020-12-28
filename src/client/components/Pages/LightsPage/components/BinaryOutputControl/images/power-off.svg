@@ -1,0 +1,29 @@
+<svg width="45" height="45" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient3257">
+   <stop stop-color="#ffffff" offset="0" id="stop3259"/>
+   <stop stop-color="#ffffff" stop-opacity="0" offset="1" id="stop3261"/>
+  </linearGradient>
+  <linearGradient y2="0.89179" x2="0.5" y1="0.00034" x1="0.5" id="linearGradient2243" xlink:href="#linearGradient3257"/>
+ </defs>
+ <metadata id="metadata2638">image/svg+xmlred power button08 12 2006molumenred power buttoniconbuttondesignUIinterfacepowerswitchonoffredglossytoggle</metadata>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="47" width="47" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="layer1">
+   <path fill="#ef2929" fill-rule="evenodd" stroke-width="4" stroke-miterlimit="4" d="m44.65665,22.36616a22.06101,22.06101 0 1 1 -44.12202,0a22.06101,22.06101 0 1 1 44.12202,0z" id="path3676"/>
+   <g fill="#a40000" transform="matrix(0.5824089,0,0,0.6244504,-298.35727,-439.02821) " id="g3750">
+    <path fill="#a40000" fill-rule="evenodd" stroke-miterlimit="4" d="m545.55286,724.25346c-7.12701,2.32934 -12.30744,8.98576 -12.30745,16.89716c0.00002,9.84596 7.98669,17.83264 17.83264,17.83264c9.84596,-0.00003 17.83264,-7.98669 17.83264,-17.83264c-0.00002,-7.91224 -5.20544,-14.5693 -12.33668,-16.89716l0,6.37298c3.80487,1.99793 6.46068,5.93151 6.46068,10.52418c0.00001,6.59167 -5.36497,11.95664 -11.95664,11.95664c-6.59168,0.00001 -11.95664,-5.36497 -11.95664,-11.95664c-0.00002,-4.59003 2.62748,-8.52562 6.43145,-10.52418l0,-6.37298z" id="path3752"/>
+    <path fill="#a40000" fill-rule="evenodd" stroke-miterlimit="4" d="m548.06697,720.42383l0,21.1653l6.02217,0l0,-21.1653l-6.02217,0z" id="path3754"/>
+   </g>
+   <g fill="#eeeeec" id="g3756" transform="matrix(0.5824089,0,0,0.5824089,-298.35727,-406.81819) ">
+    <path fill="#eeeeec" fill-rule="evenodd" stroke-miterlimit="4" id="path3758" d="m545.55286,720.95272c-7.12701,2.32934 -12.30744,8.98576 -12.30745,16.89716c0.00002,9.84596 7.98669,17.83264 17.83264,17.83264c9.84596,-0.00003 17.83264,-7.98669 17.83264,-17.83264c-0.00002,-7.91224 -5.20544,-14.5693 -12.33668,-16.89716l0,6.37298c3.80487,1.99793 6.46068,5.93151 6.46068,10.52418c0.00001,6.59167 -5.36497,11.95664 -11.95664,11.95664c-6.59168,0.00001 -11.95664,-5.36497 -11.95664,-11.95664c-0.00002,-4.59003 2.62748,-8.52562 6.43145,-10.52418l0,-6.37298z"/>
+    <path fill="#eeeeec" fill-rule="evenodd" stroke-miterlimit="4" id="path3760" d="m548.06697,717.12309l0,21.1653l6.02217,0l0,-21.1653l-6.02217,0z"/>
+   </g>
+   <path opacity="0.75" fill="url(#linearGradient2243)" fill-rule="evenodd" stroke-miterlimit="4" id="path3678" d="m38.33053,14.35703a15.73494,11.989 0 1 1 -31.46988,0a15.73494,11.989 0 1 1 31.46988,0z"/>
+  </g>
+ </g>
+</svg>

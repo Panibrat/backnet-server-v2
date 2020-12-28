@@ -13,9 +13,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import TemporaryDrawer from '../Menu/TemporaryDrawer';
 
-import { openMenu } from '../../actions/menuActions';
+import { openMenu } from '../../store/actions/menuActions';
 import LoginPage from '../Pages/LoginPage/LoginPage';
-import { logout } from '../../actions/userActions';
+import { logout } from '../../store/actions/userActions';
 
 const styles = {
     root: {
@@ -49,7 +49,7 @@ export class Layout extends React.Component {
                             aria-label="Menu">
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="title" color="inherit" className={classes.flex}>
+                        <Typography variant="h6" color="inherit" className={classes.flex}>
                             {this.props.menu.title}
                         </Typography>
                         <Button color="inherit" onClick={this.props.logout}>

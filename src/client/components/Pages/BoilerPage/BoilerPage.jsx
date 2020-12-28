@@ -1,83 +1,84 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import SocketIO from '../../../services/SocketService';
 
-import BoilerUnit  from '../../Animated/Pages/BoilerUnit/BoilerUnit';
-import ControlContainer  from '../../ControlContainer';
+import SocketIO from '../../../services/SocketService';
+import { setTitle } from '../../../store/actions/menuActions';
+import { setActiveArea } from '../../../store/actions/plansViewActions';
+import { getAIbyId, getAObyId, getBIbyId, getBObyId } from '../../../store/selectors/selectors';
+import BoilerUnit from '../../Animated/Pages/BoilerUnit/BoilerUnit';
+import { ControlContainer } from '../../ControlContainer';
+import { pagePointsConfig } from './pagePointsConfig';
+import { defaultAIData, defaultAOData, defaultBOData } from '../constants';
 
 import styles from './BoilerPage.css';
 
-export class BoilerPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isRightBoilerShown: true
-        };
+export const BoilerPage = () => {
+  const dispatch = useDispatch();
+  const [isRightBoilerShown, setRightBoilerShown] = useState(true);
 
-        this.toggleBoiler = this.toggleBoiler.bind(this);
+  useEffect(() => {
+    dispatch(setTitle('Бойлер ГВС (Родители)'));
+    dispatch(setActiveArea('boilerRight'));
+    SocketIO.setRequestedPointsToBuffer(pagePointsConfig);
+  }, [dispatch]);
+
+  const toggleBoiler = () => {
+    const title = isRightBoilerShown ? 'Бойлер ГВС (Л)' : 'Бойлер ГВС (Родители)';
+
+    dispatch(setTitle(title));
+
+    if (isRightBoilerShown) {
+      dispatch(setActiveArea('boilerLeft'));
+    } else {
+      dispatch(setActiveArea('boilerRight'));
     }
 
-    componentDidMount() {
-        this.props.setTitle('Бойлер ГВС (Родители)');
-        this.props.setActiveArea('boilerRight');
-        SocketIO.setRequestedPointsToBuffer(this.props.pointsConfig);
-    }
+    setRightBoilerShown(!isRightBoilerShown);
+  };
 
-    toggleBoiler() {
-        const title = this.state.isRightBoilerShown ? 'Бойлер ГВС (Л)' : 'Бойлер ГВС (Родители)' ;
-        this.props.setTitle(title);
-        if (this.state.isRightBoilerShown ) {
-            this.props.setActiveArea('boilerLeft');
-        } else {
-            this.props.setActiveArea('boilerRight');
-        }
-        this.setState({
-            isRightBoilerShown: !this.state.isRightBoilerShown
-        })
-    }
+  const iT_GVS_R = useSelector(getAIbyId('AI3000174')) || defaultAIData;
+  const iT_GVS_L = useSelector(getAIbyId('AI3000777')) || defaultAIData;
+  const oPUMP_REC_L = useSelector(getAIbyId('AI3000781')) || defaultAIData;
 
-    render() {
-        const { isRightBoilerShown } = this.state;
-        const {
-            sT_GVS_R,
-            iT_GVS_R,
-            oPUMP_BOY_R,
-            oPUMP_REC_R,
-            oBOYLER_R,
-            sT_GVS_L,
-            iT_GVS_L,
-            oPUMP_BOY_L,
-            oPUMP_REC_L,
-            oBOYLER_L,
-        } = this.props;
+  const sT_GVS_R = useSelector(getAObyId('AO3000209')) || defaultAOData;
+  const sT_GVS_L = useSelector(getAObyId('AO3000805')) || defaultAOData;
 
-        return (
-            <div className={styles.container}>
-                {
-                    isRightBoilerShown ?
-                        <BoilerUnit
-                            oPUMP_REC={oPUMP_REC_R}
-                            oPUMP_BOY={oPUMP_BOY_R}
-                            oBOYLER={oBOYLER_R}
-                             iT_GVS={iT_GVS_R}
-                             sT_GVS={sT_GVS_R}
-                        />
-                        :
-                        <BoilerUnit
-                            oPUMP_REC={oPUMP_REC_L}
-                            oPUMP_BOY={oPUMP_BOY_L}
-                            oBOYLER={oBOYLER_L}
-                            iT_GVS={iT_GVS_L}
-                            sT_GVS={sT_GVS_L}
-                        />
-                }
-                <Button style={ { margin: '15px' } } variant="contained" color="primary" onClick={this.toggleBoiler} >
-                    {isRightBoilerShown ? 'На Бойлер ГВС (Л)' : 'На Бойлер ГВС (Родители)'}
-                </Button>
-                <ControlContainer />
-            </div>
-        );
-    }
-}
+  const oPUMP_BOY_R = useSelector(getBIbyId('BI3000254')) || defaultBOData;
+  const oPUMP_BOY_L = useSelector(getBIbyId('BI3000819')) || defaultBOData;
+  const oPUMP_REC_R = useSelector(getBIbyId('BI3000255')) || defaultBOData;
+  const oBOYLER_R = useSelector(getBIbyId('BI3000253')) || defaultBOData;
+  const oBOYLER_L = useSelector(getBIbyId('BI3000807')) || defaultBOData;
 
-export default BoilerPage;
+  return (
+    <div className={styles.container}>
+      {
+        isRightBoilerShown ?
+          <BoilerUnit
+            oPUMP_REC={oPUMP_REC_R}
+            oPUMP_BOY={oPUMP_BOY_R}
+            oBOYLER={oBOYLER_R}
+            iT_GVS={iT_GVS_R}
+            sT_GVS={sT_GVS_R}
+          />
+          :
+          <BoilerUnit
+            oPUMP_REC={oPUMP_REC_L}
+            oPUMP_BOY={oPUMP_BOY_L}
+            oBOYLER={oBOYLER_L}
+            iT_GVS={iT_GVS_L}
+            sT_GVS={sT_GVS_L}
+          />
+      }
+      <Button
+        style={{ margin: '15px' }}
+        variant="contained"
+        color="primary"
+        onClick={toggleBoiler}
+      >
+        {isRightBoilerShown ? 'На Бойлер ГВС (Л)' : 'На Бойлер ГВС (Родители)'}
+      </Button>
+      <ControlContainer />
+    </div>
+  );
+};

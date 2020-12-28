@@ -1,62 +1,46 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import SocketIO from '../../../services/SocketService';
-
-import List from '@material-ui/core/List';
-
-import  AirDuct  from '../../Animated/Pages/AirDuct/AirDuct';
-import { AnalogOutputItemSlider } from '../../AnalogOutputItemSlider/AnalogOutputItemSlider';
+import { setTitle } from '../../../store/actions/menuActions';
+import { getAIbyId, getAObyId } from '../../../store/selectors/selectors';
+import AirDuct from '../../Animated/Pages/AirDuct/AirDuct';
+import { pagePointsConfig } from './pagePointsConfig';
+import { defaultAIData, defaultAOData } from '../constants';
+import { AnalogOutputControl } from '../LightsPage/components/AnalogOutputControl/AnalogOutputControl';
 import styles from './DampersPage.css';
 
-export class DampersPage extends React.Component {
-    componentDidMount() {
-        this.props.setTitle('Воздушные заслонки');
-        SocketIO.setRequestedPointsToBuffer(this.props.pointsConfig);
-    }
+export const DampersPage = () => {
+  const dispatch = useDispatch();
 
-    render() {
-        return (
-            <div className={styles.container}>
-                <AirDuct {...this.props}/>
-                <List>
-                    <AnalogOutputItemSlider
-                        {...this.props.sD_L_K_B}
-                        minValue={0}
-                        maxValue={100}
-                        stepValue={5}
-                        units={'%'}
-                    />
-                    <AnalogOutputItemSlider
-                        {...this.props.sD_D1_D2}
-                        minValue={0}
-                        maxValue={100}
-                        stepValue={5}
-                        units={'%'}
-                    />
-                    <AnalogOutputItemSlider
-                        {...this.props.sD_R_K_B}
-                        minValue={0}
-                        maxValue={100}
-                        stepValue={5}
-                        units={'%'}
-                    />
-                    <AnalogOutputItemSlider
-                        {...this.props.sD_R_ZAL}
-                        minValue={0}
-                        maxValue={100}
-                        stepValue={5}
-                        units={'%'}
-                    />
-                    <AnalogOutputItemSlider
-                        {...this.props.sD_L_ZAL}
-                        minValue={0}
-                        maxValue={100}
-                        stepValue={5}
-                        units={'%'}
-                    />
-                </List>
-            </div>
-        );
-    }
-}
+    useEffect(() => {
+        dispatch(setTitle('Воздушные заслонки'));
+        SocketIO.setRequestedPointsToBuffer(pagePointsConfig);
+    }, [dispatch]);
 
-export default DampersPage;
+    const dpFan = useSelector(getAIbyId('AI3001125')) || defaultAIData;
+
+    const sD_L_K_B = useSelector(getAObyId('AO3001146')) || defaultAOData;
+    const sD_D1_D2 = useSelector(getAObyId('AO3001147')) || defaultAOData;
+    const sD_R_K_B = useSelector(getAObyId('AO3001148')) || defaultAOData;
+    const sD_R_ZAL = useSelector(getAObyId('AO3001149')) || defaultAOData;
+    const sD_L_ZAL = useSelector(getAObyId('AO3001150')) || defaultAOData;
+
+    return (
+      <div className={styles.container}>
+        <AirDuct
+          dpFan={dpFan}
+          sD_L_K_B={sD_L_K_B}
+          sD_D1_D2={sD_D1_D2}
+          sD_R_K_B={sD_R_K_B}
+          sD_R_ZAL={sD_R_ZAL}
+          sD_L_ZAL={sD_L_ZAL}
+        />
+        <AnalogOutputControl type='damper' data={sD_L_K_B}/>
+        <AnalogOutputControl type='damper' data={sD_D1_D2}/>
+        <AnalogOutputControl type='damper' data={sD_R_K_B}/>
+        <AnalogOutputControl type='damper' data={sD_R_ZAL}/>
+        <AnalogOutputControl type='damper' data={sD_L_ZAL}/>
+      </div>
+    );
+};

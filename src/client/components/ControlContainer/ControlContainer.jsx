@@ -1,70 +1,83 @@
 import React from 'react';
-import List from '@material-ui/core/List';
-import { AnalogInputItem } from '../AnalogInputItem/AnalogInputItem';
-import { BinaryInputItem } from '../BinaryInputItem/BinaryInputItem';
-import  BinaryOutputItem  from '../BinaryOutputItem/BinaryOutputItem';
-import { AnalogOutputItemSlider } from '../AnalogOutputItemSlider/AnalogOutputItemSlider';
+import { useSelector } from 'react-redux';
 
+import { getActiveArea, getAIs, getAOs, getBIs, getBOs } from '../../store/selectors/selectors';
+import { AnalogInputControl } from '../Pages/LightsPage/components/AnalogInputControl/AnalogInputControl';
+import { AnalogOutputControl } from '../Pages/LightsPage/components/AnalogOutputControl/AnalogOutputControl';
+import { BinaryInputControl } from '../Pages/LightsPage/components/BinaryInputControl/BinaryInputControl';
+import { BinaryOutputControl } from '../Pages/LightsPage/components/BinaryOutputControl/BinaryOutputControl';
 import styles from './ControlContainer.css';
-
 import { controlConfig } from './config';
 
-const ControlContainer = (props) => {
-    const {
-        activeArea,
-        findAi,
-        findAo,
-        findBi,
-        findBo,
-    } = props;
+export const ControlContainer = () => {
+  const aos = useSelector(getAOs);
+  const bos = useSelector(getBOs);
+  const ais = useSelector(getAIs);
+  const bis = useSelector(getBIs);
+  const activeArea = useSelector(getActiveArea);
 
-    return (
-        <div className={styles.container}>
-            <List className={styles.list_type}>
-                {
-                    controlConfig[activeArea] &&
-                    controlConfig[activeArea].ao &&
-                    controlConfig[activeArea].ao.map(item => {
-                            const aoPoint = findAo(item);
-                            return (
-                                <AnalogOutputItemSlider
-                                    key={item} {...aoPoint}
-                                    stepValue={aoPoint.units === '%' ? 5 : 0.5}
-                                />
-                            );
-                        }
-                    )
-                }
-                {
-                    controlConfig[activeArea] &&
-                    controlConfig[activeArea].bo &&
-                    controlConfig[activeArea].bo.map(item => {
-                            const boPoint = findBo(item);
-                            return ( <BinaryOutputItem key={item} {...boPoint} />);
-                        }
-                    )
-                }
-                {
-                    controlConfig[activeArea] &&
-                    controlConfig[activeArea].ai &&
-                    controlConfig[activeArea].ai.map(item => {
-                            const aiPoint = findAi(item);
-                            return ( <AnalogInputItem key={item} {...aiPoint} />);
-                        }
-                    )
-                }
-                {
-                    controlConfig[activeArea] &&
-                    controlConfig[activeArea].bi &&
-                    controlConfig[activeArea].bi.map(item => {
-                            const biPoint = findBi(item);
-                            return ( <BinaryInputItem key={item} {...biPoint} />);
-                        }
-                    )
-                }
-            </List>
-        </div>
-    )
+  if (
+    Object.keys(aos).length === 0 ||
+    Object.keys(bos).length === 0 ||
+    Object.keys(ais).length === 0 ||
+    Object.keys(bis).length === 0 ||
+    !activeArea
+  ) {
+    return null;
+  }
+
+  return (
+    <div className={styles.container}>
+      {
+        controlConfig[ activeArea ].ao.map((item) => {
+          return (
+            <AnalogOutputControl
+              key={item}
+              data={aos[ item ]}
+            />
+          );
+        },
+        )
+      }
+
+      {
+        controlConfig[ activeArea ].bo.map((item) => {
+          return (
+            <BinaryOutputControl
+              key={item}
+              type='offOn'
+              data={bos[ item ]}
+            />
+          );
+        },
+        )
+      }
+
+      {
+        controlConfig[ activeArea ].ai.map((item) => {
+          return (
+            <AnalogInputControl
+              key={item}
+              type='temperature'
+              data={ais[ item ]}
+            />
+          );
+        },
+        )
+      }
+
+      {
+        controlConfig[ activeArea ].bi.map((item) => {
+          return (
+            <BinaryInputControl
+              key={item}
+              type='offOn'
+              data={bis[ item ]}
+            />
+          );
+        },
+        )
+      }
+    </div>
+  );
 };
-
-export default ControlContainer;

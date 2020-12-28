@@ -7,7 +7,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { NavLink } from 'react-router-dom';
 
-import { openMenu, closeMenu } from '../../actions/menuActions';
+import { openMenu, closeMenu } from '../../store/actions/menuActions';
 
 import styles from './TemporaryDrawer.css';
 
@@ -19,65 +19,73 @@ export const TemporaryDrawer = (props) => {
                 to="/plans">
                 Планы
             </NavLink>
+          <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/air-unit">
                 Приточка
             </NavLink>
-            <Divider inset />
+            <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/dampers">
                 Заслонки
             </NavLink>
-            <Divider inset />
+            <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/boiler">
                 Бойлер
             </NavLink>
-            <Divider inset />
+            <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/heat-station">
                 Котельная
             </NavLink>
-            <Divider inset />
+            <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/hf">
                 Теплый пол
             </NavLink>
-            <Divider inset />
+            <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/so">
                 Радиаторы
             </NavLink>
-            <Divider inset />
+            <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/consumption">
                 Потребление
             </NavLink>
-            <Divider inset />
+            <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/chart">
                 Тренд
             </NavLink>
-            <Divider inset />
+            <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/consumption-chart">
                 Э/энергия
             </NavLink>
+            <Divider variant="inset" />
             <NavLink
                 className={styles.item}
                 to="/gates">
                 Ворота/Калитка
             </NavLink>
-            <Divider inset />
+            <Divider variant="inset" />
+            <NavLink
+                className={styles.item}
+                to="/lights">
+                Свет
+            </NavLink>
+            <Divider variant="inset" />
         </List>
     );
     return (
