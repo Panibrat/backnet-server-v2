@@ -31,31 +31,31 @@ const iconsConfig = {
   amper: amperImg,
 };
 
-export const AnalogInputControl = memo(
-  ({
-    type,
-    data,
-    accuracy = 1,
-    divider = 1,
-    multiplier = 1,
-    unit = '',
-  }) => {
-    const { description = '', name = '', units = '', value = '' } = data;
+export const AnalogInputControl = ({
+  type,
+  data,
+  accuracy = 1,
+  divider = 1,
+  multiplier = 1,
+  unit = '',
+}) => {
+  const { description = '', name = '', units = '', value = '' } = data;
 
-    const preparedValue = value ? ((multiplier * value) / divider).toFixed(accuracy) : (0).toFixed(accuracy);
+  const preparedValue = value ? ((multiplier * value) / divider).toFixed(accuracy) : (0).toFixed(
+    accuracy);
 
-    return (
-      <>
-        <ControlGroup
-          iconSrc={iconsConfig[type]}
-          name={name}
-          description={description}
-          value={preparedValue}
-          unit={unit || units}
-        />
-      </>
-    );
-  });
+  return (
+    <>
+      <ControlGroup
+        iconSrc={iconsConfig[ type ]}
+        name={name}
+        description={description}
+        value={preparedValue}
+        unit={unit || units}
+      />
+    </>
+  );
+};
 
 AnalogInputControl.propTypes = {
   data: PropTypes.any.isRequired,
