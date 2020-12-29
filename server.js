@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const sqlite3 = require('./SQLite3/SQLite');
@@ -14,12 +13,10 @@ const io = require('socket.io')(server);
 
 module.exports.io = io;
 
-const mongoDB = require('./mongoDB/MongoDB');
 const fireBase = require('./fireBaseDB/FireBaseDB');
 const socketIO = require('./socketIO/SocketIO');
 
 const { authenticate } = require('./middleware/authenticate');
-const User = require('./mongoDB/models/user');
 
 const modbusLoop = require('./modbus/modbusLoop');
 const backnetLoop = require('./backnet/BACnetLoop');
@@ -37,30 +34,6 @@ insertUsersToDataBase(users, sqlite3);
 
 const allPoints = [...configAVs, ...configAIs, ...configAOs, ...configBVs, ...configBIs, ...configBOs];
 buffer.readDataFromConfig(allPoints);
-
-const {
-    DATABASE_USER_NAME,
-    DATABASE_USER_PASSWORD,
-    DATABASE_HOST,
-    DATABASE_PORT,
-    DATABASE_NAME,
-} = require('./mongoDB/config');
-
-//const dataBaseLink = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
-const dataBaseLink = `mongodb://${DATABASE_USER_NAME}:${DATABASE_USER_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}`;
-
-
-mongoose.connect(dataBaseLink, {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-})
-    .then(() => {
-        console.log('connected to MongoDB');
-    })
-    .catch((e) => {
-        console.log('[ERROR] with connection to MongoDB: ', e);
-    });
-
 
 const port = process.env.PORT || '3000';
 
@@ -148,13 +121,11 @@ server.listen(port, (req, res) => {
     console.log(`Server run on port ${port}!`);
 });
 
-buffer.setDataListeners(mongoDB);
 buffer.setDataListeners(fireBase);
 buffer.setDataListeners(socketIO);
 buffer.setDataListeners(sqlite3);
 
 backnetLoop.run();
 trendLoop.run();
-// modbusLoop.setDataListeners(mongoDB);
 modbusLoop.setDataListeners(socketIO);
 modbusLoop.connect();
