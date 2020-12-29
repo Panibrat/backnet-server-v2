@@ -40,6 +40,8 @@ export const ConsumptionPage = () => {
     const PWR2 = useSelector(getModbusPointById('Pwr2')) || defaultAVData;
     const PWR3 = useSelector(getModbusPointById('Pwr3')) || defaultAVData;
 
+    console.log('L1N', L1N);
+
     const oPWR_DAY = useMemo(() => {
       return {
             title: 'Day Energy',
@@ -84,7 +86,7 @@ export const ConsumptionPage = () => {
         <AnalogInputControl type='tariffDay' unit="kW*h" data={oPWR_DAY} />
         <AnalogInputControl accuracy={2} type='money' multiplier={1.68} unit="UAH" data={oPWR_DAY}/>
         <AnalogInputControl type='tariffNight' unit="kW*h" data={oPWR_NIGHT}/>
-        <AnalogInputControl accuracy={2} type='money' multiplier={0.84} unit="UAH" data={oPWR_NIGHT}/>
+        <AnalogInputControl accuracy={2} type='money' multiplier={0.90} unit="UAH" data={oPWR_NIGHT}/>
 
         <AnalogInputControl type='tariffDay' unit="kW*h" data={oPWR_MONTH_DAY} />
         <AnalogInputControl type='tariffNight' unit="kW*h" data={oPWR_MONTH_NIGHT} />
