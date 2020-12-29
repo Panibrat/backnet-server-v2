@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
 
 import { ActionGroup } from '../ActionGroup/ActionGroup';
@@ -9,38 +9,36 @@ import { SetterGroup } from '../SetterGroup/SetterGroup';
 import { StatusGroup } from '../StatusGroup/StatusGroup';
 import { SwitchGroup } from '../SwitchGroup/SwitchGroup';
 
-export const ControlGroup = memo(
-  ({
-    iconSrc,
-    actionIconSrc,
-    action,
-    name,
-    value,
-    description,
-    unit,
-    switcher,
-    setter,
-    checked,
-  }) => (
-    <>
-      <ControlGroupContainer>
-        <CustomIcon src={ iconSrc }/>
-        <DescriptionGroup name={name} description={description}/>
-        <StatusGroup value={value} unit={unit}/>
-        {
-          actionIconSrc && action && <ActionGroup src={actionIconSrc} action={action}/>
-        }
-        {
-          switcher &&
-          <SwitchGroup checked={checked} action={action}/>
-        }
-        {
-          setter &&
-          <SetterGroup action={action}/>
-        }
-      </ControlGroupContainer>
-    </>
-  ),
+export const ControlGroup = ({
+  iconSrc,
+  actionIconSrc,
+  action,
+  name,
+  value,
+  description,
+  unit,
+  switcher,
+  setter,
+  checked,
+}) => (
+  <>
+    <ControlGroupContainer>
+      <CustomIcon src={iconSrc}/>
+      <DescriptionGroup name={name} description={description}/>
+      <StatusGroup value={value} unit={unit}/>
+      {
+        actionIconSrc && action && <ActionGroup src={actionIconSrc} action={action}/>
+      }
+      {
+        switcher &&
+        <SwitchGroup checked={checked} action={action}/>
+      }
+      {
+        setter &&
+        <SetterGroup action={action}/>
+      }
+    </ControlGroupContainer>
+  </>
 );
 
 ControlGroup.propTypes = {
