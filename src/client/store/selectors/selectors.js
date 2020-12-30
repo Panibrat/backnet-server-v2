@@ -20,6 +20,4 @@ export const getPlans = createSelector(getRoot, root => root.plans);
 export const getActiveArea = createSelector(getPlans, plans => plans.activeArea);
 
 export const getModbus = createSelector(getRoot, root => root.modbus);
-// export const getModbusPointById = id => createSelector(getModbus, points => points[id]);
-export const getModbusPointById = id => createSelector(getRoot, root => root.modbus[id]);
-export const getL1 = createSelector(getRoot, root => root.modbus['L1N']);
+export const getModbusPointById = id => createSelector(getModbus, points => points[id]);

@@ -8,10 +8,9 @@ import {
   getAIbyId,
   getBObyId,
   getBIbyId,
-  getL1,
 } from '../../../store/selectors/selectors';
 import AirUnit from '../../Animated/Pages/AirUnit/AirUnit';
-import { defaultAIData, defaultAOData, defaultAVData, defaultBOData } from '../constants';
+import { defaultAIData, defaultAOData, defaultBOData } from '../constants';
 import { AnalogInputControl } from '../LightsPage/components/AnalogInputControl/AnalogInputControl';
 import { AnalogOutputControl } from '../LightsPage/components/AnalogOutputControl/AnalogOutputControl';
 import { BinaryInputControl } from '../LightsPage/components/BinaryInputControl/BinaryInputControl';
@@ -64,8 +63,6 @@ export const AhuPage = () => {
   const oRQ_HEAT = useSelector(getBIbyId('BI3001228')) || defaultBOData;
   const oRQ_COOL = useSelector(getBIbyId('BI3001229')) || defaultBOData;
 
-  const L1N = useSelector(getL1) || defaultAVData;
-
   return (
     <div className={styles.container}>
       <AirUnit
@@ -92,7 +89,6 @@ export const AhuPage = () => {
         aFaza={aFaza}
         aPV={aPV}
       />
-      <AnalogInputControl type='voltage' data={L1N} />
       <BinaryOutputControl type='offOn' data={sSTART}/>
       <BinaryOutputControl type='coolHeat' data={sSEASON}/>
       <BinaryOutputControl type='control' data={sLOCAL}/>

@@ -6,7 +6,6 @@ import { setTitle } from '../../../store/actions/menuActions';
 import {
   getAIbyId,
   getAVbyId,
-  getL1,
   getModbusPointById,
 } from '../../../store/selectors/selectors';
 import { pagePointsConfig } from './pagePointsConfig';
@@ -38,14 +37,12 @@ export const ConsumptionPage = () => {
     const I1 = useSelector(getModbusPointById('I1')) || defaultAVData;
     const I2 = useSelector(getModbusPointById('I2')) || defaultAVData;
     const I3 = useSelector(getModbusPointById('I3')) || defaultAVData;
-    const L1N = useSelector(getL1) || defaultAVData;
+    const L1N = useSelector(getModbusPointById('L1N')) || defaultAVData;
     const L2N = useSelector(getModbusPointById('L2N')) || defaultAVData;
     const L3N = useSelector(getModbusPointById('L3N')) || defaultAVData;
     const PWR1 = useSelector(getModbusPointById('Pwr1')) || defaultAVData;
     const PWR2 = useSelector(getModbusPointById('Pwr2')) || defaultAVData;
     const PWR3 = useSelector(getModbusPointById('Pwr3')) || defaultAVData;
-
-    console.log('L1N', L1N);
 
     const oPWR_DAY = useMemo(() => {
       return {
