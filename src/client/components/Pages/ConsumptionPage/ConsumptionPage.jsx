@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import SocketIO from '../../../services/SocketService';
 import { setTitle } from '../../../store/actions/menuActions';
-import { getAIbyId, getAVbyId, getModbusPointById } from '../../../store/selectors/selectors';
+import {
+  getAIbyId,
+  getAVbyId,
+  getL1,
+  getModbusPointById,
+} from '../../../store/selectors/selectors';
 import { pagePointsConfig } from './pagePointsConfig';
 import { defaultAIData, defaultAVData } from '../constants';
 import { AnalogInputControl } from '../LightsPage/components/AnalogInputControl/AnalogInputControl';
@@ -33,7 +38,7 @@ export const ConsumptionPage = () => {
     const I1 = useSelector(getModbusPointById('I1')) || defaultAVData;
     const I2 = useSelector(getModbusPointById('I2')) || defaultAVData;
     const I3 = useSelector(getModbusPointById('I3')) || defaultAVData;
-    const L1N = useSelector(getModbusPointById('L1N')) || defaultAVData;
+    const L1N = useSelector(getL1) || defaultAVData;
     const L2N = useSelector(getModbusPointById('L2N')) || defaultAVData;
     const L3N = useSelector(getModbusPointById('L3N')) || defaultAVData;
     const PWR1 = useSelector(getModbusPointById('Pwr1')) || defaultAVData;
